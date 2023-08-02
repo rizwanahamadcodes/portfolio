@@ -3,3 +3,7 @@
         /* color-scheme: dark; */
     }
 }
+
+[data-theme="dark"] body {
+    background: #000;
+}
