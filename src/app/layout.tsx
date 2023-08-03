@@ -1,9 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito } from "@next/font/google";
 import WorkaroundThemeProvider from "./WorkaroundThemeProvider";
+import Header from "./Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
 export const metadata: Metadata = {
     title: "Rizwan Ahamad",
@@ -18,7 +19,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <WorkaroundThemeProvider>
-                <body>{children}</body>
+                <body className={`${nunito.variable} font-sans`}>
+                    <Header />
+
+                    {children}
+                </body>
             </WorkaroundThemeProvider>
         </html>
     );
