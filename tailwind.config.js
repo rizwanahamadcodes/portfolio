@@ -10,6 +10,7 @@ module.exports = {
 
         // i might be in need of only one of those but i'm not gonna touch any
     ],
+    darkMode: "class",
     theme: {
         extend: {
             fontFamily: {

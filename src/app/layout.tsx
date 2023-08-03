@@ -21,7 +21,6 @@ export default function RootLayout({
             <WorkaroundThemeProvider>
                 <body className={`${nunito.variable} font-sans`}>
                     <Header />
-
                     {children}
                 </body>
             </WorkaroundThemeProvider>
