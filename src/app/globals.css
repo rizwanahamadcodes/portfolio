@@ -4,6 +4,6 @@
     }
 }
 
-[data-theme="dark"] body {
+.dark body {
     background: #000;
 }

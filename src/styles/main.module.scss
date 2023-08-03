@@ -1,7 +1,8 @@
-.hi-there {
-    font-size: 100px;
+.heading {
+    font-size: 4rem;
+    color: #000;
 }
 
-[data-theme="dark"] .hi-there {
+:global(.dark) .heading {
     color: #fff;
 }
