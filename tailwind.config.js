@@ -17,8 +17,8 @@ module.exports = {
                 sans: ["var(--font-nunito)"],
             },
             colors: {
-                brand: "#0055ff",
-                brandSecondary: "#5500ff",
+                primary: { DEFAULT: "#0055ff", dark: "#00091A" },
+                secondary: "#5500ff",
             },
         },
     },
