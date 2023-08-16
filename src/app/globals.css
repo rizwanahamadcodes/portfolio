@@ -4,8 +4,7 @@
 
 @layer base {
     body {
-        @apply dark:bg-primary-dark;
-        @apply dark:text-white;
+        @apply dark:bg-primary-dark dark:text-white;
         /* @apply transition-all; */
     }
     h1,

@@ -17,7 +17,12 @@ module.exports = {
                 sans: ['var(--font-nunito)'],
             },
             colors: {
-                primary: { DEFAULT: '#0055ff', dark: '#00091A' },
+                primary: {
+                    DEFAULT: '#0055ff',
+                    dark: '#00091A',
+                    darker: '#00040d',
+                },
+                dark: { gray: '#202124' },
                 secondary: '#5500ff',
             },
         },
