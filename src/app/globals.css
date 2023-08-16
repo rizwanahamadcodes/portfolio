@@ -6,6 +6,7 @@
     body {
         @apply dark:bg-primary-dark;
         @apply dark:text-white;
+        /* @apply transition-all; */
     }
     h1,
     h2,
@@ -13,7 +14,8 @@
     h4,
     h5,
     h6 {
-        @apply text-primary-dark leading-7 dark:text-white;
+        @apply leading-7 text-primary-dark  dark:text-white;
+        /* @apply transition-colors; */
     }
     h1 {
         @apply text-6xl;
@@ -35,5 +37,6 @@
     }
     p {
         @apply text-base leading-relaxed dark:text-white;
+        /* @apply transition-colors; */
     }
 }

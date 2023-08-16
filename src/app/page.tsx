@@ -1,20 +1,159 @@
+import Image from 'next/image'
+import harry from '../../public/img/harry.jpg'
+import Container from '@/components/Container'
+
 export default function Home() {
     return (
-        <>
-            <h1>Hi</h1>
-            <h2>Hi</h2>
-            <h3>Hi</h3>
-            <h4>Hi</h4>
-            <h5>Hi</h5>
-            <h6>Hi</h6>
+        <Container>
             <p>
-                Hello darkness my old friend Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit. Doloribus mollitia perferendis,
-                impedit enim laboriosam voluptates tempora vitae quia illo magni
-                at a excepturi accusantium tenetur quo, unde, provident itaque
-                harum?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                delectus vitae voluptatum eum voluptate reiciendis sed quasi
+                dignissimos. Blanditiis officiis tenetur odio quas amet fugiat
+                quos molestias, voluptatem ratione eveniet! Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! molestias, voluptatem
+                ratione eveniet! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Porro delectus vitae voluptatum eum voluptate
+                reiciendis sed quasi dignissimos. Blanditiis officiis tenetur
+                odio quas amet fugiat quos molestias, voluptatem ratione
+                eveniet! Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Porro delectus vitae voluptatum eum voluptate reiciendis
+                sed quasi dignissimos. Blanditiis officiis tenetur odio quas
+                amet fugiat quos
             </p>
-            <button>Hello</button>
-        </>
-    );
+            <Image src={harry} width="1000" height="1000" alt="bg" />
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                delectus vitae voluptatum eum voluptate reiciendis sed quasi
+                dignissimos. Blanditiis officiis tenetur odio quas amet fugiat
+                quos molestias, voluptatem ratione eveniet! Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Porro delectus vitae
+                voluptatum eum voluptate reiciendis sed quasi dignissimos.
+                Blanditiis officiis tenetur odio quas amet fugiat quos
+                molestias, voluptatem ratione eveniet! molestias, voluptatem
+                ratione eveniet! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Porro delectus vitae voluptatum eum voluptate
+                reiciendis sed quasi dignissimos. Blanditiis officiis tenetur
+                odio quas amet fugiat quos molestias, voluptatem ratione
+                eveniet! Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Porro delectus vitae voluptatum eum voluptate reiciendis
+                sed quasi dignissimos. Blanditiis officiis tenetur odio quas
+                amet fugiat quos
+            </p>
+        </Container>
+    )
 }
