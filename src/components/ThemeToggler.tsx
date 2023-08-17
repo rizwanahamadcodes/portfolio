@@ -26,7 +26,7 @@ const ThemeToggler = () => {
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className="border-1 relative cursor-pointer select-none rounded-full"
+            className="relative cursor-pointer select-none rounded-full shadow"
         >
             <input
                 type="checkbox"
@@ -36,11 +36,11 @@ const ThemeToggler = () => {
                 onChange={onThemeTogglerChange}
             />
 
-            <div className="flex h-8 w-16 items-center justify-between rounded-full bg-white p-2 peer-checked/themeToggler:bg-primary-dark">
-                <IoIosSunny className="text-xl text-primary" />
-                <IoIosMoon className="text-xl text-white" />
+            <div className="flex h-8 w-16 items-center justify-between rounded-full bg-primary p-2 peer-checked/themeToggler:bg-white">
+                <IoIosSunny className="text-xl text-white peer-checked/themeToggler:text-primary-dark dark:text-primary-dark" />
+                <IoIosMoon className="text-xl text-white peer-checked/themeToggler:text-primary-dark dark:text-primary-dark" />
             </div>
-            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-primary transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-white"></div>
+            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-primary-dark"></div>
         </label>
     )
 }
