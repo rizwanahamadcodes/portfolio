@@ -10,6 +10,7 @@ import NavMenu from './NavMenu'
 import Drawer from './Drawer'
 import useDrawer from './useDrawer'
 import Hamburger from './Hamburger'
+import CloseButton from './CloseButton'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
@@ -25,14 +26,18 @@ const Navbar = () => {
                         height="40"
                     />
                 </Link>
-                <NavMenu direction="row" />
-                <ThemeToggler />
-                <ThemeToggler />
+                <NavMenu direction="row" customClasses="hidden lg:block" />
+                <ThemeToggler customClasses="hidden lg:block" />
                 <button onClick={onOpen} className="lg:hidden">
                     <Hamburger />
                 </button>
-                <Drawer isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-                    <div className="flex h-[60px] items-center px-8">
+                <Drawer
+                    customClasses="lg:hidden"
+                    isOpen={isOpen}
+                    onOpen={onOpen}
+                    onClose={onClose}
+                >
+                    <div className="flex h-[60px] items-center justify-between px-8">
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
                                 darkImageSrc={rizwanLogoWhite}
@@ -41,8 +46,14 @@ const Navbar = () => {
                                 height="40"
                             />
                         </Link>
+                        <button onClick={onClose}>
+                            <CloseButton />
+                        </button>
                     </div>
                     <NavMenu direction="column" />
+                    <div className="mt-4 pl-7">
+                        <ThemeToggler />
+                    </div>
                 </Drawer>
             </Container>
         </nav>

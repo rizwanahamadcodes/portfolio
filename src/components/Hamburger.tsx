@@ -8,7 +8,7 @@ const Hamburger = ({}) => {
                 .map((_, index) => (
                     <div
                         key={index}
-                        className="h-1 w-full rounded-full dark:bg-white"
+                        className="h-1 w-full rounded-full bg-primary dark:bg-white"
                     ></div>
                 ))}
         </div>
