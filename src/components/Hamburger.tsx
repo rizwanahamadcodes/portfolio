@@ -2,13 +2,13 @@ import React from 'react'
 
 const Hamburger = ({}) => {
     return (
-        <div className="flex h-7 w-10 flex-col justify-between">
+        <div className="flex h-5 w-7 flex-col justify-between">
             {Array(3)
                 .fill(null)
                 .map((_, index) => (
                     <div
                         key={index}
-                        className="h-1 w-full rounded-full bg-primary dark:bg-white"
+                        className="h-[3px] w-full rounded-full bg-primary dark:bg-white"
                     ></div>
                 ))}
         </div>
