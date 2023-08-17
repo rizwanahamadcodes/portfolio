@@ -1,0 +1,18 @@
+import React from 'react'
+
+const Hamburger = ({}) => {
+    return (
+        <div className="flex h-7 w-10 flex-col justify-between">
+            {Array(3)
+                .fill(null)
+                .map((_, index) => (
+                    <div
+                        key={index}
+                        className="h-1 w-full rounded-full dark:bg-white"
+                    ></div>
+                ))}
+        </div>
+    )
+}
+
+export default Hamburger
