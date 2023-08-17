@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Navbar from './Navbar'
 
 interface NavLinkProps {
     navLink: {
@@ -43,11 +44,26 @@ const NavMenu: React.FC<NavMenuProps> = ({ direction = 'row' }) => {
         setSliderBounds(sliderBounds)
     }
 
+    const liRefs = useRef<HTMLLIElement[]>([])
+
+    useEffect(() => {
+        const activeLiRef = liRefs.current.find(
+            (liRef) => liRef.getAttribute('data-path') === pathname
+        )
+
+        if (activeLiRef) {
+            setSliderBounds({
+                top: activeLiRef.offsetTop,
+                left: activeLiRef.offsetLeft,
+                height: activeLiRef.offsetHeight,
+                width: activeLiRef.offsetWidth,
+            })
+        }
+    }, [pathname])
+
     return (
         <div
-            className={`${
-                direction === 'row' ? 'h-full' : 'top-[100px] w-full'
-            } relative `}
+            className={`${direction === 'row' ? 'h-full' : 'w-full'} relative `}
         >
             <ul
                 className={`${
@@ -59,7 +75,13 @@ const NavMenu: React.FC<NavMenuProps> = ({ direction = 'row' }) => {
                         className={`${
                             direction === 'row' ? 'h-full' : 'w-full'
                         }`}
-                        key={index}
+                        key={navLink.path}
+                        data-path={navLink.path}
+                        ref={(el) => {
+                            if (el && !liRefs.current.includes(el)) {
+                                liRefs.current.push(el)
+                            }
+                        }}
                     >
                         <Link
                             href={navLink.path}
