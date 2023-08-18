@@ -32,13 +32,13 @@ const Drawer: React.FC<DrawerProps> = (props) => {
             <div
                 className={`${
                     isOpen ? 'visible' : 'invisible'
-                } absolute left-0 top-0 z-10 h-screen w-screen bg-white/50 backdrop-blur-sm dark:border-darkmodesubstitute-black/20 dark:bg-darkmodesubstitute-white/50 ${customClasses}`}
+                } absolute left-0 top-0 z-10 h-screen w-screen bg-white/50 backdrop-blur-sm dark:border-darkmodesubstitute-black/20 dark:bg-gray-900/50 ${customClasses}`}
                 onClick={handleOverlayClick}
             >
                 <div
                     className={`${
                         isOpen ? '' : 'translate-x-[100%]'
-                    } fixed right-0 top-0  h-screen w-80 border-l-[1px] border-black/20 bg-white shadow-left transition-transform dark:border-white/20 dark:bg-darkmodesubstitute-white`}
+                    } fixed right-0 top-0  h-screen w-80 border-l-[1px] border-black/20 bg-white shadow-left transition-transform dark:border-white/20 dark:bg-gray-800`}
                 >
                     {children}
                 </div>

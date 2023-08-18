@@ -43,10 +43,10 @@ const ThemeToggler: React.FC<ThemeTogglerProps> = ({ customClasses }) => {
             />
 
             <div className="flex h-8 w-16 items-center justify-between rounded-full bg-primary p-2 peer-checked/themeToggler:bg-white">
-                <IoIosSunny className="text-xl text-white peer-checked/themeToggler:text-primary-darker dark:text-darkmodesubstitute-white" />
-                <IoIosMoon className="text-xl text-white peer-checked/themeToggler:text-primary-darker dark:text-darkmodesubstitute-white" />
+                <IoIosSunny className="text-xl text-white peer-checked/themeToggler:text-darkmodesubstitute-white dark:text-darkmodesubstitute-white" />
+                <IoIosMoon className="text-xl text-white peer-checked/themeToggler:text-darkmodesubstitute-white dark:text-darkmodesubstitute-white" />
             </div>
-            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-primary-darker"></div>
+            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-darkmodesubstitute-white"></div>
         </label>
     )
 }

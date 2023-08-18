@@ -16,11 +16,11 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
 
     return (
-        <nav className="bg fixed top-0 z-10 h-[60px] w-full border-b-[1px] border-black/20 bg-white/50 shadow backdrop-blur-sm dark:border-darkmodesubstitute-black/20 dark:bg-darkmodesubstitute-white/50">
+        <nav className="bg fixed top-0 z-10 h-[60px] w-full border-b-[1px] border-black/20 bg-white/50 shadow backdrop-blur-sm dark:border-darkmodesubstitute-black/20 dark:bg-gray-800/50">
             <Container optionalStyles="h-full flex items-center justify-between">
                 <Link href="/">
                     <ThemedImage
-                        darkImageSrc={rizwanLogoWhite}
+                        darkImageSrc={rizwanLogoPrimary}
                         lightImageSrc={rizwanLogoPrimary}
                         alt="Rizwan"
                         height="40"
@@ -40,7 +40,7 @@ const Navbar = () => {
                     <div className="flex h-[60px] items-center justify-between px-8">
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
-                                darkImageSrc={rizwanLogoWhite}
+                                darkImageSrc={rizwanLogoPrimary}
                                 lightImageSrc={rizwanLogoPrimary}
                                 alt="Rizwan"
                                 height="40"
