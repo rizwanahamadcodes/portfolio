@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply dark:bg-primary-dark dark:text-white;
+        @apply dark:bg-darkmodesubstitute-white dark:text-darkmodesubstitute-black;
         /* @apply transition-all; */
     }
     h1,
@@ -13,7 +13,7 @@
     h4,
     h5,
     h6 {
-        @apply leading-7 text-primary-dark  dark:text-white;
+        @apply leading-7 text-primary-dark  dark:text-darkmodesubstitute-black;
         /* @apply transition-colors; */
     }
     h1 {
@@ -35,7 +35,7 @@
         @apply text-xl;
     }
     p {
-        @apply text-base leading-relaxed dark:text-white;
+        @apply text-base leading-relaxed dark:text-darkmodesubstitute-black;
         /* @apply transition-colors; */
     }
 }

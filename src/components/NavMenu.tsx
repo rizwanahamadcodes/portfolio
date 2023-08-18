@@ -94,7 +94,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                             className={`
                         ${
                             navLink.path === pathname
-                                ? 'text-primary dark:text-white'
+                                ? 'text-primary dark:text-darkmodesubstitute-black'
                                 : ''
                         }
                         ${
@@ -102,7 +102,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                                 ? 'h-full px-7'
                                 : 'w-full py-5 pl-8'
                         }
-                        flex select-none items-center text-[0.9rem]  font-bold uppercase tracking-[0.125rem] transition-all hover:bg-primary-dark/5 dark:text-white dark:hover:bg-white/5`}
+                        darkmodesubstitute-black:text-darkmodesubstitute-black-darkmodesubstitute-black dark:hover:darkmodesubstitute-black-darkmodesubstitute-darkmodesubstitute-black/5 flex select-none  items-center text-[0.9rem] font-bold uppercase tracking-[0.125rem] transition-all hover:bg-primary-dark/5`}
                             onClick={(e) => {
                                 onLIClick({
                                     top: (e.target as HTMLLIElement).offsetTop,
@@ -136,7 +136,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                     direction === 'row'
                         ? 'bottom-0 left-0 h-1 w-0 rounded-t-full'
                         : 'left-0 top-[100%] h-[100px] w-1 rounded-r-full'
-                } absolute bg-primary transition-all dark:bg-white`}
+                } absolute bg-primary transition-all dark:bg-darkmodesubstitute-black`}
             ></div>
         </div>
     )

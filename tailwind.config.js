@@ -23,8 +23,8 @@ module.exports = {
                     darker: '#00040d',
                 },
                 darkmodesubstitute: {
-                    white: 'red',
-                    black: 'red',
+                    white: '#00040d',
+                    black: 'white',
                 },
                 dark: { gray: '#202124' },
                 secondary: '#5500ff',
