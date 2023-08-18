@@ -44,10 +44,10 @@ const NavMenu: React.FC<NavMenuProps> = ({
         width: 0,
     })
 
-    const [dimensions, setDimensions] = useState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-    })
+    // const [dimensions, setDimensions] = useState({
+    //     height: window.innerHeight,
+    //     width: window.innerWidth,
+    // })
 
     const onLIClick = (sliderBounds: SliderBoundsProps) => {
         setSliderBounds(sliderBounds)
@@ -68,7 +68,8 @@ const NavMenu: React.FC<NavMenuProps> = ({
                 width: activeLiRef.offsetWidth,
             })
         }
-    }, [pathname, dimensions])
+    }, [pathname])
+    // }, [pathname, dimensions])
 
     // Rerender on resize not baked into react
     // useEffect(() => {
