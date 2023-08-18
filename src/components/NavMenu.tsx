@@ -71,17 +71,17 @@ const NavMenu: React.FC<NavMenuProps> = ({
     }, [pathname, dimensions])
 
     // Rerender on resize not baked into react
-    useEffect(() => {
-        function handleResize() {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth,
-            })
-        }
-        if (typeof window != undefined) {
-            window.addEventListener('resize', handleResize)
-        }
-    }, [])
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setDimensions({
+    //             height: window.innerHeight,
+    //             width: window.innerWidth,
+    //         })
+    //     }
+    //     if (typeof window != undefined) {
+    //         window.addEventListener('resize', handleResize)
+    //     }
+    // }, [])
 
     return (
         <div
