@@ -98,8 +98,11 @@ const NavMenu: React.FC<NavMenuProps> = ({
                 {navLinks.map((navLink, index) => (
                     <li
                         className={`${
-                            direction === 'row' ? 'h-full' : 'w-full'
-                        }`}
+                            direction === 'row'
+                                ? 'h-full'
+                                : 'w-full border-b-[1px] border-gray-100 first-of-type:border-t-[1px]'
+                        }
+                        `}
                         key={navLink.path}
                         data-path={navLink.path}
                         ref={(el) => {
