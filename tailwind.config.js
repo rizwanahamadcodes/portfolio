@@ -23,7 +23,8 @@ module.exports = {
                     darker: 'hsl(222deg, 100%, 3%)',
                 },
 
-                secondary: 'hsl(260deg, 100%, 70%)',
+                secondary: 'hsl(260deg, 100%, 60%)',
+                tertiary: 'hsl(260deg, 100%, 60%)',
 
                 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
 
