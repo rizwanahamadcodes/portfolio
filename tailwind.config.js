@@ -19,6 +19,7 @@ module.exports = {
             colors: {
                 primary: {
                     DEFAULT: 'hsl(220deg, 100%, 60%)', //#3377ff
+                    light: 'hsl(220deg, 100%, 90%)', //
                     dark: 'hsl(220deg, 100%, 5%)', //
                     darker: 'hsl(222deg, 100%, 3%)', //
                 },
