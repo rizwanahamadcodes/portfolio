@@ -100,7 +100,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                         className={`${
                             direction === 'row'
                                 ? 'h-full'
-                                : 'w-full border-b-[1px] border-gray-100 first-of-type:border-t-[1px]'
+                                : 'w-full border-b-[1px] border-gray-100 first-of-type:border-t-[1px]  dark:border-gray-700'
                         }
                         `}
                         key={navLink.path}
