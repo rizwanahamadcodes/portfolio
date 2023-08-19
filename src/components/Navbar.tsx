@@ -16,7 +16,7 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
 
     return (
-        <nav className="bg fixed top-0 z-10 h-[60px] w-full border-b-[1px] border-gray-100 bg-white/50 shadow backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/50">
+        <nav className="bg fixed top-0 z-10 h-[60px] w-full border-b-[1px] border-gray-900/20 bg-white/50 shadow backdrop-blur-sm dark:border-gray-100/20 dark:bg-gray-800/50">
             <Container optionalStyles="h-full flex items-center justify-between">
                 <Link href="/">
                     <ThemedImage
