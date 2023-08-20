@@ -97,9 +97,7 @@ export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
     const { children, px } = props
 
     return (
-        <div className={`grow overflow-y-scroll ${px ? px : ''}`}>
-            {children}
-        </div>
+        <div className={`grow overflow-y-auto ${px ? px : ''}`}>{children}</div>
     )
 }
 interface DrawerFootProps {
