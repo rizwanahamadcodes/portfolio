@@ -47,8 +47,7 @@ const Navbar = () => {
                             />
                         </Link>
                     </DrawerHead>
-                    {/* <div className="flex h-nav-height items-center justify-between border-b-[1px] border-gray-100 px-7 dark:border-gray-700">
-                        
+                    {/*
                         <button onClick={onClose}>
                             <CloseButton />
                         </button>
