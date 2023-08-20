@@ -40,7 +40,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
                 <div
                     className={`${
                         isOpen ? 'translate-x-[-100%]' : ''
-                    }  absolute left-full top-0  flex h-screen w-80 border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
+                    }  absolute left-full top-0 flex h-screen w-80 flex-col border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
                 >
                     {children}
                 </div>
@@ -82,20 +82,39 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
                     <></>
                 )}
             </div>
-            <div className="mt-nav-height"></div>
+
+            <div className="h-nav-height"></div>
         </div>
     )
 }
 
 interface DrawerBodyProps {
     children: React.ReactNode
-    isSticky?: boolean
-    px?: number
-    hasCloseButton?: boolean
+    px?: string
 }
 
 export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
-    return <></>
+    const { children, px } = props
+
+    return (
+        <div className={`grow overflow-y-scroll ${px ? px : ''}`}>
+            {children}
+        </div>
+    )
+}
+interface DrawerFootProps {
+    children: React.ReactNode
+    px?: string
+}
+
+export const DrawerFoot: React.FC<DrawerFootProps> = (props) => {
+    const { children, px } = props
+
+    return (
+        <div className={`flex h-nav-height items-center ${px ? px : ''}`}>
+            {children}
+        </div>
+    )
 }
 
 export default Drawer
