@@ -1,5 +1,5 @@
 'use client'
-import React, { Children, useEffect, useState } from 'react'
+import React, { Children, useCallback, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import CloseButton from './CloseButton'
 
@@ -25,9 +25,13 @@ const Drawer: React.FC<DrawerProps> = (props) => {
         }
     }
 
-    useEffect(() => {
+    const memoizedOnClose = useCallback(() => {
         onClose()
-    }, [pathname])
+    }, [onClose])
+
+    useEffect(() => {
+        memoizedOnClose()
+    }, [pathname, memoizedOnClose])
 
     return (
         <>
@@ -52,28 +56,17 @@ const Drawer: React.FC<DrawerProps> = (props) => {
 interface DrawerHeadProps {
     children: React.ReactNode
     isSticky?: boolean
-    px?: number
+    px?: string
     hasCloseButton?: boolean
 }
 
 export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     const { children, px, isSticky = true, hasCloseButton = false } = props
 
-    const paddingXValue =
-        px !== undefined
-            ? defaultTheme.spacing[
-                  px.toString() as keyof typeof defaultTheme.spacing
-              ]
-            : undefined
-
     return (
         <div
-            style={{
-                paddingLeft: paddingXValue,
-                paddingRight: paddingXValue,
-            }}
             className={`fixed flex h-nav-height w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
-                px ? '' : 'px-7'
+                px ? px : 'px-7'
             }`}
         >
             <div className="grow">{children}</div>
