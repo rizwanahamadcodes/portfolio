@@ -25,13 +25,9 @@ const Drawer: React.FC<DrawerProps> = (props) => {
         }
     }
 
-    const memoizedOnClose = useCallback(() => {
-        onClose()
-    }, [onClose])
-
     useEffect(() => {
-        memoizedOnClose()
-    }, [pathname, memoizedOnClose])
+        onClose()
+    }, [pathname, onClose])
 
     return (
         <>
