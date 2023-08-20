@@ -5,7 +5,7 @@ import rizwanLogoGradient from '../../public/img/rizwan_logo_gradient.svg'
 
 import CloseButton from './CloseButton'
 import Container from './Container'
-import Drawer from './Drawer'
+import Drawer, { DrawerHead } from './Drawer'
 import Hamburger from './Hamburger'
 import NavMenu from './NavMenu'
 import ThemeToggler from './ThemeToggler'
@@ -37,7 +37,7 @@ const Navbar = () => {
                     onOpen={onOpen}
                     onClose={onClose}
                 >
-                    <div className="flex h-nav-height items-center justify-between border-b-[1px] border-gray-100 px-7 dark:border-gray-700">
+                    <DrawerHead hasCloseButton={true}>
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
                                 darkImageSrc={rizwanLogoGradient}
@@ -46,6 +46,9 @@ const Navbar = () => {
                                 height="40"
                             />
                         </Link>
+                    </DrawerHead>
+                    {/* <div className="flex h-nav-height items-center justify-between border-b-[1px] border-gray-100 px-7 dark:border-gray-700">
+                        
                         <button onClick={onClose}>
                             <CloseButton />
                         </button>
@@ -54,6 +57,7 @@ const Navbar = () => {
                     <div className="flex h-nav-height items-center justify-between px-7">
                         <ThemeToggler />
                     </div>
+                     */}
                 </Drawer>
             </Container>
         </nav>

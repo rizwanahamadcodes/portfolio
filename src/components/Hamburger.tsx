@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hamburger = ({}) => {
     return (
-        <div className="flex h-5 w-7 flex-col justify-between">
+        <div className="flex h-[19px] w-7 flex-col justify-between">
             {Array(3)
                 .fill(null)
                 .map((_, index) => (
