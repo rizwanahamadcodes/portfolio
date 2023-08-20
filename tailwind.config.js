@@ -44,6 +44,10 @@ module.exports = {
 
                 // in the nav menu text got a tint of primary color when active by use of primary light and primary dark
 
+                // opaque backgrounds get an opaque border gray-100 gray-900,
+                // translucent backgrounds get a translucent border gray-BG_OF_THE_ELEMENT+-gray/20, BG_OF_THE_ELEMENT will be different in dark and light modes
+                // WILL THIS LATER FOR THE DRAWER
+
                 gray: {
                     50: 'hsl(220deg,10%,95%)', //#f2f2f2
                     100: 'hsl(220deg,10%,90%)', //#e6e6e6
