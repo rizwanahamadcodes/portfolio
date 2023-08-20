@@ -54,10 +54,17 @@ interface DrawerHeadProps {
     isSticky?: boolean
     px?: string
     hasCloseButton?: boolean
+    onClose: () => void
 }
 
 export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
-    const { children, px, isSticky = true, hasCloseButton = false } = props
+    const {
+        children,
+        px,
+        isSticky = true,
+        onClose,
+        hasCloseButton = false,
+    } = props
 
     return (
         <div>
@@ -67,7 +74,13 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
                 }`}
             >
                 <div className="grow">{children}</div>
-                {hasCloseButton ? <CloseButton /> : <></>}
+                {hasCloseButton ? (
+                    <span className="cursor-pointer" onClick={onClose}>
+                        <CloseButton />
+                    </span>
+                ) : (
+                    <></>
+                )}
             </div>
             <div className="mt-nav-height"></div>
         </div>

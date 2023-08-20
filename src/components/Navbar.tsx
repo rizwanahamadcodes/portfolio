@@ -37,7 +37,7 @@ const Navbar = () => {
                     onOpen={onOpen}
                     onClose={onClose}
                 >
-                    <DrawerHead hasCloseButton={true}>
+                    <DrawerHead hasCloseButton={true} onClose={onClose}>
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
                                 darkImageSrc={rizwanLogoGradient}
