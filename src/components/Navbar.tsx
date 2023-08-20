@@ -37,7 +37,7 @@ const Navbar = () => {
                     onOpen={onOpen}
                     onClose={onClose}
                 >
-                    <div className="flex h-nav-height items-center justify-between px-7">
+                    <div className="flex h-nav-height items-center justify-between border-b-[1px] border-gray-100 px-7 dark:border-gray-700">
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
                                 darkImageSrc={rizwanLogoGradient}
