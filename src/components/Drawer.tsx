@@ -40,7 +40,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
                 <div
                     className={`${
                         isOpen ? 'translate-x-[-100%]' : ''
-                    }  absolute left-full top-0  h-screen w-80 border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
+                    }  absolute left-full top-0  flex h-screen w-80 border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
                 >
                     {children}
                 </div>
@@ -60,13 +60,16 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     const { children, px, isSticky = true, hasCloseButton = false } = props
 
     return (
-        <div
-            className={`fixed flex h-nav-height w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
-                px ? px : 'px-7'
-            }`}
-        >
-            <div className="grow">{children}</div>
-            {hasCloseButton ? <CloseButton /> : <></>}
+        <div>
+            <div
+                className={`fixed flex h-nav-height w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
+                    px ? px : 'px-7'
+                }`}
+            >
+                <div className="grow">{children}</div>
+                {hasCloseButton ? <CloseButton /> : <></>}
+            </div>
+            <div className="mt-nav-height"></div>
         </div>
     )
 }
