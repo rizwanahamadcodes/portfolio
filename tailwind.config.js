@@ -20,8 +20,7 @@ module.exports = {
                 primary: {
                     DEFAULT: 'hsl(220deg,80%,50%)', //#195de6
                     light: 'hsl(220deg, 100%, 90%)', //
-                    dark: 'hsl(220deg, 100%, 5%)', //
-                    darker: 'hsl(222deg, 100%, 3%)', //
+                    dark: 'hsl(220deg, 100%, 10%)', //
                 },
 
                 secondary: 'hsl(260deg, 80%, 50%)', // #5e19e6
@@ -43,6 +42,7 @@ module.exports = {
                 // okay decided hover gets a shift by 5 and active gets a shift by 10
                 // these colors are not directly defined as grays but as different opacities of gray-900 and gray-100
 
+                // in the nav menu text got a tint of primary color when active by use of primary light and primary dark
                 gray: {
                     50: 'hsl(220deg,10%,95%)', //#f2f2f2
                     100: 'hsl(220deg,10%,90%)', //#e6e6e6
