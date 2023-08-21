@@ -7,7 +7,6 @@ import heroImageDark from '../../public/img/hero_image_dark.svg'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
 import { GiClick } from 'react-icons/gi'
-import CallButton from '@/components/CallButton'
 import Button from '@/components/Button'
 
 export default function Home() {
