@@ -24,7 +24,13 @@ module.exports = {
                 },
 
                 secondary: 'hsl(260deg, 80%, 50%)', // #5e19e6
-                tertiary: 'hsl(40deg, 100%, 50%)', //
+                tertiary: {
+                    DEFAULT: 'hsl(40deg, 100%, 50%)',
+                    light: 'hsl(40deg, 100%, 80%)',
+                    dark: 'hsl(40deg, 100%, 40%)',
+                }, //
+
+                quat: 'hsl(0deg, 100%, 50%)',
 
                 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
 

@@ -5,7 +5,10 @@ import ThemedImage from '@/components/ThemedImage'
 import heroImageLight from '../../public/img/hero_image_light.svg'
 import heroImageDark from '../../public/img/hero_image_dark.svg'
 import { FaPhoneAlt } from 'react-icons/fa'
+import { HiDownload } from 'react-icons/hi'
+import { GiClick } from 'react-icons/gi'
 import CallButton from '@/components/CallButton'
+import Button from '@/components/Button'
 
 export default function Home() {
     return (
@@ -27,8 +30,14 @@ export default function Home() {
                         functionality to create a pleasant user experience.
                     </p>
                     <span className="flex gap-8">
-                        <CallButton></CallButton>
-                        <CallButton bg={'bg-tertiary'}></CallButton>
+                        <Button gradient={'from-primary to-secondary'}>
+                            <HiDownload size={28} />
+                            View CV
+                        </Button>
+                        <Button gradient={'from-quat to-tertiary'}>
+                            <FaPhoneAlt />
+                            98234234234
+                        </Button>
                     </span>
                 </div>
             </div>
