@@ -28,7 +28,7 @@ export default function Home() {
                     </p>
                     <span className="flex gap-8">
                         <CallButton></CallButton>
-                        <CallButton></CallButton>
+                        <CallButton bg={'bg-tertiary'}></CallButton>
                     </span>
                 </div>
             </div>
