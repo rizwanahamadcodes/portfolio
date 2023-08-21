@@ -38,6 +38,7 @@ export default function Home() {
                             <FaPhoneAlt />
                             98234234234
                         </Button>
+                        <a href="tel://+6199942413">call us!</a>
                     </span>
                 </div>
             </div>
