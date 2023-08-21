@@ -29,8 +29,15 @@ export default function Home() {
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <span className="flex gap-8">
-                        <Button>Hello darkness</Button>
+                    <span className="flex flex-wrap gap-8">
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={FaPhoneAlt}
+                            type="solid"
+                            colorScheme="secondary-gradient"
+                        >
+                            Hello
+                        </Button>
                     </span>
                 </div>
             </div>
