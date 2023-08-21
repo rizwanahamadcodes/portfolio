@@ -27,46 +27,40 @@ const Button: React.FC<ButtonProps> = (props) => {
     } = {
         primary: {
             solid: 'bg-primary hover:bg-primary-600 ',
-            outline: `${borderWidth} hover:border-primary-600 border-primary text-primary`,
-            ghost: '',
+            outline: `${borderWidth} hover:text-primary-600 hover:border-primary-600 border-primary text-primary`,
+            ghost: 'text-primary hover:text-primary-600',
         },
         'primary-support': {
             solid: 'bg-primary-support hover:bg-primary-support-600',
-            outline: `${borderWidth} hover:border-primary-support-600 border-primary-support text-primary-support`,
-            ghost: '',
+            outline: `${borderWidth} hover:border-primary-support-600 border-primary-support text-primary-support hover:text-primary-support-600`,
+            ghost: 'text-primary-support hover:text-primary-support-600',
         },
         secondary: {
             solid: 'bg-secondary hover:bg-secondary-600 ',
-            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary`,
-            ghost: '',
+            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary hover:text-secondary-600`,
+            ghost: 'text-secondary hover:text-secondary-600',
         },
 
         'secondary-support': {
             solid: 'bg-secondary-support hover:bg-secondary-support-600',
-            outline: `${borderWidth} hover:border-secondary-support-600 border-secondary-support text-secondary-support`,
-            ghost: '',
+            outline: `${borderWidth} hover:border-secondary-support-600 border-secondary-support text-secondary-support hover:text-secondary-support-600`,
+            ghost: 'text-secondary-support hover:text-secondary-support-600',
         },
         gray: {
-            solid: 'bg-gray-500 hover:bg-gray-600',
-            outline: `${borderWidth} hover:border-gray-600 border-gray-500 text-gray-500`,
-            ghost: '',
-        },
-
-        'dark-gray': {
-            solid: 'bg-gray-900 hover:bg-black ',
-            outline: `${borderWidth} hover:border-black border-gray-900 text-gray-900`,
-            ghost: '',
+            solid: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
+            outline: `${borderWidth} dark:border-gray-100 dark:text-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-200 border-gray-800 hover:border-gray-900 text-gray-800 hover:text-gray-900`,
+            ghost: 'text-gray-800 hover:text-gray-900',
         },
         'primary-gradient': {
             solid: 'bg-gradient-to-r from-primary to-primary-support bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
-            outline: `${borderWidth} hover:border-primary-600 border-primary text-primary`,
-            ghost: '',
+            outline: `${borderWidth} hover:border-primary-600 border-primary text-primary hover:text-primary-600`,
+            ghost: 'text-primary hover:text-primary-600',
         },
 
         'secondary-gradient': {
             solid: 'bg-gradient-to-r from-secondary to-secondary-support bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
-            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary`,
-            ghost: '',
+            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary hover:text-secondary-600`,
+            ghost: 'text-secondary hover:text-secondary-600',
         },
     }
 
@@ -78,8 +72,8 @@ const Button: React.FC<ButtonProps> = (props) => {
         : 'primary'
     const resolvedType = validTypes.includes(type) ? type : 'solid'
 
-    const buttonClasses = `flex gap-3 h-10 items-center rounded-full px-5 ${
-        type === 'outline' ? 'font-[700]' : 'font-medium'
+    const buttonClasses = `flex justify-center gap-3 h-10 items-center rounded-full px-5 ${
+        type === 'solid' ? 'font-medium' : 'font-[700]'
     } uppercase tracking-widest text-gray-100 transition-all hover:shadow hover:shadow-gray-900/30 active:scale-[0.98] active:shadow active:shadow-gray-900/30 ${
         colorSchemeMap[resolvedColorScheme][resolvedType]
     }`

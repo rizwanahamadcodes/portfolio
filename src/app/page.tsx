@@ -29,16 +29,24 @@ export default function Home() {
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <span className="flex flex-wrap gap-8">
+                    <div className="flex w-full flex-col flex-wrap items-stretch gap-8">
                         <Button
                             leftIcon={FaPhoneAlt}
                             rightIcon={GiClick}
-                            type="ghost"
+                            type="solid"
                             colorScheme="secondary-gradient"
                         >
                             Hello
                         </Button>
-                    </span>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="gray"
+                        >
+                            Hello
+                        </Button>
+                    </div>
                 </div>
             </div>
             <div className="w-50">
