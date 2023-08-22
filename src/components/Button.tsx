@@ -1,7 +1,8 @@
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 import React from 'react'
 import { IconType } from 'react-icons/lib'
-interface ButtonProps {
+
+interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     children: React.ReactNode
     colorScheme?: string
     type?: 'solid' | 'outline' | 'ghost'
@@ -18,6 +19,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         href,
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
+        ...rest
     } = props
 
     const borderWidth = 'border-2'
@@ -91,9 +93,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <>
             {href != undefined ? (
-                <Link href={href} className={buttonClasses}>
+                <a href={href} className={buttonClasses} {...rest}>
                     {content}
-                </Link>
+                </a>
             ) : (
                 <button className={buttonClasses}>{content}</button>
             )}
