@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <Container optionalStyles="py-8 flex h-after-nav lg:flex-row items-center flex-col gap-12 lg:gap-none">
             <div className="w-full">
-                <div className="flex flex-col items-start  gap-5 sm:gap-7 lg:gap-8">
+                <div className="flex flex-col items-start  gap-5">
                     <h1 className="font-medium sm:text-7xl xl:text-8xl">
                         <div>Hi,</div>
                         <div>
@@ -21,22 +21,14 @@ export default function Home() {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-2xl font-medium text-primary-support dark:text-primary-support sm:text-3xl">
+                    <h2 className="text-2xl font-medium text-secondary dark:text-secondary sm:text-3xl">
                         Front-end Web Developer
                     </h2>
                     <p className="max-w max-w-[50ch] text-xl">
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row">
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            colorScheme="secondary-gradient"
-                            href="tel:9828289314"
-                            className="grow"
-                        >
-                            9828289314
-                        </Button>
+                    <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <Button
                             leftIcon={HiDownload}
                             colorScheme="primary-gradient"
@@ -45,6 +37,14 @@ export default function Home() {
                             className="grow"
                         >
                             View CV
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            colorScheme="secondary-gradient"
+                            href="tel:9828289314"
+                            className="grow"
+                        >
+                            9828289314
                         </Button>
                     </div>
                 </div>
