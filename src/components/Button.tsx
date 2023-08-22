@@ -7,7 +7,7 @@ interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     colorScheme?: string
     type?: 'solid' | 'outline' | 'ghost'
     href?: string
-    className: string
+    className?: string
     leftIcon?: IconType
     rightIcon?: IconType
 }
