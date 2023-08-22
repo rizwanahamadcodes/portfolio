@@ -11,7 +11,7 @@ interface DrawerProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
 }
 
-const Drawer: React.FC<DrawerProps> = (props) => {
+const Drawer = (props: DrawerProps) => {
     const { isOpen, onOpen, onClose, children, className } = props
     const pathname = usePathname()
 

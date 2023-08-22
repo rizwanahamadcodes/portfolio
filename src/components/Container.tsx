@@ -2,7 +2,7 @@ interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
 }
 
-const Container: React.FC<ContainerProps> = (props) => {
+const Container = (props: ContainerProps) => {
     const { children, className, ...rest } = props
 
     const containerClasses = `m-auto w-[86%] max-w-7xl ${className}`

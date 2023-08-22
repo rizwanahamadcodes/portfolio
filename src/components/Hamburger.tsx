@@ -1,6 +1,4 @@
-interface HamburgerProps extends React.HTMLProps<HTMLDivElement> {}
-
-const Hamburger: React.FC<HamburgerProps> = (props) => {
+const Hamburger = (props: React.HTMLProps<HTMLDivElement>) => {
     const { className, ...rest } = props
 
     return (
