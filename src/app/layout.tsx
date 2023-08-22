@@ -21,10 +21,6 @@ export default function RootLayout({
             <WorkaroundThemeProvider>
                 <body className={`${nunito.variable} font-sans`}>
                     <Navbar />
-
-                    {/* This dive is here to account for the navbar height */}
-                    <div className="mt-[60px]"></div>
-
                     {children}
                 </body>
             </WorkaroundThemeProvider>

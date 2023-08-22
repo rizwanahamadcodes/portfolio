@@ -10,11 +10,13 @@ interface ThemedImageProps extends Omit<ImageProps, 'src'> {
 }
 
 const ThemedImage: React.FC<ThemedImageProps> = (props) => {
-    const { lightImageSrc, darkImageSrc, alt, ...otherProps } = props
+    const { lightImageSrc, darkImageSrc, alt, className, ...otherProps } = props
     const { theme } = useTheme()
     const imageSrc = theme == 'light' ? lightImageSrc : darkImageSrc
 
-    return <Image className="" src={imageSrc} alt={alt} {...otherProps} />
+    return (
+        <Image className={className} src={imageSrc} alt={alt} {...otherProps} />
+    )
 }
 
 export default ThemedImage
