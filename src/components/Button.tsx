@@ -49,7 +49,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         gray: {
             solid: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
             outline: `${borderWidth} dark:border-gray-100 dark:text-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-200 border-gray-800 hover:border-gray-900 text-gray-800 hover:text-gray-900`,
-            ghost: 'text-gray-800 hover:text-gray-900',
+            ghost: 'dark:text-gray-100 dark:hover:text-gray-200 text-gray-800 hover:text-gray-900',
         },
         'primary-gradient': {
             solid: 'bg-gradient-to-r from-primary to-primary-support bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
