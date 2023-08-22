@@ -1,6 +1,13 @@
-const Hamburger = ({}) => {
+interface HamburgerProps extends React.HTMLProps<HTMLDivElement> {}
+
+const Hamburger: React.FC<HamburgerProps> = (props) => {
+    const { className, ...rest } = props
+
     return (
-        <div className="flex h-[19px] w-7 flex-col justify-between">
+        <div
+            className={`${className} flex h-[19px] w-7 cursor-pointer flex-col justify-between`}
+            {...rest}
+        >
             {Array(3)
                 .fill(null)
                 .map((_, index) => (
