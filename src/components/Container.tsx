@@ -1,17 +1,18 @@
-import React from 'react'
-
-interface ContainerProps {
+interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
-    optionalStyles?: string
 }
 
-const Container: React.FC<ContainerProps> = ({ children, optionalStyles }) => {
-    const defaultContainerClasses = 'm-auto w-[86%] max-w-7xl'
-    const containerClasses = `${defaultContainerClasses} ${
-        optionalStyles || ''
-    }`
+const Container: React.FC<ContainerProps> = (props) => {
+    const { children, className, ...rest } = props
 
-    return <div className={containerClasses}>{children}</div>
+    const containerClasses = `m-auto w-[86%] max-w-7xl ${className}`
+    console.log(containerClasses)
+
+    return (
+        <div {...rest} className={containerClasses}>
+            {children}
+        </div>
+    )
 }
 
 export default Container

@@ -25,15 +25,14 @@ const navLinks = [
     { name: 'contact me', path: '/contact-me' },
 ]
 
-interface NavMenuProps {
+interface NavMenuProps extends React.HTMLProps<HTMLDivElement> {
     direction: 'row' | 'column'
-    customClasses?: string
     past80: boolean
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({
     direction = 'row',
-    customClasses,
+    className,
     past80,
 }) => {
     const pathname = usePathname()
@@ -89,7 +88,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
         <div
             className={`${
                 direction === 'row' ? 'h-full' : 'w-full'
-            } relative ${customClasses}`}
+            } relative ${className}`}
         >
             <ul
                 className={`${

@@ -4,11 +4,11 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { IoIosMoon, IoIosSunny } from 'react-icons/io'
 
-interface ThemeTogglerProps {
-    customClasses?: string
-}
+interface ThemeTogglerProps extends React.HTMLProps<HTMLLabelElement> {}
 
-const ThemeToggler: React.FC<ThemeTogglerProps> = ({ customClasses }) => {
+const ThemeToggler: React.FC<ThemeTogglerProps> = (props) => {
+    const { className } = props
+
     const [mounted, setMounted] = useState(false)
     const { theme, resolvedTheme, setTheme } = useTheme()
     const [checked, setChecked] = useState(resolvedTheme === 'dark')
@@ -34,7 +34,7 @@ const ThemeToggler: React.FC<ThemeTogglerProps> = ({ customClasses }) => {
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className={`relative block w-16 cursor-pointer select-none rounded-full shadow ${customClasses}`}
+            className={`relative block w-16 cursor-pointer select-none rounded-full shadow ${className}`}
         >
             <input
                 type="checkbox"

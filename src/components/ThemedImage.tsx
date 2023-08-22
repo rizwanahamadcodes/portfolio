@@ -1,4 +1,5 @@
 'use client'
+
 import { useTheme } from 'next-themes'
 import Image, { ImageProps } from 'next/image'
 import React from 'react'
@@ -6,7 +7,6 @@ import React from 'react'
 interface ThemedImageProps extends Omit<ImageProps, 'src'> {
     lightImageSrc: string
     darkImageSrc: string
-    alt: string
 }
 
 const ThemedImage: React.FC<ThemedImageProps> = (props) => {

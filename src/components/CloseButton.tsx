@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CloseButton = ({}) => {
     return (
         <div className="relative flex h-7 w-7 flex-col justify-between">

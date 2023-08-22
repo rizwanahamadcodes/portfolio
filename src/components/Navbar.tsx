@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import rizwanLogoGradient from '../../public/img/rizwan_logo_gradient.svg'
-
-import CloseButton from './CloseButton'
+import rizwanLogoGradient from '/public/img/rizwan_logo_gradient.svg'
+import { useEffect, useRef, useState } from 'react'
 import Container from './Container'
 import Drawer, { DrawerBody, DrawerFoot, DrawerHead } from './Drawer'
 import Hamburger from './Hamburger'
@@ -11,7 +10,6 @@ import NavMenu from './NavMenu'
 import ThemeToggler from './ThemeToggler'
 import ThemedImage from './ThemedImage'
 import useDrawer from './useDrawer'
-import { useEffect, useRef, useState } from 'react'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
@@ -19,7 +17,6 @@ const Navbar = () => {
     const navSubstituteRef = useRef<HTMLDivElement | null>()
 
     useEffect(() => {
-        console.log(navSubstituteRef.current)
         const callback: IntersectionObserverCallback = (entries, observer) => {
             setPast80(!entries[0].isIntersecting)
         }
@@ -51,7 +48,7 @@ const Navbar = () => {
                     past80 ? navClasses : ghostNavClasses
                 }`}
             >
-                <Container optionalStyles="h-full flex items-center justify-between">
+                <Container className="flex h-full items-center justify-between">
                     <Link href="/">
                         <ThemedImage
                             className="transition-all duration-300"
@@ -64,14 +61,14 @@ const Navbar = () => {
                     <NavMenu
                         past80={past80}
                         direction="row"
-                        customClasses="hidden lg:block"
+                        className="hidden lg:block"
                     />
-                    <ThemeToggler customClasses="hidden lg:block" />
+                    <ThemeToggler className="hidden lg:block" />
                     <button onClick={onOpen} className="lg:hidden">
                         <Hamburger />
                     </button>
                     <Drawer
-                        customClasses="lg:hidden"
+                        className="lg:hidden"
                         isOpen={isOpen}
                         onOpen={onOpen}
                         onClose={onClose}
