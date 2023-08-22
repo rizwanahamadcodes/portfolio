@@ -28,11 +28,12 @@ export default function Home() {
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <div className="flex w-full flex-col items-stretch gap-5">
+                    <div className="flex w-full flex-col items-stretch gap-5 md:flex-row">
                         <Button
                             leftIcon={FaPhoneAlt}
                             colorScheme="secondary-gradient"
                             href="tel:9828289314"
+                            className="grow"
                         >
                             9828289314
                         </Button>
@@ -41,6 +42,7 @@ export default function Home() {
                             colorScheme="primary-gradient"
                             href="/public/img/hero_image_light.svg"
                             download="hero_image_light.svg"
+                            className="grow"
                         >
                             View CV
                         </Button>

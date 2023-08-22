@@ -7,6 +7,7 @@ interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     colorScheme?: string
     type?: 'solid' | 'outline' | 'ghost'
     href?: string
+    className: string
     leftIcon?: IconType
     rightIcon?: IconType
 }
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         href,
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
+        className,
         ...rest
     } = props
 
@@ -93,11 +95,17 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <>
             {href != undefined ? (
-                <a href={href} className={buttonClasses} {...rest}>
+                <a
+                    href={href}
+                    className={buttonClasses + ' ' + className}
+                    {...rest}
+                >
                     {content}
                 </a>
             ) : (
-                <button className={buttonClasses}>{content}</button>
+                <button className={buttonClasses + ' ' + className}>
+                    {content}
+                </button>
             )}
         </>
     )
