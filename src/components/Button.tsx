@@ -2,7 +2,14 @@ import { IconType } from 'react-icons/lib'
 
 interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     children: React.ReactNode
-    colorScheme?: string
+    colorScheme?:
+        | 'primary'
+        | 'primary-gradient'
+        | 'primary-support'
+        | 'secondary'
+        | 'secondary-gradient'
+        | 'secondary-support'
+        | 'gray'
     type?: 'solid' | 'outline' | 'ghost'
     href?: string
     className?: string
