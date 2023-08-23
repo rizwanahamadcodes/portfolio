@@ -3,6 +3,7 @@ import Container from '@/components/Container'
 import ThemedImage from '@/components/ThemedImage'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
+import { GiClick } from 'react-icons/gi'
 import heroImageDark from '/public/img/hero_image_dark.svg'
 import heroImageLight from '/public/img/hero_image_light.svg'
 
@@ -25,6 +26,148 @@ export default function Home() {
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
+                    <div className="grid w-full grid-cols-2 flex-col flex-wrap gap-8">
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="primary"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="secondary"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="primary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="secondary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="gray"
+                        >
+                            Hello
+                        </Button>
+
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="outline"
+                            colorScheme="primary"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="outline"
+                            colorScheme="secondary"
+                        >
+                            Hello
+                        </Button>
+
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="outline"
+                            colorScheme="primary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="outline"
+                            colorScheme="secondary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="outline"
+                            colorScheme="gray"
+                        >
+                            Hello
+                        </Button>
+
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="ghost"
+                            colorScheme="primary"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="ghost"
+                            colorScheme="secondary"
+                        >
+                            Hello
+                        </Button>
+
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="ghost"
+                            colorScheme="primary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="ghost"
+                            colorScheme="secondary-support"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="ghost"
+                            colorScheme="gray"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="primary-gradient"
+                        >
+                            Hello
+                        </Button>
+                        <Button
+                            leftIcon={FaPhoneAlt}
+                            rightIcon={GiClick}
+                            type="solid"
+                            colorScheme="secondary-gradient"
+                        >
+                            Hello
+                        </Button>
+                    </div>
                     <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <Button
                             leftIcon={HiDownload}
