@@ -30,13 +30,12 @@ export default function Home() {
                         <Button
                             leftIcon={HiDownload}
                             colorScheme="primary-gradient"
-                            href="/public/img/hero_image_light.svg"
-                            download="hero_image_light.svg"
+                            href="/img/hero_image_light.svg"
+                            download
                             className="grow"
                         >
                             View CV
                         </Button>
-
                         <Button
                             leftIcon={FaPhoneAlt}
                             colorScheme="secondary-gradient"
