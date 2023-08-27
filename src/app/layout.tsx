@@ -1,10 +1,15 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Nunito } from '@next/font/google'
+// import { Nunito } from '@next/font/google'
+import { Montserrat } from '@next/font/google'
 import WorkaroundThemeProvider from './WorkaroundThemeProvider'
 import Navbar from '@/components/Navbar'
 
-const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
+// const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
+const montserrat = Montserrat({
+    subsets: ['latin'],
+    variable: '--font-montserrat',
+})
 
 export const metadata: Metadata = {
     title: 'Rizwan',
@@ -20,7 +25,7 @@ export default function RootLayout(props: RootLayoutProps) {
 
     return (
         <html lang="en">
-            <body className={`${nunito.variable} font-sans`}>
+            <body className={`${montserrat.variable} font-sans`}>
                 <WorkaroundThemeProvider>
                     <Navbar />
                     {children}

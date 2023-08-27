@@ -14,7 +14,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['var(--font-nunito)'],
+                sans: ['var(--font-montserrat)'],
             },
             colors: {
                 primary: {
@@ -77,63 +77,6 @@ module.exports = {
                     900: 'hsl(220deg,10%,10%)', //#1a1a1a
                 },
             },
-            // colorsInHex:{
-            //     "primary": {
-            //         "100": "#d1dffa",
-            //         "200": "#a3bef5",
-            //         "300": "#759ef0",
-            //         "400": "#477eeb",
-            //         "600": "#144bb8",
-            //         "700": "#0f388a",
-            //         "800": "#0a255c",
-            //         "900": "#05132e",
-            //         "DEFAULT": "#195ee6",
-            //         "support": {
-            //             "100": "#dfd1fa",
-            //             "200": "#bea3f5",
-            //             "300": "#9e75f0",
-            //             "400": "#7e47eb",
-            //             "600": "#4b14b8",
-            //             "700": "#380f8a",
-            //             "800": "#250a5c",
-            //             "900": "#13052e",
-            //             "DEFAULT": "#5d19e6"
-            //         }
-            //     },
-            //     "secondary": {
-            //         "100": "#ffcccc",
-            //         "200": "#ff9999",
-            //         "300": "#ff6666",
-            //         "400": "#ff3333",
-            //         "600": "#cc0000",
-            //         "700": "#990000",
-            //         "800": "#660000",
-            //         "900": "#330000",
-            //         "DEFAULT": "#ff0000",
-            //         "support": {
-            //             "100": "#ffeecc",
-            //             "200": "#ffdd99",
-            //             "300": "#ffcc66",
-            //             "400": "#ffbb33",
-            //             "600": "#cc8800",
-            //             "700": "#996600",
-            //             "800": "#664400",
-            //             "900": "#332200",
-            //             "DEFAULT": "#ffaa00"
-            //         }
-            //     },
-            //     "gray": {
-            //         "100": "#e3e5e8",
-            //         "200": "#c7cad1",
-            //         "300": "#abb0ba",
-            //         "400": "#8f96a3",
-            //         "500": "#737b8c",
-            //         "600": "#5c6370",
-            //         "700": "#454a54",
-            //         "800": "#2e3138",
-            //         "900": "#17191c"
-            //     }
-            // }
             boxShadow: {
                 left: '-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)',
             },
@@ -166,4 +109,66 @@ module.exports = {
 
 // opaque backgrounds get an opaque border gray-100 gray-900,
 // translucent backgrounds get a translucent border gray-BG_OF_THE_ELEMENT+-gray/20, BG_OF_THE_ELEMENT will be different in dark and light modes
+
+// okay done, if you absolutely have to use color somewhere you are allowed to use a different shade of the primary, primary-support, secondary or secondary support to such the contrast ratio remains high and if possible exactly the same
+// This was not done with the logo although it had colorm cause it's the brand, either it can become black and white or it remains the way it is
+
 // WILL THIS LATER FOR THE DRAWER
+
+// colorsInHex:{
+//     "primary": {
+//         "100": "#d1dffa",
+//         "200": "#a3bef5",
+//         "300": "#759ef0",
+//         "400": "#477eeb",
+//         "600": "#144bb8",
+//         "700": "#0f388a",
+//         "800": "#0a255c",
+//         "900": "#05132e",
+//         "DEFAULT": "#195ee6",
+//         "support": {
+//             "100": "#dfd1fa",
+//             "200": "#bea3f5",
+//             "300": "#9e75f0",
+//             "400": "#7e47eb",
+//             "600": "#4b14b8",
+//             "700": "#380f8a",
+//             "800": "#250a5c",
+//             "900": "#13052e",
+//             "DEFAULT": "#5d19e6"
+//         }
+//     },
+//     "secondary": {
+//         "100": "#ffcccc",
+//         "200": "#ff9999",
+//         "300": "#ff6666",
+//         "400": "#ff3333",
+//         "600": "#cc0000",
+//         "700": "#990000",
+//         "800": "#660000",
+//         "900": "#330000",
+//         "DEFAULT": "#ff0000",
+//         "support": {
+//             "100": "#ffeecc",
+//             "200": "#ffdd99",
+//             "300": "#ffcc66",
+//             "400": "#ffbb33",
+//             "600": "#cc8800",
+//             "700": "#996600",
+//             "800": "#664400",
+//             "900": "#332200",
+//             "DEFAULT": "#ffaa00"
+//         }
+//     },
+//     "gray": {
+//         "100": "#e3e5e8",
+//         "200": "#c7cad1",
+//         "300": "#abb0ba",
+//         "400": "#8f96a3",
+//         "500": "#737b8c",
+//         "600": "#5c6370",
+//         "700": "#454a54",
+//         "800": "#2e3138",
+//         "900": "#17191c"
+//     }
+// }
