@@ -72,18 +72,10 @@ const Button = (props: ButtonProps) => {
         },
     }
 
-    const validColorSchemes = Object.keys(colorSchemeMap)
-    const validTypes = ['solid', 'outline', 'ghost']
-
-    const resolvedColorScheme = validColorSchemes.includes(colorScheme)
-        ? colorScheme
-        : 'primary'
-    const resolvedType = validTypes.includes(type) ? type : 'solid'
-
-    const buttonClasses = `flex justify-center gap-3 h-10 items-center rounded-full px-5 ${
+    const buttonClasses = `flex justify-center gap-3 h-10 items-center hover:scale-105 rounded-full px-5 ${
         type === 'solid' ? 'font-medium' : 'font-[700]'
     } uppercase tracking-widest text-gray-100 transition-all hover:shadow hover:shadow-gray-900/30 active:scale-[0.98] active:shadow active:shadow-gray-900/30 ${
-        colorSchemeMap[resolvedColorScheme][resolvedType]
+        colorSchemeMap[colorScheme][type]
     }`
 
     const iconClasses = `text-xl`
