@@ -26,30 +26,35 @@ export default function Home() {
                         functionality to create a pleasant user experience.
                     </p>
                     <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
-                        <Button
-                            leftIcon={HiDownload}
-                            colorScheme={{
-                                from: 'primary',
-                                to: 'primary-support',
-                            }}
+                        <a
                             href="/img/hero_image_light.svg"
                             className="grow"
                             download
                         >
-                            View CV
-                        </Button>
+                            <Button
+                                leftIcon={HiDownload}
+                                colorScheme={{
+                                    from: 'primary',
+                                    to: 'primary-support',
+                                }}
+                                className="w-full"
+                            >
+                                View CV
+                            </Button>
+                        </a>
 
-                        <Button
-                            colorScheme={{
-                                from: 'secondary',
-                                to: 'secondary-support',
-                            }}
-                            leftIcon={FaPhoneAlt}
-                            href="tel:9828289314"
-                            className="grow"
-                        >
-                            9828289314
-                        </Button>
+                        <a href="tel:9828289314" className="grow">
+                            <Button
+                                colorScheme={{
+                                    from: 'secondary',
+                                    to: 'secondary-support',
+                                }}
+                                leftIcon={FaPhoneAlt}
+                                className="w-full"
+                            >
+                                9828289314
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </div>
