@@ -1,82 +1,125 @@
+import Link, { LinkProps } from 'next/link'
+import cn from './utils/cn'
 import { IconType } from 'react-icons/lib'
 
-interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
+type Colors =
+    | 'primary'
+    | 'primary-support'
+    | 'secondary'
+    | 'secondary-support'
+    | 'gray'
+
+type ButtonProps = Omit<LinkProps, 'href'> & {
     children: React.ReactNode
-    colorScheme?:
-        | 'primary'
-        | 'primary-gradient'
-        | 'primary-support'
-        | 'secondary'
-        | 'secondary-gradient'
-        | 'secondary-support'
-        | 'gray'
-    type?: 'solid' | 'outline' | 'ghost'
-    href?: string
     className?: string
+    href?: LinkProps['href'] | React.HTMLProps<HTMLAnchorElement>['href']
+    colorScheme?: Colors | { from: Colors; to: Colors }
+    type?: 'solid' | 'outline' | 'ghost'
     leftIcon?: IconType
     rightIcon?: IconType
+    download?: boolean | string
 }
 
-const Button = (props: ButtonProps) => {
+const Button: React.FC<ButtonProps> = (props) => {
     const {
         children,
+        className,
         colorScheme = 'primary',
         type = 'solid',
         href,
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
-        className,
-        ...restProps
+        download,
+        ...otherProps
     } = props
+    console.log(colorScheme)
+    const resolvedColorScheme =
+        type != 'solid' && typeof colorScheme != 'string'
+            ? colorScheme.from
+            : colorScheme
 
-    const borderWidth = 'border-2'
-    const colorSchemeMap: {
-        [key: string]: { [key: string]: string }
-    } = {
-        primary: {
-            solid: 'bg-primary hover:bg-primary-600 ',
-            outline: `${borderWidth} hover:text-primary-600 hover:border-primary-600 border-primary text-primary`,
-            ghost: 'text-primary hover:text-primary-600',
+    const solidColorMap = {
+        primary: 'bg-primary hover:bg-primary-600',
+        'primary-support': 'bg-primary-support hover:bg-primary-support-600',
+        secondary: 'bg-secondary hover:bg-secondary-600',
+        'secondary-support':
+            'bg-secondary-support hover:bg-secondary-support-600',
+        gray: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
+    }
+    const outlineColorMap = {
+        primary:
+            'hover:text-primary-600 hover:border-primary-600 border-primary text-primary',
+        'primary-support':
+            'hover:text-primary-support-600 hover:border-primary-support-600 border-primary-support text-primary-support',
+        secondary:
+            'hover:text-secondary-600 hover:border-secondary-600 border-secondary text-secondary',
+        'secondary-support':
+            'hover:text-secondary-support-600 hover:border-secondary-support-600 border-secondary-support text-secondary-support',
+        gray: 'dark:border-gray-100 dark:text-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-200 border-gray-800 hover:border-gray-900 text-gray-800 hover:text-gray-900',
+    }
+    const ghostColorMap = {
+        primary: 'hover:text-primary-600 text-primary',
+        'primary-support':
+            'hover:text-primary-support-600 text-primary-support',
+        secondary: 'hover:text-secondary-600 text-secondary',
+        'secondary-support':
+            'hover:text-secondary-support-600 text-secondary-support',
+        gray: 'dark:text-gray-100 dark:hover:text-gray-200 text-gray-800 hover:text-gray-900',
+    }
+    const gradientColorMap = {
+        from: {
+            primary: 'from-primary',
+            'primary-support': 'from-primary-support',
+            secondary: 'from-secondary',
+            'secondary-support': 'from-secondary-support',
         },
-        'primary-support': {
-            solid: 'bg-primary-support hover:bg-primary-support-600',
-            outline: `${borderWidth} hover:border-primary-support-600 border-primary-support text-primary-support hover:text-primary-support-600`,
-            ghost: 'text-primary-support hover:text-primary-support-600',
-        },
-        secondary: {
-            solid: 'bg-secondary hover:bg-secondary-600 ',
-            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary hover:text-secondary-600`,
-            ghost: 'text-secondary hover:text-secondary-600',
-        },
-
-        'secondary-support': {
-            solid: 'bg-secondary-support hover:bg-secondary-support-600',
-            outline: `${borderWidth} hover:border-secondary-support-600 border-secondary-support text-secondary-support hover:text-secondary-support-600`,
-            ghost: 'text-secondary-support hover:text-secondary-support-600',
-        },
-        gray: {
-            solid: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
-            outline: `${borderWidth} dark:border-gray-100 dark:text-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-200 border-gray-800 hover:border-gray-900 text-gray-800 hover:text-gray-900`,
-            ghost: 'dark:text-gray-100 dark:hover:text-gray-200 text-gray-800 hover:text-gray-900',
-        },
-        'primary-gradient': {
-            solid: 'bg-gradient-to-r from-primary to-primary-support bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
-            outline: `${borderWidth} hover:border-primary-600 border-primary text-primary hover:text-primary-600`,
-            ghost: 'text-primary hover:text-primary-600',
-        },
-
-        'secondary-gradient': {
-            solid: 'bg-gradient-to-r from-secondary to-secondary-support bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
-            outline: `${borderWidth} hover:border-secondary-600 border-secondary text-secondary hover:text-secondary-600`,
-            ghost: 'text-secondary hover:text-secondary-600',
+        to: {
+            primary: 'to-primary',
+            'primary-support': 'to-primary-support',
+            secondary: 'to-secondary',
+            'secondary-support': 'to-secondary-support',
         },
     }
 
-    const buttonClasses = `flex justify-center gap-3 h-10 items-center hover:scale-105 rounded-full px-5 ${
-        type === 'solid' ? 'font-medium' : 'font-[700]'
-    } uppercase tracking-widest text-gray-100 transition-all hover:shadow hover:shadow-gray-900/30 active:scale-[0.98] active:shadow active:shadow-gray-900/30 ${
-        colorSchemeMap[colorScheme][type]
-    }`
+    const commonButtonClasses =
+        'flex justify-center gap-3 h-10 items-center hover:scale-[1.05] rounded-full px-5 uppercase tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
+
+    const solidButtonClasses =
+        typeof resolvedColorScheme === 'string'
+            ? cn(
+                  'font-medium',
+                  solidColorMap[
+                      resolvedColorScheme as keyof typeof solidColorMap
+                  ]
+              )
+            : cn(
+                  'bg-gradient-to-r bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
+                  gradientColorMap.from[
+                      resolvedColorScheme.from as keyof typeof gradientColorMap.from
+                  ],
+                  gradientColorMap.to[
+                      resolvedColorScheme.to as keyof typeof gradientColorMap.to
+                  ]
+              )
+
+    const outlineButtonClasses = cn(
+        'font-[700] border-2',
+        outlineColorMap[resolvedColorScheme as keyof typeof outlineColorMap]
+    )
+    const ghostButtonClasses = cn(
+        'font-[700]',
+        ghostColorMap[resolvedColorScheme as keyof typeof ghostColorMap]
+    )
+
+    const completeButtonClasses = cn(
+        commonButtonClasses,
+        {
+            [solidButtonClasses]: type === 'solid',
+            [outlineButtonClasses]: type === 'outline',
+            [ghostButtonClasses]: type === 'ghost',
+        },
+        className
+    )
 
     const iconClasses = `text-xl`
 
@@ -90,18 +133,29 @@ const Button = (props: ButtonProps) => {
 
     return (
         <>
-            {href != undefined ? (
-                <a
-                    href={href}
-                    className={buttonClasses + ' ' + className}
-                    {...restProps}
-                >
-                    {content}
-                </a>
+            {href === undefined ? (
+                <button className={completeButtonClasses}>{content}</button>
             ) : (
-                <button className={buttonClasses + ' ' + className}>
-                    {content}
-                </button>
+                <>
+                    {download != undefined ? (
+                        <a
+                            href={href as string}
+                            className={completeButtonClasses}
+                            download={download}
+                            {...otherProps}
+                        >
+                            {content}
+                        </a>
+                    ) : (
+                        <Link
+                            href={href}
+                            className={completeButtonClasses}
+                            {...otherProps}
+                        >
+                            {content}
+                        </Link>
+                    )}
+                </>
             )}
         </>
     )
