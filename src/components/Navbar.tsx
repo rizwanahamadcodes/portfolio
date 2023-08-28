@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import rizwanLogoGradient from '/public/img/rizwan_logo_gradient.svg'
-import { LegacyRef, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Container from './Container'
 import Drawer, { DrawerBody, DrawerFoot, DrawerHead } from './Drawer'
 import Hamburger from './Hamburger'
@@ -10,6 +9,8 @@ import NavMenu from './NavMenu'
 import ThemeToggler from './ThemeToggler'
 import ThemedImage from './ThemedImage'
 import useDrawer from './useDrawer'
+import RizwanLogo from './RizwanLogo'
+import cn from './utils/cn'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
@@ -39,28 +40,19 @@ const Navbar = () => {
         }
     }, [])
 
-    const navClasses = `shadow  bg-gray-100/50 dark:bg-gray-900/50 h-nav-height backdrop-blur-sm`
-
-    // const ghostNavClasses = `h-20 dark:bg-gray-900 bg-gray-100`
-    const ghostNavClasses = `h-20 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm`
+    const navClasses = `shadow h-nav-height`
+    const ghostNavClasses = `h-20`
 
     return (
         <div>
             <nav
-                className={`fixed  top-0 z-10 w-full transition-all ${
-                    past80 ? navClasses : ghostNavClasses
-                }`}
+                className={cn(
+                    'fixed top-0 z-10 w-full bg-gray-100/50 backdrop-blur-sm transition-all dark:bg-gray-900/50',
+                    past80 ? [navClasses] : [ghostNavClasses]
+                )}
             >
                 <Container className="flex h-full items-center justify-between">
-                    <Link href="/">
-                        <ThemedImage
-                            className="transition-all duration-300"
-                            darkImageSrc={rizwanLogoGradient}
-                            lightImageSrc={rizwanLogoGradient}
-                            alt="Rizwan"
-                            height={past80 ? '40' : '50'}
-                        />
-                    </Link>
+                    <RizwanLogo past80={past80} />
                     <NavMenu
                         past80={past80}
                         direction="row"
@@ -75,20 +67,13 @@ const Navbar = () => {
                         onClose={onClose}
                     >
                         <DrawerHead
-                            headerHeightClass={past80 ? 'h-nav-height' : 'h-20'}
+                            heightPost80PxScroll="h-20"
+                            past80={past80}
                             hasCloseButton={true}
                             onClose={onClose}
                             px={'px-[7vw]'}
                         >
-                            <Link href="/" onClick={onClose}>
-                                <ThemedImage
-                                    className="transition-all duration-300"
-                                    darkImageSrc={rizwanLogoGradient}
-                                    lightImageSrc={rizwanLogoGradient}
-                                    alt="Rizwan"
-                                    height="40"
-                                />
-                            </Link>
+                            <RizwanLogo />
                         </DrawerHead>
                         <DrawerBody>
                             <div className="flex h-full flex-col justify-between">

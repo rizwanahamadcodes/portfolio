@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 import Image, { ImageProps } from 'next/image'
 import React from 'react'
 
-interface ThemedImageProps extends Omit<ImageProps, 'src'> {
+type ThemedImageProps = Omit<ImageProps, 'src'> & {
     lightImageSrc: string
     darkImageSrc: string
 }

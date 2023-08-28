@@ -1,9 +1,14 @@
+import cn from './utils/cn'
+
 const Hamburger = (props: React.HTMLProps<HTMLDivElement>) => {
     const { className, ...rest } = props
 
     return (
         <div
-            className={`${className} flex h-[19px] w-7 cursor-pointer flex-col justify-between`}
+            className={cn(
+                'flex h-[19px] w-7 cursor-pointer flex-col justify-between',
+                className
+            )}
             {...rest}
         >
             {Array(3)

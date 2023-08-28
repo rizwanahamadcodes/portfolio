@@ -1,14 +1,10 @@
-interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
-    children: React.ReactNode
-}
+import cn from './utils/cn'
 
-const Container = (props: ContainerProps) => {
+const Container: React.FC<React.HTMLProps<HTMLDivElement>> = (props) => {
     const { children, className, ...rest } = props
 
-    const containerClasses = `m-auto w-[86%] max-w-7xl ${className}`
-
     return (
-        <div {...rest} className={containerClasses}>
+        <div {...rest} className={cn('m-auto w-[86%] max-w-7xl', className)}>
             {children}
         </div>
     )
