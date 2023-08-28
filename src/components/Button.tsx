@@ -9,10 +9,10 @@ type Colors =
     | 'secondary-support'
     | 'gray'
 
-type ButtonProps = Omit<LinkProps, 'href'> & {
+type ButtonProps = Omit<React.HTMLProps<HTMLAnchorElement>, 'href'> & {
     children: React.ReactNode
     className?: string
-    href?: LinkProps['href'] | React.HTMLProps<HTMLAnchorElement>['href']
+    href?: React.HTMLProps<HTMLAnchorElement>['href']
     colorScheme?: Colors | { from: Colors; to: Colors }
     type?: 'solid' | 'outline' | 'ghost'
     leftIcon?: IconType
@@ -32,7 +32,6 @@ const Button: React.FC<ButtonProps> = (props) => {
         download,
         ...otherProps
     } = props
-    console.log(colorScheme)
     const resolvedColorScheme =
         type != 'solid' && typeof colorScheme != 'string'
             ? colorScheme.from
@@ -136,26 +135,14 @@ const Button: React.FC<ButtonProps> = (props) => {
             {href === undefined ? (
                 <button className={completeButtonClasses}>{content}</button>
             ) : (
-                <>
-                    {download != undefined ? (
-                        <a
-                            href={href as string}
-                            className={completeButtonClasses}
-                            download={download}
-                            {...otherProps}
-                        >
-                            {content}
-                        </a>
-                    ) : (
-                        <Link
-                            href={href}
-                            className={completeButtonClasses}
-                            {...otherProps}
-                        >
-                            {content}
-                        </Link>
-                    )}
-                </>
+                <a
+                    href={href as string}
+                    className={completeButtonClasses}
+                    download={download}
+                    {...otherProps}
+                >
+                    {content}
+                </a>
             )}
         </>
     )
