@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ThemedImage from './ThemedImage'
-import rizwanLogoGradient from '/public/img/rizwan_logo_gradient.svg'
+import rizwanLogoGradient from '/public/img/rizwan_logo__primary-to-primary-support-gradient.svg'
 
 type RizwanLogoProps = {
     past80?: boolean

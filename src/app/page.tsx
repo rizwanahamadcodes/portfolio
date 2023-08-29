@@ -18,13 +18,13 @@ export default function Home() {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-2xl font-medium text-primary-support dark:text-primary-support-300 sm:text-3xl">
+                    <h2 className="font-medium text-primary-support dark:text-primary-support-300 sm:text-3xl">
                         Front-end Web Developer
                     </h2>
-                    <p className="max-w max-w-[50ch] text-xl">
+                    <h3 className="max-w max-w-[50ch] text-xl">
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
-                    </p>
+                    </h3>
                     <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <a
                             href="/img/hero_image_light.svg"
