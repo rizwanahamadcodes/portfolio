@@ -1,5 +1,5 @@
 import Button from '@/components/Button'
-import Section from '@/components/Section'
+import Section, { SectionSubtitle, SectionTitle } from '@/components/Section'
 import ThemedImage from '@/components/ThemedImage'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
@@ -20,13 +20,12 @@ const HeroSection = () => {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-3xl font-medium text-primary dark:text-primary">
-                        Front-end Web Developer
-                    </h2>
-                    <h3 className="max-w max-w-[50ch] text-xl">
+                    <SectionTitle>Front-end Web Developer</SectionTitle>
+                    <SectionSubtitle className="max-w max-w-[50ch]">
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
-                    </h3>
+                    </SectionSubtitle>
+
                     <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <a
                             href="/img/hero_image_light.svg"
@@ -61,6 +60,7 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
+
             <div className="w-50">
                 <ThemedImage
                     darkImageSrc={heroImageDark}
