@@ -1,16 +1,23 @@
-import Section from '@/components/Section'
+import Section, { SectionCategoryTitle } from '@/components/Section'
 import { CgFigma } from 'react-icons/cg'
 import { DiCss3, DiHtml5, DiJavascript, DiReact, DiSass } from 'react-icons/di'
 import {
     SiAdobeillustrator,
     SiAdobephotoshop,
     SiBootstrap,
-    SiJavascript,
     SiNextdotjs,
     SiTailwindcss,
+    SiTypescript,
 } from 'react-icons/si'
 
 const techList = [
+    {
+        id: 12,
+        title: 'Typescript',
+        categoryId: 1,
+        icon: SiTypescript,
+        color: '#007acc',
+    },
     {
         id: 1,
         title: 'Javascript',
@@ -75,18 +82,18 @@ const techList = [
         color: '#0acf84',
     },
     {
-        id: 10,
-        title: 'Bootstrap',
-        categoryId: 2,
-        icon: SiBootstrap,
-        color: '#8911fb',
-    },
-    {
         id: 11,
         title: 'Sass',
         categoryId: 2,
         icon: DiSass,
         color: '#c69',
+    },
+    {
+        id: 10,
+        title: 'Bootstrap',
+        categoryId: 2,
+        icon: SiBootstrap,
+        color: '#8911fb',
     },
 ]
 const techCategoriesList = [
@@ -110,45 +117,14 @@ const TechnologiesSection = () => {
             sectionClassName="bg-gray-200 dark:bg-gray-800"
             containerClassName=""
             title="Technologies I'm familiar with"
-            subtitle="I have been programming for six years and these are the technologies i picked up along the way"
+            subtitle="Some of the languages and technologies i picked up along the way "
         >
             <div className="flex flex-col gap-8">
                 {techCategoriesList.map((techCategory) => (
-                    <div key={techCategory.id}>
-                        <h5 className="mb-4 font-medium text-primary dark:text-primary">
-                            {techCategory.title}
-                        </h5>
-
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                            {techList
-                                .filter(
-                                    (techItem) =>
-                                        techItem.categoryId === techCategory.id
-                                )
-                                .map((tech) => {
-                                    const { icon: Icon } = tech
-                                    return (
-                                        <div
-                                            key={tech.id}
-                                            className="flex cursor-pointer items-center gap-3 rounded-full border-[2px] border-transparent bg-gray-100 p-2 pr-4 hover:border-gray-300/60 hover:shadow active:scale-[0.98] dark:bg-gray-700 dark:hover:border-gray-900/60"
-                                        >
-                                            <div
-                                                style={{
-                                                    background: tech.color,
-                                                }}
-                                                className="flex items-center justify-center rounded-full bg-white p-2 dark:bg-gray-600"
-                                            >
-                                                <Icon
-                                                    size={30}
-                                                    className="text-white"
-                                                />
-                                            </div>
-                                            <p>{tech.title}</p>
-                                        </div>
-                                    )
-                                })}
-                        </div>
-                    </div>
+                    <TechCardGroup
+                        key={techCategory.id}
+                        techCategory={techCategory}
+                    />
                 ))}
             </div>
         </Section>
@@ -156,3 +132,55 @@ const TechnologiesSection = () => {
 }
 
 export default TechnologiesSection
+
+type TechCardProps = {
+    tech: (typeof techList)[number]
+}
+
+export const TechCard: React.FC<TechCardProps> = (props) => {
+    const { tech } = props
+    const { id, icon: Icon, title, color } = tech
+
+    return (
+        <div
+            key={id}
+            className="flex cursor-pointer items-center gap-3 rounded-full border-[2px] border-transparent bg-gray-100 p-2 pr-4 hover:border-gray-300/60 hover:shadow active:scale-[0.98] dark:bg-gray-700 dark:hover:border-gray-900/60"
+        >
+            <div
+                style={{
+                    background: color,
+                }}
+                className="flex items-center justify-center rounded-full bg-white p-2 dark:bg-gray-600"
+            >
+                <Icon size={30} className="text-white" />
+            </div>
+            <p>{tech.title}</p>
+        </div>
+    )
+}
+
+type TechCardGroupProps = {
+    techCategory: (typeof techCategoriesList)[number]
+}
+
+const TechCardGroup: React.FC<TechCardGroupProps> = (props) => {
+    const { techCategory } = props
+
+    return (
+        <div key={techCategory.id}>
+            <SectionCategoryTitle className="mb-4">
+                {techCategory.title}
+            </SectionCategoryTitle>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {techList
+                    .filter(
+                        (techItem) => techItem.categoryId === techCategory.id
+                    )
+                    .map((tech) => {
+                        return <TechCard key={tech.id} tech={tech} />
+                    })}
+            </div>
+        </div>
+    )
+}
