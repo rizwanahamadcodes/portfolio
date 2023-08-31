@@ -91,7 +91,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                         <Link
                             href={navLink.path}
                             className={cn(
-                                'flex w-full select-none items-center pl-[7vw] text-[0.9rem] font-semibold uppercase tracking-[0.125rem] transition-all hover:bg-gray-900/5 dark:hover:bg-gray-100/5',
+                                'flex w-full select-none items-center pl-[7vw] text-sm font-semibold uppercase tracking-[0.125rem] transition-all hover:bg-gray-900/5 dark:hover:bg-gray-100/5',
                                 direction === 'column'
                                     ? 'h-nav-height'
                                     : 'h-full px-7',

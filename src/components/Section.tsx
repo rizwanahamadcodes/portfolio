@@ -63,7 +63,11 @@ type SectionSubtitleProps = {
 export const SectionSubtitle: React.FC<SectionSubtitleProps> = (props) => {
     const { children, className } = props
 
-    return <h3 className={cn('sm:xl text-lg', className)}>{children}</h3>
+    return (
+        <h3 className={cn('sm:xl text-lg font-medium', className)}>
+            {children}
+        </h3>
+    )
 }
 
 type SectionCategoryTitleProps = {
