@@ -14,7 +14,7 @@ type ButtonProps = Omit<LinkProps, 'href'> & {
     className?: string
     href?: LinkProps['href']
     colorScheme?: Colors | { from: Colors; to: Colors }
-    type?: 'solid' | 'outline' | 'ghost'
+    btnType?: 'solid' | 'outline' | 'ghost'
     leftIcon?: IconType
     rightIcon?: IconType
 }
@@ -24,14 +24,14 @@ const Button: React.FC<ButtonProps> = (props) => {
         children,
         className,
         colorScheme = 'primary',
-        type = 'solid',
+        btnType = 'solid',
         href,
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
         ...otherProps
     } = props
     const resolvedColorScheme =
-        type != 'solid' && typeof colorScheme != 'string'
+        btnType != 'solid' && typeof colorScheme != 'string'
             ? colorScheme.from
             : colorScheme
 
@@ -79,7 +79,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-10 items-center hover:scale-[1.05] rounded-full px-5 uppercase tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
+        'flex justify-center gap-3 h-10 items-center rounded-full px-5 uppercase tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'
@@ -111,9 +111,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     const completeButtonClasses = cn(
         commonButtonClasses,
         {
-            [solidButtonClasses]: type === 'solid',
-            [outlineButtonClasses]: type === 'outline',
-            [ghostButtonClasses]: type === 'ghost',
+            [solidButtonClasses]: btnType === 'solid',
+            [outlineButtonClasses]: btnType === 'outline',
+            [ghostButtonClasses]: btnType === 'ghost',
         },
         className
     )
