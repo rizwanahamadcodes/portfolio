@@ -15,10 +15,10 @@ const ContactMe = () => {
         <Section containerClassName="grid items-center md:grid-cols-2 gap-5 flex-col grid-cols-1">
             <div>
                 <SectionTitle>
-                    Let's chat. <br /> Tell me about your project
+                    Let&apos;s chat. <br /> Tell me about your project
                 </SectionTitle>
                 <SectionSubtitle>
-                    Let's create something together.
+                    Let&apos;s create something together.
                 </SectionSubtitle>
             </div>
             <div className="rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850">
@@ -42,9 +42,7 @@ const ContactMe = () => {
                     <textarea
                         className={cn(inputClasses, 'h-36 resize-none')}
                     ></textarea>
-                    <Button className="w-auto" type="submit">
-                        Send Message
-                    </Button>
+                    <Button className="w-auto">Send Message</Button>
                 </form>
             </div>
         </Section>
