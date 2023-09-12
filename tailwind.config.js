@@ -69,6 +69,7 @@ module.exports = {
                 },
 
                 gray: {
+                    50: 'hsl(220deg,10%,95%)', //#e6e6e6
                     100: 'hsl(220deg,10%,90%)', //#e6e6e6
                     200: 'hsl(220deg,10%,80%)', //#cccccc
                     300: 'hsl(220deg,10%,70%)', //#b3b3bb3
@@ -77,12 +78,14 @@ module.exports = {
                     600: 'hsl(220deg,10%,40%)', //#666666
                     700: 'hsl(220deg,10%,30%)', //#4d4d4d
                     800: 'hsl(220deg,10%,20%)', //#333333
+                    850: 'hsl(220deg,10%,15%)', //#1a1a1a
                     900: 'hsl(220deg,10%,10%)', //#1a1a1a
                 },
             },
             boxShadow: {
                 left: '-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)',
                 center: '0px 0px 3px 0px rgba(0,0,0,0.1), 0px 0px 2px 0px rgb(0,0,0,0.1)',
+                'primary-glow': '0px 0px 0px 2px hsla(220deg, 80%, 50%, 0.5)',
             },
             spacing: {
                 'nav-height': '60px',
