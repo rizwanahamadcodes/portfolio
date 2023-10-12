@@ -17,7 +17,10 @@ const HeroSection = () => {
                         <div>Hi,</div>
                         <div>
                             I am
-                            <span className="text-primary"> Rizwan</span>
+                            <span className="bg-gradient-to-r from-primary to-primary-support bg-clip-text text-transparent">
+                                {' '}
+                                Rizwan
+                            </span>
                         </div>
                     </h1>
                     <SectionTitle>Front-end Web Developer</SectionTitle>
@@ -34,10 +37,7 @@ const HeroSection = () => {
                         >
                             <Button
                                 leftIcon={HiDownload}
-                                colorScheme={{
-                                    from: 'primary',
-                                    to: 'primary-support',
-                                }}
+                                colorScheme="primary"
                                 className="w-full"
                             >
                                 View CV
@@ -46,10 +46,7 @@ const HeroSection = () => {
 
                         <a href="tel:9828289314" className="grow">
                             <Button
-                                colorScheme={{
-                                    from: 'secondary',
-                                    to: 'primary-support',
-                                }}
+                                colorScheme="primary-support"
                                 leftIcon={FaPhoneAlt}
                                 className="w-full"
                             >
