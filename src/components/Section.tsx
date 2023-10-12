@@ -32,7 +32,7 @@ const Section: React.FC<SectionProps> = (props) => {
 
 export default Section
 
-const headingColorClasses = 'text-primary dark:text-primary-300 font-medium'
+const headingColorClasses = 'text-primary dark:text-primary font-medium'
 
 type SectionTitleProps = {
     className?: string
@@ -81,7 +81,14 @@ export const SectionCategoryTitle: React.FC<SectionCategoryTitleProps> = (
     const { children, className } = props
 
     return (
-        <h5 className={cn('mb-4 font-medium', headingColorClasses, className)}>
+        <h5
+            className={cn(
+                'mb-4',
+                headingColorClasses,
+                'text-gray-900 dark:text-gray-100',
+                className
+            )}
+        >
             {children}
         </h5>
     )
