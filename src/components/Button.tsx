@@ -9,27 +9,26 @@ type Colors =
     | 'secondary-support'
     | 'gray'
 
-type ButtonProps = Omit<LinkProps, 'href'> & {
+type NewButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     children: React.ReactNode
     className?: string
-    href?: LinkProps['href']
     colorScheme?: Colors | { from: Colors; to: Colors }
     btnType?: 'solid' | 'outline' | 'ghost'
     leftIcon?: IconType
     rightIcon?: IconType
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<NewButtonProps> = (props) => {
     const {
         children,
         className,
         colorScheme = 'primary',
         btnType = 'solid',
-        href,
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
         ...otherProps
     } = props
+
     const resolvedColorScheme =
         btnType != 'solid' && typeof colorScheme != 'string'
             ? colorScheme.from
@@ -43,6 +42,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             'bg-secondary-support hover:bg-secondary-support-600',
         gray: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
     }
+
     const outlineColorMap = {
         primary:
             'hover:text-primary-600 hover:border-primary-600 border-primary text-primary',
@@ -54,6 +54,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             'hover:text-secondary-support-600 hover:border-secondary-support-600 border-secondary-support text-secondary-support',
         gray: 'dark:border-gray-100 dark:text-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-200 border-gray-800 hover:border-gray-900 text-gray-800 hover:text-gray-900',
     }
+
     const ghostColorMap = {
         primary: 'hover:text-primary-600 text-primary',
         'primary-support':
@@ -129,19 +130,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
 
     return (
-        <>
-            {href === undefined ? (
-                <button className={completeButtonClasses}>{content}</button>
-            ) : (
-                <Link
-                    href={href}
-                    className={completeButtonClasses}
-                    {...otherProps}
-                >
-                    {content}
-                </Link>
-            )}
-        </>
+        <button className={completeButtonClasses} {...otherProps}>
+            {content}
+        </button>
     )
 }
 
