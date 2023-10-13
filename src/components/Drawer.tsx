@@ -32,7 +32,7 @@ const Drawer = (props: DrawerProps) => {
         <>
             <div
                 className={cn(
-                    'invisible absolute left-0 top-0 z-10 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50',
+                    'invisible absolute left-0 top-0 z-50 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50',
                     { visible: isOpen },
                     className
                 )}
