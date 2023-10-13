@@ -144,7 +144,7 @@ export const TechCard: React.FC<TechCardProps> = (props) => {
     return (
         <div
             key={id}
-            className="flex items-center gap-2 rounded-full p-2 pr-4 active:scale-[0.98]"
+            className="flex items-center gap-2 rounded-full active:scale-[0.98]"
         >
             <div
                 style={{
