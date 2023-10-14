@@ -12,7 +12,8 @@ import { sendEmail } from '../../../actions/sendEmail'
 import { experimental_useFormStatus } from 'react-dom'
 import SubmitButton from '@/components/SubmitButton'
 import OrDivider from '@/components/OrDivider'
-import { RxEnvelopeClosed } from 'react-icons/rx'
+import { SiGmail } from 'react-icons/si'
+import { BsInstagram, BsMessenger } from 'react-icons/bs'
 
 const ContactMe = () => {
     const inputClasses =
@@ -21,34 +22,80 @@ const ContactMe = () => {
     const { pending } = experimental_useFormStatus()
 
     return (
-        <Section containerClassName="grid items-center md:grid-cols-[minmax(min-content,_500px)_auto_minmax(min-content,_500px)] gap-5 flex-col grid-cols-1">
-            <div>
+        <Section containerClassName="flex flex-col md:flex-row gap-8 items-stretch justify-between ">
+            <div className="relative grow md:max-w-md">
                 <SectionTitle>
                     Let&apos;s chat. <br /> Tell me about your project
                 </SectionTitle>
                 <SectionSubtitle className="mb-4">
                     Let&apos;s create something together.
                 </SectionSubtitle>
-                <a href="mailto:rizwanahamadcodes@gmail.com" className="">
-                    <div className="inline-flex items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 transition-all hover:bg-white hover:shadow active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary">
-                            <RxEnvelopeClosed
-                                size={'1.4rem'}
-                                className={'text-gray-100'}
-                            />
-                        </div>
-
-                        <p className="leading-tight">
-                            <p className="leading-tight">Mail me at</p>
-                            <p className="leading-tight">
-                                rizwanahamadcodes@gmail.com
+                <div className="flex flex-col gap-4 sm:inline-flex">
+                    <a href="mailto:rizwanahamadcodes@gmail.com" className="">
+                        <div className="inline-flex w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 transition-all hover:bg-white hover:shadow active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
+                            <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-primary">
+                                <SiGmail
+                                    size={26}
+                                    className={'text-gray-100'}
+                                />
+                            </div>
+                            <p>
+                                <p className="text-sm leading-tight">
+                                    Mail me at:
+                                </p>
+                                <p className="text-sm leading-tight">
+                                    rizwanahamadcodes@gmail.com
+                                </p>
                             </p>
-                        </p>
-                    </div>
-                </a>
+                        </div>
+                    </a>
+
+                    <a href="https://m.me/100047043491338" className="">
+                        <div className="inline-flex w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 transition-all hover:bg-white hover:shadow active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
+                            <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-primary">
+                                <BsMessenger
+                                    size={26}
+                                    className={'text-gray-100'}
+                                />
+                            </div>
+                            <p>
+                                <p className="text-sm leading-tight">
+                                    Text me:
+                                </p>
+                                <p className="text-sm leading-tight">
+                                    facebook.com/100047043491338
+                                </p>
+                            </p>
+                        </div>
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/rizwan29972/"
+                        className=""
+                    >
+                        <div className="inline-flex w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 transition-all hover:bg-white hover:shadow active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
+                            <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-primary">
+                                <BsInstagram
+                                    size={26}
+                                    className={'text-gray-100'}
+                                />
+                            </div>
+                            <p>
+                                <p className="text-sm leading-tight">
+                                    Text me:
+                                </p>
+                                <p className="text-sm leading-tight">
+                                    instagram.com/rizwan29972
+                                </p>
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
+
             <OrDivider />
-            <div className="rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850">
+
+            <div className="grow rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
                 <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
                 <form
                     className="flex flex-col gap-4 md:items-start"
