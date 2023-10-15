@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from '@next/font/google'
 import WorkaroundThemeProvider from './WorkaroundThemeProvider'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 // const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
 const montserrat = Montserrat({
@@ -29,6 +30,7 @@ export default function RootLayout(props: RootLayoutProps) {
                 <WorkaroundThemeProvider>
                     <Navbar />
                     {children}
+                    <Footer />
                 </WorkaroundThemeProvider>
             </body>
         </html>
