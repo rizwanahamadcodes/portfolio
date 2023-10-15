@@ -1,10 +1,11 @@
 import Button from '@/components/Button'
 import Section, { SectionSubtitle, SectionTitle } from '@/components/Section'
 import ThemedImage from '@/components/ThemedImage'
-import { FaPhoneAlt } from 'react-icons/fa'
+import { ImBubbles } from 'react-icons/im'
 import { HiDownload } from 'react-icons/hi'
 import heroImageDark from '/public/img/hero_image_dark.svg'
 import heroImageLight from '/public/img/hero_image_light.svg'
+import Link from 'next/link'
 const HeroSection = () => {
     return (
         <Section
@@ -24,12 +25,12 @@ const HeroSection = () => {
                         </div>
                     </h1>
                     <SectionTitle>Front-end Web Developer</SectionTitle>
-                    <SectionSubtitle className="max-w max-w-[50ch]">
+                    <SectionSubtitle className="max-w mb-3 max-w-[50ch]">
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </SectionSubtitle>
 
-                    <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
+                    <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <a
                             href="/img/hero_image_light.svg"
                             className="grow"
@@ -44,15 +45,15 @@ const HeroSection = () => {
                             </Button>
                         </a>
 
-                        <a href="tel:9828289314" className="grow">
+                        <Link className="grow" href={'/contact-me'}>
                             <Button
                                 colorScheme="primary-support"
-                                leftIcon={FaPhoneAlt}
+                                leftIcon={ImBubbles}
                                 className="w-full"
                             >
-                                9828289314
+                                Contact Me
                             </Button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

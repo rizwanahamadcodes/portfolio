@@ -34,40 +34,30 @@ const footerLinks = [
 const socialLinks = [
     {
         label: 'Facebook',
-        href: 'https://www.facebook.com/',
+        href: 'https://www.facebook.com/profile.php?id=100047043491338',
         icon: BsFacebook,
     },
     {
         label: 'Instagram',
-        href: 'https://www.facebook.com/',
+        href: 'https://www.instagram.com/rizwan29972/',
         icon: BsInstagram,
     },
     {
         label: 'LinkedIn',
-        href: 'https://www.facebook.com/',
+        href: 'https://www.linkedin.com/',
         icon: BsLinkedin,
     },
     {
         label: 'Github',
-        href: 'https://www.facebook.com/',
+        href: 'https://github.com/rizwanahamadcodes',
         icon: BsGithub,
     },
 ]
-const contactLinks = [
+const FooterContactLinks = [
     {
         label: 'rizwanahamadcodes@gmail',
-        href: 'https://www.facebook.com/',
+        href: 'mailto:rizwanahamadcodes@gmail.com',
         icon: SiGmail,
-    },
-    {
-        label: '9828289314',
-        href: 'https://www.facebook.com/',
-        icon: FaPhoneAlt,
-    },
-    {
-        label: '9803049414',
-        href: 'https://www.facebook.com/',
-        icon: FaPhoneAlt,
     },
 ]
 
@@ -77,7 +67,7 @@ const Footer = () => {
             <Section containerClassName="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                 <FooterColumn>
                     <FooterColumnTitle>
-                        <RizwanLogo />
+                        <RizwanLogo variant="blackandwhite" />
                     </FooterColumnTitle>
                     <FooterColumnBody>
                         Feel free to get in touch for your projects. Looking
@@ -102,7 +92,7 @@ const Footer = () => {
                 <FooterColumn>
                     <FooterColumnTitle>Contact</FooterColumnTitle>
                     <FooterColumnBody>
-                        <FooterColumnLinks links={contactLinks} />
+                        <FooterColumnLinks links={FooterContactLinks} />
                     </FooterColumnBody>
                 </FooterColumn>
             </Section>
