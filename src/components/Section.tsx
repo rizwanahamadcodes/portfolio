@@ -1,33 +1,15 @@
 import React from 'react'
 import cn from './utils/cn'
-import { title } from 'process'
-import Container from './Container'
 
 type SectionProps = {
     children?: React.ReactNode
-    sectionClassName?: string
-    containerClassName?: string
-    title?: string
-    subtitle?: string
+    className?: string
 }
 
 const Section: React.FC<SectionProps> = (props) => {
-    const { title, subtitle, children, sectionClassName, containerClassName } =
-        props
+    const { children, className } = props
 
-    return (
-        <section className={cn('py-10', sectionClassName)}>
-            {title != undefined ? (
-                <Container className="mb-8 text-center">
-                    <SectionTitle>{title}</SectionTitle>
-                    <SectionSubtitle>{subtitle}</SectionSubtitle>
-                </Container>
-            ) : (
-                <></>
-            )}
-            <Container className={cn(containerClassName)}>{children}</Container>
-        </section>
-    )
+    return <section className={cn('py-10', className)}>{children}</section>
 }
 
 export default Section
@@ -37,15 +19,17 @@ const headingColorClasses = 'text-primary dark:text-primary font-medium'
 type SectionTitleProps = {
     className?: string
     children?: React.ReactNode
+    defaultBottomMargin?: boolean
 }
 
 export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
-    const { children, className } = props
+    const { children, className, defaultBottomMargin = false } = props
 
     return (
         <h2
             className={cn(
                 'text-2xl font-medium sm:text-3xl',
+                defaultBottomMargin && 'mb-8',
                 headingColorClasses,
                 className
             )}
@@ -58,13 +42,20 @@ export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
 type SectionSubtitleProps = {
     className?: string
     children?: React.ReactNode
+    defaultBottomMargin?: boolean
 }
 
 export const SectionSubtitle: React.FC<SectionSubtitleProps> = (props) => {
-    const { children, className } = props
+    const { children, className, defaultBottomMargin } = props
 
     return (
-        <h3 className={cn('sm:xl text-lg font-medium', className)}>
+        <h3
+            className={cn(
+                'sm:xl text-lg font-medium',
+                defaultBottomMargin && 'mb-8',
+                className
+            )}
+        >
             {children}
         </h3>
     )

@@ -1,4 +1,9 @@
-import Section, { SectionCategoryTitle } from '@/components/Section'
+import Container from '@/components/Container'
+import Section, {
+    SectionCategoryTitle,
+    SectionSubtitle,
+    SectionTitle,
+} from '@/components/Section'
 import { CgFigma } from 'react-icons/cg'
 import { DiCss3, DiHtml5, DiJavascript, DiReact, DiSass } from 'react-icons/di'
 import {
@@ -113,20 +118,25 @@ const techCategoriesList = [
 
 const TechnologiesSection = () => {
     return (
-        <Section
-            sectionClassName="bg-gray-200 dark:bg-gray-800"
-            containerClassName=""
-            title="Technologies I'm familiar with"
-            subtitle="Some of the languages and technologies i picked up along the way "
-        >
-            <div className="flex flex-col gap-8">
-                {techCategoriesList.map((techCategory) => (
-                    <TechCardGroup
-                        key={techCategory.id}
-                        techCategory={techCategory}
-                    />
-                ))}
-            </div>
+        <Section>
+            <Container>
+                <SectionTitle className="text-center">
+                    Technologies I am familiar with
+                </SectionTitle>
+                <SectionSubtitle className="text-center" defaultBottomMargin>
+                    Some of the languages and technologies i picked up along the
+                    way{' '}
+                </SectionSubtitle>
+
+                <div className="flex flex-col gap-8">
+                    {techCategoriesList.map((techCategory) => (
+                        <TechCardGroup
+                            key={techCategory.id}
+                            techCategory={techCategory}
+                        />
+                    ))}
+                </div>
+            </Container>
         </Section>
     )
 }
@@ -141,16 +151,15 @@ export const TechCard: React.FC<TechCardProps> = (props) => {
     const { id, icon: Icon, title, color } = tech
 
     return (
-    <div
+        <div
             key={id}
-className="rounded-full` flex items-center gap-2 active:scale-[0.98]"
+            className="rounded-full` flex items-center gap-2 active:scale-[0.98]"
         >
             <div
                 style={{
                     background: color,
                 }}
                 className="flex items-center justify-center rounded-full bg-white p-2 dark:bg-gray-600"
-                
             >
                 <Icon size={30} className="text-white" />
             </div>
