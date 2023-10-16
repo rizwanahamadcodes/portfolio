@@ -21,13 +21,13 @@ const navLinks = [
 
 type NavMenuProps = React.HTMLProps<HTMLDivElement> & {
     direction: 'row' | 'column'
-    past80: boolean
+    scrolledPast80: boolean
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({
     direction = 'row',
     className,
-    past80,
+    scrolledPast80,
 }) => {
     const pathname = usePathname()
 
@@ -98,7 +98,8 @@ const NavMenu: React.FC<NavMenuProps> = ({
                                 {
                                     'bg-gray-900/10 text-primary-900 hover:bg-gray-900/10 dark:bg-gray-100/10 dark:text-primary-100 dark:hover:bg-gray-100/10':
                                         navLink.path === pathname &&
-                                        (past80 || direction === 'column'),
+                                        (scrolledPast80 ||
+                                            direction === 'column'),
                                 }
                             )}
                             onClick={(e) => {

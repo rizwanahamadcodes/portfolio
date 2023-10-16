@@ -82,7 +82,7 @@ const Project: React.FC<ProjectProps> = (props) => {
                     <NextJsLinkButton
                         btnType="outline"
                         colorScheme={'gray'}
-                        href=""
+                        href="/"
                     >
                         <ButtonIcon icon={FaGithub} />
                         Code
@@ -90,7 +90,7 @@ const Project: React.FC<ProjectProps> = (props) => {
                     <NextJsLinkButton
                         btnType="outline"
                         colorScheme={'gray'}
-                        href=""
+                        href="/"
                     >
                         <ButtonIcon icon={TbWindowMaximize} />
                         Live Demo
