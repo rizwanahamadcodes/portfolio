@@ -29,6 +29,10 @@ const HeroSection = () => {
 
                         <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row">
                             <AnchorButton
+                                colorScheme={{
+                                    from: 'primary',
+                                    to: 'primary-400',
+                                }}
                                 href="/img/hero_image_light.svg"
                                 className="grow"
                                 download
@@ -39,7 +43,10 @@ const HeroSection = () => {
 
                             <NextJsLinkButton
                                 href="/contact-me"
-                                colorScheme="primary-support"
+                                colorScheme={{
+                                    from: 'primary-support',
+                                    to: 'primary-support-400',
+                                }}
                                 className="grow"
                             >
                                 <ButtonIcon icon={ImBubbles} />
