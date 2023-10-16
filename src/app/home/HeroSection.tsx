@@ -21,6 +21,7 @@ const HeroSection = () => {
                         <GreetingLine />
 
                         <SectionTitle>Front-end Web Developer</SectionTitle>
+
                         <SectionSubtitle className="mb-3 max-w-[50ch]">
                             I craft captivating web interfaces that blend design
                             and functionality to create a pleasant user
@@ -34,7 +35,7 @@ const HeroSection = () => {
                                     to: 'primary-400',
                                 }}
                                 href="/img/hero_image_light.svg"
-                                className="grow"
+                                className="grow shadow-primary-300"
                                 download
                             >
                                 <ButtonIcon icon={HiDownload} />
@@ -47,7 +48,7 @@ const HeroSection = () => {
                                     from: 'primary-support',
                                     to: 'primary-support-400',
                                 }}
-                                className="grow"
+                                className="grow  shadow-primary-support-300"
                             >
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me
