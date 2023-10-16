@@ -151,7 +151,7 @@ export default TechnologiesSection
 type TechCardProps = {
     tech: (typeof techList)[number]
 }
-export const TechCard: React.FC<TechCardProps> = (props) => {
+export const TechCard = (props: TechCardProps) => {
     const { tech } = props
     const { id, icon: Icon, title, color } = tech
 
@@ -177,7 +177,7 @@ type TechCardGroupProps = {
     techCategory: (typeof techCategoriesList)[number]
 }
 
-const TechCardGroup: React.FC<TechCardGroupProps> = (props) => {
+const TechCardGroup = (props: TechCardGroupProps) => {
     const { techCategory } = props
 
     return (

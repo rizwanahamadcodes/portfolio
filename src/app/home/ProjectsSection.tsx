@@ -63,7 +63,7 @@ type ProjectProps = {
     positionInParent: number
 }
 
-const Project: React.FC<ProjectProps> = (props) => {
+const Project = (props: ProjectProps) => {
     const { project, positionInParent } = props
 
     return (

@@ -7,7 +7,7 @@ import Section, {
     SectionTitle,
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
-import React from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 import { sendEmail } from '../../../actions/sendEmail'
 import { experimental_useFormStatus } from 'react-dom'
 import OrDivider from '@/components/OrDivider'
@@ -81,7 +81,7 @@ type GetInTouchProps = {
     url: string
 }
 
-const GetInTouch: React.FC<GetInTouchProps> = (props) => {
+const GetInTouch = (props: GetInTouchProps) => {
     const { children, url } = props
     return (
         <a href={url}>
@@ -96,7 +96,7 @@ type GetInTouchIconProps = {
     icon: IconType
 }
 
-const GetInTouchIcon: React.FC<GetInTouchIconProps> = (props) => {
+const GetInTouchIcon = (props: GetInTouchIconProps) => {
     const { icon: Icon } = props
     return (
         <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-primary">
@@ -110,7 +110,7 @@ type GetInTouchBodyProps = {
     linkLabel: string
 }
 
-const GetInTouchBody: React.FC<GetInTouchBodyProps> = (props) => {
+const GetInTouchBody = (props: GetInTouchBodyProps) => {
     const { label, linkLabel } = props
     return (
         <p>
@@ -120,7 +120,7 @@ const GetInTouchBody: React.FC<GetInTouchBodyProps> = (props) => {
     )
 }
 
-const CustomInput: React.FC<React.HTMLProps<HTMLInputElement>> = (props) => {
+const CustomInput = (props: ComponentPropsWithoutRef<'input'>) => {
     return (
         <input
             {...props}
@@ -129,9 +129,7 @@ const CustomInput: React.FC<React.HTMLProps<HTMLInputElement>> = (props) => {
     )
 }
 
-const CustomTextarea: React.FC<React.HTMLProps<HTMLTextAreaElement>> = (
-    props
-) => {
+const CustomTextarea = (props: ComponentPropsWithoutRef<'textarea'>) => {
     return (
         <textarea
             {...props}
@@ -147,7 +145,7 @@ export const ContactForm = () => {
     const { pending } = experimental_useFormStatus()
 
     return (
-        <div className="grow rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
+        <div className="grow rounded-2xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
             <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
             <form
                 className="flex flex-col gap-4 md:items-start"
