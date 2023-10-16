@@ -4,7 +4,7 @@ import Section, {
     SectionTitle,
 } from '@/components/Section'
 import Image from 'next/image'
-import Button from '@/components/Button'
+import Button, { ButtonIcon, NextJsLinkButton } from '@/components/Button'
 import { FaGithub } from 'react-icons/fa'
 import { TbWindowMaximize } from 'react-icons/tb'
 import cn from '@/components/utils/cn'
@@ -79,20 +79,22 @@ const Project: React.FC<ProjectProps> = (props) => {
                 </SectionCategoryTitle>
                 <p className="mb-2">{project.projectDesc}</p>
                 <div className="flex flex-col gap-4 lg:flex-row">
-                    <Button
+                    <NextJsLinkButton
                         btnType="outline"
-                        rightIcon={FaGithub}
                         colorScheme={'gray'}
+                        href=""
                     >
+                        <ButtonIcon icon={FaGithub} />
                         Code
-                    </Button>
-                    <Button
-                        rightIcon={TbWindowMaximize}
+                    </NextJsLinkButton>
+                    <NextJsLinkButton
                         btnType="outline"
                         colorScheme={'gray'}
+                        href=""
                     >
+                        <ButtonIcon icon={TbWindowMaximize} />
                         Live Demo
-                    </Button>
+                    </NextJsLinkButton>
                 </div>
             </div>
             <div className="relative sm:w-2/4">

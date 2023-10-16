@@ -14,8 +14,6 @@ type NewButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string
     colorScheme?: Colors | { from: Colors; to: Colors }
     btnType?: 'solid' | 'outline' | 'ghost'
-    leftIcon?: IconType
-    rightIcon?: IconType
 }
 
 const Button: React.FC<NewButtonProps> = (props) => {
@@ -24,11 +22,102 @@ const Button: React.FC<NewButtonProps> = (props) => {
         className,
         colorScheme = 'primary',
         btnType = 'solid',
-        leftIcon: LeftIcon,
-        rightIcon: RightIcon,
         ...otherProps
     } = props
 
+    const completeButtonClasses = getButtonStyles(
+        className,
+        colorScheme,
+        btnType
+    )
+
+    return (
+        <button className={completeButtonClasses} {...otherProps}>
+            {children}
+        </button>
+    )
+}
+
+type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    children: React.ReactNode
+    className?: string
+    colorScheme?: Colors | { from: Colors; to: Colors }
+    btnType?: 'solid' | 'outline' | 'ghost'
+}
+
+export const AnchorButton: React.FC<AnchorButtonProps> = (props) => {
+    const {
+        children,
+        className,
+        colorScheme = 'primary',
+        btnType = 'solid',
+        ...otherProps
+    } = props
+
+    const completeButtonClasses = getButtonStyles(
+        className,
+        colorScheme,
+        btnType
+    )
+
+    return (
+        <a className={completeButtonClasses} {...otherProps}>
+            {children}
+        </a>
+    )
+}
+
+type NextJsLinkButtonProps = LinkProps & {
+    children: React.ReactNode
+    className?: string
+    colorScheme?: Colors | { from: Colors; to: Colors }
+    btnType?: 'solid' | 'outline' | 'ghost'
+}
+
+export const NextJsLinkButton: React.FC<NextJsLinkButtonProps> = (props) => {
+    const {
+        children,
+        className,
+        colorScheme = 'primary',
+        btnType = 'solid',
+        ...otherProps
+    } = props
+
+    const completeButtonClasses = getButtonStyles(
+        className,
+        colorScheme,
+        btnType
+    )
+
+    return (
+        <>
+            <Link className={completeButtonClasses} {...otherProps}>
+                {children}
+            </Link>
+        </>
+    )
+}
+
+type ButtonIconProps = {
+    className?: string
+    icon: IconType
+}
+export const ButtonIcon: React.FC<ButtonIconProps> = (props) => {
+    const { className, icon: Icon } = props
+
+    return <Icon className={cn('text-xl', className)} />
+}
+type getButtonStyles = (
+    className?: string,
+    colorScheme?: Colors | { from: Colors; to: Colors },
+    btnType?: 'solid' | 'outline' | 'ghost'
+) => string
+
+export const getButtonStyles: getButtonStyles = (
+    className,
+    colorScheme = 'primary',
+    btnType = 'solid'
+) => {
     const resolvedColorScheme =
         btnType != 'solid' && typeof colorScheme != 'string'
             ? colorScheme.from
@@ -118,22 +207,7 @@ const Button: React.FC<NewButtonProps> = (props) => {
         },
         className
     )
-
-    const iconClasses = `text-xl`
-
-    const content = (
-        <>
-            {LeftIcon ? <LeftIcon className={iconClasses} /> : ''}
-            {children}
-            {RightIcon ? <RightIcon className={iconClasses} /> : ''}
-        </>
-    )
-
-    return (
-        <button className={completeButtonClasses} {...otherProps}>
-            {content}
-        </button>
-    )
+    return completeButtonClasses
 }
 
 export default Button
