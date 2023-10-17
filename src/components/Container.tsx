@@ -1,10 +1,13 @@
 import cn from './utils/cn'
 
-const Container: React.FC<React.HTMLProps<HTMLDivElement>> = (props) => {
-    const { children, className, ...rest } = props
+const Container = (props: React.ComponentPropsWithoutRef<'div'>) => {
+    const { children, className, ...otherProps } = props
 
     return (
-        <div {...rest} className={cn('m-auto w-[86%] max-w-7xl', className)}>
+        <div
+            {...otherProps}
+            className={cn('m-auto w-[86%] max-w-7xl', className)}
+        >
             {children}
         </div>
     )

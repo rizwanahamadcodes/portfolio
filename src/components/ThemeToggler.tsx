@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { IoIosMoon, IoIosSunny } from 'react-icons/io'
 import cn from './utils/cn'
 
-const ThemeToggler = (props: React.HTMLProps<HTMLLabelElement>) => {
+const ThemeToggler = (props: React.ComponentPropsWithoutRef<'label'>) => {
     const { className } = props
 
     const [mounted, setMounted] = useState(false)

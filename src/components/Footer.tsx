@@ -107,8 +107,8 @@ const Footer = () => {
     )
 }
 
-export const HorizontalDivider: React.FC<HTMLProps<HTMLDivElement>> = (
-    props
+export const HorizontalDivider = (
+    props: React.ComponentPropsWithoutRef<'div'>
 ) => {
     const { className } = props
     return (
@@ -124,7 +124,7 @@ export const HorizontalDivider: React.FC<HTMLProps<HTMLDivElement>> = (
 type FooterColumnProps = {
     children: React.ReactNode
 }
-const FooterColumn: React.FC<FooterColumnProps> = (props) => {
+const FooterColumn = (props: FooterColumnProps) => {
     const { children } = props
 
     return <div className="flex flex-col gap-4">{children}</div>
@@ -133,7 +133,7 @@ const FooterColumn: React.FC<FooterColumnProps> = (props) => {
 type FooterColumnTitleProps = {
     children: React.ReactNode
 }
-const FooterColumnTitle: React.FC<FooterColumnTitleProps> = (props) => {
+const FooterColumnTitle = (props: FooterColumnTitleProps) => {
     const { children } = props
 
     return <div className="font-semibold uppercase">{children}</div>
@@ -142,7 +142,7 @@ const FooterColumnTitle: React.FC<FooterColumnTitleProps> = (props) => {
 type FooterColumnBodyProps = {
     children: React.ReactNode
 }
-const FooterColumnBody: React.FC<FooterColumnBodyProps> = (props) => {
+const FooterColumnBody = (props: FooterColumnBodyProps) => {
     const { children } = props
 
     return <div>{children}</div>
@@ -156,7 +156,7 @@ type FooterLinkType = {
 type FooterColumnLinksProps = {
     links: FooterLinkType[]
 }
-const FooterColumnLinks: React.FC<FooterColumnLinksProps> = (props) => {
+const FooterColumnLinks = (props: FooterColumnLinksProps) => {
     const { links } = props
 
     return (

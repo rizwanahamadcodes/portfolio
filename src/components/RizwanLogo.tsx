@@ -10,7 +10,7 @@ type RizwanLogoProps = Omit<ImageProps, 'src' | 'alt'> & {
     scrolledPast80?: boolean
 }
 
-const RizwanLogo: React.FC<RizwanLogoProps> = (props) => {
+const RizwanLogo = (props: RizwanLogoProps) => {
     const { scrolledPast80, variant = 'gradient', ...otherProps } = props
 
     return (
