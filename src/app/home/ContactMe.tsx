@@ -124,14 +124,25 @@ type CustomFieldProps<Field> = Field & {
     register: UseFormRegister<visitorSchema>
     getFieldState: UseFormGetFieldState<visitorSchema>
     isSubmitted: boolean
+    success: boolean
 }
 
 const CustomInput = (
     props: CustomFieldProps<React.ComponentPropsWithoutRef<'input'>>
 ) => {
-    const { name, register, getFieldState, isSubmitted, ...otherProps } = props
+    const {
+        name,
+        register,
+        getFieldState,
+        isSubmitted,
+        success,
+        ...otherProps
+    } = props
 
     const { invalid, error } = getFieldState(name)
+
+    const baseInputClasses =
+        'border-gray-200 shadow-primary-glow-initial hover:shadow-primary-glow focus:border-primary dark:border-gray-800 dark:focus:border-primary'
 
     return (
         <div>
@@ -142,8 +153,10 @@ const CustomInput = (
                     isSubmitted
                         ? invalid
                             ? 'border-red-500 shadow-alert-glow-initial hover:shadow-alert-glow focus:shadow-alert-glow'
-                            : 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
-                        : 'border-gray-200 shadow-primary-glow-initial hover:shadow-primary-glow focus:border-primary dark:border-gray-800 dark:focus:border-primary'
+                            : !success
+                            ? 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
+                            : baseInputClasses
+                        : baseInputClasses
                 )}
                 {...otherProps}
             />
@@ -177,7 +190,7 @@ export const ContactForm = () => {
     const {
         register,
         handleSubmit,
-        control,
+        reset,
         getFieldState,
         formState: {
             errors,
@@ -204,13 +217,16 @@ export const ContactForm = () => {
             if (response.ok) {
                 setSuccess(true)
                 setLoading(false)
+                reset()
             } else {
                 setError('An error occurred while sending the email.')
                 setLoading(false)
+                reset()
             }
         } catch (error) {
             setError('An error occurred while sending the email.')
             setLoading(false)
+            reset()
         }
     }
 
@@ -228,6 +244,7 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
+                    success={success}
                 ></CustomInput>
                 <CustomInput
                     name="email"
@@ -236,6 +253,7 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
+                    success={success}
                 />
                 <CustomInput
                     name="subject"
@@ -244,6 +262,7 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
+                    success={success}
                 />
                 <CustomTextarea
                     name="message"
@@ -252,6 +271,7 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
+                    success={success}
                 ></CustomTextarea>
 
                 <Button
