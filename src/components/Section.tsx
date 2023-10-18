@@ -9,7 +9,7 @@ type SectionProps = {
 const Section = (props: SectionProps) => {
     const { children, className } = props
 
-    return <section className={cn('py-10', className)}>{children}</section>
+    return <section className={cn('py-8', className)}>{children}</section>
 }
 
 export default Section
@@ -28,7 +28,7 @@ export const SectionTitle = (props: SectionTitleProps) => {
     return (
         <h2
             className={cn(
-                'text-2xl font-medium sm:text-3xl',
+                'text-2xl font-medium sm:text-4xl',
                 defaultBottomMargin && 'mb-8',
                 headingColorClasses,
                 className
@@ -49,15 +49,9 @@ export const SectionSubtitle = (props: SectionSubtitleProps) => {
     const { children, className, defaultBottomMargin } = props
 
     return (
-        <h3
-            className={cn(
-                'sm:xl text-lg font-medium',
-                defaultBottomMargin && 'mb-8',
-                className
-            )}
-        >
+        <p className={cn(defaultBottomMargin && 'mb-8', className)}>
             {children}
-        </h3>
+        </p>
     )
 }
 
