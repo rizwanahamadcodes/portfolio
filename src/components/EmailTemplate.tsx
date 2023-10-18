@@ -7,12 +7,13 @@ interface EmailTemplateProps {
     message?: string
 }
 
-const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-    fullName,
-}) => (
-    <div>
-        <h1>Welcome, {fullName}!</h1>
-    </div>
-)
+const EmailTemplate = (props: Readonly<EmailTemplateProps>) => {
+    const { fullName, email, subject, message } = props
+    return (
+        <div>
+            <h1>Welcome, {fullName}!</h1>
+        </div>
+    )
+}
 
 export default EmailTemplate
