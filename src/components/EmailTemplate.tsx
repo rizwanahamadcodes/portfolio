@@ -1,3 +1,5 @@
+'use server'
+
 type EmailTemplateProps = {
     firstName: string
 }
