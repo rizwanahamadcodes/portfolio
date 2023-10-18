@@ -170,7 +170,7 @@ const CustomTextarea = (
 export const ContactForm = () => {
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState('')
 
     const {
         register,
@@ -187,13 +187,28 @@ export const ContactForm = () => {
         },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
-    console.log(control)
-
     const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
         try {
             setLoading(true)
+
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            if (response.ok) {
+                setSuccess(true)
+                setLoading(false)
+            } else {
+                setError('An error occurred while sending the email.')
+                setLoading(false)
+            }
         } catch (error) {
-        } finally {
+            setError('An error occurred while sending the email.')
+            setLoading(false)
         }
     }
 

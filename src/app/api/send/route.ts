@@ -7,25 +7,18 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST(data: FormData) {
+export async function POST(request: Request) {
+    const formData = await request.json()
+
     try {
         const data = await resend.emails.send({
             from: 'Portfolio <onboarding@resend.dev>',
             to: 'rizwanahamadcodes@gmail.com',
             subject: 'Hello world',
             react: React.createElement(EmailTemplate, {
-                firstName: 'Johnny Depp' as string,
+                fullName: formData.fullName,
             }),
         })
-        return {
-            status: 'success',
-            message: 'Email sent successfully.',
-        }
-    } catch (error) {
-        return {
-            status: 'error',
-            message:
-                'An error occured while sending the email, please try again.',
-        }
-    }
+        return NextResponse.json({ status: 'ok' })
+    } catch (error) {}
 }
