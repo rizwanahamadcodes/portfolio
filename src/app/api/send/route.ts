@@ -1,25 +1,31 @@
 'use server'
 
+import React from 'react'
 import EmailTemplate from '@/components/EmailTemplate'
 import { NextResponse } from 'next/server'
-
-import { error } from 'console'
 import { Resend } from 'resend'
-import React from 'react'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST() {
+export async function POST(data: FormData) {
     try {
         const data = await resend.emails.send({
             from: 'Portfolio <onboarding@resend.dev>',
-            to: ['testingrizwan@gmail.com'],
+            to: 'rizwanahamadcodes@gmail.com',
             subject: 'Hello world',
-            react: EmailTemplate({ firstName: 'Johnny Depp' }),
+            react: React.createElement(EmailTemplate, {
+                firstName: 'Johnny Depp' as string,
+            }),
         })
-
-        return NextResponse.json(data)
+        return {
+            status: 'success',
+            message: 'Email sent successfully.',
+        }
     } catch (error) {
-        return NextResponse.json({ error })
+        return {
+            status: 'error',
+            message:
+                'An error occured while sending the email, please try again.',
+        }
     }
 }

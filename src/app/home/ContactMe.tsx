@@ -7,7 +7,7 @@ import Section, {
     SectionTitle,
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
-import React, { ComponentPropsWithoutRef } from 'react'
+import React, { ComponentPropsWithoutRef, useState } from 'react'
 import OrDivider from '@/components/OrDivider'
 import { SiGmail } from 'react-icons/si'
 import { BsInstagram, BsMessenger } from 'react-icons/bs'
@@ -168,9 +168,14 @@ const CustomTextarea = (
 }
 
 export const ContactForm = () => {
+    const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState(null)
+
     const {
         register,
         handleSubmit,
+        control,
         getFieldState,
         formState: {
             errors,
@@ -182,8 +187,14 @@ export const ContactForm = () => {
         },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
-    const onSubmit: SubmitHandler<visitorSchema> = (data) => {
-        POST()
+    console.log(control)
+
+    const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
+        try {
+            setLoading(true)
+        } catch (error) {
+        } finally {
+        }
     }
 
     return (

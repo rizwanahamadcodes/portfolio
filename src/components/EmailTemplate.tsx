@@ -1,17 +1,15 @@
-'use server'
+import * as React from 'react'
 
-type EmailTemplateProps = {
+interface EmailTemplateProps {
     firstName: string
 }
 
-const EmailTemplate = (props: Readonly<EmailTemplateProps>) => {
-    const { firstName } = props
-
-    return (
-        <div>
-            <h1>Welcome, {firstName}!</h1>
-        </div>
-    )
-}
+const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+    firstName,
+}) => (
+    <div>
+        <h1>Welcome, {firstName}!</h1>
+    </div>
+)
 
 export default EmailTemplate
