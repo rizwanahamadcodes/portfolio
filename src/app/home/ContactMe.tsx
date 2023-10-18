@@ -25,6 +25,7 @@ import {
     useForm,
 } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { POST } from '../api/send/route'
 
 const visitorSchema = z.object({
     fullName: z
@@ -181,7 +182,9 @@ export const ContactForm = () => {
         },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
-    const onSubmit: SubmitHandler<visitorSchema> = (data) => {}
+    const onSubmit: SubmitHandler<visitorSchema> = (data) => {
+        POST()
+    }
 
     return (
         <div className="grow rounded-2xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
