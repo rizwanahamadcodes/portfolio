@@ -215,7 +215,7 @@ export const ContactForm = () => {
 
                 console.log('isSubmitted before reset = ', isSubmitted)
 
-                // reset()
+                reset()
 
                 console.log('isSubmitted after reset = ', isSubmitted)
             } else {
