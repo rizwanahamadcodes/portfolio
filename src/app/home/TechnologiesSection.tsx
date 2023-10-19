@@ -23,7 +23,7 @@ const techList = [
         categoryId: 1,
         icon: SiNextdotjs,
         color: '#000',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/next-js-icon-seeklogo.com.svg',
     },
     {
         id: 2,
@@ -31,7 +31,7 @@ const techList = [
         categoryId: 1,
         icon: DiReact,
         color: '#00d8ff',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/react-seeklogo.com.svg',
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ const techList = [
         categoryId: 1,
         icon: SiTypescript,
         color: '#007acc',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/typescript-seeklogo.com.svg',
     },
     {
         id: 4,
@@ -47,7 +47,7 @@ const techList = [
         categoryId: 1,
         icon: DiJavascript,
         color: '#f7df1e',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/javascript-js-seeklogo.com.svg',
     },
     {
         id: 5,
@@ -55,7 +55,7 @@ const techList = [
         categoryId: 2,
         icon: DiCss3,
         color: '#2965f1',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/css-3-seeklogo.com.svg',
     },
     {
         id: 6,
@@ -63,7 +63,7 @@ const techList = [
         categoryId: 2,
         icon: DiSass,
         color: '#c69',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/sass-seeklogo.com.svg',
     },
     {
         id: 7,
@@ -71,7 +71,7 @@ const techList = [
         categoryId: 2,
         icon: SiTailwindcss,
         color: '#00b4b6',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/tailwind-css-seeklogo.com.svg',
     },
     {
         id: 8,
@@ -79,7 +79,7 @@ const techList = [
         categoryId: 2,
         icon: SiBootstrap,
         color: '#8911fb',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/bootstrap-5-seeklogo.com.svg',
     },
     {
         id: 9,
@@ -87,7 +87,7 @@ const techList = [
         categoryId: 3,
         icon: DiHtml5,
         color: '#e34f26',
-        imgUrl: '/img/technology/figma-seeklogo.com.svg',
+        imgUrl: '/img/technology/html5-without-wordmark-color.svg',
     },
 ]
 
@@ -141,8 +141,8 @@ export const TechCard = (props: TechCardProps) => {
     const { id, icon: Icon, title, color, imgUrl } = tech
 
     return (
-        <div className="flex gap-4 rounded-lg p-4 shadow-soft">
-            <Image src={imgUrl} alt={title + ' image'} width={20} height={20} />
+        <div className="flex items-center gap-4 rounded-md p-4 shadow-soft">
+            <Image src={imgUrl} alt={title + ' image'} width={40} height={40} />
             <p>{title}</p>
         </div>
     )

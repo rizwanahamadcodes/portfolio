@@ -139,8 +139,6 @@ const CustomInput = (
         ...otherProps
     } = props
 
-    console.log(isSubmitted)
-
     const { invalid, error } = getFieldState(name)
 
     const baseInputClasses =

@@ -49,7 +49,7 @@ export const SectionSubtitle = (props: SectionSubtitleProps) => {
     const { children, className, defaultBottomMargin } = props
 
     return (
-        <p className={cn(defaultBottomMargin && 'mb-8', className)}>
+        <p className={cn('text-lg', defaultBottomMargin && 'mb-8', className)}>
             {children}
         </p>
     )

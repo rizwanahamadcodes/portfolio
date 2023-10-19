@@ -35,7 +35,10 @@
         @apply text-xl;
     }
     p {
-        @apply text-lg leading-relaxed text-gray-700 dark:text-gray-300;
+        @apply text-base leading-relaxed text-gray-700 dark:text-gray-300;
         /* @apply transition-colors; */
+    }
+    a {
+        @apply text-gray-700 dark:text-gray-300;
     }
 }

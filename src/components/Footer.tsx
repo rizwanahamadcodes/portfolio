@@ -73,8 +73,10 @@ const Footer = () => {
                             <RizwanLogo variant="blackandwhite" />
                         </FooterColumnTitle>
                         <FooterColumnBody>
-                            Feel free to get in touch for your projects. Looking
-                            forward to hearing from you.
+                            <p>
+                                Feel free to get in touch for your projects.
+                                Looking forward to hearing from you.
+                            </p>
                         </FooterColumnBody>
                     </FooterColumn>
 
@@ -99,9 +101,9 @@ const Footer = () => {
                         </FooterColumnBody>
                     </FooterColumn>
                 </Container>
-                <div className=" bg-gray-50 py-6 text-center dark:bg-gray-800">
+                <p className="bg-gray-50 py-4 text-center dark:bg-gray-800">
                     Copyright
-                </div>
+                </p>
             </Section>
         </footer>
     )
