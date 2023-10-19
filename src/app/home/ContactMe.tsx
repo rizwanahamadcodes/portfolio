@@ -139,6 +139,8 @@ const CustomInput = (
         ...otherProps
     } = props
 
+    console.log(isSubmitted)
+
     const { invalid, error } = getFieldState(name)
 
     const baseInputClasses =
@@ -208,14 +210,14 @@ export const ContactForm = () => {
                 },
             })
 
+            reset()
+
             if (response.ok) {
                 setSuccess(true)
                 setLoading(false)
-                reset()
             } else {
                 setError('An error occurred while sending the email.')
                 setLoading(false)
-                reset()
             }
         } catch (error) {
             setError('An error occurred while sending the email.')
@@ -286,10 +288,7 @@ export const ContactForm = () => {
                 </Button>
                 {success ? (
                     <p>Thank you for reaching out, we will get in touch soon</p>
-                ) : (
-                    ''
-                )}
-                {error ? (
+                ) : error ? (
                     <p>
                         Apologies there was an internal error in sending the
                         message, please try again once
