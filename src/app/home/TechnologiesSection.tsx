@@ -4,6 +4,7 @@ import Section, {
     SectionSubtitle,
     SectionTitle,
 } from '@/components/Section'
+import Image from 'next/image'
 import { CgFigma } from 'react-icons/cg'
 import { DiCss3, DiHtml5, DiJavascript, DiReact, DiSass } from 'react-icons/di'
 import {
@@ -22,6 +23,7 @@ const techList = [
         categoryId: 1,
         icon: SiNextdotjs,
         color: '#000',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 2,
@@ -29,6 +31,7 @@ const techList = [
         categoryId: 1,
         icon: DiReact,
         color: '#00d8ff',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 3,
@@ -36,6 +39,7 @@ const techList = [
         categoryId: 1,
         icon: SiTypescript,
         color: '#007acc',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 4,
@@ -43,6 +47,7 @@ const techList = [
         categoryId: 1,
         icon: DiJavascript,
         color: '#f7df1e',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 5,
@@ -50,6 +55,7 @@ const techList = [
         categoryId: 2,
         icon: DiCss3,
         color: '#2965f1',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 6,
@@ -57,6 +63,7 @@ const techList = [
         categoryId: 2,
         icon: DiSass,
         color: '#c69',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 7,
@@ -64,6 +71,7 @@ const techList = [
         categoryId: 2,
         icon: SiTailwindcss,
         color: '#00b4b6',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 8,
@@ -71,6 +79,7 @@ const techList = [
         categoryId: 2,
         icon: SiBootstrap,
         color: '#8911fb',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
     {
         id: 9,
@@ -78,27 +87,7 @@ const techList = [
         categoryId: 3,
         icon: DiHtml5,
         color: '#e34f26',
-    },
-    {
-        id: 10,
-        title: 'Photoshop',
-        categoryId: 4,
-        icon: SiAdobephotoshop,
-        color: '#100f27',
-    },
-    {
-        id: 11,
-        title: 'Illustrator',
-        categoryId: 4,
-        icon: SiAdobeillustrator,
-        color: '#261300',
-    },
-    {
-        id: 12,
-        title: 'Figma',
-        categoryId: 4,
-        icon: CgFigma,
-        color: '#0acf84',
+        imgUrl: '/img/technology/figma-seeklogo.com.svg',
     },
 ]
 
@@ -114,10 +103,6 @@ const techCategoriesList = [
     {
         id: 3,
         title: 'Markup',
-    },
-    {
-        id: 4,
-        title: 'Design Tools',
     },
 ]
 
@@ -153,22 +138,12 @@ type TechCardProps = {
 }
 export const TechCard = (props: TechCardProps) => {
     const { tech } = props
-    const { id, icon: Icon, title, color } = tech
+    const { id, icon: Icon, title, color, imgUrl } = tech
 
     return (
-        <div
-            key={id}
-            className="rounded-full` flex items-center gap-4 active:scale-[0.98]"
-        >
-            <div
-                style={{
-                    background: color,
-                }}
-                className="flex items-center justify-center rounded-full bg-white p-2 dark:bg-gray-600"
-            >
-                <Icon size={30} className="text-white" />
-            </div>
-            <p>{tech.title}</p>
+        <div className="flex gap-4 rounded-lg p-4 shadow-soft">
+            <Image src={imgUrl} alt={title + ' image'} width={20} height={20} />
+            <p>{title}</p>
         </div>
     )
 }
@@ -186,7 +161,7 @@ const TechCardGroup = (props: TechCardGroupProps) => {
                 {techCategory.title}
             </SectionCategoryTitle>
 
-            <div className="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {techList
                     .filter(
                         (techItem) => techItem.categoryId === techCategory.id

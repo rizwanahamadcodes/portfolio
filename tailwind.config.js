@@ -96,6 +96,7 @@ module.exports = {
                 'alert-glow-initial':
                     '0px 0px 0px 0px hsla(0deg, 50%, 50% 0.5)',
                 'alert-glow': '0px 0px 0px 4px hsla(0deg, 50%, 50%, 0.5)',
+                soft: '0 2px 4px 0px hsla(220deg, 10%, 10%, 0.1)',
             },
             spacing: {
                 'nav-height': '60px',

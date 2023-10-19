@@ -116,7 +116,7 @@ export const getButtonStyles: getButtonStyles = (
         secondary: 'bg-secondary hover:bg-secondary-600',
         'secondary-support':
             'bg-secondary-support hover:bg-secondary-support-600',
-        gray: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900 dark:font-bold',
+        gray: 'bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900',
     }
 
     const outlineColorMap = {
@@ -179,11 +179,11 @@ export const getButtonStyles: getButtonStyles = (
               )
 
     const outlineButtonClasses = cn(
-        'font-[700] border-2',
+        'border-2',
         outlineColorMap[resolvedColorScheme as keyof typeof outlineColorMap]
     )
     const ghostButtonClasses = cn(
-        'font-[700]',
+        '',
         ghostColorMap[resolvedColorScheme as keyof typeof ghostColorMap]
     )
 
