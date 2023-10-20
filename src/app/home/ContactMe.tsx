@@ -92,7 +92,7 @@ const ContactMe = () => {
                     <SectionTitle defaultBottomMargin>
                         Let&apos;s chat. <br /> Tell me about your project
                     </SectionTitle>
-                    <SectionSubtitle className="mb-4">
+                    <SectionSubtitle defaultBottomMargin>
                         Let&apos;s create something together.
                     </SectionSubtitle>
                     <div className="flex flex-col gap-4 sm:inline-flex">

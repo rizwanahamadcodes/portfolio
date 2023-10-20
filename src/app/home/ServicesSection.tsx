@@ -35,7 +35,7 @@ const ServicesSection = () => {
                 <SectionTitle defaultBottomMargin>I make websites</SectionTitle>
                 <SectionSubtitle defaultBottomMargin>that are:</SectionSubtitle>
             </Container>
-            <Container className="flex gap-4">
+            <Container className="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
                 {services.map((service) => {
                     const { title, icon, desc } = service
                     return (
