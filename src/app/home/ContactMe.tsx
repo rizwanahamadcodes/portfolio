@@ -72,7 +72,7 @@ const getInTouchItems = [
     },
     {
         label: 'Text me on Messenger:',
-        linkLabel: 'facebook.com/100047043491338',
+        linkLabel: 'messenger.com/100...',
         url: 'https://m.me/100047043491338',
         icon: BsMessenger,
     },
@@ -331,7 +331,7 @@ type GetInTouchIconProps = {
 const GetInTouchIcon = (props: GetInTouchIconProps) => {
     const { icon: Icon } = props
     return (
-        <div className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-primary">
+        <div className="flex min-h-[46px] min-w-[46px] items-center justify-center rounded-full bg-primary">
             <Icon size={26} className={'text-gray-100'} />
         </div>
     )
