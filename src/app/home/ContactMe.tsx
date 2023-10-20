@@ -232,7 +232,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="grow rounded-2xl p-4 shadow-soft md:max-w-md">
+        <div className="grow rounded-2xl  bg-gray-50 p-4 shadow-soft dark:bg-gray-850 md:max-w-md">
             <SectionCategoryTitle defaultBottomMargin>
                 Send me a message
             </SectionCategoryTitle>
@@ -321,7 +321,7 @@ const GetInTouch = (props: GetInTouchProps) => {
     const { children, url } = props
     return (
         <a href={url}>
-            <div className="inline-flex w-full items-center gap-4 rounded-full p-2 pr-6 shadow-soft transition-all active:scale-[0.98]">
+            <div className="inline-flex  w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 shadow-soft transition-all active:scale-[0.98] dark:bg-gray-850">
                 {children}
             </div>
         </a>
