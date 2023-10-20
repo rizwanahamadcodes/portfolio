@@ -66,7 +66,7 @@ type visitorSchema = z.infer<typeof visitorSchema>
 const getInTouchItems = [
     {
         label: 'Mail me at:',
-        linkLabel: 'rizwanahamadcodes@gmail.com',
+        linkLabel: 'rizwanahamadcodes@gmail',
         url: 'mailto:rizwanahamadcodes@gmail.com',
         icon: SiGmail,
     },
@@ -89,7 +89,7 @@ const ContactMe = () => {
         <Section>
             <Container className="flex flex-col items-stretch justify-between gap-8 md:flex-row">
                 <div className="relative grow md:max-w-md">
-                    <SectionTitle>
+                    <SectionTitle defaultBottomMargin>
                         Let&apos;s chat. <br /> Tell me about your project
                     </SectionTitle>
                     <SectionSubtitle className="mb-4">
@@ -149,7 +149,7 @@ const CustomInput = (
             <input
                 {...register(name)}
                 className={cn(
-                    'mb-2 w-full rounded-md border bg-transparent px-4 py-2 transition focus:bg-white focus:outline-none dark:focus:bg-gray-800',
+                    'w-full rounded-lg border bg-transparent px-4 py-2 transition focus:outline-none dark:focus:bg-gray-800',
                     baseInputClasses,
                     isSubmitted
                         ? invalid
@@ -161,7 +161,11 @@ const CustomInput = (
                 )}
                 {...otherProps}
             />
-            {error ? <p className="text-secondary">{error?.message}</p> : ''}
+            {error ? (
+                <p className="mt-2 text-secondary">{error?.message}</p>
+            ) : (
+                ''
+            )}
         </div>
     )
 }
@@ -175,7 +179,7 @@ const CustomTextarea = (
         <textarea
             {...register(name)}
             className={cn(
-                'w-full rounded-md border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:bg-white focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800',
+                'w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800',
                 'h-36 resize-none'
             )}
             {...otherProps}
@@ -212,39 +216,26 @@ export const ContactForm = () => {
                 setSuccess(true)
                 setLoading(false)
                 console.log('fetch okay')
-
-                console.log('isSubmitted before reset = ', isSubmitted)
-
-                reset()
-
-                console.log('isSubmitted after reset = ', isSubmitted)
             } else {
                 setError('An error occurred while sending the email.')
                 setLoading(false)
                 console.log('fetch not okay')
-
-                console.log('isSubmitted before reset = ', isSubmitted)
-
-                reset()
-
-                console.log('isSubmitted after reset = ', isSubmitted)
             }
         } catch (error) {
             setError('An error occurred while sending the email.')
             console.log('catch block')
             setLoading(false)
-
-            console.log('isSubmitted before reset = ', isSubmitted)
-
-            reset()
-
-            console.log('isSubmitted after reset = ', isSubmitted)
         }
+
+        reset()
+        // Please fix reset and input styling before deployment
     }
 
     return (
         <div className="grow rounded-2xl p-4 shadow-soft md:max-w-md">
-            <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
+            <SectionCategoryTitle defaultBottomMargin>
+                Send me a message
+            </SectionCategoryTitle>
             <form
                 className="flex flex-col gap-4"
                 onSubmit={handleSubmit(onSubmit)}
@@ -355,8 +346,8 @@ const GetInTouchBody = (props: GetInTouchBodyProps) => {
     const { label, linkLabel } = props
     return (
         <p>
-            <p className="text-sm leading-tight">{label}</p>
-            <p className="text-sm leading-tight">{linkLabel}</p>
+            <p className="leading-tight">{label}</p>
+            <p className="leading-tight">{linkLabel}</p>
         </p>
     )
 }

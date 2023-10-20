@@ -18,10 +18,12 @@ const HeroSection = () => {
             <Container className="relative flex flex-col items-center gap-16 lg:flex-row">
                 <div className="w-full">
                     <div className="flex flex-col items-start gap-8">
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col">
                             <GreetingLine />
 
-                            <SectionTitle>Front-end Web Developer</SectionTitle>
+                            <SectionTitle defaultBottomMargin>
+                                Front-end Web Developer
+                            </SectionTitle>
 
                             <SectionSubtitle className="max-w-[50ch]">
                                 I craft captivating web interfaces that blend
@@ -73,7 +75,7 @@ const HeroSection = () => {
 
 const GreetingLine = () => {
     return (
-        <h1 className="font-medium sm:text-7xl xl:text-[5.5rem]">
+        <h1 className="mb-4 font-medium sm:text-7xl xl:text-[5.5rem]">
             <div>Hi,</div>
             <div>
                 I am

@@ -110,7 +110,7 @@ const TechnologiesSection = () => {
     return (
         <Section>
             <Container>
-                <SectionTitle className="text-center">
+                <SectionTitle className="text-center" defaultBottomMargin>
                     Technologies I am familiar with
                 </SectionTitle>
                 <SectionSubtitle className="text-center" defaultBottomMargin>
@@ -141,7 +141,7 @@ export const TechCard = (props: TechCardProps) => {
     const { id, icon: Icon, title, color, imgUrl } = tech
 
     return (
-        <div className="flex items-center gap-4 rounded-md p-4 shadow-soft">
+        <div className="flex items-center gap-4 rounded-lg p-4 shadow-soft">
             <Image src={imgUrl} alt={title + ' image'} width={40} height={40} />
             <p>{title}</p>
         </div>
