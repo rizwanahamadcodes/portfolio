@@ -14,7 +14,7 @@ const Section = (props: SectionProps) => {
 
 export default Section
 
-const headingColorClasses = 'text-primary dark:text-primary font-medium'
+const headingColorClasses = ''
 
 type SectionTitleProps = {
     className?: string
@@ -28,9 +28,8 @@ export const SectionTitle = (props: SectionTitleProps) => {
     return (
         <h2
             className={cn(
-                'text-2xl font-medium sm:text-4xl',
+                'text-2xl font-medium text-primary dark:text-primary sm:text-4xl',
                 defaultBottomMargin && 'mb-2',
-                headingColorClasses,
                 className
             )}
         >
@@ -68,8 +67,7 @@ export const SectionCategoryTitle = (props: SectionCategoryTitleProps) => {
         <h5
             className={cn(
                 defaultBottomMargin && 'mb-4',
-                headingColorClasses,
-                'text-2xl text-gray-900 dark:text-gray-100',
+                'text-xl font-medium text-gray-900 dark:text-gray-100 sm:text-2xl',
                 className
             )}
         >

@@ -19,7 +19,7 @@ const navLinks = [
     { name: 'contact me', path: '/contact-me' },
 ]
 
-type NavMenuProps = React.ComponentPropsWithoutRef<"div"> & {
+type NavMenuProps = React.ComponentPropsWithoutRef<'div'> & {
     direction: 'row' | 'column'
     scrolledPast80: boolean
 }
@@ -95,12 +95,15 @@ const NavMenu: React.FC<NavMenuProps> = ({
                                 direction === 'column'
                                     ? 'h-nav-height'
                                     : 'h-full px-7',
-                                {
-                                    'bg-gray-900/10 text-primary-900 hover:bg-gray-900/10 dark:bg-gray-100/10 dark:text-primary-100 dark:hover:bg-gray-100/10':
-                                        navLink.path === pathname &&
-                                        (scrolledPast80 ||
-                                            direction === 'column'),
-                                }
+
+                                navLink.path === pathname
+                                    ? 'text-gray-900 hover:bg-gray-900/10 dark:text-gray-100 dark:hover:bg-gray-100/10'
+                                    : '',
+
+                                navLink.path === pathname &&
+                                    (direction === 'column' || scrolledPast80)
+                                    ? 'bg-gray-900/10 dark:bg-gray-100/10'
+                                    : ''
                             )}
                             onClick={(e) => {
                                 onLIClick({
