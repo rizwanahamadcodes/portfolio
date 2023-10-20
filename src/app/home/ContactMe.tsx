@@ -281,7 +281,11 @@ export const ContactForm = () => {
                     className={cn('w-full lg:w-auto')}
                     type="submit"
                     disabled={loading}
-                    colorScheme={loading ? 'gray' : 'primary'}
+                    colorScheme={
+                        loading
+                            ? 'gray'
+                            : { from: 'primary', to: 'primary-400' }
+                    }
                 >
                     {loading ? (
                         <ButtonIcon
@@ -331,7 +335,7 @@ type GetInTouchIconProps = {
 const GetInTouchIcon = (props: GetInTouchIconProps) => {
     const { icon: Icon } = props
     return (
-        <div className="flex min-h-[46px] min-w-[46px] items-center justify-center rounded-full bg-primary">
+        <div className="flex min-h-[46px] min-w-[46px] items-center justify-center rounded-full bg-primary bg-gradient-to-t from-primary to-primary-400">
             <Icon size={26} className={'text-gray-100'} />
         </div>
     )
