@@ -12,21 +12,21 @@ import Container from '@/components/Container'
 
 const projects = [
     {
-        projectTitle: 'public forum',
+        projectTitle: 'Public Forum',
         projectDesc:
             'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.',
         projectImageSrc: '/img/wordanalytics.png',
     },
 
     {
-        projectTitle: 'e-commerce',
+        projectTitle: 'E-commerce',
         projectDesc:
             'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.',
         projectImageSrc: '/img/corpcomment.png',
     },
 
     {
-        projectTitle: 'messaging',
+        projectTitle: 'Messaging',
         projectDesc:
             'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.',
         projectImageSrc: '/img/rmtdev.png',
@@ -35,8 +35,8 @@ const projects = [
 
 const ProjectsSection = () => {
     return (
-        <Section>
-            <Container className="flex flex-col items-center">
+        <Section className="bg-gray-150 dark:bg-gray-850">
+            <Container className="flex flex-col  items-center">
                 <SectionTitle className="text-center" defaultBottomMargin>
                     Projects I have worked on
                 </SectionTitle>
@@ -44,7 +44,7 @@ const ProjectsSection = () => {
                     Every project featuring the usage of some of the most
                     important front end tools
                 </SectionSubtitle>
-                <div className="flex max-w-3xl flex-col gap-6">
+                <div className="flex max-w-3xl flex-col gap-4">
                     {projects.map((project, index) => (
                         <Project
                             project={project}
@@ -69,12 +69,12 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={cn(
-                'group flex flex-col overflow-hidden rounded-2xl bg-gray-50 p-3 shadow-soft hover:shadow dark:bg-gray-850 sm:flex-row-reverse',
+                'group flex flex-col overflow-hidden rounded-2xl bg-gray-100 p-3 shadow-soft hover:shadow dark:bg-gray-800  sm:flex-row-reverse',
                 positionInParent % 2 === 0 && 'sm:flex-row'
             )}
         >
             <div className="p-4 sm:w-2/4">
-                <SectionCategoryTitle defaultBottomMargin className="uppercase">
+                <SectionCategoryTitle defaultBottomMargin>
                     {project.projectTitle}
                 </SectionCategoryTitle>
                 <p className="mb-2">{project.projectDesc}</p>

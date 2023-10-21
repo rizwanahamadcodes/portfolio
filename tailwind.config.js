@@ -69,17 +69,24 @@ module.exports = {
                 },
 
                 gray: {
-                    50: 'hsl(220deg,10%,95%)', //#e6e6e6
-                    100: 'hsl(220deg,10%,90%)', //#e6e6e6
-                    200: 'hsl(220deg,10%,80%)', //#cccccc
-                    300: 'hsl(220deg,10%,70%)', //#b3b3bb3
-                    400: 'hsl(220deg,10%,60%)', //#999999
-                    500: 'hsl(220deg,10%,50%)', //#808080
-                    600: 'hsl(220deg,10%,40%)', //#666666
-                    700: 'hsl(220deg,10%,30%)', //#4d4d4d
-                    800: 'hsl(220deg,10%,20%)', //#333333
-                    850: 'hsl(220deg,10%,15%)', //#1a1a1a
-                    900: 'hsl(220deg,10%,10%)', //#1a1a1a
+                    50: 'hsl(220deg, 10%, 95%)',
+                    100: 'hsl(220deg, 10%, 90%)',
+                    150: 'hsl(220deg, 10%, 85%)',
+                    200: 'hsl(220deg, 10%, 80%)',
+                    250: 'hsl(220deg, 10%, 75%)',
+                    300: 'hsl(220deg, 10%, 70%)',
+                    350: 'hsl(220deg, 10%, 65%)',
+                    400: 'hsl(220deg, 10%, 60%)',
+                    450: 'hsl(220deg, 10%, 55%)',
+                    500: 'hsl(220deg, 10%, 50%)',
+                    550: 'hsl(220deg, 10%, 45%)',
+                    600: 'hsl(220deg, 10%, 40%)',
+                    650: 'hsl(220deg, 10%, 35%)',
+                    700: 'hsl(220deg, 10%, 30%)',
+                    750: 'hsl(220deg, 10%, 25%)',
+                    800: 'hsl(220deg, 10%, 20%)',
+                    850: 'hsl(220deg, 10%, 15%)',
+                    900: 'hsl(220deg, 10%, 10%)',
                 },
             },
             boxShadow: {
@@ -106,6 +113,20 @@ module.exports = {
     },
     plugins: [],
 }
+
+// gray: {
+//     50: 'hsl(220deg,10%,95%)', //#e6e6e6
+//     100: 'hsl(220deg,10%,90%)', //#e6e6e6
+//     200: 'hsl(220deg,10%,80%)', //#cccccc
+//     300: 'hsl(220deg,10%,70%)', //#b3b3bb3
+//     400: 'hsl(220deg,10%,60%)', //#999999
+//     500: 'hsl(220deg,10%,50%)', //#808080
+//     600: 'hsl(220deg,10%,40%)', //#666666
+//     700: 'hsl(220deg,10%,30%)', //#4d4d4d
+//     800: 'hsl(220deg,10%,20%)', //#333333
+//     850: 'hsl(220deg,10%,15%)', //#1a1a1a
+//     900: 'hsl(220deg,10%,10%)', //#1a1a1a
+// },
 
 // Avoid using support color they were included just for effects like gradients, backgrounds, etc not for text colors or other elements, they should us the primary color consistently
 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
