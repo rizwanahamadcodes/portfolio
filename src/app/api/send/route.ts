@@ -1,5 +1,3 @@
-'use server'
-
 import React from 'react'
 import EmailTemplate from '@/components/EmailTemplate'
 import { NextResponse } from 'next/server'
