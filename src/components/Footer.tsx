@@ -104,7 +104,9 @@ const Footer = () => {
                     </FooterColumn>
                 </Container>
                 <p className="bg-gray-100 py-4 text-center dark:bg-gray-800 ">
-                    {`Made with love and feedback from my friends ${friendsString}`}
+                    <Container>
+                        {`Made with love and feedback from my friends ${friendsString}`}
+                    </Container>
                 </p>
             </Section>
         </footer>
