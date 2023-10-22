@@ -58,7 +58,9 @@ const Navbar = () => {
                         direction="row"
                         className="hidden lg:block"
                     />
-                    <ThemeToggler className="hidden lg:block" />
+                    <div className="min-w-[64px]">
+                        <ThemeToggler className="hidden lg:block" />
+                    </div>
                     <Hamburger className="lg:hidden" onClick={onOpen} />
                     <Drawer
                         className="lg:hidden"
