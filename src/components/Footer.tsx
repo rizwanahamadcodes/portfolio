@@ -8,6 +8,7 @@ import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
 import Container from './Container'
 import cn from './utils/cn'
+import FooterCopyright from './FooterCopyright'
 
 const footerLinks = [
     {
@@ -62,9 +63,6 @@ const FooterContactLinks = [
         icon: SiGmail,
     },
 ]
-const friendsName = ['Aditi', 'Roshni']
-const sortedFriendsName = friendsName.sort(() => Math.random() - 0.5)
-const friendsString = sortedFriendsName.join(' and ')
 const Footer = () => {
     return (
         <footer className="mt-auto">
@@ -103,11 +101,7 @@ const Footer = () => {
                         </FooterColumnBody>
                     </FooterColumn>
                 </Container>
-                <p className="bg-gray-100 py-4 text-center dark:bg-gray-800 ">
-                    <Container>
-                        {`Made with love and feedback from my friends ${friendsString}`}
-                    </Container>
-                </p>
+                <FooterCopyright />
             </Section>
         </footer>
     )
