@@ -26,10 +26,12 @@ export default function RootLayout(props: RootLayoutProps) {
 
     return (
         <html lang="en">
-            <body className={`${montserrat.variable} font-sans`}>
+            <body
+                className={`${montserrat.variable} flex h-screen flex-col font-sans`}
+            >
                 <WorkaroundThemeProvider>
                     <Navbar />
-                    {children}
+                    <main>{children}</main>
                     <Footer />
                 </WorkaroundThemeProvider>
             </body>
