@@ -158,7 +158,7 @@ export const getButtonStyles: getButtonStyles = (
     }
 
     const commonButtonClasses =
-        'flex justify-center !text-gray-100 !dark:text-gray-100 gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg dark:shadow-none'
+        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg dark:shadow-none'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'
@@ -169,7 +169,7 @@ export const getButtonStyles: getButtonStyles = (
                   ]
               )
             : cn(
-                  'bg-gradient-to-r bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
+                  'bg-gradient-to-r hover:text-gray-100 dark:hover:text-grat-100 text-gray-100 dark:text-gray-100 bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
                   gradientColorMap.from[
                       resolvedColorScheme.from as keyof typeof gradientColorMap.from
                   ],
