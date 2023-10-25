@@ -90,7 +90,7 @@ type CustomFieldProps<Field> = Field & {
 
 const getInputClasses = () => {
     const baseInputClasses =
-        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow min-h-12'
+        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow'
 
     const inValidInputClasses =
         'shadow-alert-glow hover:shadow-alert-glow focus:shadow-alert-glow'
@@ -212,10 +212,12 @@ export const ContactForm = () => {
                 setFeedback(
                     'Apologies there was an internal error, please try again'
                 )
+                console.log(response)
             }
-
-            console.log(response)
         } catch (error) {
+            setFeedback(
+                'Apologies there was an internal error, please try again'
+            )
             console.log(error)
         }
     }

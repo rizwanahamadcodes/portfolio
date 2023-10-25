@@ -2,11 +2,30 @@ import React from 'react'
 import EmailTemplate from '@/components/EmailTemplate'
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { visitorSchema } from '@/schemas/visitorSchema'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export async function POST(request: Request) {
-    const { fullName, email, subject, message } = await request.json()
+export async function POST(req: Request) {
+    const body = await req.json()
+    const result = visitorSchema.safeParse(body)
+
+    let zodErrors = {}
+
+    if (!result.success) {
+        result.error.issues.forEach((issue) => {
+            zodErrors = { ...zodErrors, [issue.path[0]]: issue.message }
+        })
+
+        return NextResponse.json(
+            Object.keys(zodErrors).length > 0
+                ? { errors: zodErrors }
+                : { success: true }
+        )
+    }
+
+    const { fullName, email, subject, message } = body
 
     try {
         const data = await resend.emails.send({
@@ -21,6 +40,14 @@ export async function POST(request: Request) {
                 message: message,
             }),
         })
-        return NextResponse.json({ status: 'ok' })
-    } catch (error) {}
+        return NextResponse.json(
+            { message: 'Email delivered successfully' },
+            { status: 200 }
+        )
+    } catch (error) {
+        return NextResponse.json(
+            { error: 'Mail client error' },
+            { status: 500 }
+        )
+    }
 }
