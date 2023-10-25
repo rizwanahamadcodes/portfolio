@@ -7,7 +7,7 @@ import Section, {
     SectionTitle,
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
-import React, { ComponentPropsWithoutRef, useState } from 'react'
+import React, { ComponentPropsWithoutRef, useEffect, useState } from 'react'
 import OrDivider from '@/components/OrDivider'
 import { SiGmail } from 'react-icons/si'
 import { BsInstagram, BsMessenger } from 'react-icons/bs'
@@ -191,6 +191,13 @@ export const ContactForm = () => {
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('')
 
+    useEffect(() => {
+        const setSuccessToFalse = setTimeout(() => {
+            setSuccess(false)
+        }, 5000)
+        return () => clearTimeout(setSuccessToFalse)
+    }, [success])
+
     const {
         register,
         handleSubmit,
@@ -214,15 +221,12 @@ export const ContactForm = () => {
             if (response.ok) {
                 setSuccess(true)
                 setLoading(false)
-                console.log('fetch okay')
             } else {
                 setError('An error occurred while sending the email.')
                 setLoading(false)
-                console.log('fetch not okay')
             }
         } catch (error) {
             setError('An error occurred while sending the email.')
-            console.log('catch block')
             setLoading(false)
         }
 
@@ -287,14 +291,16 @@ export const ContactForm = () => {
                     }
                 >
                     {loading ? (
-                        <ButtonIcon
-                            icon={BiLoaderAlt}
-                            className="animate-spin"
-                        />
+                        <>
+                            <ButtonIcon
+                                icon={BiLoaderAlt}
+                                className="animate-spin"
+                            />
+                            Sending... Message
+                        </>
                     ) : (
-                        ''
+                        'Send Message'
                     )}
-                    Send Message
                 </Button>
                 {success ? (
                     <p>Thank you for reaching out, we will get in touch soon</p>
