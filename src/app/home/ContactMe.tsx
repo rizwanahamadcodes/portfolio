@@ -164,20 +164,6 @@ const CustomTextarea = (
     )
 }
 
-/*
-
-Things i want to achieve with this form,
-
-1. by default, all inputs including the textarea should have a default primary styling, which includes the styles for hover and focus too
-
-2. i should not care about the error styling of the input unless the form is submitted, we don't care if there is already an error if the user has not clicked the submit button
-
-3. if there is a validation error i would the message to show up, then all fields should get either a valid styling or an invalid styling
-
-4. everything should immediately reset after one of two things happens, there is a server side error, or the email was sent succesfully, which basically means everything should reset if everything was validated, so the server side makes no difference in the resetting of the form.
-
-*/
-
 export const ContactForm = () => {
     const {
         register,
@@ -301,7 +287,7 @@ const GetInTouch = (props: GetInTouchProps) => {
     const { children, url } = props
     return (
         <a href={url}>
-            <div className="inline-flex  w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 shadow-soft transition-all active:scale-[0.98] dark:bg-gray-850">
+            <div className="inline-flex  w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 shadow-soft transition-all hover:bg-white active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
                 {children}
             </div>
         </a>
