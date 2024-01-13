@@ -319,7 +319,7 @@ const GetInTouchBody = (props: GetInTouchBodyProps) => {
             <p className="leading-tight text-gray-900 dark:text-gray-100">
                 {label}
             </p>
-            <p className="leading-tight text-primary">{linkLabel}</p>
+            <p className="leading-tight overflow-ellipsis min-w-0">{linkLabel}</p>
         </p>
     )
 }
