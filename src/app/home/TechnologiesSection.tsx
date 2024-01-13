@@ -141,7 +141,7 @@ export const TechCard = (props: TechCardProps) => {
     const { id, icon: Icon, title, color, imgUrl } = tech
 
     return (
-        <div className="flex  items-center gap-4 rounded-lg bg-gray-50 p-4 shadow-soft dark:bg-gray-850">
+        <div className="flex  items-center gap-4 rounded-lg bg-white p-4 shadow dark:bg-gray-800">
             <Image
                 src={imgUrl}
                 alt={title + ' image'}

@@ -1,14 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-
-        // Or if using `src` directory:
-        './src/**/*.{js,ts,jsx,tsx,mdx}',
-
-        // i might be in need of only one of those but i'm not gonna touch any
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     darkMode: 'class',
     theme: {
@@ -88,6 +82,8 @@ module.exports = {
                     850: 'hsl(220deg, 10%, 15%)',
                     900: 'hsl(220deg, 10%, 10%)',
                 },
+                black: '#000',
+                white: '#fff',
             },
             boxShadow: {
                 left: '-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)',
