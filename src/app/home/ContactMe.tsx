@@ -28,13 +28,13 @@ import { visitorSchema } from '@/schemas/visitorSchema'
 const getInTouchItems = [
     {
         label: 'Mail me at:',
-        linkLabel: 'rizwanahamadcodes@gmail',
+        linkLabel: 'rizwanahamadcodes@gmail.com',
         url: 'mailto:rizwanahamadcodes@gmail.com',
         icon: SiGmail,
     },
     {
         label: 'Text me on Messenger:',
-        linkLabel: 'messenger.com/100...',
+        linkLabel: 'messenger.com/100047043491338',
         url: 'https://m.me/100047043491338',
         icon: BsMessenger,
     },
@@ -287,7 +287,7 @@ const GetInTouch = (props: GetInTouchProps) => {
     const { children, url } = props
     return (
         <a href={url}>
-            <div className="inline-flex  w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 shadow-soft transition-all hover:bg-white active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
+            <div className="inline-flex  w-full items-center gap-4 rounded-full bg-white p-2 pr-6 shadow-soft transition-all hover:bg-white active:scale-[0.98] dark:bg-gray-800 dark:hover:bg-gray-800">
                 {children}
             </div>
         </a>
@@ -319,7 +319,7 @@ const GetInTouchBody = (props: GetInTouchBodyProps) => {
             <p className="leading-tight text-gray-900 dark:text-gray-100">
                 {label}
             </p>
-            <p className="leading-tight">{linkLabel}</p>
+            <p className="leading-tight text-primary">{linkLabel}</p>
         </p>
     )
 }
