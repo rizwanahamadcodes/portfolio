@@ -34,7 +34,7 @@ const Drawer = (props: DrawerProps) => {
         <>
             <div
                 className={cn(
-                    'invisible absolute left-0 top-0 z-50 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50',
+                    'invisible fixed absolute left-0 top-0 z-50 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50',
                     { visible: isOpen },
                     className
                 )}
@@ -65,6 +65,7 @@ export const useDrawer = (drawerOpen: boolean) => {
 
     return { isOpen, onOpen, onClose }
 }
+
 type DrawerHeadProps = {
     heightPost80PxScroll?: string
     children: React.ReactNode
