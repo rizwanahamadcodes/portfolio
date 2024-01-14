@@ -251,7 +251,7 @@ export const ContactForm = () => {
                 ></CustomTextarea>
 
                 <Button
-                    className={cn('w-full shadow-soft lg:w-auto')}
+                    className={cn('w-full shadow-soft lg:w-auto text-white')}
                     disabled={isSubmitting}
                     type="submit"
                     colorScheme={
@@ -302,7 +302,7 @@ const GetInTouchIcon = (props: GetInTouchIconProps) => {
     const { icon: Icon } = props
     return (
         <div className="flex min-h-[46px] min-w-[46px] items-center justify-center rounded-full bg-primary bg-gradient-to-t from-primary to-primary-400">
-            <Icon size={26} className={'text-gray-100'} />
+            <Icon size={26} className={'text-white'} />
         </div>
     )
 }
