@@ -46,10 +46,7 @@ const HeroSection = () => {
                             </NextJsLinkButton>
 
                             <AnchorButton
-                                colorScheme={{
-                                    from: 'primary-support',
-                                    to: 'primary-support-400',
-                                }}
+                                colorScheme={"primary-support"}
                                 btnType='outline'
                                 href="/img/hero_image_light.svg"
                                 className="grow text-gray-100 shadow-primary-support/50 dark:text-gray-100"
