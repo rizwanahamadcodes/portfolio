@@ -6,7 +6,7 @@ const Hamburger = (props: React.ComponentPropsWithoutRef<'div'>) => {
     return (
         <div
             className={cn(
-                'flex h-[19px] w-7 cursor-pointer flex-col justify-between',
+                'flex h-[20px] w-7 cursor-pointer flex-col',
                 className
             )}
             {...otherProps}
@@ -16,7 +16,7 @@ const Hamburger = (props: React.ComponentPropsWithoutRef<'div'>) => {
                 .map((_, index) => (
                     <div
                         key={index}
-                        className="h-[2px] w-full rounded-full bg-primary dark:bg-gray-100"
+                        className="h-[2px] w-full m-[7px] rounded-full bg-primary dark:bg-gray-100"
                     ></div>
                 ))}
         </div>
