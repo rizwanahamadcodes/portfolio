@@ -48,7 +48,7 @@ const getInTouchItems = [
 
 const ContactMe = () => {
     return (
-        <Section>
+        <Section className="border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900">
             <Container className="flex flex-col items-stretch justify-between gap-8 md:flex-row">
                 <div className="relative grow md:max-w-md">
                     <SectionTitle defaultBottomMargin>

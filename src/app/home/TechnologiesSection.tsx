@@ -108,7 +108,7 @@ const techCategoriesList = [
 
 const TechnologiesSection = () => {
     return (
-        <Section>
+        <Section className="border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900">
             <Container>
                 <SectionTitle className="text-center" defaultBottomMargin>
                     Technologies I am familiar with
