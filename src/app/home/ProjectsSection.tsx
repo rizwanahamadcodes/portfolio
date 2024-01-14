@@ -38,7 +38,7 @@ const ProjectsSection = () => {
         <Section className="bg-gray-100 dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800">
             <Container className="flex flex-col  items-center">
                 <SectionTitle className="text-center" defaultBottomMargin>
-                    Projects I have worked on
+                    Projects I&apos;ve worked on
                 </SectionTitle>
                 <SectionSubtitle className="text-center" defaultBottomMargin>
                     Every project featuring the usage of some of the most
