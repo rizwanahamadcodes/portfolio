@@ -170,7 +170,7 @@ export const getButtonStyles: getButtonStyles = (
                   ]
               )
             : cn(
-                  'bg-gradient-to-r hover:text-white dark:hover:text-grat-100 text-gray-100 dark:text-white bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
+                  'bg-gradient-to-r hover:text-white dark:hover:text-grat-100 text-white dark:text-white bg-[length:100%_100%] hover:bg-[length:200%_100%] bg-left',
                   gradientColorMap.from[
                       resolvedColorScheme.from as keyof typeof gradientColorMap.from
                   ],
