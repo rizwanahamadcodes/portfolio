@@ -33,19 +33,6 @@ const HeroSection = () => {
                         </div>
 
                         <div className="flex w-full flex-col items-stretch gap-4 sm:flex-row">
-                            <AnchorButton
-                                colorScheme={{
-                                    from: 'primary',
-                                    to: 'primary-400',
-                                }}
-                                href="/img/hero_image_light.svg"
-                                className="grow text-gray-100 shadow-primary/50 dark:text-gray-100"
-                                download
-                            >
-                                <ButtonIcon icon={HiDownload} />
-                                View CV
-                            </AnchorButton>
-
                             <NextJsLinkButton
                                 href="/contact-me"
                                 colorScheme={{
@@ -57,6 +44,20 @@ const HeroSection = () => {
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me
                             </NextJsLinkButton>
+
+                            <AnchorButton
+                                colorScheme={{
+                                    from: 'primary',
+                                    to: 'primary-400',
+                                }}
+                                btnType='outline'
+                                href="/img/hero_image_light.svg"
+                                className="grow text-gray-100 shadow-primary/50 dark:text-gray-100"
+                                download
+                            >
+                                <ButtonIcon icon={HiDownload} />
+                                View CV
+                            </AnchorButton>
                         </div>
                     </div>
                 </div>
