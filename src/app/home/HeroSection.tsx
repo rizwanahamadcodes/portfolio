@@ -36,10 +36,10 @@ const HeroSection = () => {
                             <NextJsLinkButton
                                 href="/contact-me"
                                 colorScheme={{
-                                    from: 'primary-support',
-                                    to: 'primary-support-400',
+                                    from: 'primary',
+                                    to: 'primary-400',
                                 }}
-                                className="grow text-gray-100 shadow-primary-support/50 dark:text-gray-100"
+                                className="grow text-gray-100 shadow-support/50 dark:text-gray-100"
                             >
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me
@@ -47,12 +47,12 @@ const HeroSection = () => {
 
                             <AnchorButton
                                 colorScheme={{
-                                    from: 'primary',
-                                    to: 'primary-400',
+                                    from: 'primary-support',
+                                    to: 'primary-support-400',
                                 }}
                                 btnType='outline'
                                 href="/img/hero_image_light.svg"
-                                className="grow text-gray-100 shadow-primary/50 dark:text-gray-100"
+                                className="grow text-gray-100 shadow-primary-support/50 dark:text-gray-100"
                                 download
                             >
                                 <ButtonIcon icon={HiDownload} />
