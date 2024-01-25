@@ -83,7 +83,7 @@ const Project = (props: ProjectProps) => {
                 </SectionCategoryTitle>
                 <p className="mb-0.5">{project.projectDesc}</p>
                 <div className="flex flex-col gap-1 lg:flex-row">
-                    <Link className={button()} href="/">
+                    <Link className={button({ className: "!w-full" })} href="/">
                         <ButtonIcon icon={TbWindowMaximize} />
                         Live Demo
                     </Link>
@@ -91,6 +91,7 @@ const Project = (props: ProjectProps) => {
                         className={button({
                             variant: "outline",
                             colorScheme: "themed-gray",
+                            className: "!w-full",
                         })}
                         href="/">
                         <ButtonIcon icon={FaGithub} />
