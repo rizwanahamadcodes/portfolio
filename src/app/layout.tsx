@@ -1,4 +1,4 @@
-import WorkAroundThemeProvider from "./WorkAroundThemeProvider";
+import WorkAroundThemeProvider from "./WorkaroundThemeProvider";
 import Footer from "@/components/Footer/Footer";
 import NavbarWithObserver from "@/components/Navbar/NavbarWithObserver";
 import "./globals.css";
