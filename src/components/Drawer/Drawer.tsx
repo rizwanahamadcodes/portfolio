@@ -1,5 +1,8 @@
 import clsx from "clsx";
-import { DrawerContext, useDrawerProps } from "./useDrawerProps";
+import {
+    DrawerContext,
+    useDrawerProps,
+} from "@/components/Drawer/useDrawerProps";
 import RizwanLogo from "@/components/RizwanLogo";
 import CloseButton from "@/components/CloseButton/CloseButton";
 import { useRef } from "react";

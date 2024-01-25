@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
-import useObserver from "../useObserver";
-import Navbar from "./Navbar";
+import useObserver from "@/hooks/useObserver";
+import Navbar from "@/components/Navbar/Navbar";
 
 const NavbarWithObserver = () => {
     const navSubstituteRef = useRef<HTMLDivElement | null>(null);

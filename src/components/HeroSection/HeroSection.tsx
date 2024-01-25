@@ -11,7 +11,7 @@ import Container from "@/components/Container/Container";
 import { HiDownload } from "react-icons/hi";
 import Link from "next/link";
 import pathConstants from "@/route/pathConstants";
-import ThemedImage from "../ThemedImage";
+import ThemedImage from "@/components/ThemedImage";
 import clsx from "clsx";
 
 type HeroSectionProps = {};

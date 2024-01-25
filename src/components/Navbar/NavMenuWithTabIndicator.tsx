@@ -1,8 +1,10 @@
 "use client";
 
 import clsx from "clsx";
-import NavMenu, { NavMenuProps } from "./NavMenu/NavMenu";
-import TabIndicator, { useTabIndicator } from "./TabIndicator";
+import NavMenu, { NavMenuProps } from "@/components/Navbar/NavMenu/NavMenu";
+import TabIndicator, {
+    useTabIndicator,
+} from "@/components/Navbar/TabIndicator";
 
 type NavMenuWithTabIndicatorProps = {
     viewportTouchingStatus?: {

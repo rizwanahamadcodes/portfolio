@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { DrawerProps } from "./Drawer";
+import { DrawerProps } from "@/components/Drawer/Drawer";
 
 export const DrawerContext = createContext<Omit<
     DrawerProps,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavMenuProps } from "./NavMenu/NavMenu";
+import { NavMenuProps } from "@/components/Navbar/NavMenu/NavMenu";
 
 export type TabIndicatorBoundsType = {
     left: number;

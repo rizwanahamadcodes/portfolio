@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
-import { TabIndicatorBoundsType } from "../TabIndicator";
-import NavItem from "./NavItem";
+import { TabIndicatorBoundsType } from "@/components/Navbar/TabIndicator";
+import NavItem from "@/components/Navbar/NavMenu/NavItem";
 import clsx from "clsx";
 
 export type NavMenuProps = {

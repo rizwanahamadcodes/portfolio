@@ -1,5 +1,8 @@
 import clsx from "clsx";
-import { CustomFieldProps, getInputClasses } from "./CustomInput";
+import {
+    CustomFieldProps,
+    getInputClasses,
+} from "@/components/ContactMeSection/CustomInput";
 
 const CustomTextarea = (
     props: CustomFieldProps<React.ComponentPropsWithoutRef<"textarea">>

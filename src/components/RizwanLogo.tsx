@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ThemedImage from "./ThemedImage";
+import ThemedImage from "@/components/ThemedImage";
 import rizwanLogoGray100 from "/public/img/rizwan_logo__gray-100.svg";
 import rizwanLogoGray900 from "/public/img/rizwan_logo__gray-900.svg";
 import rizwanLogoGradient from "/public/img/rizwan_logo__primary-to-primary-support-gradient.svg";
