@@ -2,8 +2,6 @@
 
 import { useTheme } from "next-themes";
 import Image, { ImageProps } from "next/image";
-import React from "react";
-import useObserver from "./useObserver";
 
 type ThemedImageProps = Omit<ImageProps, "src"> & {
     lightImageSrc: string;
