@@ -1,40 +1,38 @@
-import './globals.css'
-import type { Metadata } from 'next'
-// import { Nunito } from '@next/font/google'
-import { Montserrat } from '@next/font/google'
-import WorkaroundThemeProvider from './WorkaroundThemeProvider'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+import WorkAroundThemeProvider from "./WorkAroundThemeProvider";
+import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
+import NavbarWithObserver from "@/components/Navbar/NavbarWithObserver";
+import Footer from "@/components/Footer/Footer";
 
-// const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
 const montserrat = Montserrat({
-    subsets: ['latin'],
-    variable: '--font-montserrat',
-})
+    subsets: ["latin"],
+    variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
-    title: 'Rizwan',
-    description: 'Rizwan is a frontend developer',
-}
+    title: "Rizwan",
+    description: "Rizwan is a frontend developer",
+};
 
-interface RootLayoutProps {
-    children: React.ReactNode
-}
+type RootLayoutProps = {
+    children: React.ReactNode;
+};
 
 export default function RootLayout(props: RootLayoutProps) {
-    const { children } = props
+    const { children } = props;
 
     return (
         <html lang="en">
             <body
-                className={`${montserrat.variable} flex h-screen flex-col font-sans`}
-            >
-                <WorkaroundThemeProvider>
-                    <Navbar />
-                    <main>{children}</main>
+                className={`${montserrat.variable} flex h-screen flex-col font-sans`}>
+                <WorkAroundThemeProvider>
+                    <NavbarWithObserver />
+                    {children}
                     <Footer />
-                </WorkaroundThemeProvider>
+                </WorkAroundThemeProvider>
             </body>
         </html>
-    )
+    );
 }
