@@ -10,7 +10,8 @@ export const button = cva(
         variants: {
             variant: {
                 solid: "",
-                outline: "shadow-md shadow-black/20 border-2 hover:shadow-lg",
+                outline:
+                    "shadow-md dark:shadow-black/20 shadow-black/10 border-2 hover:shadow-lg",
                 ghost: "",
             },
             colorScheme: {
@@ -24,7 +25,7 @@ export const button = cva(
                 variant: "solid",
                 colorScheme: "primary",
                 className:
-                    "bg-gradient-to-br from-primary to-primary-400  hover:from-primary-600 hover:to-primary text-white shadow-lg shadow-primary/40  dark:shadow-primary-700/30",
+                    "bg-gradient-to-br from-primary to-primary-400  hover:from-primary-600 hover:to-primary text-white shadow-lg shadow-primary/30  dark:shadow-primary-700/30",
             },
             {
                 variant: "solid",
