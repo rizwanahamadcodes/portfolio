@@ -66,7 +66,7 @@ const ServiceCard = (props: ServiceCardProps) => {
     return (
         <div className="flex basis-full flex-col items-center rounded-0.5 bg-white p-1.5 shadow dark:bg-gray-800 ">
             <div className="mb-0.25 flex items-center justify-center rounded-full bg-primary bg-gradient-to-t from-primary to-primary-400 text-gray-100 h-4.75 w-4.75">
-                <Icon className="text-1.875 text-gray-100" />
+                <Icon className="text-1.875 text-white" />
             </div>
             <SectionCategoryTitle className="mb-1">
                 {title}

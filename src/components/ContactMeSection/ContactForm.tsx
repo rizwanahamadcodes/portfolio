@@ -1,6 +1,6 @@
 import { visitorSchema } from "@/schemas/visitorSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SectionCategoryTitle } from "@/components/Section/Section";
 import CustomInput from "@/components/ContactMeSection/CustomInput";
@@ -18,12 +18,15 @@ const ContactForm = () => {
         formState: { errors, isSubmitted, isSubmitting, isSubmitSuccessful },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) });
 
-    const [success, setSuccess] = useState(false);
     const [feedback, setFeedback] = useState("");
 
-    useEffect(() => {
+    const memoizedReset = useCallback(() => {
         reset();
-    }, [isSubmitSuccessful]);
+    }, [reset]);
+
+    useEffect(() => {
+        memoizedReset();
+    }, [isSubmitSuccessful, memoizedReset]);
 
     const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
         try {
@@ -54,7 +57,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="grow rounded-1 bg-white p-1 shadow-soft dark:bg-gray-800 md:max-w-md">
+        <div className="grow rounded-1 bg-white p-1 shadow dark:bg-gray-800 md:max-w-md">
             <SectionCategoryTitle defaultBottomMargin>
                 Send me a message
             </SectionCategoryTitle>
@@ -93,7 +96,7 @@ const ContactForm = () => {
                     isSubmitted={isSubmitted}></CustomTextarea>
 
                 <Button
-                    className={clsx("w-full shadow lg:w-auto text-white")}
+                    className={clsx("w-full lg:w-auto")}
                     disabled={isSubmitting}
                     type="submit"
                     colorScheme={isSubmitting ? "themed-gray" : "primary"}>

@@ -11,7 +11,7 @@ const GetInTouch = (props: GetInTouchProps) => {
 
     return (
         <a href={url}>
-            <div className="inline-flex  w-full items-center gap-1 rounded-full bg-white p-0.5 pr-1.5 shadow-soft transition-all hover:bg-white active:scale-[0.98] dark:bg-gray-800 dark:hover:bg-gray-800">
+            <div className="inline-flex  w-full items-center gap-1 rounded-full bg-white p-0.5 pr-1.5 shadow hover:shadow-md transition-all active:scale-[0.98] dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750">
                 <div className="flex min-h-2.875 min-w-2.875 items-center justify-center rounded-full bg-primary bg-gradient-to-t from-primary to-primary-400">
                     <Icon size={26} className={"text-white"} />
                 </div>

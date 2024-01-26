@@ -9,8 +9,8 @@ export const button = cva(
     {
         variants: {
             variant: {
-                solid: "shadow",
-                outline: "shadow border-2 ",
+                solid: "",
+                outline: "shadow-md shadow-black/20 border-2 hover:shadow-lg",
                 ghost: "",
             },
             colorScheme: {
@@ -24,7 +24,7 @@ export const button = cva(
                 variant: "solid",
                 colorScheme: "primary",
                 className:
-                    "bg-gradient-to-br from-primary to-primary-400  hover:from-primary-600  hover:to-primary text-white",
+                    "bg-gradient-to-br from-primary to-primary-400  hover:from-primary-600 hover:to-primary text-white shadow-lg shadow-primary/40  dark:shadow-primary-700/30",
             },
             {
                 variant: "solid",
@@ -41,7 +41,7 @@ export const button = cva(
                 variant: "outline",
                 colorScheme: "themed-gray",
                 className:
-                    "border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 hover:border-gray-700 hover:text-gray-700 hover:dark:border-gray-300 hover:dark:text-gray-300",
+                    "border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100",
             },
         ],
 

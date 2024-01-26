@@ -72,7 +72,7 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={clsx(
-                "group flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow transition-all hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-750",
+                "group flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow transition-all hover:shadow-md dark:bg-gray-800",
                 positionInParent % 2 === 0
                     ? "sm:flex-row"
                     : "sm:flex-row-reverse"

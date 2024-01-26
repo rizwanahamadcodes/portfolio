@@ -27,7 +27,6 @@ const NavMenu = (props: NavMenuProps) => {
         setTabIndicatorBounds,
         onNavItemClick,
     } = props;
-    console.log("navMenu", viewportTouchingStatus);
     const stylesAsPerDirection = {
         horizontal: "flex-row",
         vertical: "flex-col",
