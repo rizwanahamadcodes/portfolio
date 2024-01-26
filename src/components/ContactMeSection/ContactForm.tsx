@@ -46,13 +46,11 @@ const ContactForm = () => {
                 setFeedback(
                     "Apologies there was an internal error, please try again"
                 );
-                console.log(response);
             }
         } catch (error) {
             setFeedback(
                 "Apologies there was an internal error, please try again"
             );
-            console.log(error);
         }
     };
 

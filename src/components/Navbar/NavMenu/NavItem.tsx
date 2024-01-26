@@ -36,7 +36,6 @@ const NavItem = (props: NavItemProps) => {
     } = props;
     const isLinkActive = usePathname() === href;
     const navItemRef = useRef<HTMLAnchorElement | null>(null);
-    console.log(viewportTouchingStatus);
 
     const setTabIndicatorBoundsFromElement = useCallback(
         (el: HTMLElement) => {
