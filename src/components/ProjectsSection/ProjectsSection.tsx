@@ -17,7 +17,7 @@ const projects = [
         projectDesc:
             "Feature rich image editor with additional capability to render images based on huge dataset, templates once created using the available fields can be used to generate multiples design with dynamic content",
         projectImageSrc: "/img/cardgen.jpg",
-        githubLink: "https://github.com/rizwanahamadcodes/cardgen",
+        githubLink: "https://cardgen-seven.vercel.app/projects/1/edit",
         liveDemoLink: "https://cardgen-seven.vercel.app/",
     },
 
@@ -94,7 +94,10 @@ const Project = (props: ProjectProps) => {
                     : "sm:flex-row-reverse"
             )}>
             <div className="p-1 sm:w-2/4">
-                <Link href={project.liveDemoLink}>
+                <Link
+                    href={project.liveDemoLink}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <SectionCategoryTitle>
                         {project.projectTitle}
                     </SectionCategoryTitle>
@@ -103,7 +106,9 @@ const Project = (props: ProjectProps) => {
                 <div className="flex flex-col gap-1 lg:flex-row">
                     <Link
                         className={button({ className: "!w-full" })}
-                        href={project.liveDemoLink}>
+                        href={project.liveDemoLink}
+                        target="_blank"
+                        rel="noopener noreferrer">
                         <ButtonIcon icon={TbWindowMaximize} />
                         Live Demo
                     </Link>
@@ -113,7 +118,9 @@ const Project = (props: ProjectProps) => {
                             colorScheme: "themed-gray",
                             className: "!w-full",
                         })}
-                        href={project.githubLink}>
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer">
                         <ButtonIcon icon={FaGithub} />
                         Code
                     </Link>
