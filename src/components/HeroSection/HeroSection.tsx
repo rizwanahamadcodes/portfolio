@@ -109,7 +109,7 @@ export const CTA = (props: CTAProps) => {
                 className
             )}>
             <Link
-                href={pathConstants.home.path}
+                href={pathConstants.contact.path}
                 className={button({ className: "w-full" })}>
                 <ButtonIcon icon={ImBubbles} />
                 Contact Me
