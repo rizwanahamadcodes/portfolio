@@ -27,7 +27,7 @@ const getInTouchItems: GetInTouchItem[] = [
         icon: BsMessenger,
     },
     {
-        label: "Mail me on Instagram:",
+        label: "Text me on Instagram:",
         linkLabel: "instagram.com/rizwan29972",
         url: "https://www.instagram.com/rizwan29972/",
         icon: BsInstagram,
