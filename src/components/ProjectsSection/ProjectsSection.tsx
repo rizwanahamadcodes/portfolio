@@ -11,14 +11,16 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import clsx from "clsx";
 
+// "Feature rich image editor with additional capability to render images based on huge dataset, templates once created using the available fields can be used to generate multiples design with dynamic content",
+
 const projects = [
     {
         projectTitle: "Image Editing App",
         projectDesc:
-            "Feature rich image editor with additional capability to render images based on huge dataset, templates once created using the available fields can be used to generate multiples design with dynamic content",
+            "Simple and to the point image editor, with most necessary features for a pleasant and distraction free image editing experience",
         projectImageSrc: "/img/cardgen.jpg",
         githubLink: "https://github.com/rizwanahamadcodes/image-editor",
-        liveDemoLink: "https://image-editor-eight-omega.vercel.app/projects/1/edit",
+        liveDemoLink: "https://image-editor-eight-omega.vercel.app",
     },
 
     {
