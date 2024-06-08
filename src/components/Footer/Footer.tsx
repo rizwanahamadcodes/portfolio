@@ -163,19 +163,21 @@ const FooterColumnLinks = (props: FooterColumnLinksProps) => {
     const { links } = props;
 
     return (
-        <ul className="flex flex-col gap-0.5">
+        <ul className="flex flex-col gap-1">
             {links.map((link) => {
                 const { icon: Icon } = link;
 
                 return (
-                    <li key={link.href} className="group/footerLinkGroup">
+                    <li key={link.href} className="flex justify-start">
                         <Link
-                            className="flex gap-0.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 hover:dark:text-gray-100"
+                            className="flex justify-start items-end gap-0.5 group/footerLinkGroup max-w-full"
                             href={link.href}>
                             {typeof Icon === "string" ? null : (
                                 <Icon className="text-1.25 text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100" />
                             )}
-                            <p className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+                            <p
+                                className="whitespace-nowrap overflow-hidden overflow-ellipsis leading-1 text-gray-700 hover:dark:text-gray-100
+                            dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100 w-full">
                                 {link.label}
                             </p>
                         </Link>

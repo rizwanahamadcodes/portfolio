@@ -15,7 +15,7 @@ export type NavMenuProps = {
 
 const navLinks = [
     { label: "Home", path: "/" },
-    { label: "About Me", path: "/about-me" },
+    // { label: "About Me", path: "/about-me" },
     { label: "Projects", path: "/projects" },
     { label: "Contact Me", path: "/contact-me" },
 ];
