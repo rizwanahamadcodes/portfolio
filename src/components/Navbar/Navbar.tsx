@@ -25,9 +25,13 @@ const Navbar = (props: NavbarProps) => {
                         : "h-navHeight-small shadow"
                 )}>
                 <Container className="h-full flex items-center justify-between">
-                    <RizwanLogo
-                        height={viewportTouchingStatus?.topTouchedTop ? 50 : 40}
-                    />
+                    <div className="w-[129px]">
+                        <RizwanLogo
+                            height={
+                                viewportTouchingStatus?.topTouchedTop ? 50 : 40
+                            }
+                        />
+                    </div>
 
                     <NavMenuWithTabIndicator
                         className="hidden lg:block"
