@@ -16,11 +16,11 @@ const footerLinks = [
         href: "/",
         icon: "",
     },
-    {
-        label: "About me",
-        href: "/about-me",
-        icon: "",
-    },
+    // {
+    //     label: "About me",
+    //     href: "/about-me",
+    //     icon: "",
+    // },
 
     {
         label: "Projects",
