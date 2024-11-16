@@ -23,7 +23,7 @@ const HeroSection = (props: HeroSectionProps) => {
         <Section className="bg-white dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800 mt-navHeight-large">
             <Container className="relative flex flex-col items-center gap-4 lg:flex-row">
                 <IntroSection />
-                <div>
+                <div className="xl:static xl:w-auto absolute right-0 top-0 w-10 md:w-14 lg:w-20">
                     <ThemedImage
                         darkImageSrc={heroImageDark}
                         lightImageSrc={heroImageLight}
