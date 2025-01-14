@@ -19,7 +19,7 @@ const Navbar = (props: NavbarProps) => {
         <div>
             <nav
                 className={clsx(
-                    "fixed top-0 z-10 w-full bg-white/50 backdrop-blur-sm transition-all dark:bg-gray-900/50",
+                    "fixed top-0 z-50 w-full bg-white/50 backdrop-blur-sm transition-all dark:bg-gray-900/50",
                     viewportTouchingStatus?.topTouchedTop
                         ? "h-navHeight-large"
                         : "h-navHeight-small shadow"
