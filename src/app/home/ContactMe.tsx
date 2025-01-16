@@ -149,14 +149,15 @@ const CustomInput = (
             <input
                 {...register(name)}
                 className={cn(
-                    'mb-2 w-full rounded-md border bg-transparent px-4 py-2 transition focus:bg-white focus:outline-none dark:focus:bg-gray-800 ',
+                    'mb-2 w-full rounded-md border bg-transparent px-4 py-2 transition focus:bg-white focus:outline-none dark:focus:bg-gray-800',
+                    baseInputClasses,
                     isSubmitted
                         ? invalid
-                            ? 'border-red-500 shadow-alert-glow-initial hover:shadow-alert-glow focus:shadow-alert-glow'
+                            ? 'border-red-500 shadow-alert-glow-initial hover:shadow-alert-glow focus:border-red-500 focus:shadow-alert-glow dark:border-red-500 dark:focus:border-red-500'
                             : !success
-                            ? 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
+                            ? 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:border-green-500 focus:shadow-success-glow dark:border-green-500 dark:focus:border-green-500'
                             : baseInputClasses
-                        : baseInputClasses
+                        : ''
                 )}
                 {...otherProps}
             />
@@ -192,14 +193,7 @@ export const ContactForm = () => {
         handleSubmit,
         reset,
         getFieldState,
-        formState: {
-            errors,
-            touchedFields,
-            isLoading,
-            isSubmitted,
-            isValid,
-            isDirty,
-        },
+        formState: { isSubmitted },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
     const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
