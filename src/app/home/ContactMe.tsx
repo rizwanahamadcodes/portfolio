@@ -90,7 +90,7 @@ type CustomFieldProps<Field> = Field & {
 
 const getInputClasses = () => {
     const baseInputClasses =
-        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow'
+        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow min-h-12'
 
     const inValidInputClasses =
         'shadow-alert-glow hover:shadow-alert-glow focus:shadow-alert-glow'
@@ -188,19 +188,36 @@ export const ContactForm = () => {
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
     const [success, setSuccess] = useState(false)
+    const [feedback, setFeedback] = useState('')
 
     useEffect(() => {
         reset()
     }, [isSubmitSuccessful])
 
     const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
-        const response = await fetch('/api/send', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            if (response.ok) {
+                setFeedback(
+                    'Message was sent successfully, we will get in touch soon'
+                )
+            } else {
+                setFeedback(
+                    'Apologies there was an internal error, please try again'
+                )
+            }
+
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -267,9 +284,7 @@ export const ContactForm = () => {
                         'Send message'
                     )}
                 </Button>
-                {success && (
-                    <p>Thank you for reaching out, we will get in touch soon</p>
-                )}
+                {feedback !== '' && <p>{feedback}</p>}
             </form>
         </div>
     )
