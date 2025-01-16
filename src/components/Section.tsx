@@ -29,7 +29,7 @@ export const SectionTitle = (props: SectionTitleProps) => {
         <h2
             className={cn(
                 'text-2xl font-medium sm:text-4xl',
-                defaultBottomMargin && 'mb-8',
+                defaultBottomMargin && 'mb-2',
                 headingColorClasses,
                 className
             )}
@@ -58,15 +58,16 @@ export const SectionSubtitle = (props: SectionSubtitleProps) => {
 type SectionCategoryTitleProps = {
     className?: string
     children?: React.ReactNode
+    defaultBottomMargin?: boolean
 }
 
 export const SectionCategoryTitle = (props: SectionCategoryTitleProps) => {
-    const { children, className } = props
+    const { children, defaultBottomMargin, className } = props
 
     return (
         <h5
             className={cn(
-                'mb-4',
+                defaultBottomMargin && 'mb-4',
                 headingColorClasses,
                 'text-gray-900 dark:text-gray-100',
                 className

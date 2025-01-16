@@ -37,7 +37,7 @@ const ProjectsSection = () => {
     return (
         <Section>
             <Container className="flex flex-col items-center">
-                <SectionTitle className="text-center">
+                <SectionTitle className="text-center" defaultBottomMargin>
                     Projects I have worked on
                 </SectionTitle>
                 <SectionSubtitle className="text-center" defaultBottomMargin>
@@ -74,7 +74,7 @@ const Project = (props: ProjectProps) => {
             )}
         >
             <div className="p-4 sm:w-2/4">
-                <SectionCategoryTitle className="uppercase">
+                <SectionCategoryTitle defaultBottomMargin className="uppercase">
                     {project.projectTitle}
                 </SectionCategoryTitle>
                 <p className="mb-2">{project.projectDesc}</p>
