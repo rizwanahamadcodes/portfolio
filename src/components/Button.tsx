@@ -26,7 +26,7 @@ const Button = (props: ButtonProps) => {
         leftIcon: LeftIcon,
         rightIcon: RightIcon,
         className,
-        ...rest
+        ...restProps
     } = props
 
     const borderWidth = 'border-2'
@@ -94,7 +94,7 @@ const Button = (props: ButtonProps) => {
                 <a
                     href={href}
                     className={buttonClasses + ' ' + className}
-                    {...rest}
+                    {...restProps}
                 >
                     {content}
                 </a>
