@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 const useDrawer = (drawerOpen: boolean) => {
     const [isOpen, setIsOpen] = useState(drawerOpen)
@@ -9,9 +9,9 @@ const useDrawer = (drawerOpen: boolean) => {
         setIsOpen(true)
     }
 
-    const onClose = () => {
+    const onClose = useCallback(() => {
         setIsOpen(false)
-    }
+    }, [])
 
     return { isOpen, onOpen, onClose }
 }
