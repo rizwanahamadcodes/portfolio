@@ -7,14 +7,59 @@ import Section, {
     SectionTitle,
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
-import React, { ComponentPropsWithoutRef } from 'react'
-import { sendEmail } from '../../../actions/sendEmail'
-import { experimental_useFormStatus } from 'react-dom'
+import React, { ComponentPropsWithoutRef, useState } from 'react'
 import OrDivider from '@/components/OrDivider'
 import { SiGmail } from 'react-icons/si'
 import { BsInstagram, BsMessenger } from 'react-icons/bs'
 import Container from '@/components/Container'
 import { IconType } from 'react-icons'
+
+import { z } from 'zod'
+import {
+    FieldError,
+    FieldErrors,
+    FieldValues,
+    SubmitHandler,
+    UseFormGetFieldState,
+    UseFormRegister,
+    useForm,
+} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { POST } from '../api/send/route'
+
+const visitorSchema = z.object({
+    fullName: z
+        .string({
+            required_error: 'Please enter your full name',
+            invalid_type_error: 'Name must be text',
+        })
+        .max(100, { message: 'Name is too long' })
+        .min(1, { message: 'Please enter your full name' }),
+    subject: z
+        .string({
+            required_error: 'Please enter the subject',
+            invalid_type_error: 'Subject must be text',
+        })
+        .max(100, { message: 'Subject is too long' })
+        .min(1, { message: 'Please enter a subject' }),
+    email: z
+        .string({
+            required_error: 'Please enter your email',
+            invalid_type_error: 'Email address me=ust be a string',
+        })
+        .max(300, { message: 'Email address is too long.' })
+        .email({ message: 'Please enter a valid email' })
+        .min(1, { message: 'Please enter your email' }),
+    message: z
+        .string({ invalid_type_error: 'Message must be text' })
+        .max(500, {
+            message:
+                'Message is too long, keep the message below 500 characters or below 150 words',
+        })
+        .optional(),
+})
+
+type visitorSchema = z.infer<typeof visitorSchema>
 
 const getInTouchItems = [
     {
@@ -38,10 +83,6 @@ const getInTouchItems = [
 ]
 
 const ContactMe = () => {
-    const inputClasses = ''
-
-    const { pending } = experimental_useFormStatus()
-
     return (
         <Section>
             <Container className="flex flex-col items-stretch justify-between gap-8 md:flex-row">
@@ -76,6 +117,149 @@ const ContactMe = () => {
     )
 }
 
+type CustomFieldProps<Field> = Field & {
+    name: keyof visitorSchema
+    register: UseFormRegister<visitorSchema>
+    getFieldState: UseFormGetFieldState<visitorSchema>
+    isSubmitted: boolean
+}
+
+const CustomInput = (
+    props: CustomFieldProps<React.ComponentPropsWithoutRef<'input'>>
+) => {
+    const { name, register, getFieldState, isSubmitted, ...otherProps } = props
+
+    const { invalid, error } = getFieldState(name)
+
+    return (
+        <div>
+            <input
+                {...register(name)}
+                className={cn(
+                    'mb-2 w-full rounded-md border bg-transparent px-4 py-2 transition focus:bg-white focus:outline-none dark:focus:bg-gray-800 ',
+                    isSubmitted
+                        ? invalid
+                            ? 'border-red-500 shadow-alert-glow-initial hover:shadow-alert-glow focus:shadow-alert-glow'
+                            : 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
+                        : 'border-gray-200 shadow-primary-glow-initial hover:shadow-primary-glow focus:border-primary dark:border-gray-800 dark:focus:border-primary'
+                )}
+                {...otherProps}
+            />
+            {error ? <p className="text-secondary">{error?.message}</p> : ''}
+        </div>
+    )
+}
+
+const CustomTextarea = (
+    props: CustomFieldProps<React.ComponentPropsWithoutRef<'textarea'>>
+) => {
+    const { name, register, ...otherProps } = props
+
+    return (
+        <textarea
+            {...register(name)}
+            className={cn(
+                'w-full rounded-md border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:bg-white focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800',
+                'h-36 resize-none'
+            )}
+            {...otherProps}
+        />
+    )
+}
+
+export const ContactForm = () => {
+    const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState('')
+
+    const {
+        register,
+        handleSubmit,
+        control,
+        getFieldState,
+        formState: {
+            errors,
+            touchedFields,
+            isLoading,
+            isSubmitted,
+            isValid,
+            isDirty,
+        },
+    } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
+
+    const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
+        try {
+            setLoading(true)
+
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            if (response.ok) {
+                setSuccess(true)
+                setLoading(false)
+            } else {
+                setError('An error occurred while sending the email.')
+                setLoading(false)
+            }
+        } catch (error) {
+            setError('An error occurred while sending the email.')
+            setLoading(false)
+        }
+    }
+
+    return (
+        <div className="grow rounded-2xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
+            <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
+            <form
+                className="flex flex-col gap-4"
+                onSubmit={handleSubmit(onSubmit)}
+            >
+                <CustomInput
+                    name="fullName"
+                    type="text"
+                    placeholder="Full name"
+                    register={register}
+                    getFieldState={getFieldState}
+                    isSubmitted={isSubmitted}
+                ></CustomInput>
+                <CustomInput
+                    name="email"
+                    type="email"
+                    placeholder="Email address"
+                    register={register}
+                    getFieldState={getFieldState}
+                    isSubmitted={isSubmitted}
+                />
+                <CustomInput
+                    name="subject"
+                    type="text"
+                    placeholder="Subject"
+                    register={register}
+                    getFieldState={getFieldState}
+                    isSubmitted={isSubmitted}
+                />
+                <CustomTextarea
+                    name="message"
+                    maxLength={500}
+                    placeholder="Message..."
+                    register={register}
+                    getFieldState={getFieldState}
+                    isSubmitted={isSubmitted}
+                ></CustomTextarea>
+
+                <Button className="w-full lg:w-auto" type="submit">
+                    Send Message
+                </Button>
+            </form>
+        </div>
+    )
+}
+export default ContactMe
 type GetInTouchProps = {
     children: React.ReactNode
     url: string
@@ -119,76 +303,3 @@ const GetInTouchBody = (props: GetInTouchBodyProps) => {
         </p>
     )
 }
-
-const CustomInput = (props: ComponentPropsWithoutRef<'input'>) => {
-    return (
-        <input
-            {...props}
-            className="w-full rounded-md border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:bg-white focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800"
-        />
-    )
-}
-
-const CustomTextarea = (props: ComponentPropsWithoutRef<'textarea'>) => {
-    return (
-        <textarea
-            {...props}
-            className={cn(
-                'w-full rounded-md border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:bg-white focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800',
-                'h-36 resize-none'
-            )}
-        />
-    )
-}
-
-export const ContactForm = () => {
-    const { pending } = experimental_useFormStatus()
-
-    return (
-        <div className="grow rounded-2xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
-            <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
-            <form
-                className="flex flex-col gap-4 md:items-start"
-                action={async (formData) => {
-                    console.log('Running on client')
-                    await sendEmail(formData)
-                }}
-            >
-                <CustomInput
-                    name="fullName"
-                    required
-                    type="text"
-                    placeholder="Full name"
-                ></CustomInput>
-                <CustomInput
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Email address"
-                />
-                <CustomInput
-                    name="subject"
-                    required
-                    type="text"
-                    placeholder="Subject"
-                />
-                <CustomTextarea
-                    name="message"
-                    required
-                    maxLength={500}
-                    placeholder="Message..."
-                ></CustomTextarea>
-
-                {pending ? (
-                    <div>Sending...</div>
-                ) : (
-                    <Button className="w-full lg:w-auto" type="submit">
-                        Send Message
-                    </Button>
-                )}
-                {/* Maybe you could use react hot toast for success */}
-            </form>
-        </div>
-    )
-}
-export default ContactMe
