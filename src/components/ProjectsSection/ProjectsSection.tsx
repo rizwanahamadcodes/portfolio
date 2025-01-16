@@ -33,7 +33,7 @@ const projects = [
     },
 
     {
-        projectTitle: "API integration",
+        projectTitle: "Games Discovery App",
         projectDesc:
             "Intergration of a custom frotend to an external API, featuring multiple filters, loading skeletons, light and dark mode, all with chakra ui",
         projectImageSrc: "/img/games.jpg",
