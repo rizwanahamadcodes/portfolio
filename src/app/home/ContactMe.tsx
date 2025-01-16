@@ -9,7 +9,7 @@ import React from 'react'
 
 const ContactMe = () => {
     const inputClasses =
-        'w-full rounded-md focus:shadow-primary-glow border dark:border-gray-800 border-gray-200 bg-transparent py-2 px-4 focus:outline-none focus:border-primary dark:focus:border-primary'
+        'w-full rounded-md focus:shadow-primary-glow shadow-primary-glow-initial hover:shadow-primary-glow border dark:border-gray-800 border-gray-200 bg-transparent py-2 px-4 focus:outline-none focus:border-primary dark:focus:border-primary transition'
 
     return (
         <Section containerClassName="grid items-center md:grid-cols-2 gap-5 flex-col grid-cols-1">
