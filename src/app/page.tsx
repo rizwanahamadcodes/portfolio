@@ -19,7 +19,7 @@ export default function Home() {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-2xl font-medium text-secondary dark:text-secondary sm:text-3xl">
+                    <h2 className="text-2xl font-medium text-primary-support dark:text-primary-support-300 sm:text-3xl">
                         Front-end Web Developer
                     </h2>
                     <p className="max-w max-w-[50ch] text-xl">
