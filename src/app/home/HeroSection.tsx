@@ -39,7 +39,7 @@ const HeroSection = () => {
                                     from: 'primary',
                                     to: 'primary-400',
                                 }}
-                                className="grow text-gray-100 shadow-support/50 dark:text-gray-100"
+                                className="grow shadow-support/50"
                             >
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me
@@ -49,7 +49,7 @@ const HeroSection = () => {
                                 colorScheme={"primary-support"}
                                 btnType='outline'
                                 href="/img/hero_image_light.svg"
-                                className="grow text-gray-100 shadow-primary-support/50 dark:text-gray-100"
+                                className="grow shadow-primary-support/50"
                                 download
                             >
                                 <ButtonIcon icon={HiDownload} />
