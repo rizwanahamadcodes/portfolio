@@ -3,20 +3,20 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1000 389.1" style="enable-background:new 0 0 1000 389.1;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#XMLID_4_);}
-	.st1{fill:url(#XMLID_5_);}
+	.st0{fill:url(#XMLID_158_);}
+	.st1{fill:url(#XMLID_159_);}
 </style>
 <g id="XMLID_261_">
-	<linearGradient id="XMLID_4_" gradientUnits="userSpaceOnUse" x1="385.6235" y1="104.1482" x2="419.918" y2="104.1482">
-		<stop  offset="0" style="stop-color:#0055FF"/>
-		<stop  offset="1" style="stop-color:#5500FF"/>
+	<linearGradient id="XMLID_158_" gradientUnits="userSpaceOnUse" x1="1.7022" y1="104.1482" x2="997.7745" y2="104.1482">
+		<stop  offset="0" style="stop-color:#195DE6"/>
+		<stop  offset="1" style="stop-color:#5E19E6"/>
 	</linearGradient>
 	<path id="XMLID_268_" class="st0" d="M397,123.4c3,0,6-0.9,8.9-2.5c2.5-1.5,4.8-3.3,6.8-5.5c2-2.2,3.7-4.8,5-7.6
 		c1.4-3,2.1-6.1,2.1-9c0-3.5-1.4-6.8-4-9.5c-2.7-2.9-6.1-4.4-10-4.4c-3.7,0-7,1.2-9.9,3.5c-2.3,1.9-4.2,4.1-5.8,6.7
 		c-1.5,2.5-2.7,5.2-3.5,8.1c-0.8,2.8-1.2,5.3-1.2,7.5c0,3.1,0.8,5.9,2.5,8.2C390.2,121.9,393.3,123.4,397,123.4z"/>
-	<linearGradient id="XMLID_5_" gradientUnits="userSpaceOnUse" x1="2.879184e-005" y1="194.5431" x2="1000" y2="194.5431">
-		<stop  offset="0" style="stop-color:#0055FF"/>
-		<stop  offset="1" style="stop-color:#5500FF"/>
+	<linearGradient id="XMLID_159_" gradientUnits="userSpaceOnUse" x1="1.7022" y1="194.5431" x2="997.7745" y2="194.5431">
+		<stop  offset="0" style="stop-color:#195DE6"/>
+		<stop  offset="1" style="stop-color:#5E19E6"/>
 	</linearGradient>
 	<path id="XMLID_262_" class="st1" d="M985,171.4l-3.5,5.3c-4,6.2-8.6,12.9-13.6,19.8c-4.9,6.9-9.9,13.3-14.9,19.2
 		c-4.8,5.7-9.6,10.4-14.3,14.1c-3.4,2.7-6.5,4.3-9,4.6c0-0.1,0-0.2,0-0.2c0-2.4,0.6-5.2,1.9-8.3c1.5-3.6,3.4-7.4,5.7-11.4

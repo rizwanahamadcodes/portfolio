@@ -1,18 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import rizwanLogoPrimary from '../../public/img/rizwan_logo_primary.svg'
-import rizwanLogoGradientNew from '../../public/img/rizwan_logo_gradient_new.svg'
-
 import rizwanLogoGradient from '../../public/img/rizwan_logo_gradient.svg'
-import Container from './Container'
-import ThemedImage from './ThemedImage'
-import ThemeToggler from './ThemeToggler'
-import NavMenu from './NavMenu'
-import Drawer from './Drawer'
-import useDrawer from './useDrawer'
-import Hamburger from './Hamburger'
+
 import CloseButton from './CloseButton'
+import Container from './Container'
+import Drawer from './Drawer'
+import Hamburger from './Hamburger'
+import NavMenu from './NavMenu'
+import ThemeToggler from './ThemeToggler'
+import ThemedImage from './ThemedImage'
+import useDrawer from './useDrawer'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
@@ -22,8 +20,8 @@ const Navbar = () => {
             <Container optionalStyles="h-full flex items-center justify-between">
                 <Link href="/">
                     <ThemedImage
-                        darkImageSrc={rizwanLogoGradientNew}
-                        lightImageSrc={rizwanLogoGradientNew}
+                        darkImageSrc={rizwanLogoGradient}
+                        lightImageSrc={rizwanLogoGradient}
                         alt="Rizwan"
                         height="40"
                     />
@@ -42,8 +40,8 @@ const Navbar = () => {
                     <div className="flex h-[60px] items-center justify-between px-8">
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
-                                darkImageSrc={rizwanLogoGradientNew}
-                                lightImageSrc={rizwanLogoGradientNew}
+                                darkImageSrc={rizwanLogoGradient}
+                                lightImageSrc={rizwanLogoGradient}
                                 alt="Rizwan"
                                 height="40"
                             />

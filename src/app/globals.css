@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply dark:bg-darkmodesubstitute-white dark:text-darkmodesubstitute-black;
+        @apply bg-gray-100 dark:bg-darkmodesubstitute-white dark:text-darkmodesubstitute-black;
         /* @apply transition-all; */
     }
     h1,
@@ -13,7 +13,7 @@
     h4,
     h5,
     h6 {
-        @apply leading-7 text-primary-dark  dark:text-darkmodesubstitute-black;
+        @apply leading-7 text-gray-50  dark:text-darkmodesubstitute-black;
         /* @apply transition-colors; */
     }
     h1 {
