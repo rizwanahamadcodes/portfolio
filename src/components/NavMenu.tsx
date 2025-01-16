@@ -74,7 +74,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ direction = 'row' }) => {
                                 ? 'h-full px-7'
                                 : 'w-full py-5 pl-5'
                         }
-                        transition-alldark:text-white flex select-none  items-center text-[0.9rem] font-bold uppercase tracking-[0.125rem]`}
+                        transition-alldark:text-white flex select-none  items-center text-[0.9rem] font-bold uppercase tracking-[0.125rem] hover:bg-primary-dark/5 dark:hover:bg-white/5`}
                             onClick={(e) => {
                                 onLIClick({
                                     top: (e.target as HTMLLIElement).offsetTop,

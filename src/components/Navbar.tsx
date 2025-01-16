@@ -18,7 +18,7 @@ const Navbar = () => {
                         height="40"
                     />
                 </Link>
-                <NavMenu direction="column" />
+                <NavMenu direction="row" />
                 <ThemeToggler />
             </Container>
         </nav>
