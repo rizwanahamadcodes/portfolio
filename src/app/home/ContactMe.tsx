@@ -16,6 +16,35 @@ import { BsInstagram, BsMessenger } from 'react-icons/bs'
 import Container from '@/components/Container'
 import { IconType } from 'react-icons'
 
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const visitorSchema = z.object({
+    fullName: z
+        .string({
+            required_error: 'Please enter your full name',
+            invalid_type_error: 'Name must be text',
+        })
+        .max(100, { message: 'Hey' }),
+    email: z
+        .string({
+            required_error: 'Please enter your email',
+            invalid_type_error: 'Email address me=ust be a string',
+        })
+        .max(300, { message: 'Email address is too long.' })
+        .email({ message: 'Please enter a valid email' }),
+    message: z
+        .string({ invalid_type_error: 'Message must be text' })
+        .max(500, {
+            message:
+                'Message is too long, keep the message below 500 characters or below 150 words',
+        })
+        .optional(),
+})
+
+type visitorSchema = z.infer<typeof visitorSchema>
+
 const getInTouchItems = [
     {
         label: 'Mail me at:',
@@ -38,10 +67,6 @@ const getInTouchItems = [
 ]
 
 const ContactMe = () => {
-    const inputClasses = ''
-
-    const { pending } = experimental_useFormStatus()
-
     return (
         <Section>
             <Container className="flex flex-col items-stretch justify-between gap-8 md:flex-row">
@@ -142,6 +167,12 @@ const CustomTextarea = (props: ComponentPropsWithoutRef<'textarea'>) => {
 }
 
 export const ContactForm = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isLoading, isSubmitted, isValid, isDirty },
+    } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
+
     const { pending } = experimental_useFormStatus()
 
     return (
