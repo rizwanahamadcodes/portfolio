@@ -38,7 +38,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
                 <div
                     className={`${
                         isOpen ? '' : 'translate-x-[100%]'
-                    } fixed right-0 top-0  h-screen w-80 border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
+                    } fixed right-0 top-0  h-screen w-80 overflow-y-scroll border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
                 >
                     {children}
                 </div>
