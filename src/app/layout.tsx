@@ -1,10 +1,9 @@
+import WorkAroundThemeProvider from "./WorkAroundThemeProvider";
+import Footer from "@/components/Footer/Footer";
+import NavbarWithObserver from "@/components/Navbar/NavbarWithObserver";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import WorkAroundThemeProvider from "@/app/WorkAroundThemeProvider";
-import "@/globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import NavbarWithObserver from "@/components/Navbar/NavbarWithObserver";
-import Footer from "@/components/Footer/Footer";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
