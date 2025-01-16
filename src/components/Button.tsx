@@ -4,7 +4,9 @@ import { IconType } from 'react-icons/lib'
 
 type Colors =
     | 'primary'
+    | 'primary-400'
     | 'primary-support'
+    | 'primary-support-400'
     | 'secondary'
     | 'secondary-support'
     | 'gray'
@@ -163,13 +165,15 @@ export const getButtonStyles: getButtonStyles = (
         to: {
             primary: 'to-primary',
             'primary-support': 'to-primary-support',
+            'primary-400': 'to-primary-400',
+            'primary-support-400': 'to-primary-support-400',
             secondary: 'to-secondary',
             'secondary-support': 'to-secondary-support',
         },
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-10 items-center rounded-full px-5 tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
+        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'
