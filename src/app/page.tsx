@@ -7,12 +7,12 @@ import heroImageDark from '../../public/img/hero_image_dark.svg'
 
 export default function Home() {
     return (
-        <>
+        <Container>
             <ThemedImage
                 darkImageSrc={heroImageDark}
                 lightImageSrc={heroImageLight}
                 alt="Hero image"
             />
-        </>
+        </Container>
     )
 }

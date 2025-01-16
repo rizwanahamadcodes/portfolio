@@ -109,7 +109,11 @@ const NavMenu: React.FC<NavMenuProps> = ({
                         <Link
                             href={navLink.path}
                             className={`
-                        ${navLink.path === pathname ? 'text-primary' : ''}
+                        ${
+                            navLink.path === pathname
+                                ? 'bg-primary/10 text-primary hover:bg-primary/10'
+                                : ''
+                        }
                         ${
                             direction === 'row'
                                 ? 'h-full px-7'
