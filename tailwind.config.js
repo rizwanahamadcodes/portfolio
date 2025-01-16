@@ -75,6 +75,7 @@ module.exports = {
             },
             spacing: {
                 'nav-height': '60px',
+                'after-nav': 'calc( 100vh - 60px )',
             },
         },
     },
