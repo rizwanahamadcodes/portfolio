@@ -19,7 +19,8 @@ export default function RootLayout({
         <html lang="en">
             <WorkaroundThemeProvider>
                 <body className={inter.className}>
-                    <Navbar />
+                    {/* <Navbar /> */}
+                    <h1 className="pt-5 bg-blend-darken text-left mr-10 "></h1>
                     {children}
                 </body>
             </WorkaroundThemeProvider>
