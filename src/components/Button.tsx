@@ -11,19 +11,28 @@ type Colors =
     | 'secondary-support'
     | 'gray'
 
-type NewButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type BaseButtonProps<ComponentType> = ComponentType & {
     children: React.ReactNode
     className?: string
     colorScheme?: Colors | { from: Colors; to: Colors }
     btnType?: 'solid' | 'outline' | 'ghost'
 }
 
-const Button: React.FC<NewButtonProps> = (props) => {
+type ButtonWrapperProps = (
+    | BaseButtonProps<LinkProps>
+    | BaseButtonProps<React.ComponentPropsWithoutRef<'a'>>
+    | BaseButtonProps<React.ComponentPropsWithoutRef<'button'>>
+) & {
+    component: React.ElementType
+}
+
+const ButtonWrapper = (props: ButtonWrapperProps) => {
     const {
         children,
         className,
         colorScheme = 'primary',
         btnType = 'solid',
+        component: Component,
         ...otherProps
     } = props
 
@@ -34,69 +43,45 @@ const Button: React.FC<NewButtonProps> = (props) => {
     )
 
     return (
-        <button className={completeButtonClasses} {...otherProps}>
+        <Component className={completeButtonClasses} {...otherProps}>
             {children}
-        </button>
+        </Component>
     )
 }
 
-type AnchorButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    children: React.ReactNode
-    className?: string
-    colorScheme?: Colors | { from: Colors; to: Colors }
-    btnType?: 'solid' | 'outline' | 'ghost'
-}
+type ButtonProps = BaseButtonProps<React.ComponentPropsWithoutRef<'button'>>
 
-export const AnchorButton: React.FC<AnchorButtonProps> = (props) => {
-    const {
-        children,
-        className,
-        colorScheme = 'primary',
-        btnType = 'solid',
-        ...otherProps
-    } = props
-
-    const completeButtonClasses = getButtonStyles(
-        className,
-        colorScheme,
-        btnType
-    )
+const Button = (props: ButtonProps) => {
+    const { children, ...otherProps } = props
 
     return (
-        <a className={completeButtonClasses} {...otherProps}>
+        <ButtonWrapper component="a" {...otherProps}>
             {children}
-        </a>
+        </ButtonWrapper>
     )
 }
 
-type NextJsLinkButtonProps = LinkProps & {
-    children: React.ReactNode
-    className?: string
-    colorScheme?: Colors | { from: Colors; to: Colors }
-    btnType?: 'solid' | 'outline' | 'ghost'
-}
+type AnchorButtonProps = BaseButtonProps<React.ComponentPropsWithoutRef<'a'>>
 
-export const NextJsLinkButton: React.FC<NextJsLinkButtonProps> = (props) => {
-    const {
-        children,
-        className,
-        colorScheme = 'primary',
-        btnType = 'solid',
-        ...otherProps
-    } = props
-
-    const completeButtonClasses = getButtonStyles(
-        className,
-        colorScheme,
-        btnType
-    )
+export const AnchorButton = (props: AnchorButtonProps) => {
+    const { children, ...otherProps } = props
 
     return (
-        <>
-            <Link className={completeButtonClasses} {...otherProps}>
-                {children}
-            </Link>
-        </>
+        <ButtonWrapper component="a" {...otherProps}>
+            {children}
+        </ButtonWrapper>
+    )
+}
+
+type NextJsLinkButtonProps = BaseButtonProps<LinkProps>
+
+export const NextJsLinkButton = (props: NextJsLinkButtonProps) => {
+    const { children, ...otherProps } = props
+
+    return (
+        <ButtonWrapper component={Link} {...otherProps}>
+            {children}
+        </ButtonWrapper>
     )
 }
 
@@ -104,7 +89,7 @@ type ButtonIconProps = {
     className?: string
     icon: IconType
 }
-export const ButtonIcon: React.FC<ButtonIconProps> = (props) => {
+export const ButtonIcon = (props: ButtonIconProps) => {
     const { className, icon: Icon } = props
 
     return <Icon className={cn('text-xl', className)} />
