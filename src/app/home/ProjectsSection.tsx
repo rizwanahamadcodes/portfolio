@@ -69,7 +69,7 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={cn(
-                'group flex flex-col overflow-hidden rounded-2xl bg-gray-100 p-3 hover:bg-gray-50 hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 sm:flex-row-reverse',
+                'group flex flex-col overflow-hidden rounded-2xl p-3 shadow-soft hover:shadow sm:flex-row-reverse',
                 positionInParent % 2 === 0 && 'sm:flex-row'
             )}
         >

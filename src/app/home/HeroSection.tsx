@@ -50,7 +50,7 @@ const HeroSection = () => {
                                     from: 'primary-support',
                                     to: 'primary-support-400',
                                 }}
-                                className="grow  shadow-primary-support/50"
+                                className="grow shadow-primary-support/50"
                             >
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me

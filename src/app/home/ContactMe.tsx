@@ -227,7 +227,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="grow rounded-2xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
+        <div className="grow rounded-2xl p-4 shadow-soft md:max-w-md">
             <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
             <form
                 className="flex flex-col gap-4"
@@ -310,7 +310,7 @@ const GetInTouch = (props: GetInTouchProps) => {
     const { children, url } = props
     return (
         <a href={url}>
-            <div className="inline-flex w-full items-center gap-4 rounded-full bg-gray-50 p-2 pr-6 transition-all hover:bg-white hover:shadow active:scale-[0.98] dark:bg-gray-850 dark:hover:bg-gray-800">
+            <div className="inline-flex w-full items-center gap-4 rounded-full p-2 pr-6 shadow-soft transition-all active:scale-[0.98]">
                 {children}
             </div>
         </a>
