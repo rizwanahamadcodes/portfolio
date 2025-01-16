@@ -9,15 +9,16 @@ type Colors =
     | 'secondary-support'
     | 'gray'
 
-type ButtonProps = Omit<LinkProps, 'href'> & {
-    children: React.ReactNode
-    className?: string
-    href?: LinkProps['href']
-    colorScheme?: Colors | { from: Colors; to: Colors }
-    btnType?: 'solid' | 'outline' | 'ghost'
-    leftIcon?: IconType
-    rightIcon?: IconType
-}
+type ButtonProps = Omit<LinkProps, 'href'> &
+    React.HTMLProps<HTMLDivElement> & {
+        children: React.ReactNode
+        className?: string
+        href?: LinkProps['href']
+        colorScheme?: Colors | { from: Colors; to: Colors }
+        btnType?: 'solid' | 'outline' | 'ghost'
+        leftIcon?: IconType
+        rightIcon?: IconType
+    }
 
 const Button: React.FC<ButtonProps> = (props) => {
     const {
@@ -131,7 +132,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <>
             {href === undefined ? (
-                <button className={completeButtonClasses}>{content}</button>
+                <button {...otherProps} className={completeButtonClasses}>
+                    {content}
+                </button>
             ) : (
                 <Link
                     href={href}
