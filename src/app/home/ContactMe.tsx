@@ -10,7 +10,6 @@ import cn from '@/components/utils/cn'
 import React from 'react'
 import { sendEmail } from '../../../actions/sendEmail'
 import { experimental_useFormStatus } from 'react-dom'
-import SubmitButton from '@/components/SubmitButton'
 import OrDivider from '@/components/OrDivider'
 import { SiGmail } from 'react-icons/si'
 import { BsInstagram, BsMessenger } from 'react-icons/bs'
@@ -145,6 +144,8 @@ const CustomTextarea: React.FC<React.HTMLProps<HTMLTextAreaElement>> = (
 }
 
 export const ContactForm = () => {
+    const { pending } = experimental_useFormStatus()
+
     return (
         <div className="grow rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850 md:max-w-md">
             <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
@@ -179,7 +180,14 @@ export const ContactForm = () => {
                     maxLength={500}
                     placeholder="Message..."
                 ></CustomTextarea>
-                <SubmitButton />
+
+                {pending ? (
+                    <div>Sending...</div>
+                ) : (
+                    <Button className="w-full lg:w-auto" type="submit">
+                        Send Message
+                    </Button>
+                )}
                 {/* Maybe you could use react hot toast for success */}
             </form>
         </div>

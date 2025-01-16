@@ -1,4 +1,8 @@
-import Button from '@/components/Button'
+import Button, {
+    AnchorButton,
+    ButtonIcon,
+    NextJsLinkButton,
+} from '@/components/Button'
 import Section, { SectionSubtitle, SectionTitle } from '@/components/Section'
 import ThemedImage from '@/components/ThemedImage'
 import { ImBubbles } from 'react-icons/im'
@@ -24,29 +28,23 @@ const HeroSection = () => {
                         </SectionSubtitle>
 
                         <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row">
-                            <a
+                            <AnchorButton
                                 href="/img/hero_image_light.svg"
                                 className="grow"
                                 download
                             >
-                                <Button
-                                    leftIcon={HiDownload}
-                                    colorScheme="primary"
-                                    className="w-full"
-                                >
-                                    View CV
-                                </Button>
-                            </a>
+                                <ButtonIcon icon={HiDownload} />
+                                View CV
+                            </AnchorButton>
 
-                            <Link className="grow" href={'/contact-me'}>
-                                <Button
-                                    colorScheme="primary-support"
-                                    leftIcon={ImBubbles}
-                                    className="w-full"
-                                >
-                                    Contact Me
-                                </Button>
-                            </Link>
+                            <NextJsLinkButton
+                                href="/contact-me"
+                                colorScheme="primary-support"
+                                className="grow"
+                            >
+                                <ButtonIcon icon={ImBubbles} />
+                                Contact Me
+                            </NextJsLinkButton>
                         </div>
                     </div>
                 </div>
