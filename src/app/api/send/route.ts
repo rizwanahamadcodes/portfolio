@@ -1,6 +1,11 @@
+'use server'
+
 import EmailTemplate from '@/components/EmailTemplate'
 import { NextResponse } from 'next/server'
+
+import { error } from 'console'
 import { Resend } from 'resend'
+import React from 'react'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
