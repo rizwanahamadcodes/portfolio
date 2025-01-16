@@ -15,6 +15,14 @@ import clsx from "clsx";
 
 const projects = [
     {
+        projectTitle: "Online Code Runner",
+        projectDesc:
+            "Code compiler and runner with modern code editor functionalities and a minimal ui to for easy testing of code snippets, with suport for all major programming languages and varying color modes",
+        projectImageSrc: "/img/code_runner_large.jpg",
+        githubLink: "https://github.com/rizwanahamadcodes/code-runner",
+        liveDemoLink: "https://code-runner-omega.vercel.app/",
+    },
+    {
         projectTitle: "Image Editing App",
         projectDesc:
             "Simple and to the point image editor, with most necessary features for a pleasant and distraction free image editing experience",
@@ -90,7 +98,7 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={clsx(
-                "group flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow transition-all hover:shadow-md dark:bg-gray-800",
+                "group relative flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow transition-all hover:shadow-md dark:bg-gray-800",
                 positionInParent % 2 === 0
                     ? "sm:flex-row"
                     : "sm:flex-row-reverse"
@@ -99,6 +107,7 @@ const Project = (props: ProjectProps) => {
                 <Link
                     href={project.liveDemoLink}
                     target="_blank"
+                    className="before:inset-0 before:content-[''] before:absolute before:z-10"
                     rel="noopener noreferrer">
                     <SectionCategoryTitle>
                         {project.projectTitle}
@@ -118,7 +127,7 @@ const Project = (props: ProjectProps) => {
                         className={button({
                             variant: "outline",
                             colorScheme: "themed-gray",
-                            className: "!w-full",
+                            className: "!w-full z-20",
                         })}
                         href={project.githubLink}
                         target="_blank"
