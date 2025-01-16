@@ -17,8 +17,8 @@ const projects = [
         projectDesc:
             "Feature rich image editor with additional capability to render images based on huge dataset, templates once created using the available fields can be used to generate multiples design with dynamic content",
         projectImageSrc: "/img/cardgen.jpg",
-        githubLink: "https://github.com/rizwanahamadcodes/cardgen",
-        liveDemoLink: "https://cardgen-seven.vercel.app/projects/1/edit",
+        githubLink: "https://github.com/rizwanahamadcodes/image-editor",
+        liveDemoLink: "https://image-editor-eight-omega.vercel.app/projects/1/edit",
     },
 
     {
