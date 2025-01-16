@@ -51,7 +51,7 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
                 <SunMoonIcons icon={IoIosSunny} />
                 <SunMoonIcons icon={IoIosMoon} />
             </div>
-            <div className="absolute right-0.25 top-0.25 h-1.5 w-1.5 rounded-full bg-white transition-aall peer-checked/themeToggler:right-2.25 peer-checked/themeToggler:bg-gray-900"></div>
+            <div className="absolute right-0.25 top-0.25 h-1.5 w-1.5 rounded-full bg-white transition-all peer-checked/themeToggler:right-2.25 peer-checked/themeToggler:bg-gray-900"></div>
         </label>
     );
 };
