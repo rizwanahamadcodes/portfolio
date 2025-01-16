@@ -35,7 +35,7 @@ const HeroSection = () => {
                                     to: 'primary-400',
                                 }}
                                 href="/img/hero_image_light.svg"
-                                className="grow shadow-primary-300"
+                                className="grow shadow-primary/50"
                                 download
                             >
                                 <ButtonIcon icon={HiDownload} />
@@ -48,7 +48,7 @@ const HeroSection = () => {
                                     from: 'primary-support',
                                     to: 'primary-support-400',
                                 }}
-                                className="grow  shadow-primary-support-300"
+                                className="grow  shadow-primary-support/50"
                             >
                                 <ButtonIcon icon={ImBubbles} />
                                 Contact Me
