@@ -22,6 +22,10 @@ module.exports = {
                     dark: '#00091A',
                     darker: '#00040d',
                 },
+                darkmodesubstitute: {
+                    white: 'red',
+                    black: 'red',
+                },
                 dark: { gray: '#202124' },
                 secondary: '#5500ff',
             },
