@@ -9,10 +9,10 @@ import React from 'react'
 
 const ContactMe = () => {
     const inputClasses =
-        'w-full rounded-md rounded-sm border dark:border-gray-800 border-gray-200 bg-transparent py-2 px-4 focus:outline-none focus:border-primary dark:focus:border-primary'
+        'w-full rounded-md focus:shadow-primary-glow border dark:border-gray-800 border-gray-200 bg-transparent py-2 px-4 focus:outline-none focus:border-primary dark:focus:border-primary'
 
     return (
-        <Section containerClassName="grid md:grid-cols-2 gap-5 flex-col grid-cols-1">
+        <Section containerClassName="grid items-center md:grid-cols-2 gap-5 flex-col grid-cols-1">
             <div>
                 <SectionTitle>
                     Let's chat. <br /> Tell me about your project
@@ -21,7 +21,7 @@ const ContactMe = () => {
                     Let's create something together.
                 </SectionSubtitle>
             </div>
-            <div className="rounded-xl p-4 shadow-center dark:border dark:border-gray-800">
+            <div className="rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850">
                 <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
                 <form className="flex flex-col gap-4 md:items-start">
                     <input
