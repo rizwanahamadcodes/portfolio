@@ -15,16 +15,12 @@ const Section: React.FC<SectionProps> = (props) => {
     const { title, subtitle, children, sectionClassName, containerClassName } =
         props
 
-        console.log(children)
-        
     return (
         <section className={cn('py-10', sectionClassName)}>
             {title != undefined ? (
                 <Container className="mb-8 text-center">
-                    <h2 className="text-3xl font-medium text-primary dark:text-primary">
-                        {title}
-                    </h2>
-                    <h3 className="text-xl">{subtitle}</h3>
+                    <SectionTitle>{title}</SectionTitle>
+                    <SectionSubtitle>{subtitle}</SectionSubtitle>
                 </Container>
             ) : (
                 <></>
@@ -35,3 +31,34 @@ const Section: React.FC<SectionProps> = (props) => {
 }
 
 export default Section
+
+type SectionTitleProps = {
+    className?: string
+    children?: React.ReactNode
+}
+
+export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
+    const { children, className } = props
+
+    return (
+        <h2
+            className={cn(
+                'text-2xl font-medium text-primary dark:text-primary sm:text-3xl',
+                className
+            )}
+        >
+            {children}
+        </h2>
+    )
+}
+
+type SectionSubtitleProps = {
+    className?: string
+    children?: React.ReactNode
+}
+
+export const SectionSubtitle: React.FC<SectionSubtitleProps> = (props) => {
+    const { children, className } = props
+
+    return <h3 className={cn('text-xl', className)}>{children}</h3>
+}
