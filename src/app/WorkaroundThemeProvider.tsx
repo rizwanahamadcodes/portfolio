@@ -21,7 +21,8 @@ const WorkaroundThemeProvider = ({
         <ThemeProvider
             enableSystem={true}
             enableColorScheme={false}
-            disableTransitionOnChange>
+            disableTransitionOnChange
+            attribute="class">
             {children}
         </ThemeProvider>
     );

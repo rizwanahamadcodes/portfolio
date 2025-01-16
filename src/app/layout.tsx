@@ -18,7 +18,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <WorkaroundThemeProvider>
-                <body className={inter.className}>{children}</body>
+                <body className={inter.className}>
+                    <Navbar />
+                    {children}
+                </body>
             </WorkaroundThemeProvider>
         </html>
     );
