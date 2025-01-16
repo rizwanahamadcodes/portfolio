@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from '@next/font/google'
 import WorkaroundThemeProvider from './WorkaroundThemeProvider'
-import Header from './Header'
 import Navbar from '@/components/Navbar'
 
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
@@ -21,7 +20,6 @@ export default function RootLayout({
         <html lang="en">
             <WorkaroundThemeProvider>
                 <body className={`${nunito.variable} font-sans`}>
-                    {/* <Header /> */}
                     <Navbar />
                     {children}
                 </body>

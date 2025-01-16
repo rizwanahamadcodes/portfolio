@@ -4,19 +4,21 @@ import rizwanLogoWhite from '../../public/img/rizwan_logo_white.svg'
 import Container from './Container'
 import ThemedImage from './ThemedImage'
 import ThemeToggler from './ThemeToggler'
+import NavMenu from './NavMenu'
 
 const Navbar = () => {
     return (
-        <nav className="bg fixed z-10 h-[60px] w-full border-b-[1px] border-black/20 bg-white/50 shadow backdrop-blur-sm dark:border-white/20 dark:bg-primary-dark/50">
+        <nav className="bg fixed top-0 z-10 h-[60px] w-full border-b-[1px] border-black/20 bg-white/50 shadow backdrop-blur-sm dark:border-white/20 dark:bg-primary-dark/50">
             <Container optionalStyles="h-full flex items-center justify-between">
                 <Link href="#">
                     <ThemedImage
-                        darkImageSrc={rizwanLogoPrimary}
+                        darkImageSrc={rizwanLogoWhite}
                         lightImageSrc={rizwanLogoPrimary}
                         alt="Rizwan"
                         height="40"
                     />
                 </Link>
+                <NavMenu direction="column" />
                 <ThemeToggler />
             </Container>
         </nav>
