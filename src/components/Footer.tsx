@@ -66,7 +66,7 @@ const FooterContactLinks = [
 const Footer = () => {
     return (
         <footer className="mt-auto">
-            <Section className="bg-gray-150 pb-0 dark:bg-gray-850">
+            <Section className="bg-gray-100 pb-0 dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800">
                 <Container className="mb-6 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
                     <FooterColumn>
                         <FooterColumnTitle>

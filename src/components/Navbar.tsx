@@ -1,15 +1,12 @@
 'use client'
 
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import Container from './Container'
-import Drawer, { DrawerBody, DrawerFoot, DrawerHead } from './Drawer'
+import Drawer, { DrawerBody, DrawerFoot, DrawerHead, useDrawer } from './Drawer'
 import Hamburger from './Hamburger'
 import NavMenu from './NavMenu'
-import ThemeToggler from './ThemeToggler'
-import ThemedImage from './ThemedImage'
-import { useDrawer } from './Drawer'
 import RizwanLogo from './RizwanLogo'
+import ThemeToggler from './ThemeToggler'
 import cn from './utils/cn'
 
 const Navbar = () => {
@@ -47,7 +44,7 @@ const Navbar = () => {
         <div>
             <nav
                 className={cn(
-                    'fixed top-0 z-10 w-full bg-gray-100/50 backdrop-blur-sm transition-all dark:bg-gray-900/50',
+                    'fixed top-0 z-10 w-full bg-white/50 backdrop-blur-sm transition-all dark:bg-gray-900/50',
                     scrolledPast80 ? [navClasses] : [ghostNavClasses]
                 )}
             >

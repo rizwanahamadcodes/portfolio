@@ -14,7 +14,7 @@ import Container from '@/components/Container'
 
 const HeroSection = () => {
     return (
-        <Section>
+        <Section className='bg-[white] dark:bg-gray-900'>
             <Container className="relative flex flex-col items-center gap-16 lg:flex-row">
                 <div className="w-full">
                     <div className="flex flex-col items-start gap-8">

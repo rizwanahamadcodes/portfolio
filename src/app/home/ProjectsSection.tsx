@@ -35,7 +35,7 @@ const projects = [
 
 const ProjectsSection = () => {
     return (
-        <Section className="bg-gray-200 dark:bg-gray-800">
+        <Section className="bg-gray-100 dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800">
             <Container className="flex flex-col  items-center">
                 <SectionTitle className="text-center" defaultBottomMargin>
                     Projects I have worked on
@@ -69,7 +69,7 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={cn(
-                'group flex flex-col overflow-hidden rounded-2xl bg-gray-100 p-3 shadow-soft transition-all hover:bg-gray-50 hover:shadow dark:bg-gray-700 dark:hover:bg-gray-750  sm:flex-row-reverse',
+                'group flex flex-col overflow-hidden rounded-2xl bg-white p-3 shadow-soft transition-all hover:bg-gray-50 hover:shadow dark:bg-gray-800 dark:hover:bg-gray-750  sm:flex-row-reverse',
                 positionInParent % 2 === 0 && 'sm:flex-row'
             )}
         >
