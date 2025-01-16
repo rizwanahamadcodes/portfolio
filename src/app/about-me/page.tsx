@@ -8,21 +8,37 @@ import React, { useEffect, useRef, useState } from 'react'
 const Page = () => {
     const ref = useRef<HTMLSpanElement | null>(null)
     const [hitTheMid, setHitTheMid] = useState<boolean>()
+    const [prevScroll, setPrevScroll] = useState<number>(0)
 
     useEffect(() => {
+        const buildThresholdList = () => {
+            let threshold = [0]
+            const steps = Math.floor(document.body.offsetHeight / 10)
+
+            for (let i = 1.0; i <= steps; i++) {
+                let ratio = i / steps
+                threshold.push(ratio)
+            }
+
+            return threshold
+        }
+
         const callback: IntersectionObserverCallback = (entries, observer) => {
-            setHitTheMid(entries[0].isIntersecting)
+            console.log(window.scrollY)
         }
 
         const options: IntersectionObserverInit = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -50% 0px',
+            threshold: buildThresholdList(),
+            rootMargin: '0px 0px -100% 0px',
         }
 
         const observer = new IntersectionObserver(callback, options)
 
         if (ref.current) {
-            observer.observe(ref.current)
+            observer.observe(document.body)
+        }
+        return () => {
+            observer.unobserve(document.body)
         }
     }, [])
 
@@ -78,29 +94,11 @@ const Page = () => {
             </SpanWrapperWithRef>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                soluta hic minima dolorum excepturi repellendus, inventore nulla
-                commodi architecto deserunt quam blanditiis doloremque
-                voluptatibus ad enim vero itaque ipsa harum impedit nostrum
-                nihil eaque. Perferendis velit animi recusandae laborum veniam
-                ducimus itaque officiis, placeat a nobis voluptate ipsum hic et
-                nihil non ullam vitae possimus nostrum autem? Voluptates quaerat
-                iure, blanditiis quam suscipit culpa ea est vitae labore
-                mollitia architecto fuga soluta? Commodi quia aut consectetur.
-                Corporis quaerat animi quibusdam maxime quam. Tempora itaque at
-                hic quod sed maxime nesciunt laborum et? Mollitia, doloremque
-                officiis! Nihil maxime, officiis aliquid veritatis quae amet
-                sequi, velit quidem, libero praesentium aperiam! Sunt natus
-                libero rerum labore officia, ex expedita enim deserunt
-                reprehenderit ullam cupiditate aspernatur distinctio tempora
-                accusantium. Harum, voluptates aspernatur! Explicabo, dolore!
-                Natus maiores ad repellat, veniam voluptas debitis tempora?
-                Dolorem voluptatum modi, iste atque molestias provident
-                doloribus, accusantium unde deleniti dolorum rem placeat! Odit,
-                explicabo. Blanditiis ullam temporibus iusto aspernatur enim
-                nulla cumque culpa aliquid sit, eligendi mollitia quae
-                voluptatem non doloremque atque pariatur provident quibusdam.
-                Corporis nisi doloremque necessitatibus consequuntur, ex
-                possimus velit atque rerum, quisquam libero ipsam ratione!
+                soluta hic explicabo. Blanditiis ullam temporibus iusto
+                aspernatur enim nulla cumque culpa aliquid sit, eligendi
+                mollitia quae voluptatem non doloremque atque pariatur provident
+                quibusdam. Corporis nisi doloremque necessitatibus consequuntur,
+                ex possimus velit atque rerum, quisquam libero ipsam ratione!
                 Corrupti at repudiandae molestiae soluta, animi libero in
                 officia deleniti optio porro minima. Quas, tempore. Molestias
                 harum obcaecati laudantium necessitatibus quaerat et itaque sit
