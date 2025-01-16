@@ -40,14 +40,14 @@ const Navbar = () => {
         }
     }, [])
 
-    const navClasses = `bg-white/50 shadow dark:bg-gray-800/50 h-nav-height backdrop-blur-sm`
+    const navClasses = `shadow  bg-gray-100/70 dark:bg-gray-900/70 h-nav-height backdrop-blur-sm`
 
-    const ghostNavClasses = `h-20 bg-gray-100/80 dark:bg-gray-900/80`
+    const ghostNavClasses = `h-20 dark:bg-gray-900 bg-gray-100`
 
     return (
         <div>
             <nav
-                className={`bg fixed top-0 z-10 w-full transition-all ${
+                className={`fixed  top-0 z-10 w-full transition-all ${
                     past80 ? navClasses : ghostNavClasses
                 }`}
             >
