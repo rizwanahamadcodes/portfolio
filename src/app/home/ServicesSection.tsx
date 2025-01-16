@@ -59,7 +59,7 @@ const ServiceCard = (props: ServiceCardProps) => {
     const { children } = props
 
     return (
-        <div className="flex basis-full flex-col items-center rounded-lg p-6 shadow-soft">
+        <div className="flex basis-full flex-col items-center rounded-lg bg-gray-50 p-6 shadow-soft dark:bg-gray-850">
             {children}
         </div>
     )
