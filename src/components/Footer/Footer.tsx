@@ -7,7 +7,7 @@ import { SiGmail } from "react-icons/si";
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import Container from "@/components/Container/Container";
-import FooterCopyright from "./FooterCopyright";
+import FooterCopyright from "@/components/Footer/FooterCopyright";
 import clsx from "clsx";
 
 const footerLinks = [

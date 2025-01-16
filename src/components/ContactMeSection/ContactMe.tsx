@@ -6,8 +6,8 @@ import Section, {
     SectionTitle,
 } from "@/components/Section/Section";
 
-import ContactForm from "./ContactForm";
-import GetInTouchSection from "./GetInTouchSection/GetInTouchSection";
+import ContactForm from "@/components/ContactMeSection/ContactForm";
+import GetInTouchSection from "@/components/ContactMeSection/GetInTouchSection/GetInTouchSection";
 
 const ContactMe = () => {
     return (

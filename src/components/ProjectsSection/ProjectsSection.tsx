@@ -4,8 +4,8 @@ import Section, {
     SectionSubtitle,
     SectionTitle,
 } from "@/components/Section/Section";
-import Container from "../Container/Container";
-import { ButtonIcon, button } from "../Button/Button";
+import Container from "@/components/Container/Container";
+import { ButtonIcon, button } from "@/components/Button/Button";
 import { TbWindowMaximize } from "react-icons/tb";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";

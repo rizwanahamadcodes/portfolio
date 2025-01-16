@@ -2,10 +2,10 @@ import { visitorSchema } from "@/schemas/visitorSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { SectionCategoryTitle } from "../Section/Section";
-import CustomInput from "./CustomInput";
-import CustomTextarea from "./CustomTextArea";
-import Button, { ButtonIcon } from "../Button/Button";
+import { SectionCategoryTitle } from "@/components/Section/Section";
+import CustomInput from "@/components/ContactMeSection/CustomInput";
+import CustomTextarea from "@/components/ContactMeSection/CustomTextArea";
+import Button, { ButtonIcon } from "@/components/Button/Button";
 import clsx from "clsx";
 import { BiLoaderAlt } from "react-icons/bi";
 

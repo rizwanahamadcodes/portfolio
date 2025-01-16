@@ -3,8 +3,8 @@
 import clsx from "clsx";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import { NavMenuProps } from "./NavMenu";
-import { TabIndicatorBoundsType } from "../TabIndicator";
+import { NavMenuProps } from "@/components/Navbar/NavMenu/NavMenu";
+import { TabIndicatorBoundsType } from "@/components/Navbar/TabIndicator";
 import {
     Dispatch,
     SetStateAction,

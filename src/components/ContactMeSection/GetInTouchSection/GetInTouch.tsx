@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { GetInTouchItem } from "./GetInTouchSection";
+import { GetInTouchItem } from "@/components/ContactMeSection/GetInTouchSection/GetInTouchSection";
 
 type GetInTouchProps = {
     getInTouchItem: GetInTouchItem;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import WorkAroundThemeProvider from "./WorkAroundThemeProvider";
-import "./globals.css";
+import WorkAroundThemeProvider from "@/app/WorkAroundThemeProvider";
+import "@/globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import NavbarWithObserver from "@/components/Navbar/NavbarWithObserver";
 import Footer from "@/components/Footer/Footer";

@@ -2,10 +2,9 @@
 
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { IconBaseProps, IconType } from "react-icons";
 import { IoIosMoon, IoIosSunny } from "react-icons/io";
-import useObserver from "./useObserver";
 
 type ThemeTogglerProps = React.ComponentPropsWithoutRef<"label">;
 

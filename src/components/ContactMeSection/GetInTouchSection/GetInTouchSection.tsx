@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import { BiLoaderAlt } from "react-icons/bi";
 import { BsInstagram, BsMessenger } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
-import GetInTouch from "./GetInTouch";
+import GetInTouch from "@/components/ContactMeSection/GetInTouchSection/GetInTouch";
 
 type GetInTouchSectionProps = {};
 
