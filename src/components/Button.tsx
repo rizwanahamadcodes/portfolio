@@ -80,7 +80,7 @@ const Button: React.FC<NewButtonProps> = (props) => {
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-10 items-center rounded-full px-5 uppercase tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
+        'flex justify-center gap-3 h-10 items-center rounded-full px-5 tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'
