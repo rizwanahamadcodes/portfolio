@@ -136,21 +136,21 @@ export default TechnologiesSection
 type TechCardProps = {
     tech: (typeof techList)[number]
 }
-
 export const TechCard: React.FC<TechCardProps> = (props) => {
     const { tech } = props
     const { id, icon: Icon, title, color } = tech
 
     return (
-        <div
+    <div
             key={id}
-            className="rounded-full` flex items-center gap-2 active:scale-[0.98]"
+className="rounded-full` flex items-center gap-2 active:scale-[0.98]"
         >
             <div
                 style={{
                     background: color,
                 }}
                 className="flex items-center justify-center rounded-full bg-white p-2 dark:bg-gray-600"
+                
             >
                 <Icon size={30} className="text-white" />
             </div>

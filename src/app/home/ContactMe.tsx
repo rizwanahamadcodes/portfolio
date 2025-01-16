@@ -130,6 +130,7 @@ const ContactMe = () => {
                         required
                         maxLength={500}
                         className={cn(inputClasses, 'h-36 resize-none')}
+                        placeholder="Message..."
                     ></textarea>
                     <SubmitButton />
                     {/* Maybe you could use react hot toast for success */}
