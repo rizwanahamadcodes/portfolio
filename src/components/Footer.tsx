@@ -66,8 +66,8 @@ const FooterContactLinks = [
 const Footer = () => {
     return (
         <footer>
-            <Section className="pb-0">
-                <Container className="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            <Section className="bg-gray-150 pb-0 dark:bg-gray-850">
+                <Container className="mb-6 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
                     <FooterColumn>
                         <FooterColumnTitle>
                             <RizwanLogo variant="blackandwhite" />
@@ -101,7 +101,7 @@ const Footer = () => {
                         </FooterColumnBody>
                     </FooterColumn>
                 </Container>
-                <p className="bg-gray-50 py-4 text-center dark:bg-gray-850">
+                <p className="bg-gray-100 py-4 text-center dark:bg-gray-800 ">
                     Copyright
                 </p>
             </Section>

@@ -141,21 +141,20 @@ const CustomInput = (
 
     const { invalid, error } = getFieldState(name)
 
-    const baseInputClasses =
-        'border-gray-200 shadow-primary-glow-initial hover:shadow-primary-glow focus:border-primary dark:border-gray-800 dark:focus:border-primary'
+    const baseInputClasses = 'shadow-soft hover:shadow-primary-glow'
 
     return (
         <div>
             <input
                 {...register(name)}
                 className={cn(
-                    'w-full rounded-lg border bg-transparent px-4 py-2 transition focus:outline-none dark:focus:bg-gray-800',
+                    'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800',
                     baseInputClasses,
                     isSubmitted
                         ? invalid
-                            ? 'border-red-500 shadow-alert-glow-initial hover:shadow-alert-glow focus:border-red-500 focus:shadow-alert-glow dark:border-red-500 dark:focus:border-red-500'
+                            ? 'shadow-alert-glow-initial hover:shadow-alert-glow focus:shadow-alert-glow'
                             : !success
-                            ? 'border-green-500 shadow-success-glow-initial hover:shadow-success-glow focus:border-green-500 focus:shadow-success-glow dark:border-green-500 dark:focus:border-green-500'
+                            ? 'shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
                             : baseInputClasses
                         : ''
                 )}
@@ -179,8 +178,8 @@ const CustomTextarea = (
         <textarea
             {...register(name)}
             className={cn(
-                'w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2 shadow-primary-glow-initial transition hover:shadow-primary-glow focus:border-primary focus:shadow-primary-glow focus:outline-none dark:border-gray-800 dark:focus:border-primary dark:focus:bg-gray-800',
-                'h-36 resize-none'
+                'w-full rounded-2xl  px-4 py-2 shadow-soft transition hover:shadow-primary-glow focus:shadow-primary-glow focus:outline-none dark:focus:bg-gray-800',
+                'h-36 resize-none bg-white dark:bg-gray-800'
             )}
             {...otherProps}
         />
@@ -278,7 +277,7 @@ export const ContactForm = () => {
                 ></CustomTextarea>
 
                 <Button
-                    className={cn('w-full lg:w-auto')}
+                    className={cn('w-full shadow-soft lg:w-auto')}
                     type="submit"
                     disabled={loading}
                     colorScheme={
