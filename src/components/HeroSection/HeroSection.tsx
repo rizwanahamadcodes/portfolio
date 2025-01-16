@@ -116,9 +116,7 @@ export const CTA = (props: CTAProps) => {
             </Link>
             <a
                 download
-                href={
-                    "/img/rizwan_logo__primary-to-primary-support-gradient.svg"
-                }
+                href={"/Rizwan_Ahamad_CV.pdf"}
                 className={button({
                     variant: "outline",
                     colorScheme: "themed-gray",
