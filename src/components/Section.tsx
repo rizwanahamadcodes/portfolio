@@ -6,7 +6,7 @@ type SectionProps = {
     className?: string
 }
 
-const Section: React.FC<SectionProps> = (props) => {
+const Section = (props: SectionProps) => {
     const { children, className } = props
 
     return <section className={cn('py-10', className)}>{children}</section>
@@ -22,7 +22,7 @@ type SectionTitleProps = {
     defaultBottomMargin?: boolean
 }
 
-export const SectionTitle: React.FC<SectionTitleProps> = (props) => {
+export const SectionTitle = (props: SectionTitleProps) => {
     const { children, className, defaultBottomMargin = false } = props
 
     return (
@@ -45,7 +45,7 @@ type SectionSubtitleProps = {
     defaultBottomMargin?: boolean
 }
 
-export const SectionSubtitle: React.FC<SectionSubtitleProps> = (props) => {
+export const SectionSubtitle = (props: SectionSubtitleProps) => {
     const { children, className, defaultBottomMargin } = props
 
     return (
@@ -66,9 +66,7 @@ type SectionCategoryTitleProps = {
     children?: React.ReactNode
 }
 
-export const SectionCategoryTitle: React.FC<SectionCategoryTitleProps> = (
-    props
-) => {
+export const SectionCategoryTitle = (props: SectionCategoryTitleProps) => {
     const { children, className } = props
 
     return (

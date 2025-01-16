@@ -7,7 +7,7 @@ import React, { useEffect } from 'react'
 import CloseButton from './CloseButton'
 import cn from './utils/cn'
 
-type DrawerProps = React.HTMLProps<HTMLDivElement> & {
+type DrawerProps = React.ComponentPropsWithoutRef<'div'> & {
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
@@ -75,7 +75,7 @@ type DrawerHeadProps = {
     onClose: () => void
 }
 
-export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
+export const DrawerHead = (props: DrawerHeadProps) => {
     const {
         children,
         scrolledPast80,
@@ -119,7 +119,7 @@ interface DrawerBodyProps {
     px?: string
 }
 
-export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
+export const DrawerBody = (props: DrawerBodyProps) => {
     const { children, px } = props
 
     return <div className={cn('grow overflow-y-auto', px)}>{children}</div>
@@ -129,7 +129,7 @@ interface DrawerFootProps {
     px?: string
 }
 
-export const DrawerFoot: React.FC<DrawerFootProps> = (props) => {
+export const DrawerFoot = (props: DrawerFootProps) => {
     const { children, px } = props
 
     return (

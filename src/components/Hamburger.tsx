@@ -1,7 +1,7 @@
 import cn from './utils/cn'
 
-const Hamburger = (props: React.HTMLProps<HTMLDivElement>) => {
-    const { className, ...rest } = props
+const Hamburger = (props: React.ComponentPropsWithoutRef<'div'>) => {
+    const { className, ...otherProps } = props
 
     return (
         <div
@@ -9,7 +9,7 @@ const Hamburger = (props: React.HTMLProps<HTMLDivElement>) => {
                 'flex h-[19px] w-7 cursor-pointer flex-col justify-between',
                 className
             )}
-            {...rest}
+            {...otherProps}
         >
             {Array(3)
                 .fill(null)

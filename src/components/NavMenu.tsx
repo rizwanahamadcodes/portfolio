@@ -19,7 +19,7 @@ const navLinks = [
     { name: 'contact me', path: '/contact-me' },
 ]
 
-type NavMenuProps = React.HTMLProps<HTMLDivElement> & {
+type NavMenuProps = React.ComponentPropsWithoutRef<"div"> & {
     direction: 'row' | 'column'
     scrolledPast80: boolean
 }
