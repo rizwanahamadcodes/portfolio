@@ -28,9 +28,13 @@ const navLinks = [
 
 interface NavMenuProps {
     direction: 'row' | 'column'
+    customClasses?: string
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ direction = 'row' }) => {
+const NavMenu: React.FC<NavMenuProps> = ({
+    direction = 'row',
+    customClasses,
+}) => {
     const pathname = usePathname()
 
     const [sliderBounds, setSliderBounds] = useState<SliderBoundsProps>({
@@ -63,7 +67,9 @@ const NavMenu: React.FC<NavMenuProps> = ({ direction = 'row' }) => {
 
     return (
         <div
-            className={`${direction === 'row' ? 'h-full' : 'w-full'} relative `}
+            className={`${
+                direction === 'row' ? 'h-full' : 'w-full'
+            } relative ${customClasses}`}
         >
             <ul
                 className={`${
