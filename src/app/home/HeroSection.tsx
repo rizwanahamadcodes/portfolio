@@ -48,7 +48,7 @@ const HeroSection = () => {
                             <Button
                                 colorScheme={{
                                     from: 'secondary',
-                                    to: 'secondary-support',
+                                    to: 'primary-support',
                                 }}
                                 leftIcon={FaPhoneAlt}
                                 className="w-full"
