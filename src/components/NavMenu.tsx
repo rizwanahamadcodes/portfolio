@@ -121,7 +121,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                         ${
                             direction === 'row'
                                 ? 'h-full px-7'
-                                : 'h-nav-height w-full pl-7'
+                                : 'h-nav-height w-full pl-[7vw]'
                         }
                         flex select-none items-center text-[0.9rem]  font-bold uppercase tracking-[0.125rem] transition-all`}
                             onClick={(e) => {

@@ -5,7 +5,7 @@ import rizwanLogoGradient from '../../public/img/rizwan_logo_gradient.svg'
 
 import CloseButton from './CloseButton'
 import Container from './Container'
-import Drawer, { DrawerHead } from './Drawer'
+import Drawer, { DrawerBody, DrawerFoot, DrawerHead } from './Drawer'
 import Hamburger from './Hamburger'
 import NavMenu from './NavMenu'
 import ThemeToggler from './ThemeToggler'
@@ -37,7 +37,11 @@ const Navbar = () => {
                     onOpen={onOpen}
                     onClose={onClose}
                 >
-                    <DrawerHead hasCloseButton={true} onClose={onClose}>
+                    <DrawerHead
+                        hasCloseButton={true}
+                        onClose={onClose}
+                        px={'px-[7vw]'}
+                    >
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
                                 darkImageSrc={rizwanLogoGradient}
@@ -47,14 +51,19 @@ const Navbar = () => {
                             />
                         </Link>
                     </DrawerHead>
+                    <DrawerBody>
+                        <div className="flex h-full flex-col justify-between">
+                            <div>
+                                <NavMenu direction="column" />
+
+                                <div className="flex h-nav-height items-center justify-between px-7">
+                                    <ThemeToggler />
+                                </div>
+                            </div>
+                            <DrawerFoot px="px-[7vw]">Copyright</DrawerFoot>
+                        </div>
+                    </DrawerBody>
                     {/*
-                        <button onClick={onClose}>
-                            <CloseButton />
-                        </button>
-                    </div>
-                    <NavMenu direction="column" />
-                    <div className="flex h-nav-height items-center justify-between px-7">
-                        <ThemeToggler />
                     </div>
                      */}
                 </Drawer>
