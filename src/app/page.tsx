@@ -8,6 +8,8 @@ import heroImageDark from '../../public/img/hero_image_dark.svg'
 export default function Home() {
     return (
         <Container>
+            <h1>This is the home page</h1>
+            <p>I am a parapgraph</p>
             <ThemedImage
                 darkImageSrc={heroImageDark}
                 lightImageSrc={heroImageLight}

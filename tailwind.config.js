@@ -36,6 +36,10 @@ module.exports = {
                 // i think lower opacity blacks and whites should be a better option cause then they won't look ugly if i change the theme colors, or implement a color in place of gray-900 for dark
                 // i need to figure out what i should do for hover of eleements which do not have a distinct background
 
+                // in light mode you can make elements which use white
+                // but in dark mode you won't make elements which use black
+                // if white comes inside of the theme color then it can be absolute white
+
                 gray: {
                     50: 'hsl(220deg,10%,95%)', //#f2f2f2
                     100: 'hsl(220deg,10%,90%)', //#e6e6e6
@@ -56,11 +60,6 @@ module.exports = {
                     850: 'hsl(220deg,10%,15%)', //#262626
                     900: 'hsl(220deg,10%,10%)', //#1a1a1a
                     950: 'hsl(220deg,10%,5%)', //#0d0d0d
-                },
-
-                darkmodesubstitute: {
-                    white: 'hsl(220deg,10%,10%)',
-                    black: 'hsl(220deg,10%,90%)',
                 },
             },
             boxShadow: {

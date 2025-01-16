@@ -29,6 +29,8 @@ const ThemeToggler: React.FC<ThemeTogglerProps> = ({ customClasses }) => {
         return null
     }
 
+    const iconClasses =
+        'text-xl text-white peer-checked/themeToggler:text-gray-900 dark:text-gray-900'
     return (
         <label
             htmlFor="theme-toggle-checkbox"
@@ -42,11 +44,12 @@ const ThemeToggler: React.FC<ThemeTogglerProps> = ({ customClasses }) => {
                 onChange={onThemeTogglerChange}
             />
 
-            <div className="flex h-8 w-16 items-center justify-between rounded-full bg-primary p-2 peer-checked/themeToggler:bg-white">
-                <IoIosSunny className="text-xl text-white peer-checked/themeToggler:text-darkmodesubstitute-white dark:text-darkmodesubstitute-white" />
-                <IoIosMoon className="text-xl text-white peer-checked/themeToggler:text-darkmodesubstitute-white dark:text-darkmodesubstitute-white" />
+            <div className="flex h-8 w-16 items-center justify-between rounded-full bg-primary p-2 peer-checked/themeToggler:bg-gray-100">
+                <IoIosSunny className={iconClasses} />
+                {/* i had to add the dark: here because it was globally defined so that over wrote  */}
+                <IoIosMoon className={iconClasses} />
             </div>
-            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-darkmodesubstitute-white"></div>
+            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-gray-900"></div>
         </label>
     )
 }

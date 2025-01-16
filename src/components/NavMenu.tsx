@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Navbar from './Navbar'
+import { useEffect, useRef, useState } from 'react'
 
 interface NavLinkProps {
     navLink: {
@@ -116,15 +115,15 @@ const NavMenu: React.FC<NavMenuProps> = ({
                             className={`
                         ${
                             navLink.path === pathname
-                                ? 'bg-primary/10 text-primary hover:bg-primary/10'
-                                : ''
+                                ? 'bg-primary/20 text-primary hover:bg-primary/20 dark:hover:bg-primary/20'
+                                : 'hover:bg-gray-900/10 dark:hover:bg-gray-100/10'
                         }
                         ${
                             direction === 'row'
                                 ? 'h-full px-7'
                                 : 'w-full py-5 pl-8'
                         }
-                        flex select-none items-center text-[0.9rem]  font-bold uppercase tracking-[0.125rem] transition-all hover:bg-black/5 dark:hover:bg-white/5`}
+                        flex select-none items-center text-[0.9rem]  font-bold uppercase tracking-[0.125rem] transition-all`}
                             onClick={(e) => {
                                 onLIClick({
                                     top: (e.target as HTMLLIElement).offsetTop,
