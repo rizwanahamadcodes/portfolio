@@ -41,7 +41,8 @@ const Navbar = () => {
 
     const navClasses = `shadow  bg-gray-100/50 dark:bg-gray-900/50 h-nav-height backdrop-blur-sm`
 
-    const ghostNavClasses = `h-20 dark:bg-gray-900 bg-gray-100`
+    // const ghostNavClasses = `h-20 dark:bg-gray-900 bg-gray-100`
+    const ghostNavClasses = `h-20 bg-gray-100/50 dark:bg-gray-900/50 h-nav-height backdrop-blur-sm`
 
     return (
         <div>
