@@ -85,9 +85,17 @@ module.exports = {
             boxShadow: {
                 left: '-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)',
                 center: '0px 0px 3px 0px rgba(0,0,0,0.1), 0px 0px 2px 0px rgb(0,0,0,0.1)',
-                'primary-glow': '0px 0px 0px 4px hsla(220deg, 80%, 50%, 0.5)',
                 'primary-glow-initial':
-                    '0px 0px 0px 0px hsla(220deg, 80%, 50%, 0.5)',
+                    '0px 0px 0px 0px hsla(220deg, 50%, 50% 0.5)',
+                'primary-glow': '0px 0px 0px 4px hsla(220deg, 80%, 50%, 0.5)',
+
+                'success-glow-initial':
+                    '0px 0px 0px 0px hsla(120deg, 40%, 50% 0.5)',
+                'success-glow': '0px 0px 0px 4px hsla(120deg, 40%, 50%, 0.5)',
+
+                'alert-glow-initial':
+                    '0px 0px 0px 0px hsla(0deg, 50%, 50% 0.5)',
+                'alert-glow': '0px 0px 0px 4px hsla(0deg, 50%, 50%, 0.5)',
             },
             spacing: {
                 'nav-height': '60px',
