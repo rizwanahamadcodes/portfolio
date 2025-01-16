@@ -15,20 +15,22 @@ import Container from '@/components/Container'
 const HeroSection = () => {
     return (
         <Section>
-            <Container className="flex flex-col items-center gap-12 lg:flex-row">
+            <Container className="relative flex flex-col items-center gap-16 lg:flex-row">
                 <div className="w-full">
-                    <div className="flex flex-col items-start gap-5">
-                        <GreetingLine />
+                    <div className="flex flex-col items-start gap-8">
+                        <div className="flex flex-col gap-4">
+                            <GreetingLine />
 
-                        <SectionTitle>Front-end Web Developer</SectionTitle>
+                            <SectionTitle>Front-end Web Developer</SectionTitle>
 
-                        <SectionSubtitle className="mb-3 max-w-[50ch]">
-                            I craft captivating web interfaces that blend design
-                            and functionality to create a pleasant user
-                            experience.
-                        </SectionSubtitle>
+                            <SectionSubtitle className="max-w-[50ch]">
+                                I craft captivating web interfaces that blend
+                                design and functionality to create a pleasant
+                                user experience.
+                            </SectionSubtitle>
+                        </div>
 
-                        <div className="flex w-full flex-col items-stretch gap-5 sm:flex-row">
+                        <div className="flex w-full flex-col items-stretch gap-4 sm:flex-row">
                             <AnchorButton
                                 colorScheme={{
                                     from: 'primary',
@@ -71,7 +73,7 @@ const HeroSection = () => {
 
 const GreetingLine = () => {
     return (
-        <h1 className="font-medium sm:text-7xl xl:text-8xl">
+        <h1 className="font-medium sm:text-7xl xl:text-[5.5rem]">
             <div>Hi,</div>
             <div>
                 I am
