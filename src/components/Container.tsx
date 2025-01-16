@@ -6,7 +6,6 @@ const Container = (props: ContainerProps) => {
     const { children, className, ...rest } = props
 
     const containerClasses = `m-auto w-[86%] max-w-7xl ${className}`
-    console.log(containerClasses)
 
     return (
         <div {...rest} className={containerClasses}>
