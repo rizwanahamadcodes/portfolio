@@ -52,7 +52,7 @@ const ContactMe = () => {
             <Container className="flex flex-col items-stretch justify-between gap-8 md:flex-row">
                 <div className="relative grow md:max-w-md">
                     <SectionTitle defaultBottomMargin>
-                        Let&apos;s chat. <br /> Tell me about your project
+                        Tell me about your project
                     </SectionTitle>
                     <SectionSubtitle defaultBottomMargin>
                         Let&apos;s create something together.
