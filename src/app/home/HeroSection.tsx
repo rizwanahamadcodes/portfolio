@@ -34,12 +34,8 @@ const HeroSection = () => {
                         >
                             <Button
                                 leftIcon={HiDownload}
-                                colorScheme={{
-                                    from: 'primary',
-                                    to: 'primary-support',
-                                }}
+                                colorScheme={'primary'}
                                 className="w-full"
-                                type="outline"
                             >
                                 View CV
                             </Button>
@@ -47,10 +43,7 @@ const HeroSection = () => {
 
                         <a href="tel:9828289314" className="grow">
                             <Button
-                                colorScheme={{
-                                    from: 'secondary',
-                                    to: 'secondary-support',
-                                }}
+                                colorScheme={'primary-support'}
                                 leftIcon={FaPhoneAlt}
                                 className="w-full"
                             >
