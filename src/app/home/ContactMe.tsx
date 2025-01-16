@@ -208,19 +208,37 @@ export const ContactForm = () => {
                 },
             })
 
-            reset()
-
             if (response.ok) {
                 setSuccess(true)
                 setLoading(false)
+                console.log('fetch okay')
+
+                console.log('isSubmitted before reset = ', isSubmitted)
+
+                // reset()
+
+                console.log('isSubmitted after reset = ', isSubmitted)
             } else {
                 setError('An error occurred while sending the email.')
                 setLoading(false)
+                console.log('fetch not okay')
+
+                console.log('isSubmitted before reset = ', isSubmitted)
+
+                reset()
+
+                console.log('isSubmitted after reset = ', isSubmitted)
             }
         } catch (error) {
             setError('An error occurred while sending the email.')
+            console.log('catch block')
             setLoading(false)
+
+            console.log('isSubmitted before reset = ', isSubmitted)
+
             reset()
+
+            console.log('isSubmitted after reset = ', isSubmitted)
         }
     }
 
