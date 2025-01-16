@@ -17,101 +17,106 @@ import {
 
 const techList = [
     {
-        id: 12,
+        id: 1,
+        title: 'NextJS',
+        categoryId: 1,
+        icon: SiNextdotjs,
+        color: '#000',
+    },
+    {
+        id: 2,
+        title: 'ReactJS',
+        categoryId: 1,
+        icon: DiReact,
+        color: '#00d8ff',
+    },
+    {
+        id: 3,
         title: 'Typescript',
         categoryId: 1,
         icon: SiTypescript,
         color: '#007acc',
     },
     {
-        id: 1,
+        id: 4,
         title: 'Javascript',
         categoryId: 1,
         icon: DiJavascript,
         color: '#f7df1e',
     },
     {
-        id: 2,
+        id: 5,
         title: 'CSS',
-        categoryId: 1,
+        categoryId: 2,
         icon: DiCss3,
         color: '#2965f1',
     },
     {
-        id: 3,
-        title: 'HTML',
-        categoryId: 1,
-        icon: DiHtml5,
-        color: '#e34f26',
-    },
-    {
-        id: 4,
-        title: 'NextJS',
-        categoryId: 2,
-        icon: SiNextdotjs,
-        color: '#000',
-    },
-    {
-        id: 5,
-        title: 'ReactJS',
-        categoryId: 2,
-        icon: DiReact,
-        color: '#00d8ff',
-    },
-    {
         id: 6,
-        title: 'Tailwind',
-        categoryId: 2,
-        icon: SiTailwindcss,
-        color: '#00b4b6',
-    },
-    {
-        id: 7,
-        title: 'Photoshop',
-        categoryId: 3,
-        icon: SiAdobephotoshop,
-        color: '#100f27',
-    },
-    {
-        id: 8,
-        title: 'Illustrator',
-        categoryId: 3,
-        icon: SiAdobeillustrator,
-        color: '#261300',
-    },
-    {
-        id: 9,
-        title: 'Figma',
-        categoryId: 3,
-        icon: CgFigma,
-        color: '#0acf84',
-    },
-    {
-        id: 11,
         title: 'Sass',
         categoryId: 2,
         icon: DiSass,
         color: '#c69',
     },
     {
-        id: 10,
+        id: 7,
+        title: 'Tailwind',
+        categoryId: 2,
+        icon: SiTailwindcss,
+        color: '#00b4b6',
+    },
+    {
+        id: 8,
         title: 'Bootstrap',
         categoryId: 2,
         icon: SiBootstrap,
         color: '#8911fb',
     },
-]
-const techCategoriesList = [
     {
-        id: 2,
-        title: 'Frameworks and Libraries',
+        id: 9,
+        title: 'HTML',
+        categoryId: 3,
+        icon: DiHtml5,
+        color: '#e34f26',
     },
     {
+        id: 10,
+        title: 'Photoshop',
+        categoryId: 4,
+        icon: SiAdobephotoshop,
+        color: '#100f27',
+    },
+    {
+        id: 11,
+        title: 'Illustrator',
+        categoryId: 4,
+        icon: SiAdobeillustrator,
+        color: '#261300',
+    },
+    {
+        id: 12,
+        title: 'Figma',
+        categoryId: 4,
+        icon: CgFigma,
+        color: '#0acf84',
+    },
+]
+
+const techCategoriesList = [
+    {
         id: 1,
-        title: 'Programming Languages and Markup',
+        title: 'JS Libraries and Frameworks',
+    },
+    {
+        id: 2,
+        title: 'Styling',
     },
     {
         id: 3,
+        title: 'Markup',
+    },
+    {
+        id: 4,
         title: 'Design Tools',
     },
 ]
@@ -153,7 +158,7 @@ export const TechCard: React.FC<TechCardProps> = (props) => {
     return (
         <div
             key={id}
-            className="rounded-full` flex items-center gap-2 active:scale-[0.98]"
+            className="rounded-full` flex items-center gap-4 active:scale-[0.98]"
         >
             <div
                 style={{

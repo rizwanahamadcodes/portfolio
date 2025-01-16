@@ -27,13 +27,13 @@ const getInTouchItems = [
         label: 'Text me on Messenger:',
         linkLabel: 'facebook.com/100047043491338',
         url: 'https://m.me/100047043491338',
-        icon: SiGmail,
+        icon: BsMessenger,
     },
     {
         label: 'Mail me on Instagram:',
         linkLabel: 'instagram.com/rizwan29972',
         url: 'https://www.instagram.com/rizwan29972/',
-        icon: SiGmail,
+        icon: BsInstagram,
     },
 ]
 

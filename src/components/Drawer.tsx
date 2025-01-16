@@ -1,5 +1,7 @@
 'use client'
 
+import { useCallback, useState } from 'react'
+
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 import CloseButton from './CloseButton'
@@ -50,21 +52,33 @@ const Drawer = (props: DrawerProps) => {
         </>
     )
 }
+export const useDrawer = (drawerOpen: boolean) => {
+    const [isOpen, setIsOpen] = useState(drawerOpen)
 
+    const onOpen = () => {
+        setIsOpen(true)
+    }
+
+    const onClose = useCallback(() => {
+        setIsOpen(false)
+    }, [])
+
+    return { isOpen, onOpen, onClose }
+}
 type DrawerHeadProps = {
     heightPost80PxScroll?: string
     children: React.ReactNode
     isSticky?: boolean
     px?: string
     hasCloseButton?: boolean
-    past80: boolean
+    scrolledPast80: boolean
     onClose: () => void
 }
 
 export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     const {
         children,
-        past80,
+        scrolledPast80,
         heightPost80PxScroll,
         px,
         isSticky = true,
@@ -78,7 +92,7 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
                 className={cn(
                     'fixed flex w-full items-center border-b-[1px] border-gray-100 px-7 dark:border-gray-700',
                     px,
-                    past80 ? 'h-nav-height' : [heightPost80PxScroll]
+                    scrolledPast80 ? 'h-nav-height' : [heightPost80PxScroll]
                 )}
             >
                 <div className="grow">{children}</div>
@@ -92,7 +106,9 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
             </div>
 
             <div
-                className={cn(past80 ? 'h-nav-height' : [heightPost80PxScroll])}
+                className={cn(
+                    scrolledPast80 ? 'h-nav-height' : [heightPost80PxScroll]
+                )}
             ></div>
         </div>
     )
