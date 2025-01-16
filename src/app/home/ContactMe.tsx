@@ -1,67 +1,29 @@
 'use client'
 
 import Button, { ButtonIcon } from '@/components/Button'
+import Container from '@/components/Container'
+import OrDivider from '@/components/OrDivider'
 import Section, {
     SectionCategoryTitle,
     SectionSubtitle,
     SectionTitle,
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
-import React, { ComponentPropsWithoutRef, useEffect, useState } from 'react'
-import OrDivider from '@/components/OrDivider'
-import { SiGmail } from 'react-icons/si'
-import { BsInstagram, BsMessenger } from 'react-icons/bs'
-import Container from '@/components/Container'
+import React, { useEffect, useState } from 'react'
 import { IconType } from 'react-icons'
 import { BiLoaderAlt } from 'react-icons/bi'
+import { BsInstagram, BsMessenger } from 'react-icons/bs'
+import { SiGmail } from 'react-icons/si'
 
-import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
-    FieldError,
-    FieldErrors,
-    FieldValues,
     SubmitHandler,
     UseFormGetFieldState,
     UseFormRegister,
     useForm,
 } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { POST } from '../api/send/route'
-import { IconBaseProps } from 'react-icons/lib'
-
-const visitorSchema = z.object({
-    fullName: z
-        .string({
-            required_error: 'Please enter your full name',
-            invalid_type_error: 'Name must be text',
-        })
-        .max(100, { message: 'Name is too long' })
-        .min(1, { message: 'Please enter your full name' }),
-    subject: z
-        .string({
-            required_error: 'Please enter the subject',
-            invalid_type_error: 'Subject must be text',
-        })
-        .max(100, { message: 'Subject is too long' })
-        .min(1, { message: 'Please enter a subject' }),
-    email: z
-        .string({
-            required_error: 'Please enter your email',
-            invalid_type_error: 'Email address me=ust be a string',
-        })
-        .max(300, { message: 'Email address is too long.' })
-        .email({ message: 'Please enter a valid email' })
-        .min(1, { message: 'Please enter your email' }),
-    message: z
-        .string({ invalid_type_error: 'Message must be text' })
-        .max(500, {
-            message:
-                'Message is too long, keep the message below 500 characters or below 150 words',
-        })
-        .optional(),
-})
-
-type visitorSchema = z.infer<typeof visitorSchema>
+import { z } from 'zod'
+import { visitorSchema } from '@/schemas/visitorSchema'
 
 const getInTouchItems = [
     {
@@ -124,44 +86,45 @@ type CustomFieldProps<Field> = Field & {
     register: UseFormRegister<visitorSchema>
     getFieldState: UseFormGetFieldState<visitorSchema>
     isSubmitted: boolean
-    success: boolean
+}
+
+const getInputClasses = () => {
+    const baseInputClasses =
+        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow'
+
+    const inValidInputClasses =
+        'shadow-alert-glow hover:shadow-alert-glow focus:shadow-alert-glow'
+
+    const validInputClasses =
+        'shadow-success-glow hover:shadow-success-glow focus:shadow-success-glow'
+
+    return { baseInputClasses, validInputClasses, inValidInputClasses }
 }
 
 const CustomInput = (
     props: CustomFieldProps<React.ComponentPropsWithoutRef<'input'>>
 ) => {
-    const {
-        name,
-        register,
-        getFieldState,
-        isSubmitted,
-        success,
-        ...otherProps
-    } = props
+    const { name, register, getFieldState, isSubmitted, ...otherProps } = props
+    const { error, isDirty } = getFieldState(name)
 
-    const { invalid, error } = getFieldState(name)
-
-    const baseInputClasses = 'shadow-soft hover:shadow-primary-glow'
+    const { baseInputClasses, validInputClasses, inValidInputClasses } =
+        getInputClasses()
 
     return (
         <div>
             <input
                 {...register(name)}
                 className={cn(
-                    'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800',
                     baseInputClasses,
-                    isSubmitted
-                        ? invalid
-                            ? 'shadow-alert-glow-initial hover:shadow-alert-glow focus:shadow-alert-glow'
-                            : !success
-                            ? 'shadow-success-glow-initial hover:shadow-success-glow focus:shadow-success-glow'
-                            : baseInputClasses
-                        : ''
+                    error && inValidInputClasses,
+                    !error && isSubmitted && validInputClasses
                 )}
                 {...otherProps}
             />
             {error ? (
-                <p className="mt-2 text-secondary">{error?.message}</p>
+                <p className="mt-2 text-secondary dark:text-secondary">
+                    {error?.message}
+                </p>
             ) : (
                 ''
             )}
@@ -172,66 +135,72 @@ const CustomInput = (
 const CustomTextarea = (
     props: CustomFieldProps<React.ComponentPropsWithoutRef<'textarea'>>
 ) => {
-    const { name, register, ...otherProps } = props
+    const { name, register, getFieldState, isSubmitted, ...otherProps } = props
+    const { error } = getFieldState(name)
+
+    const { baseInputClasses, validInputClasses, inValidInputClasses } =
+        getInputClasses()
 
     return (
-        <textarea
-            {...register(name)}
-            className={cn(
-                'w-full rounded-2xl  px-4 py-2 shadow-soft transition hover:shadow-primary-glow focus:shadow-primary-glow focus:outline-none dark:focus:bg-gray-800',
-                'h-36 resize-none bg-white dark:bg-gray-800'
+        <div>
+            <textarea
+                {...register(name)}
+                className={cn(
+                    baseInputClasses,
+                    error && inValidInputClasses,
+                    !error && isSubmitted && validInputClasses,
+                    'h-36 resize-none rounded-2xl'
+                )}
+                {...otherProps}
+            />
+            {error ? (
+                <p className="mt-2 text-secondary dark:text-secondary">
+                    {error?.message}
+                </p>
+            ) : (
+                <></>
             )}
-            {...otherProps}
-        />
+        </div>
     )
 }
 
+/*
+
+Things i want to achieve with this form,
+
+1. by default, all inputs including the textarea should have a default primary styling, which includes the styles for hover and focus too
+
+2. i should not care about the error styling of the input unless the form is submitted, we don't care if there is already an error if the user has not clicked the submit button
+
+3. if there is a validation error i would the message to show up, then all fields should get either a valid styling or an invalid styling
+
+4. everything should immediately reset after one of two things happens, there is a server side error, or the email was sent succesfully, which basically means everything should reset if everything was validated, so the server side makes no difference in the resetting of the form.
+
+*/
+
 export const ContactForm = () => {
-    const [loading, setLoading] = useState(false)
-    const [success, setSuccess] = useState(false)
-    const [error, setError] = useState('')
-
-    useEffect(() => {
-        const setSuccessToFalse = setTimeout(() => {
-            setSuccess(false)
-        }, 5000)
-        return () => clearTimeout(setSuccessToFalse)
-    }, [success])
-
     const {
         register,
         handleSubmit,
         reset,
         getFieldState,
-        formState: { isSubmitted },
+        formState: { errors, isSubmitted, isSubmitting, isSubmitSuccessful },
     } = useForm<visitorSchema>({ resolver: zodResolver(visitorSchema) })
 
-    const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
-        try {
-            setLoading(true)
+    const [success, setSuccess] = useState(false)
 
-            const response = await fetch('/api/send', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-
-            if (response.ok) {
-                setSuccess(true)
-                setLoading(false)
-            } else {
-                setError('An error occurred while sending the email.')
-                setLoading(false)
-            }
-        } catch (error) {
-            setError('An error occurred while sending the email.')
-            setLoading(false)
-        }
-
+    useEffect(() => {
         reset()
-        // Please fix reset and input styling before deployment
+    }, [isSubmitSuccessful])
+
+    const onSubmit: SubmitHandler<visitorSchema> = async (data) => {
+        const response = await fetch('/api/send', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
     }
 
     return (
@@ -250,7 +219,6 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
-                    success={success}
                 ></CustomInput>
                 <CustomInput
                     name="email"
@@ -259,7 +227,6 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
-                    success={success}
                 />
                 <CustomInput
                     name="subject"
@@ -268,49 +235,40 @@ export const ContactForm = () => {
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
-                    success={success}
                 />
                 <CustomTextarea
-                    name="message"
+                    name="userMessage"
                     maxLength={500}
                     placeholder="Message..."
                     register={register}
                     getFieldState={getFieldState}
                     isSubmitted={isSubmitted}
-                    success={success}
                 ></CustomTextarea>
 
                 <Button
                     className={cn('w-full shadow-soft lg:w-auto')}
+                    disabled={isSubmitting}
                     type="submit"
-                    disabled={loading}
                     colorScheme={
-                        loading
+                        isSubmitting
                             ? 'gray'
                             : { from: 'primary', to: 'primary-400' }
                     }
                 >
-                    {loading ? (
+                    {isSubmitting ? (
                         <>
                             <ButtonIcon
                                 icon={BiLoaderAlt}
                                 className="animate-spin"
                             />
-                            Sending... Message
+                            Sending message...
                         </>
                     ) : (
-                        'Send Message'
+                        'Send message'
                     )}
                 </Button>
-                {success ? (
+                {success && (
                     <p>Thank you for reaching out, we will get in touch soon</p>
-                ) : error ? (
-                    <p>
-                        Apologies there was an internal error in sending the
-                        message, please try again once
-                    </p>
-                ) : (
-                    ''
                 )}
             </form>
         </div>
