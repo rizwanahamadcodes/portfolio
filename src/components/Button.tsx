@@ -158,7 +158,7 @@ export const getButtonStyles: getButtonStyles = (
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg'
+        'flex justify-center !text-100 gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'

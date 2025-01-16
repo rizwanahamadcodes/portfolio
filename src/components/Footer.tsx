@@ -67,7 +67,7 @@ const sortedFriendsName = friendsName.sort(() => Math.random() - 0.5)
 const friendsString = sortedFriendsName.join(' and ')
 const Footer = () => {
     return (
-        <footer>
+        <footer className="mt-auto">
             <Section className="bg-gray-150 pb-0 dark:bg-gray-850">
                 <Container className="mb-6 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
                     <FooterColumn>
