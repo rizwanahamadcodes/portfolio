@@ -13,8 +13,8 @@ import useDrawer from './useDrawer'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDrawer(false)
-    const [past80, setPast80] = useState<boolean>(false)
-    const navSubstituteRef = useRef<HTMLDivElement | null>()
+    const [past80, setPast80] = useState(false)
+    const navSubstituteRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         const navSubstitute = navSubstituteRef.current
@@ -106,10 +106,7 @@ const Navbar = () => {
                     </Drawer>
                 </Container>
             </nav>
-            <div
-                ref={navSubstituteRef as LegacyRef<HTMLDivElement> | undefined}
-                className="h-20 w-full"
-            ></div>
+            <div ref={navSubstituteRef} className="h-20 w-full"></div>
         </div>
     )
 }

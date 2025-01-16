@@ -10,7 +10,7 @@ interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
     rightIcon?: IconType
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button = (props: ButtonProps) => {
     const {
         children,
         colorScheme = 'primary',

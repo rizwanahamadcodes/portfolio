@@ -9,7 +9,7 @@ interface ThemedImageProps extends Omit<ImageProps, 'src'> {
     darkImageSrc: string
 }
 
-const ThemedImage: React.FC<ThemedImageProps> = (props) => {
+const ThemedImage = (props: ThemedImageProps) => {
     const { lightImageSrc, darkImageSrc, alt, className, ...otherProps } = props
     const { theme } = useTheme()
     const imageSrc = theme == 'light' ? lightImageSrc : darkImageSrc
