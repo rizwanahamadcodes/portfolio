@@ -9,12 +9,14 @@ import Section, {
 import cn from '@/components/utils/cn'
 import React from 'react'
 import { sendEmail } from '../../../actions/sendEmail'
-
-// re_cko4J7VQ_15uUmSN8aY64mdiKZo1qW73c
+import { experimental_useFormStatus } from 'react-dom'
+import SubmitButton from '@/components/SubmitButton'
 
 const ContactMe = () => {
     const inputClasses =
         'w-full rounded-md focus:shadow-primary-glow shadow-primary-glow-initial hover:shadow-primary-glow border dark:border-gray-800 border-gray-200 bg-transparent py-2 px-4 focus:outline-none focus:border-primary dark:focus:border-primary transition'
+
+    const { pending } = experimental_useFormStatus()
 
     return (
         <Section containerClassName="grid items-center md:grid-cols-2 gap-5 flex-col grid-cols-1">
@@ -62,9 +64,8 @@ const ContactMe = () => {
                         maxLength={500}
                         className={cn(inputClasses, 'h-36 resize-none')}
                     ></textarea>
-                    <Button className="w-auto" type="submit">
-                        Send Message
-                    </Button>
+                    <SubmitButton />
+                    {/* Maybe you could use react hot toast for success */}
                 </form>
             </div>
         </Section>
