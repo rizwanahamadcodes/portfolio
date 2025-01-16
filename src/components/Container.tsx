@@ -2,7 +2,7 @@ import cn from './utils/cn'
 
 const Container = (props: React.ComponentPropsWithoutRef<'div'>) => {
     const { children, className, ...otherProps } = props
-
+    const hello = cn
     return (
         <div
             {...otherProps}

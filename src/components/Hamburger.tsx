@@ -16,7 +16,7 @@ const Hamburger = (props: React.ComponentPropsWithoutRef<'div'>) => {
                 .map((_, index) => (
                     <div
                         key={index}
-                        className="h-[3px] w-full rounded-full bg-primary dark:bg-gray-100"
+                        className="h-[2px] w-full rounded-full bg-primary dark:bg-gray-100"
                     ></div>
                 ))}
         </div>

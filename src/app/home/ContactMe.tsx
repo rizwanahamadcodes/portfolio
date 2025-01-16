@@ -90,7 +90,7 @@ type CustomFieldProps<Field> = Field & {
 
 const getInputClasses = () => {
     const baseInputClasses =
-        'w-full rounded-full bg-transparent bg-white px-4 py-2 shadow-soft transition focus:outline-none dark:bg-gray-800  dark:focus:bg-gray-800 shadow-soft hover:shadow-primary-glow focus:shadow-primary-glow'
+        'w-full rounded-full bg-transparent bg-gray-100 px-4 py-2 shadow-inner transition focus:outline-none dark:bg-gray-900 placeholder:text-gray-600 hover:shadow-primary-glow focus:shadow-primary-glow'
 
     const inValidInputClasses =
         'shadow-alert-glow hover:shadow-alert-glow focus:shadow-alert-glow'
@@ -209,7 +209,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="grow rounded-2xl  bg-gray-50 p-4 shadow-soft dark:bg-gray-850 md:max-w-md">
+        <div className="grow rounded-2xl bg-white p-4 shadow-soft dark:bg-gray-800 md:max-w-md">
             <SectionCategoryTitle defaultBottomMargin>
                 Send me a message
             </SectionCategoryTitle>
