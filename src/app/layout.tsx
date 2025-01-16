@@ -18,12 +18,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <WorkaroundThemeProvider>
-                <body className={`${nunito.variable} font-sans`}>
+            <body className={`${nunito.variable} font-sans`}>
+                <WorkaroundThemeProvider>
                     <Navbar />
                     {children}
-                </body>
-            </WorkaroundThemeProvider>
+                </WorkaroundThemeProvider>
+            </body>
         </html>
     )
 }
