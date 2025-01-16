@@ -40,6 +40,9 @@ module.exports = {
                 // but in dark mode you won't make elements which use black
                 // if white comes inside of the theme color then it can be absolute white
 
+                // okay decided hover gets a shift by 5 and active gets a shift by 10
+                // these colors are not directly defined as grays but as different opacities of gray-900 and gray-100
+
                 gray: {
                     50: 'hsl(220deg,10%,95%)', //#f2f2f2
                     100: 'hsl(220deg,10%,90%)', //#e6e6e6
