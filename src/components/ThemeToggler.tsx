@@ -10,8 +10,7 @@ const ThemeToggler = () => {
     const [checked, setChecked] = useState(resolvedTheme === 'dark')
 
     const onThemeTogglerChange = () => {
-        setChecked(!checked)
-
+        setChecked((prevChecked) => !prevChecked)
         setTheme(resolvedTheme == 'dark' ? 'light' : 'dark')
     }
 
@@ -26,12 +25,12 @@ const ThemeToggler = () => {
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className="relative cursor-pointer select-none rounded-full shadow"
+            className="relative inline-block cursor-pointer select-none rounded-full shadow"
         >
             <input
                 type="checkbox"
                 id="theme-toggle-checkbox"
-                className="peer/themeToggler absolute h-0 w-0 opacity-0"
+                className="peer/themeToggler absolute h-2 w-2 "
                 checked={checked}
                 onChange={onThemeTogglerChange}
             />
