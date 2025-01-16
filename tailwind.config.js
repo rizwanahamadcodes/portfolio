@@ -89,6 +89,7 @@ module.exports = {
     plugins: [],
 }
 
+// Avoid using support color they were included just for effects like gradients, backgrounds, etc not for text colors or other elements, they should us the primary color consistently
 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
 
 // in light mode you can have a white element over a white background cause you can give borders and shadows and that will provide the necessary elevation
