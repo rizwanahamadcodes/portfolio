@@ -32,8 +32,8 @@ export default function Home() {
                     <span className="flex flex-wrap gap-8">
                         <Button
                             leftIcon={FaPhoneAlt}
-                            rightIcon={FaPhoneAlt}
-                            type="solid"
+                            rightIcon={GiClick}
+                            type="ghost"
                             colorScheme="secondary-gradient"
                         >
                             Hello
