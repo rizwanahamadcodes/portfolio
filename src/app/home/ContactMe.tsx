@@ -1,3 +1,5 @@
+'use client'
+
 import Button from '@/components/Button'
 import Section, {
     SectionCategoryTitle,
@@ -6,6 +8,9 @@ import Section, {
 } from '@/components/Section'
 import cn from '@/components/utils/cn'
 import React from 'react'
+import { sendEmail } from '../../../actions/sendEmail'
+
+// re_cko4J7VQ_15uUmSN8aY64mdiKZo1qW73c
 
 const ContactMe = () => {
     const inputClasses =
@@ -23,26 +28,43 @@ const ContactMe = () => {
             </div>
             <div className="rounded-xl bg-gray-50 p-4 shadow-center dark:border dark:border-gray-800 dark:bg-gray-850">
                 <SectionCategoryTitle>Send me a message</SectionCategoryTitle>
-                <form className="flex flex-col gap-4 md:items-start">
+                <form
+                    className="flex flex-col gap-4 md:items-start"
+                    action={async (formData) => {
+                        console.log('Running on client')
+                        await sendEmail(formData)
+                    }}
+                >
                     <input
+                        name="fullName"
+                        required
                         type="text"
                         className={inputClasses}
                         placeholder="Full name"
                     />
                     <input
+                        name="email"
                         type="email"
+                        required
                         className={inputClasses}
                         placeholder="Email address"
                     />
                     <input
-                        type="email"
+                        name="subject"
+                        required
+                        type="text"
                         className={inputClasses}
                         placeholder="Subject"
                     />
                     <textarea
+                        name="message"
+                        required
+                        maxLength={500}
                         className={cn(inputClasses, 'h-36 resize-none')}
                     ></textarea>
-                    <Button className="w-auto">Send Message</Button>
+                    <Button className="w-auto" type="submit">
+                        Send Message
+                    </Button>
                 </form>
             </div>
         </Section>
