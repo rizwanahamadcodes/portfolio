@@ -1,7 +1,9 @@
-import React from 'react'
+type AboutMeProps = {};
 
-const Page = () => {
-    return <div></div>
-}
+const AboutMe = (props: AboutMeProps) => {
+    const {} = props;
 
-export default Page
+    return <div>About me</div>;
+};
+
+export default AboutMe;

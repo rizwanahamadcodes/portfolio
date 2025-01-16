@@ -1,22 +1,24 @@
-'use client'
+"use client";
 
-import { useTheme } from 'next-themes'
-import Image, { ImageProps } from 'next/image'
-import React from 'react'
+import { useTheme } from "next-themes";
+import Image, { ImageProps } from "next/image";
+import React from "react";
+import useObserver from "./useObserver";
 
-type ThemedImageProps = Omit<ImageProps, 'src'> & {
-    lightImageSrc: string
-    darkImageSrc: string
-}
+type ThemedImageProps = Omit<ImageProps, "src"> & {
+    lightImageSrc: string;
+    darkImageSrc: string;
+};
 
 const ThemedImage = (props: ThemedImageProps) => {
-    const { lightImageSrc, darkImageSrc, alt, className, ...otherProps } = props
-    const { theme } = useTheme()
-    const imageSrc = theme == 'light' ? lightImageSrc : darkImageSrc
+    const { lightImageSrc, darkImageSrc, alt, className, ...otherProps } =
+        props;
+    const { theme } = useTheme();
+    const imageSrc = theme == "light" ? lightImageSrc : darkImageSrc;
 
     return (
         <Image className={className} src={imageSrc} alt={alt} {...otherProps} />
-    )
-}
+    );
+};
 
-export default ThemedImage
+export default ThemedImage;

@@ -1,58 +1,77 @@
-'use client'
+"use client";
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
-import { IoIosMoon, IoIosSunny } from 'react-icons/io'
-import cn from './utils/cn'
+import clsx from "clsx";
+import { useTheme } from "next-themes";
+import { useEffect, useRef, useState } from "react";
+import { IconBaseProps, IconType } from "react-icons";
+import { IoIosMoon, IoIosSunny } from "react-icons/io";
+import useObserver from "./useObserver";
 
-const ThemeToggler = (props: React.ComponentPropsWithoutRef<'label'>) => {
-    const { className } = props
+type ThemeTogglerProps = React.ComponentPropsWithoutRef<"label">;
 
-    const [mounted, setMounted] = useState(false)
-    const { theme, resolvedTheme, setTheme } = useTheme()
-    const [checked, setChecked] = useState(resolvedTheme === 'dark')
+const ThemeToggler = (props: ThemeTogglerProps) => {
+    const { className, ...otherProps } = props;
 
-    const onThemeTogglerChange = () => {
-        setTheme(resolvedTheme == 'dark' ? 'light' : 'dark')
-    }
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme, setTheme } = useTheme();
+    const [checked, setChecked] = useState(resolvedTheme === "dark");
+
+    const handleCheckboxChange = () => {
+        setTheme(resolvedTheme == "dark" ? "light" : "dark");
+    };
 
     useEffect(() => {
-        setMounted(true)
-    }, [])
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
-        setChecked(resolvedTheme === 'dark')
-    }, [resolvedTheme])
+        setChecked(resolvedTheme === "dark");
+    }, [resolvedTheme]);
 
     if (!mounted) {
-        return null
+        return null;
     }
 
-    const iconClasses =
-        'text-xl text-white peer-checked/themeToggler:text-gray-900 dark:text-gray-900'
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className={cn(
-                'relative block w-16 cursor-pointer select-none rounded-full shadow',
+            className={clsx(
+                "relative block w-4 cursor-pointer select-none rounded-full shadow",
                 className
             )}
-        >
+            {...otherProps}>
             <input
                 type="checkbox"
                 id="theme-toggle-checkbox"
                 className="peer/themeToggler absolute h-0 w-0 opacity-0"
                 checked={checked}
-                onChange={onThemeTogglerChange}
+                onChange={handleCheckboxChange}
             />
 
-            <div className="flex h-8 w-16 items-center justify-between rounded-full bg-primary p-2 peer-checked/themeToggler:bg-gray-100">
-                <IoIosSunny className={iconClasses} />
-                <IoIosMoon className={iconClasses} />
+            <div className="flex transition-all h-2 w-4 items-center justify-between rounded-full bg-primary p-0.5 peer-checked/themeToggler:bg-gray-100">
+                <SunMoonIcons icon={IoIosSunny} />
+                <SunMoonIcons icon={IoIosMoon} />
             </div>
-            <div className="absolute right-1 top-1 h-6 w-6 rounded-full bg-white transition-all peer-checked/themeToggler:right-9 peer-checked/themeToggler:bg-gray-900"></div>
+            <div className="absolute right-0.25 top-0.25 h-1.5 w-1.5 rounded-full bg-white transition-aall peer-checked/themeToggler:right-2.25 peer-checked/themeToggler:bg-gray-900"></div>
         </label>
-    )
-}
+    );
+};
 
-export default ThemeToggler
+type SunMoonIconsProps = IconBaseProps & {
+    icon: IconType;
+};
+
+const SunMoonIcons = (props: SunMoonIconsProps) => {
+    const { icon: Icon, className, ...otherProps } = props;
+
+    return (
+        <Icon
+            className={clsx(
+                "text-1.25 text-white peer-checked/themeToggler:text-gray-900 dark:text-gray-900",
+                className
+            )}
+            {...otherProps}></Icon>
+    );
+};
+
+export default ThemeToggler;

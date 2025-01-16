@@ -1,8 +1,10 @@
-import ContactMe from './home/ContactMe'
-import HeroSection from './home/HeroSection'
-import ProjectsSection from './home/ProjectsSection'
-import ServicesSection from './home/ServicesSection'
-import TechnologiesSection from './home/TechnologiesSection'
+"use client";
+
+import ContactMe from "@/components/ContactMeSection/ContactMe";
+import HeroSection from "@/components/HeroSection/HeroSection";
+import ProjectsSection from "@/components/ProjectsSection/ProjectsSection";
+import ServicesSection from "@/components/ServicesSection/ServicesSection";
+import TechnologiesSection from "@/components/TechnologiesSection/TechnologiesSection";
 
 export default function Home() {
     return (
@@ -13,5 +15,5 @@ export default function Home() {
             <ProjectsSection />
             <ContactMe />
         </>
-    )
+    );
 }

@@ -1,36 +1,36 @@
-import React from 'react'
-import EmailTemplate from '@/components/EmailTemplate'
-import { NextResponse } from 'next/server'
-import { Resend } from 'resend'
-import { visitorSchema } from '@/schemas/visitorSchema'
-import { NextApiRequest, NextApiResponse } from 'next'
+import React from "react";
+import EmailTemplate from "@/components/EmailTemplate/EmailTemplate";
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { visitorSchema } from "@/schemas/visitorSchema";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-    const body = await req.json()
-    const result = visitorSchema.safeParse(body)
+    const body = await req.json();
+    const result = visitorSchema.safeParse(body);
 
-    let zodErrors = {}
+    let zodErrors = {};
 
     if (!result.success) {
         result.error.issues.forEach((issue) => {
-            zodErrors = { ...zodErrors, [issue.path[0]]: issue.message }
-        })
+            zodErrors = { ...zodErrors, [issue.path[0]]: issue.message };
+        });
 
         return NextResponse.json(
             Object.keys(zodErrors).length > 0
                 ? { errors: zodErrors }
                 : { success: true }
-        )
+        );
     }
 
-    const { fullName, email, subject, message } = body
+    const { fullName, email, subject, message } = body;
 
     try {
         const data = await resend.emails.send({
-            from: 'Portfolio <onboarding@resend.dev>',
-            to: 'rizwanahamadcodes@gmail.com',
+            from: "Portfolio <onboarding@resend.dev>",
+            to: "rizwanahamadcodes@gmail.com",
             subject: subject,
             reply_to: email,
             react: React.createElement(EmailTemplate, {
@@ -39,15 +39,15 @@ export async function POST(req: Request) {
                 subject: subject,
                 message: message,
             }),
-        })
+        });
         return NextResponse.json(
-            { message: 'Email delivered successfully' },
+            { message: "Email delivered successfully" },
             { status: 200 }
-        )
+        );
     } catch (error) {
         return NextResponse.json(
-            { error: 'Mail client error' },
+            { error: "Mail client error" },
             { status: 500 }
-        )
+        );
     }
 }
