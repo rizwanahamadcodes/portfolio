@@ -82,6 +82,7 @@ module.exports = {
             },
             boxShadow: {
                 left: '-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)',
+                center: '0px 0px 3px 0px rgba(0,0,0,0.1), 0px 0px 2px 0px rgb(0,0,0,0.1)',
             },
             spacing: {
                 'nav-height': '60px',
