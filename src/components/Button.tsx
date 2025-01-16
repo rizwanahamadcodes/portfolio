@@ -1,5 +1,3 @@
-import Link, { LinkProps } from 'next/link'
-import React from 'react'
 import { IconType } from 'react-icons/lib'
 
 interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {

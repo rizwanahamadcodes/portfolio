@@ -1,17 +1,14 @@
-import Image from 'next/image'
-import harry from '/public/img/harry.jpg'
+import Button from '@/components/Button'
 import Container from '@/components/Container'
 import ThemedImage from '@/components/ThemedImage'
-import heroImageLight from '/public/img/hero_image_light.svg'
-import heroImageDark from '/public/img/hero_image_dark.svg'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
-import { GiClick } from 'react-icons/gi'
-import Button from '@/components/Button'
+import heroImageDark from '/public/img/hero_image_dark.svg'
+import heroImageLight from '/public/img/hero_image_light.svg'
 
 export default function Home() {
     return (
-        <Container optionalStyles="py-8 flex h-after-nav lg:flex-row items-center flex-col gap-12 lg:gap-none">
+        <Container className="lg:gap-none flex h-after-nav flex-col items-center gap-12 py-8 lg:flex-row">
             <div className="w-full">
                 <div className="flex flex-col items-start  gap-5">
                     <h1 className="font-medium sm:text-7xl xl:text-8xl">

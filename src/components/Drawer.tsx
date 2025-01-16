@@ -1,20 +1,18 @@
 'use client'
-import React, { Children, useCallback, useEffect, useState } from 'react'
+
 import { usePathname } from 'next/navigation'
+import React, { useEffect } from 'react'
 import CloseButton from './CloseButton'
 
-import defaultTheme from 'tailwindcss/defaultTheme'
-
-interface DrawerProps {
+interface DrawerProps extends React.HTMLProps<HTMLDivElement> {
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
     children: React.ReactNode
-    customClasses?: string
 }
 
 const Drawer: React.FC<DrawerProps> = (props) => {
-    const { isOpen, onOpen, onClose, children, customClasses } = props
+    const { isOpen, onOpen, onClose, children, className } = props
     const pathname = usePathname()
 
     const handleOverlayClick = (
@@ -34,7 +32,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
             <div
                 className={`${
                     isOpen ? 'visible' : 'invisible'
-                } absolute left-0 top-0 z-10 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50 ${customClasses}`}
+                } absolute left-0 top-0 z-10 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50 ${className}`}
                 onClick={handleOverlayClick}
             >
                 <div
