@@ -73,7 +73,7 @@ const ServiceIcon = (props: ServiceIcon) => {
     const { icon: Icon } = props
 
     return (
-        <div className="mb-2 flex items-center justify-center rounded-full bg-primary p-6 text-gray-100">
+        <div className="mb-2 flex items-center justify-center rounded-full bg-primary bg-gradient-to-t from-primary to-primary-400 p-6 text-gray-100">
             <Icon className="text-3xl text-gray-100" />
         </div>
     )
