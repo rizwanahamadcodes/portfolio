@@ -10,14 +10,16 @@ const ThemeToggler = () => {
     const [checked, setChecked] = useState(resolvedTheme === 'dark')
 
     const onThemeTogglerChange = () => {
-        setChecked(!checked)
-
         setTheme(resolvedTheme == 'dark' ? 'light' : 'dark')
     }
 
     useEffect(() => {
         setMounted(true)
     }, [])
+
+    useEffect(() => {
+        setChecked(resolvedTheme === 'dark')
+    }, [resolvedTheme])
 
     if (!mounted) {
         return null
