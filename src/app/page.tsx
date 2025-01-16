@@ -29,16 +29,14 @@ export default function Home() {
                     <div className="mt-3 flex w-full flex-col items-stretch gap-5 sm:flex-row">
                         <Button
                             leftIcon={HiDownload}
-                            colorScheme="primary-gradient"
                             href="/img/hero_image_light.svg"
-                            download
                             className="grow"
+                            download
                         >
                             View CV
                         </Button>
                         <Button
                             leftIcon={FaPhoneAlt}
-                            colorScheme="secondary-gradient"
                             href="tel:9828289314"
                             className="grow"
                         >
