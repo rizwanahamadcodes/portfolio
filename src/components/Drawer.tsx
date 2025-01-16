@@ -3,8 +3,9 @@
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 import CloseButton from './CloseButton'
+import cn from './utils/cn'
 
-interface DrawerProps extends React.HTMLProps<HTMLDivElement> {
+type DrawerProps = React.HTMLProps<HTMLDivElement> & {
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
@@ -30,15 +31,18 @@ const Drawer = (props: DrawerProps) => {
     return (
         <>
             <div
-                className={`${
-                    isOpen ? 'visible' : 'invisible'
-                } absolute left-0 top-0 z-10 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50 ${className}`}
+                className={cn(
+                    'invisible absolute left-0 top-0 z-10 h-screen w-full bg-gray-100/50 backdrop-blur-sm dark:bg-gray-900/50',
+                    { visible: isOpen },
+                    className
+                )}
                 onClick={handleOverlayClick}
             >
                 <div
-                    className={`${
-                        isOpen ? 'translate-x-[-100%]' : ''
-                    }  absolute left-full top-0 flex h-screen w-80 flex-col border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800`}
+                    className={cn(
+                        'absolute left-full top-0 flex h-screen w-80 flex-col border-l-[1px] border-gray-900/20 bg-white shadow-left transition-transform dark:border-gray-100/20 dark:bg-gray-800',
+                        { 'translate-x-[-100%]': isOpen }
+                    )}
                 >
                     {children}
                 </div>
@@ -47,19 +51,21 @@ const Drawer = (props: DrawerProps) => {
     )
 }
 
-interface DrawerHeadProps {
-    headerHeightClass?: string
+type DrawerHeadProps = {
+    heightPost80PxScroll?: string
     children: React.ReactNode
     isSticky?: boolean
     px?: string
     hasCloseButton?: boolean
+    past80: boolean
     onClose: () => void
 }
 
 export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     const {
         children,
-        headerHeightClass,
+        past80,
+        heightPost80PxScroll,
         px,
         isSticky = true,
         onClose,
@@ -69,11 +75,11 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     return (
         <div>
             <div
-                className={`${
-                    headerHeightClass ? headerHeightClass : 'h-nav-height'
-                } fixed flex w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
-                    px ? px : 'px-7'
-                }`}
+                className={cn(
+                    'fixed flex w-full items-center border-b-[1px] border-gray-100 px-7 dark:border-gray-700',
+                    px,
+                    past80 ? 'h-nav-height' : [heightPost80PxScroll]
+                )}
             >
                 <div className="grow">{children}</div>
                 {hasCloseButton ? (
@@ -86,9 +92,7 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
             </div>
 
             <div
-                className={`${
-                    headerHeightClass ? headerHeightClass : 'h-nav-height'
-                }`}
+                className={cn(past80 ? 'h-nav-height' : [heightPost80PxScroll])}
             ></div>
         </div>
     )
@@ -102,9 +106,7 @@ interface DrawerBodyProps {
 export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
     const { children, px } = props
 
-    return (
-        <div className={`grow overflow-y-auto ${px ? px : ''}`}>{children}</div>
-    )
+    return <div className={cn('grow overflow-y-auto', px)}>{children}</div>
 }
 interface DrawerFootProps {
     children: React.ReactNode
@@ -115,7 +117,7 @@ export const DrawerFoot: React.FC<DrawerFootProps> = (props) => {
     const { children, px } = props
 
     return (
-        <div className={`flex h-nav-height items-center ${px ? px : ''}`}>
+        <div className={cn('flex h-nav-height items-center', px)}>
             {children}
         </div>
     )

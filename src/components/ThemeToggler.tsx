@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { IoIosMoon, IoIosSunny } from 'react-icons/io'
+import cn from './utils/cn'
 
 const ThemeToggler = (props: React.HTMLProps<HTMLLabelElement>) => {
     const { className } = props
@@ -32,7 +33,10 @@ const ThemeToggler = (props: React.HTMLProps<HTMLLabelElement>) => {
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className={`relative block w-16 cursor-pointer select-none rounded-full shadow ${className}`}
+            className={cn(
+                'relative block w-16 cursor-pointer select-none rounded-full shadow',
+                className
+            )}
         >
             <input
                 type="checkbox"

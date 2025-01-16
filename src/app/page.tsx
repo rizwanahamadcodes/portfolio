@@ -3,7 +3,6 @@ import Container from '@/components/Container'
 import ThemedImage from '@/components/ThemedImage'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
-import { GiClick } from 'react-icons/gi'
 import heroImageDark from '/public/img/hero_image_dark.svg'
 import heroImageLight from '/public/img/hero_image_light.svg'
 

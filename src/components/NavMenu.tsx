@@ -3,13 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-
-interface NavLinkProps {
-    navLink: {
-        name: string
-        path: string
-    }
-}
+import cn from './utils/cn'
 
 interface SliderBoundsProps {
     top: number
@@ -25,7 +19,7 @@ const navLinks = [
     { name: 'contact me', path: '/contact-me' },
 ]
 
-interface NavMenuProps extends React.HTMLProps<HTMLDivElement> {
+type NavMenuProps = React.HTMLProps<HTMLDivElement> & {
     direction: 'row' | 'column'
     past80: boolean
 }
@@ -67,23 +61,25 @@ const NavMenu: React.FC<NavMenuProps> = ({
 
     return (
         <div
-            className={`${
-                direction === 'row' ? 'h-full' : 'w-full'
-            } relative ${className}`}
+            className={cn(
+                'relative',
+                direction === 'row' ? 'h-full' : 'w-full',
+                className
+            )}
         >
             <ul
-                className={`${
+                className={cn(
+                    'relative flex h-full items-center',
                     direction === 'row' ? 'flex-row' : 'flex-col'
-                } relative flex h-full items-center`}
+                )}
             >
                 {navLinks.map((navLink, index) => (
                     <li
-                        className={`${
+                        className={cn(
                             direction === 'row'
                                 ? 'h-full'
                                 : 'w-full border-b-[1px] border-gray-100 dark:border-gray-700'
-                        }
-                        `}
+                        )}
                         key={navLink.path}
                         data-path={navLink.path}
                         ref={(el) => {
@@ -94,20 +90,17 @@ const NavMenu: React.FC<NavMenuProps> = ({
                     >
                         <Link
                             href={navLink.path}
-                            className={`
-                        ${
-                            navLink.path === pathname
-                                ? !past80 && direction == 'row'
-                                    ? 'text-primary-900 hover:bg-gray-900/5 dark:text-primary-100 dark:hover:bg-gray-100/5'
-                                    : 'bg-gray-900/10 text-primary-900 hover:bg-gray-900/5 dark:bg-gray-100/10 dark:text-primary-100 dark:hover:bg-gray-100/5'
-                                : 'text-gray-600 hover:bg-gray-900/5 dark:hover:bg-gray-100/5'
-                        }
-                        ${
-                            direction === 'row'
-                                ? 'h-full px-7'
-                                : 'h-nav-height w-full pl-[7vw]'
-                        }
-                        flex select-none items-center text-[0.9rem]  font-bold uppercase tracking-[0.125rem] transition-all`}
+                            className={cn(
+                                'flex w-full select-none items-center pl-[7vw] text-[0.9rem] font-semibold uppercase tracking-[0.125rem] transition-all hover:bg-gray-900/5 dark:hover:bg-gray-100/5',
+                                direction === 'column'
+                                    ? 'h-nav-height'
+                                    : 'h-full px-7',
+                                {
+                                    'bg-gray-900/10 text-primary-900 hover:bg-gray-900/10 dark:bg-gray-100/10 dark:text-primary-100 dark:hover:bg-gray-100/10':
+                                        navLink.path === pathname &&
+                                        (past80 || direction === 'column'),
+                                }
+                            )}
                             onClick={(e) => {
                                 onLIClick({
                                     top: (e.target as HTMLLIElement).offsetTop,
@@ -137,11 +130,12 @@ const NavMenu: React.FC<NavMenuProps> = ({
                               height: sliderBounds.height,
                           }
                 }
-                className={`${
+                className={cn(
+                    'absolute bg-primary transition-all',
                     direction === 'row'
                         ? 'bottom-0 left-0 h-1 w-0 rounded-t-full'
                         : 'left-0 top-[100%] h-[100px] w-1 rounded-r-full'
-                } absolute bg-primary transition-all`}
+                )}
             ></div>
         </div>
     )
