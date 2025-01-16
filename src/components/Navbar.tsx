@@ -27,6 +27,7 @@ const Navbar = () => {
                 </Link>
                 <NavMenu direction="row" />
                 <ThemeToggler />
+                <ThemeToggler />
                 <button onClick={onOpen} className="lg:hidden">
                     <Hamburger />
                 </button>
@@ -42,7 +43,6 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <NavMenu direction="column" />
-                    <ThemeToggler />
                 </Drawer>
             </Container>
         </nav>
