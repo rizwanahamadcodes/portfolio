@@ -111,7 +111,8 @@ export const getButtonStyles: getButtonStyles = (
             : colorScheme
 
     const solidColorMap = {
-        primary: 'bg-primary hover:bg-primary-600',
+        primary:
+            'bg-primary !text-white shadow dark:shadow-black/10 hover:!text-gray-100 hover:bg-primary-600',
         'primary-support': 'bg-primary-support hover:bg-primary-support-600',
         secondary: 'bg-secondary hover:bg-secondary-600',
         'secondary-support':
@@ -158,7 +159,7 @@ export const getButtonStyles: getButtonStyles = (
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg dark:shadow-none'
+        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest text-gray-100 active:scale-[0.98] font-medium shadow-lg'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'

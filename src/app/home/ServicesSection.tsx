@@ -30,7 +30,7 @@ const services = [
 
 const ServicesSection = () => {
     return (
-        <Section className="bg-gray-150 dark:bg-gray-850 ">
+        <Section className="bg-gray-200 dark:bg-gray-800 ">
             <Container className="flex flex-col items-center">
                 <SectionTitle defaultBottomMargin>I make websites</SectionTitle>
                 <SectionSubtitle defaultBottomMargin>that are:</SectionSubtitle>
@@ -59,7 +59,7 @@ const ServiceCard = (props: ServiceCardProps) => {
     const { children } = props
 
     return (
-        <div className="flex basis-full flex-col items-center rounded-lg bg-gray-100 p-6 shadow-soft dark:bg-gray-800 ">
+        <div className="flex basis-full flex-col items-center rounded-lg bg-gray-100 p-6 shadow dark:bg-gray-700 ">
             {children}
         </div>
     )
