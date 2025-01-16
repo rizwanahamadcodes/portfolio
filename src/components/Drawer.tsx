@@ -26,6 +26,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
         onClose()
     }, [pathname])
 
+    // shadow[-1px_0px_3px_0px_rgba(0,0,0,0.75) -1px_0px_3px_0px_red]
     return (
         <>
             <div
@@ -37,7 +38,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
                 <div
                     className={`${
                         isOpen ? '' : 'translate-x-[100%]'
-                    } fixed right-0 top-0 h-screen w-80  bg-white shadow transition-transform dark:bg-primary-dark`}
+                    } fixed right-0 top-0  h-screen w-80 border-l-[1px] border-black/20 bg-white shadow-left transition-transform dark:border-white/20 dark:bg-primary-dark`}
                 >
                     {children}
                 </div>
