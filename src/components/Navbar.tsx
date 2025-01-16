@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import rizwanLogoGradient from '/public/img/rizwan_logo_gradient.svg'
-import { useEffect, useRef, useState } from 'react'
+import { LegacyRef, useEffect, useRef, useState } from 'react'
 import Container from './Container'
 import Drawer, { DrawerBody, DrawerFoot, DrawerHead } from './Drawer'
 import Hamburger from './Hamburger'
@@ -17,6 +17,8 @@ const Navbar = () => {
     const navSubstituteRef = useRef<HTMLDivElement | null>()
 
     useEffect(() => {
+        const navSubstitute = navSubstituteRef.current
+
         const callback: IntersectionObserverCallback = (entries, observer) => {
             setPast80(!entries[0].isIntersecting)
         }
@@ -28,12 +30,12 @@ const Navbar = () => {
 
         const observer = new IntersectionObserver(callback, options)
 
-        if (navSubstituteRef.current) {
-            observer.observe(navSubstituteRef.current)
+        if (navSubstitute) {
+            observer.observe(navSubstitute)
         }
 
         return () => {
-            // observer.unobserve(navSubstituteRef.current)
+            observer.unobserve(navSubstitute as Element)
         }
     }, [])
 
@@ -64,9 +66,7 @@ const Navbar = () => {
                         className="hidden lg:block"
                     />
                     <ThemeToggler className="hidden lg:block" />
-                    <button onClick={onOpen} className="lg:hidden">
-                        <Hamburger />
-                    </button>
+                    <Hamburger className="lg:hidden" onClick={onOpen} />
                     <Drawer
                         className="lg:hidden"
                         isOpen={isOpen}
@@ -106,7 +106,10 @@ const Navbar = () => {
                     </Drawer>
                 </Container>
             </nav>
-            <div ref={navSubstituteRef} className="h-20 w-full"></div>
+            <div
+                ref={navSubstituteRef as LegacyRef<HTMLDivElement> | undefined}
+                className="h-20 w-full"
+            ></div>
         </div>
     )
 }
