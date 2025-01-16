@@ -1,6 +1,6 @@
 'use client'
 
-import Button from '@/components/Button'
+import Button, { ButtonIcon } from '@/components/Button'
 import Section, {
     SectionCategoryTitle,
     SectionSubtitle,
@@ -13,6 +13,7 @@ import { SiGmail } from 'react-icons/si'
 import { BsInstagram, BsMessenger } from 'react-icons/bs'
 import Container from '@/components/Container'
 import { IconType } from 'react-icons'
+import { BiLoaderAlt } from 'react-icons/bi'
 
 import { z } from 'zod'
 import {
@@ -26,6 +27,7 @@ import {
 } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { POST } from '../api/send/route'
+import { IconBaseProps } from 'react-icons/lib'
 
 const visitorSchema = z.object({
     fullName: z
@@ -252,9 +254,35 @@ export const ContactForm = () => {
                     isSubmitted={isSubmitted}
                 ></CustomTextarea>
 
-                <Button className="w-full lg:w-auto" type="submit">
+                <Button
+                    className={cn('w-full lg:w-auto')}
+                    type="submit"
+                    disabled={loading}
+                    colorScheme={loading ? 'gray' : 'primary'}
+                >
+                    {loading ? (
+                        <ButtonIcon
+                            icon={BiLoaderAlt}
+                            className="animate-spin"
+                        />
+                    ) : (
+                        ''
+                    )}
                     Send Message
                 </Button>
+                {success ? (
+                    <p>Thank you for reaching out, we will get in touch soon</p>
+                ) : (
+                    ''
+                )}
+                {error ? (
+                    <p>
+                        Apologies there was an internal error in sending the
+                        message, please try again once
+                    </p>
+                ) : (
+                    ''
+                )}
             </form>
         </div>
     )
