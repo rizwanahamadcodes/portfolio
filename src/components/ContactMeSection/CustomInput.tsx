@@ -4,7 +4,7 @@ import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
 
 export const getInputClasses = () => {
     const baseInputClasses =
-        "w-full rounded-full bg-gray-100 px-1 py-0.5 shadow-inner transition focus:outline-none dark:bg-gray-900 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 placeholder:text-gray-600 hover:ring-primary/50 focus:ring-primary/50 hover:ring focus:ring";
+        "w-full rounded-full bg-gray-50 px-1 py-0.5 shadow-inner transition focus:outline-none dark:bg-gray-900 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 placeholder:text-gray-600 hover:ring-primary/50 focus:ring-primary/50 hover:ring focus:ring";
 
     const inValidInputClasses =
         "ring !ring-[red]/50 !hover:ring-[red]/50 !focus:ring-[red]/50";
