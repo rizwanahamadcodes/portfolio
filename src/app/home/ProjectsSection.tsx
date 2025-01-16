@@ -1,9 +1,14 @@
-import Section, { SectionCategoryTitle } from '@/components/Section'
+import Section, {
+    SectionCategoryTitle,
+    SectionSubtitle,
+    SectionTitle,
+} from '@/components/Section'
 import Image from 'next/image'
 import Button from '@/components/Button'
 import { FaGithub } from 'react-icons/fa'
 import { TbWindowMaximize } from 'react-icons/tb'
 import cn from '@/components/utils/cn'
+import Container from '@/components/Container'
 
 const projects = [
     {
@@ -30,21 +35,25 @@ const projects = [
 
 const ProjectsSection = () => {
     return (
-        <Section
-            sectionClassName="bg-gray-200 dark:bg-gray-800"
-            containerClassName="flex flex-col items-center"
-            title="Projects i've worked on"
-            subtitle="Every project featuring the usage of some of the most important front end tools"
-        >
-            <div className="flex max-w-3xl flex-col gap-8">
-                {projects.map((project, index) => (
-                    <Project
-                        project={project}
-                        positionInParent={index}
-                        key={index}
-                    />
-                ))}
-            </div>
+        <Section>
+            <Container className="flex flex-col items-center">
+                <SectionTitle className="text-center">
+                    Projects I have worked on
+                </SectionTitle>
+                <SectionSubtitle className="text-center" defaultBottomMargin>
+                    Every project featuring the usage of some of the most
+                    important front end tools
+                </SectionSubtitle>
+                <div className="flex max-w-3xl flex-col gap-6">
+                    {projects.map((project, index) => (
+                        <Project
+                            project={project}
+                            positionInParent={index}
+                            key={index}
+                        />
+                    ))}
+                </div>
+            </Container>
         </Section>
     )
 }
@@ -60,7 +69,7 @@ const Project: React.FC<ProjectProps> = (props) => {
     return (
         <div
             className={cn(
-                'group flex flex-col overflow-hidden rounded-xl bg-gray-100 p-4 hover:bg-gray-50 hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 sm:flex-row-reverse',
+                'group flex flex-col overflow-hidden rounded-2xl bg-gray-100 p-3 hover:bg-gray-50 hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 sm:flex-row-reverse',
                 positionInParent % 2 === 0 && 'sm:flex-row'
             )}
         >
@@ -98,7 +107,7 @@ const Project: React.FC<ProjectProps> = (props) => {
                         src={project.projectImageSrc}
                         fill
                         alt=""
-                        className="rounded-lg object-cover sm:object-left-top"
+                        className="rounded object-cover sm:rounded-2xl sm:object-left-top"
                     />
                 </div>
             </div>

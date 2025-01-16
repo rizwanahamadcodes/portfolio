@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { HTMLProps, ReactElement } from 'react'
 import Section from './Section'
 import RizwanLogo from './RizwanLogo'
 import Link from 'next/link'
@@ -6,6 +6,8 @@ import { IconType } from 'react-icons/lib'
 import { SiGmail } from 'react-icons/si'
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { FaPhoneAlt } from 'react-icons/fa'
+import Container from './Container'
+import cn from './utils/cn'
 
 const footerLinks = [
     {
@@ -64,39 +66,58 @@ const FooterContactLinks = [
 const Footer = () => {
     return (
         <footer>
-            <Section containerClassName="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-                <FooterColumn>
-                    <FooterColumnTitle>
-                        <RizwanLogo variant="blackandwhite" />
-                    </FooterColumnTitle>
-                    <FooterColumnBody>
-                        Feel free to get in touch for your projects. Looking
-                        forward to hearing from you.
-                    </FooterColumnBody>
-                </FooterColumn>
+            <Section className="pb-0">
+                <Container className="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                    <FooterColumn>
+                        <FooterColumnTitle>
+                            <RizwanLogo variant="blackandwhite" />
+                        </FooterColumnTitle>
+                        <FooterColumnBody>
+                            Feel free to get in touch for your projects. Looking
+                            forward to hearing from you.
+                        </FooterColumnBody>
+                    </FooterColumn>
 
-                <FooterColumn>
-                    <FooterColumnTitle>Browse</FooterColumnTitle>
-                    <FooterColumnBody>
-                        <FooterColumnLinks links={footerLinks} />
-                    </FooterColumnBody>
-                </FooterColumn>
+                    <FooterColumn>
+                        <FooterColumnTitle>Browse</FooterColumnTitle>
+                        <FooterColumnBody>
+                            <FooterColumnLinks links={footerLinks} />
+                        </FooterColumnBody>
+                    </FooterColumn>
 
-                <FooterColumn>
-                    <FooterColumnTitle>Socials</FooterColumnTitle>
-                    <FooterColumnBody>
-                        <FooterColumnLinks links={socialLinks} />
-                    </FooterColumnBody>
-                </FooterColumn>
+                    <FooterColumn>
+                        <FooterColumnTitle>Socials</FooterColumnTitle>
+                        <FooterColumnBody>
+                            <FooterColumnLinks links={socialLinks} />
+                        </FooterColumnBody>
+                    </FooterColumn>
 
-                <FooterColumn>
-                    <FooterColumnTitle>Contact</FooterColumnTitle>
-                    <FooterColumnBody>
-                        <FooterColumnLinks links={FooterContactLinks} />
-                    </FooterColumnBody>
-                </FooterColumn>
+                    <FooterColumn>
+                        <FooterColumnTitle>Contact</FooterColumnTitle>
+                        <FooterColumnBody>
+                            <FooterColumnLinks links={FooterContactLinks} />
+                        </FooterColumnBody>
+                    </FooterColumn>
+                </Container>
+                <div className=" bg-gray-50 py-6 text-center dark:bg-gray-800">
+                    Copyright
+                </div>
             </Section>
         </footer>
+    )
+}
+
+export const HorizontalDivider: React.FC<HTMLProps<HTMLDivElement>> = (
+    props
+) => {
+    const { className } = props
+    return (
+        <div
+            className={cn(
+                'h-0.5 w-full bg-gray-200 dark:bg-gray-800',
+                className
+            )}
+        ></div>
     )
 }
 

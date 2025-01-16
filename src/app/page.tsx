@@ -1,4 +1,3 @@
-import Footer from '@/components/Footer'
 import ContactMe from './home/ContactMe'
 import HeroSection from './home/HeroSection'
 import ProjectsSection from './home/ProjectsSection'
@@ -9,8 +8,8 @@ export default function Home() {
         <>
             <HeroSection />
             <TechnologiesSection />
-            <ContactMe />
             <ProjectsSection />
+            <ContactMe />
         </>
     )
 }
