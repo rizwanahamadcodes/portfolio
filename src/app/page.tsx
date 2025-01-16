@@ -9,17 +9,17 @@ import CallButton from '@/components/CallButton'
 
 export default function Home() {
     return (
-        <Container optionalStyles="flex h-after-nav lg:flex-row items-center flex-col gap-12 lg:gap-none">
+        <Container optionalStyles="py-8 flex h-after-nav lg:flex-row items-center flex-col gap-12 lg:gap-none">
             <div className="w-full">
-                <div className="flex flex-col items-start gap-8">
-                    <h1 className="text-8xl font-medium">
+                <div className="flex flex-col items-start  gap-5 sm:gap-7 lg:gap-8">
+                    <h1 className="font-medium sm:text-7xl xl:text-8xl">
                         <div>Hi,</div>
                         <div>
                             I am
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-3xl font-medium text-secondary dark:text-secondary">
+                    <h2 className="text-2xl font-medium text-secondary dark:text-secondary sm:text-3xl">
                         Front-end Web Developer
                     </h2>
                     <p className="max-w max-w-[50ch] text-xl">
