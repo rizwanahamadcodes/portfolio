@@ -28,7 +28,7 @@ export default function Home() {
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <div className="flex flex-col items-stretch gap-5">
+                    <div className="flex w-full flex-col items-stretch gap-5">
                         <Button
                             leftIcon={FaPhoneAlt}
                             colorScheme="secondary-gradient"
