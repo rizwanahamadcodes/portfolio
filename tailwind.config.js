@@ -11,7 +11,15 @@ module.exports = {
         // i might be in need of only one of those but i'm not gonna touch any
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["var(--font-nunito)"],
+            },
+            colors: {
+                brand: "#0055ff",
+                brandSecondary: "#5500ff",
+            },
+        },
     },
     plugins: [],
 };
