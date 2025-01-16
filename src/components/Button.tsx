@@ -25,7 +25,6 @@ const Button: React.FC<ButtonProps> = (props) => {
     } = props
 
     const borderWidth = 'border-2'
-    console.log(href)
     const colorSchemeMap: {
         [key: string]: { [key: string]: string }
     } = {
