@@ -117,9 +117,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                             className={`
                         ${
                             navLink.path === pathname
-                                ? past80
-                                    ? 'text-primary-dark dark:text-primary-light bg-gray-900/10 hover:bg-gray-900/5 dark:bg-gray-100/10 dark:hover:bg-gray-100/5'
-                                    : ''
+                                ? 'text-primary-dark dark:text-primary-light bg-gray-900/10 hover:bg-gray-900/5 dark:bg-gray-100/10 dark:hover:bg-gray-100/5'
                                 : 'hover:bg-gray-900/5 dark:hover:bg-gray-100/5'
                         }
                         ${

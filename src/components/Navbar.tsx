@@ -87,7 +87,7 @@ const Navbar = () => {
                                     darkImageSrc={rizwanLogoGradient}
                                     lightImageSrc={rizwanLogoGradient}
                                     alt="Rizwan"
-                                    height={past80 ? '40' : '50'}
+                                    height="40"
                                 />
                             </Link>
                         </DrawerHead>
