@@ -144,7 +144,7 @@ export const TechCard: React.FC<TechCardProps> = (props) => {
     return (
         <div
             key={id}
-            className="flex cursor-pointer items-center gap-3 rounded-full border-[2px] border-transparent bg-gray-100 p-2 pr-4 hover:border-gray-300/60 hover:shadow active:scale-[0.98] dark:bg-gray-700 dark:hover:border-gray-900/60"
+            className="flex cursor-pointer items-center gap-3 rounded-full bg-gray-100 p-2 pr-4  hover:shadow hover:shadow-gray-900/30 active:scale-[0.98] dark:bg-gray-700 dark:hover:shadow-gray-900/70"
         >
             <div
                 style={{
