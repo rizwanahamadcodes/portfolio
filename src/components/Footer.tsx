@@ -101,7 +101,7 @@ const Footer = () => {
                         </FooterColumnBody>
                     </FooterColumn>
                 </Container>
-                <p className="bg-gray-50 py-4 text-center dark:bg-gray-800">
+                <p className="bg-gray-50 py-4 text-center dark:bg-gray-850">
                     Copyright
                 </p>
             </Section>
