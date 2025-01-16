@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import harry from '../../public/img/harry.jpg'
+import harry from '/public/img/harry.jpg'
 import Container from '@/components/Container'
 import ThemedImage from '@/components/ThemedImage'
-import heroImageLight from '../../public/img/hero_image_light.svg'
-import heroImageDark from '../../public/img/hero_image_dark.svg'
+import heroImageLight from '/public/img/hero_image_light.svg'
+import heroImageDark from '/public/img/hero_image_dark.svg'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
 import { GiClick } from 'react-icons/gi'
@@ -21,153 +21,28 @@ export default function Home() {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-2xl font-medium text-secondary dark:text-secondary sm:text-3xl">
+                    <h2 className="text-2xl font-medium text-primary-support dark:text-primary-support sm:text-3xl">
                         Front-end Web Developer
                     </h2>
                     <p className="max-w max-w-[50ch] text-xl">
                         I craft captivating web interfaces that blend design and
                         functionality to create a pleasant user experience.
                     </p>
-                    <div className="grid w-full grid-cols-2 flex-col flex-wrap gap-8">
+                    <div className="flex flex-col items-stretch gap-5">
                         <Button
                             leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="primary"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="secondary"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="primary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="secondary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="gray"
-                        >
-                            Hello
-                        </Button>
-
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="outline"
-                            colorScheme="primary"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="outline"
-                            colorScheme="secondary"
-                        >
-                            Hello
-                        </Button>
-
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="outline"
-                            colorScheme="primary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="outline"
-                            colorScheme="secondary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="outline"
-                            colorScheme="gray"
-                        >
-                            Hello
-                        </Button>
-
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="ghost"
-                            colorScheme="primary"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="ghost"
-                            colorScheme="secondary"
-                        >
-                            Hello
-                        </Button>
-
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="ghost"
-                            colorScheme="primary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="ghost"
-                            colorScheme="secondary-support"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="ghost"
-                            colorScheme="gray"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
-                            colorScheme="primary-gradient"
-                        >
-                            Hello
-                        </Button>
-                        <Button
-                            leftIcon={FaPhoneAlt}
-                            rightIcon={GiClick}
-                            type="solid"
                             colorScheme="secondary-gradient"
+                            href="tel:9828289314"
                         >
-                            Hello
+                            9828289314
+                        </Button>
+                        <Button
+                            leftIcon={HiDownload}
+                            colorScheme="primary-gradient"
+                            href="/public/img/hero_image_light.svg"
+                            download="hero_image_light.svg"
+                        >
+                            View CV
                         </Button>
                     </div>
                 </div>
