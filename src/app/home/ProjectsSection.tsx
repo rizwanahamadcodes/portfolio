@@ -69,10 +69,9 @@ const Project: React.FC<ProjectProps> = (props) => {
                     {project.projectTitle}
                 </SectionCategoryTitle>
                 <p className="mb-2">{project.projectDesc}</p>
-                <div className="flex gap-12">
+                <div className="flex flex-col gap-4 lg:flex-row">
                     <Button
-                        btnType="ghost"
-                        className="px-0 hover:shadow-none active:shadow-none"
+                        btnType="outline"
                         rightIcon={FaGithub}
                         colorScheme={'gray'}
                     >
@@ -80,8 +79,7 @@ const Project: React.FC<ProjectProps> = (props) => {
                     </Button>
                     <Button
                         rightIcon={TbWindowMaximize}
-                        btnType="ghost"
-                        className="px-0 hover:shadow-none active:shadow-none"
+                        btnType="outline"
                         colorScheme={'gray'}
                     >
                         Live Demo
@@ -91,7 +89,7 @@ const Project: React.FC<ProjectProps> = (props) => {
             <div className="relative sm:w-2/4">
                 <div
                     className={cn(
-                        'h-96 transition-all sm:absolute sm:right-[15%] sm:top-[10%] sm:h-full sm:w-[130%] sm:group-hover:right-[10%] sm:group-hover:rotate-6',
+                        'h-72 transition-all sm:absolute sm:right-[15%] sm:top-[10%] sm:h-full sm:w-[130%] sm:group-hover:right-[10%] sm:group-hover:rotate-6',
                         positionInParent % 2 === 0 &&
                             'sm:left-[15%] sm:top-[10%] sm:group-hover:left-[10%] sm:group-hover:-rotate-6'
                     )}

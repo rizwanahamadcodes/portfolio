@@ -10,7 +10,7 @@ const SubmitButton = () => {
             {pending ? (
                 <div>Sending...</div>
             ) : (
-                <Button className="w-auto" type="submit">
+                <Button className="w-full lg:w-auto" type="submit">
                     Send Message
                 </Button>
             )}
