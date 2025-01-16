@@ -18,14 +18,14 @@ module.exports = {
             },
             colors: {
                 primary: {
-                    DEFAULT: 'hsl(220deg, 100%, 60%)', //#3377ff
+                    DEFAULT: 'hsl(220deg,80%,50%)', //#
                     light: 'hsl(220deg, 100%, 90%)', //
                     dark: 'hsl(220deg, 100%, 5%)', //
                     darker: 'hsl(222deg, 100%, 3%)', //
                 },
 
-                secondary: 'hsl(260deg, 100%, 60%)', // #7733ff
-                tertiary: 'hsl(260deg, 100%, 60%)', //
+                secondary: 'hsl(260deg, 80%, 50%)', // #
+                tertiary: 'hsl(40deg, 100%, 50%)', //
 
                 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
 
