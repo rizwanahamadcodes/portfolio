@@ -26,7 +26,7 @@ const ThemeToggler = () => {
     return (
         <label
             htmlFor="theme-toggle-checkbox"
-            className="border-1 relative cursor-pointer select-none rounded-full shadow"
+            className="border-1 relative cursor-pointer select-none rounded-full"
         >
             <input
                 type="checkbox"
