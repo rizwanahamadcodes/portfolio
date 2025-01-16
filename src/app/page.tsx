@@ -30,15 +30,7 @@ export default function Home() {
                         functionality to create a pleasant user experience.
                     </p>
                     <span className="flex gap-8">
-                        <Button gradient={'from-primary to-secondary'}>
-                            <HiDownload size={28} />
-                            View CV
-                        </Button>
-                        <Button gradient={'from-quat to-tertiary'}>
-                            <FaPhoneAlt />
-                            98234234234
-                        </Button>
-                        <a href="tel://+6199942413">call us!</a>
+                        <Button>Hello darkness</Button>
                     </span>
                 </div>
             </div>
