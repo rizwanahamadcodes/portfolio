@@ -18,13 +18,13 @@ module.exports = {
             },
             colors: {
                 primary: {
-                    DEFAULT: 'hsl(220deg, 100%, 60%)',
-                    dark: 'hsl(220deg, 100%, 5%)',
-                    darker: 'hsl(222deg, 100%, 3%)',
+                    DEFAULT: 'hsl(220deg, 100%, 60%)', //#3377ff
+                    dark: 'hsl(220deg, 100%, 5%)', //
+                    darker: 'hsl(222deg, 100%, 3%)', //
                 },
 
-                secondary: 'hsl(260deg, 100%, 60%)',
-                tertiary: 'hsl(260deg, 100%, 60%)',
+                secondary: 'hsl(260deg, 100%, 60%)', // #7733ff
+                tertiary: 'hsl(260deg, 100%, 60%)', //
 
                 // If there's an element over an element transition by 100, if you're adding an effect: hover, active, transition by 50
 
@@ -36,25 +36,25 @@ module.exports = {
                 // i need to figure out what i should do for hover of eleements which do not have a distinct background
 
                 gray: {
-                    50: 'hsl(0deg,0%,95%)',
-                    100: 'hsl(0deg,0%,90%)',
-                    150: 'hsl(0deg,0%,85%)',
-                    200: 'hsl(0deg,0%,80%)',
-                    250: 'hsl(0deg,0%,75%)',
-                    300: 'hsl(0deg,0%,70%)',
-                    350: 'hsl(0deg,0%,65%)',
-                    400: 'hsl(0deg,0%,60%)',
-                    450: 'hsl(0deg,0%,55%)',
-                    500: 'hsl(0deg,0%,50%)',
-                    550: 'hsl(0deg,0%,45%)',
-                    600: 'hsl(0deg,0%,40%)',
-                    650: 'hsl(0deg,0%,35%)',
-                    700: 'hsl(0deg,0%,30%)',
-                    750: 'hsl(0deg,0%,25%)',
-                    800: 'hsl(0deg,0%,20%)',
-                    850: 'hsl(0deg,0%,15%)',
-                    900: 'hsl(0deg,0%,10%)',
-                    950: 'hsl(0deg,0%,5%)',
+                    // 50: 'hsl(0deg,0%,95%)', //#f2f2f2
+                    100: 'hsl(0deg,0%,90%)', //#e6e6e6
+                    150: 'hsl(0deg,0%,85%)', //#d9d9d9
+                    200: 'hsl(0deg,0%,80%)', //#cccccc
+                    250: 'hsl(0deg,0%,75%)', //#bfbfbf
+                    300: 'hsl(0deg,0%,70%)', //#b3b3bb3
+                    350: 'hsl(0deg,0%,65%)', //#a6a6a6
+                    400: 'hsl(0deg,0%,60%)', //#999999
+                    450: 'hsl(0deg,0%,55%)', //#8c8c8c
+                    500: 'hsl(0deg,0%,50%)', //#808080
+                    550: 'hsl(0deg,0%,45%)', //#737373
+                    600: 'hsl(0deg,0%,40%)', //#666666
+                    650: 'hsl(0deg,0%,35%)', //#595959
+                    700: 'hsl(0deg,0%,30%)', //#4d4d4d
+                    750: 'hsl(0deg,0%,25%)', //#404040
+                    800: 'hsl(0deg,0%,20%)', //#333333
+                    850: 'hsl(0deg,0%,15%)', //#262626
+                    900: 'hsl(0deg,0%,10%)', //#1a1a1a
+                    // 950: 'hsl(0deg,0%,5%)', //#0d0d0d
                 },
 
                 darkmodesubstitute: {
