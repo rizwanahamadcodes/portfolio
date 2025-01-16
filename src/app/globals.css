@@ -2,12 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-    html {
-        /* color-scheme: dark; */
+@layer base {
+    body {
+        @apply dark:bg-primary-dark;
+        @apply dark:text-white;
     }
-}
-
-.dark body {
-    background: #000;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-primary-dark leading-7 dark:text-white;
+    }
+    h1 {
+        @apply text-6xl;
+    }
+    h2 {
+        @apply text-5xl;
+    }
+    h3 {
+        @apply text-4xl;
+    }
+    h4 {
+        @apply text-3xl;
+    }
+    h5 {
+        @apply text-2xl;
+    }
+    h5 {
+        @apply text-xl;
+    }
+    p {
+        @apply text-base leading-relaxed dark:text-white;
+    }
 }

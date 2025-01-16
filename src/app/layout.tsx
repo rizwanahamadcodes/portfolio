@@ -7,7 +7,7 @@ import Header from "./Header";
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
 export const metadata: Metadata = {
-    title: "Rizwan Ahamad",
+    title: "Rizwan",
     description: "Rizwan is a frontend developer",
 };
 
