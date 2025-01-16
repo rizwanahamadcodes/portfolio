@@ -14,7 +14,7 @@ const ThemedImage: React.FC<ThemedImageProps> = (props) => {
     const { theme } = useTheme()
     const imageSrc = theme == 'light' ? lightImageSrc : darkImageSrc
 
-    return <Image src={imageSrc} alt={alt} {...otherProps} />
+    return <Image className="" src={imageSrc} alt={alt} {...otherProps} />
 }
 
 export default ThemedImage

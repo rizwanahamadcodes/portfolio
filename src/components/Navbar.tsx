@@ -2,7 +2,9 @@
 
 import Link from 'next/link'
 import rizwanLogoPrimary from '../../public/img/rizwan_logo_primary.svg'
-import rizwanLogoWhite from '../../public/img/rizwan_logo_white.svg'
+import rizwanLogoGradientNew from '../../public/img/rizwan_logo_gradient_new.svg'
+
+import rizwanLogoGradient from '../../public/img/rizwan_logo_gradient.svg'
 import Container from './Container'
 import ThemedImage from './ThemedImage'
 import ThemeToggler from './ThemeToggler'
@@ -20,8 +22,8 @@ const Navbar = () => {
             <Container optionalStyles="h-full flex items-center justify-between">
                 <Link href="/">
                     <ThemedImage
-                        darkImageSrc={rizwanLogoPrimary}
-                        lightImageSrc={rizwanLogoPrimary}
+                        darkImageSrc={rizwanLogoGradientNew}
+                        lightImageSrc={rizwanLogoGradientNew}
                         alt="Rizwan"
                         height="40"
                     />
@@ -40,8 +42,8 @@ const Navbar = () => {
                     <div className="flex h-[60px] items-center justify-between px-8">
                         <Link href="/" onClick={onClose}>
                             <ThemedImage
-                                darkImageSrc={rizwanLogoPrimary}
-                                lightImageSrc={rizwanLogoPrimary}
+                                darkImageSrc={rizwanLogoGradientNew}
+                                lightImageSrc={rizwanLogoGradientNew}
                                 alt="Rizwan"
                                 height="40"
                             />
