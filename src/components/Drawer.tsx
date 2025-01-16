@@ -48,6 +48,7 @@ const Drawer = (props: DrawerProps) => {
 }
 
 interface DrawerHeadProps {
+    headerHeightClass?: string
     children: React.ReactNode
     isSticky?: boolean
     px?: string
@@ -58,6 +59,7 @@ interface DrawerHeadProps {
 export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     const {
         children,
+        headerHeightClass,
         px,
         isSticky = true,
         onClose,
@@ -67,7 +69,9 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
     return (
         <div>
             <div
-                className={`fixed flex h-nav-height w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
+                className={`${
+                    headerHeightClass ? headerHeightClass : 'h-nav-height'
+                } fixed flex w-full items-center border-b-[1px] border-gray-100 dark:border-gray-700 ${
                     px ? px : 'px-7'
                 }`}
             >
@@ -81,7 +85,11 @@ export const DrawerHead: React.FC<DrawerHeadProps> = (props) => {
                 )}
             </div>
 
-            <div className="h-nav-height"></div>
+            <div
+                className={`${
+                    headerHeightClass ? headerHeightClass : 'h-nav-height'
+                }`}
+            ></div>
         </div>
     )
 }

@@ -75,6 +75,7 @@ const Navbar = () => {
                         onClose={onClose}
                     >
                         <DrawerHead
+                            headerHeightClass={past80 ? 'h-nav-height' : 'h-20'}
                             hasCloseButton={true}
                             onClose={onClose}
                             px={'px-[7vw]'}
