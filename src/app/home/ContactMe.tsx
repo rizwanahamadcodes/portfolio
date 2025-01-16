@@ -315,11 +315,11 @@ type GetInTouchBodyProps = {
 const GetInTouchBody = (props: GetInTouchBodyProps) => {
     const { label, linkLabel } = props
     return (
-        <p>
+        <div className="flex flex-col min-w-0">
             <p className="leading-tight text-gray-900 dark:text-gray-100">
                 {label}
             </p>
-            <p className="leading-tight overflow-ellipsis min-w-0">{linkLabel}</p>
-        </p>
+            <p className="leading-tight whitespace-nowrap overflow-hidden overflow-ellipsis min-w-0">{linkLabel}</p>
+        </div>
     )
 }
