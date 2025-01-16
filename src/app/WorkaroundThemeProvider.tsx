@@ -1,31 +1,32 @@
-"use client";
-import { ThemeProvider } from "next-themes";
-import React, { useEffect, useState } from "react";
+'use client'
+import { ThemeProvider } from 'next-themes'
+import React, { useEffect, useState } from 'react'
 
 const WorkaroundThemeProvider = ({
     children,
 }: {
-    children: React.ReactNode;
+    children: React.ReactNode
 }) => {
-    const [mounted, setMounted] = useState(false);
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        setMounted(true)
+    }, [])
 
     if (!mounted) {
-        return <>{children}</>;
+        return <>{children}</>
     }
 
     return (
         <ThemeProvider
             enableSystem={true}
-            enableColorScheme={false}
-            disableTransitionOnChange
-            attribute="class">
+            enableColorScheme={true}
+            // disableTransitionOnChange
+            attribute="class"
+        >
             {children}
         </ThemeProvider>
-    );
-};
+    )
+}
 
-export default WorkaroundThemeProvider;
+export default WorkaroundThemeProvider
