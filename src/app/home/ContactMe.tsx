@@ -346,7 +346,9 @@ const GetInTouchBody = (props: GetInTouchBodyProps) => {
     const { label, linkLabel } = props
     return (
         <p>
-            <p className="leading-tight">{label}</p>
+            <p className="leading-tight text-gray-900 dark:text-gray-100">
+                {label}
+            </p>
             <p className="leading-tight">{linkLabel}</p>
         </p>
     )
