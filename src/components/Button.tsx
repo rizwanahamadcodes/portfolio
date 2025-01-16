@@ -173,7 +173,7 @@ export const getButtonStyles: getButtonStyles = (
     }
 
     const commonButtonClasses =
-        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98]'
+        'flex justify-center gap-3 h-12 items-center rounded-full px-5 tracking-widest transition-all hover:shadow hover:shadow-gray-900/30 active:shadow active:shadow-gray-900/30 text-gray-100 active:scale-[0.98] font-medium'
 
     const solidButtonClasses =
         typeof resolvedColorScheme === 'string'
