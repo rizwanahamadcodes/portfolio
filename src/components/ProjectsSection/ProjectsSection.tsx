@@ -13,30 +13,46 @@ import clsx from "clsx";
 
 const projects = [
     {
-        projectTitle: "Public Forum",
+        projectTitle: "Image Editing App",
         projectDesc:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.",
-        projectImageSrc: "/img/wordanalytics.png",
+            "Feature rich image editor with additional capability to render images based on huge dataset, templates once created using the available fields can be used to generate multiples design with dynamic content",
+        projectImageSrc: "/img/cardgen.jpg",
+        githubLink: "https://github.com/rizwanahamadcodes/cardgen",
+        liveDemoLink: "https://cardgen-seven.vercel.app/",
     },
 
     {
         projectTitle: "E-commerce",
         projectDesc:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.",
-        projectImageSrc: "/img/corpcomment.png",
+            "E-commerce web store, with search, categories and functional cart system, utilizing redux library for state management",
+        projectImageSrc: "/img/fruits-commerce.jpg",
+        githubLink: "https://github.com/rizwanahamadcodes/fruits-ecommerce",
+        liveDemoLink: "https://fruits-ecommerce-taupe.vercel.app/",
     },
 
     {
-        projectTitle: "Messaging",
+        projectTitle: "API integration",
         projectDesc:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, ipsa ducimus? Fugit porro perspiciatis adipisci neque tempore voluptatibus, id quibusdam, corporis reprehenderit nostrum pariatur ullam illo ad libero nisi explicabo.",
-        projectImageSrc: "/img/rmtdev.png",
+            "Intergration of a custom frotend to an external API, featuring multiple filters, loading skeletons, light and dark mode, all with chakra ui",
+        projectImageSrc: "/img/games.jpg",
+        githubLink: "https://github.com/rizwanahamadcodes/game-discovery",
+        liveDemoLink: "https://game-discovery-gamma.vercel.app/",
     },
 ];
 
-const ProjectsSection = () => {
+type ProjectSectionProps = {
+    className?: string;
+};
+
+const ProjectsSection = (props: ProjectSectionProps) => {
+    const { className } = props;
+
     return (
-        <Section className="bg-gray-100 dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800">
+        <Section
+            className={clsx(
+                "bg-gray-100 dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800",
+                className
+            )}>
             <Container className="flex flex-col  items-center">
                 <SectionTitle className="text-center" defaultBottomMargin>
                     Projects I&apos;ve worked on
@@ -78,12 +94,16 @@ const Project = (props: ProjectProps) => {
                     : "sm:flex-row-reverse"
             )}>
             <div className="p-1 sm:w-2/4">
-                <SectionCategoryTitle>
-                    {project.projectTitle}
-                </SectionCategoryTitle>
+                <Link href={project.liveDemoLink}>
+                    <SectionCategoryTitle>
+                        {project.projectTitle}
+                    </SectionCategoryTitle>
+                </Link>
                 <p className="mb-0.5">{project.projectDesc}</p>
                 <div className="flex flex-col gap-1 lg:flex-row">
-                    <Link className={button({ className: "!w-full" })} href="/">
+                    <Link
+                        className={button({ className: "!w-full" })}
+                        href={project.liveDemoLink}>
                         <ButtonIcon icon={TbWindowMaximize} />
                         Live Demo
                     </Link>
@@ -93,7 +113,7 @@ const Project = (props: ProjectProps) => {
                             colorScheme: "themed-gray",
                             className: "!w-full",
                         })}
-                        href="/">
+                        href={project.githubLink}>
                         <ButtonIcon icon={FaGithub} />
                         Code
                     </Link>
@@ -111,7 +131,7 @@ const Project = (props: ProjectProps) => {
                         src={project.projectImageSrc}
                         fill
                         alt=""
-                        className="rounded object-cover sm:rounded-1 sm:object-left-top"
+                        className="rounded-0.25 object-cover sm:rounded-1 sm:object-left-top border-black/10 border"
                     />
                 </div>
             </div>
