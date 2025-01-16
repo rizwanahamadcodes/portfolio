@@ -20,7 +20,7 @@ const HeroSection = () => {
                             <span className="text-primary"> Rizwan</span>
                         </div>
                     </h1>
-                    <h2 className="text-xl font-medium text-primary dark:text-primary sm:text-3xl">
+                    <h2 className="text-3xl font-medium text-primary dark:text-primary">
                         Front-end Web Developer
                     </h2>
                     <h3 className="max-w max-w-[50ch] text-xl">
