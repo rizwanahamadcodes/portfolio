@@ -69,7 +69,7 @@ export const SectionCategoryTitle = (props: SectionCategoryTitleProps) => {
             className={cn(
                 defaultBottomMargin && 'mb-4',
                 headingColorClasses,
-                'text-gray-900 dark:text-gray-100',
+                'text-2xl text-gray-900 dark:text-gray-100',
                 className
             )}
         >

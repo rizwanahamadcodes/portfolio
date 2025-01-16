@@ -157,7 +157,7 @@ const TechCardGroup = (props: TechCardGroupProps) => {
 
     return (
         <div key={techCategory.id}>
-            <SectionCategoryTitle className="mb-4">
+            <SectionCategoryTitle defaultBottomMargin>
                 {techCategory.title}
             </SectionCategoryTitle>
 
