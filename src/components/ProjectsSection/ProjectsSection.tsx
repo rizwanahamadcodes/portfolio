@@ -131,7 +131,7 @@ const Project = (props: ProjectProps) => {
                         src={project.projectImageSrc}
                         fill
                         alt=""
-                        className="rounded-0.25 object-cover sm:rounded-1 sm:object-left-top border-black/10 border"
+                        className="rounded-0.25 object-cover sm:rounded-1 object-left-top border-black/10 border"
                     />
                 </div>
             </div>
