@@ -62,7 +62,9 @@ const FooterContactLinks = [
         icon: SiGmail,
     },
 ]
-
+const friendsName = ['Aditi', 'Roshni']
+const sortedFriendsName = friendsName.sort(() => Math.random() - 0.5)
+const friendsString = sortedFriendsName.join(' and ')
 const Footer = () => {
     return (
         <footer>
@@ -102,7 +104,7 @@ const Footer = () => {
                     </FooterColumn>
                 </Container>
                 <p className="bg-gray-100 py-4 text-center dark:bg-gray-800 ">
-                    Copyright
+                    {`Made with love and feedback from my friends ${friendsString}`}
                 </p>
             </Section>
         </footer>
