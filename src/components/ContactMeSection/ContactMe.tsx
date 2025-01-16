@@ -8,10 +8,21 @@ import Section, {
 
 import ContactForm from "@/components/ContactMeSection/ContactForm";
 import GetInTouchSection from "@/components/ContactMeSection/GetInTouchSection/GetInTouchSection";
+import clsx from "clsx";
 
-const ContactMe = () => {
+type ContactMeProps = {
+    className?: string;
+};
+
+const ContactMe = (props: ContactMeProps) => {
+    const { className } = props;
+
     return (
-        <Section className="border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900">
+        <Section
+            className={clsx(
+                "border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900",
+                className
+            )}>
             <Container className="flex flex-col items-stretch justify-between gap-2 md:flex-row">
                 <div className="relative grow md:max-w-md">
                     <SectionTitle defaultBottomMargin>

@@ -58,7 +58,7 @@ const socialLinks = [
 ];
 const FooterContactLinks = [
     {
-        label: "rizwanahamadcodes@gmail",
+        label: "rizwanahamadcodes@gmail.com",
         href: "mailto:rizwanahamadcodes@gmail.com",
         icon: SiGmail,
     },
@@ -168,16 +168,16 @@ const FooterColumnLinks = (props: FooterColumnLinksProps) => {
                 const { icon: Icon } = link;
 
                 return (
-                    <li
-                        key={link.href}
-                        className="flex gap-0.5 group/footerLinkGroup">
-                        {typeof Icon === "string" ? null : (
-                            <Icon className="text-1.25 text-gray-700 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100" />
-                        )}
+                    <li key={link.href} className="group/footerLinkGroup">
                         <Link
-                            className="text-gray-700 dark:text-gray-300 hover:text-gray-900 hover:dark:text-gray-100"
+                            className="flex gap-0.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 hover:dark:text-gray-100"
                             href={link.href}>
-                            {link.label}
+                            {typeof Icon === "string" ? null : (
+                                <Icon className="text-1.25 text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100" />
+                            )}
+                            <p className="whitespace-nowrap overflow-hidden overflow-ellipsis">
+                                {link.label}
+                            </p>
                         </Link>
                     </li>
                 );
