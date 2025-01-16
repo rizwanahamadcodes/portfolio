@@ -78,8 +78,9 @@ const NavMenu: React.FC<NavMenuProps> = ({
                 width: window.innerWidth,
             })
         }
-
-        window.addEventListener('resize', handleResize)
+        if (typeof window != undefined) {
+            window.addEventListener('resize', handleResize)
+        }
     }, [])
 
     return (
