@@ -1,5 +1,4 @@
 import Button, { ButtonIcon } from "@/components/Button/Button";
-import CustomInput from "@/components/ContactMeSection/CustomInput";
 import CustomTextarea from "@/components/ContactMeSection/CustomTextArea";
 import { SectionCategoryTitle } from "@/components/Section/Section";
 import { visitorSchema } from "@/schemas/visitorSchema";
@@ -8,6 +7,7 @@ import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BiLoaderAlt } from "react-icons/bi";
+import Input from "@/components/ContactMeSection/Input";
 
 const ContactForm = () => {
     const {
@@ -62,35 +62,35 @@ const ContactForm = () => {
             <form
                 className="flex flex-col gap-1"
                 onSubmit={handleSubmit(onSubmit)}>
-                <CustomInput
+                <Input
                     name="fullName"
                     type="text"
                     placeholder="Full name"
                     register={register}
-                    getFieldState={getFieldState}
-                    isSubmitted={isSubmitted}></CustomInput>
-                <CustomInput
+                    errors={errors}
+                    isSubmitted={isSubmitted}></Input>
+                <Input
                     name="email"
                     type="email"
                     placeholder="Email address"
                     register={register}
-                    getFieldState={getFieldState}
+                    errors={errors}
                     isSubmitted={isSubmitted}
                 />
-                <CustomInput
+                <Input
                     name="subject"
                     type="text"
                     placeholder="Subject"
                     register={register}
-                    getFieldState={getFieldState}
+                    errors={errors}
                     isSubmitted={isSubmitted}
                 />
                 <CustomTextarea
                     name="userMessage"
                     maxLength={500}
+                    errors={errors}
                     placeholder="Message..."
                     register={register}
-                    getFieldState={getFieldState}
                     isSubmitted={isSubmitted}></CustomTextarea>
 
                 <Button

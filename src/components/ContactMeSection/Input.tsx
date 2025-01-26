@@ -1,6 +1,15 @@
 import { visitorSchema } from "@/schemas/visitorSchema";
+import { ErrorMessage } from "@hookform/error-message";
 import clsx from "clsx";
-import { UseFormGetFieldState, UseFormRegister } from "react-hook-form";
+import {
+    DeepMap,
+    FieldError,
+    FieldErrors,
+    FieldValues,
+    Path,
+    UseFormGetFieldState,
+    UseFormRegister,
+} from "react-hook-form";
 
 export const getInputClasses = () => {
     const baseInputClasses =
@@ -22,12 +31,19 @@ export type CustomFieldProps<Field> = Field & {
     isSubmitted: boolean;
 };
 
-const CustomInput = (
-    props: CustomFieldProps<React.ComponentPropsWithoutRef<"input">>
-) => {
-    const { name, register, getFieldState, isSubmitted, ...otherProps } = props;
-    const { error, isDirty } = getFieldState(name);
+type InputProps<TFormValues extends FieldValues> =
+    React.ComponentPropsWithoutRef<"input"> & {
+        register: UseFormRegister<TFormValues>;
+        isSubmitted: boolean;
+        name: Path<TFormValues>;
+        errors: FieldErrors;
+    };
 
+const Input = <TFormValues extends FieldValues>(
+    props: InputProps<TFormValues>
+) => {
+    const { name, register, errors, isSubmitted, ...otherProps } = props;
+    const error = errors[name];
     const { baseInputClasses, validInputClasses, inValidInputClasses } =
         getInputClasses();
 
@@ -42,15 +58,17 @@ const CustomInput = (
                 )}
                 {...otherProps}
             />
-            {error ? (
-                <p className="mt-0.5 text-secondary dark:text-secondary">
-                    {error?.message}
-                </p>
-            ) : (
-                ""
-            )}
+            <ErrorMessage
+                errors={errors}
+                name={name}
+                render={({ message }) => (
+                    <p className="mt-0.5 text-secondary dark:text-secondary">
+                        {message}
+                    </p>
+                )}
+            />
         </div>
     );
 };
 
-export default CustomInput;
+export default Input;

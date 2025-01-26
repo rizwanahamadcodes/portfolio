@@ -1,14 +1,26 @@
 import clsx from "clsx";
 import {
-    CustomFieldProps,
-    getInputClasses,
-} from "@/components/ContactMeSection/CustomInput";
+    FieldErrors,
+    FieldValues,
+    Path,
+    UseFormRegister,
+} from "react-hook-form";
+import { getInputClasses } from "./Input";
+import { ErrorMessage } from "@hookform/error-message";
 
-const CustomTextarea = (
-    props: CustomFieldProps<React.ComponentPropsWithoutRef<"textarea">>
+type TextareaProps<TFormValues extends FieldValues> =
+    React.ComponentPropsWithoutRef<"textarea"> & {
+        register: UseFormRegister<TFormValues>;
+        isSubmitted: boolean;
+        name: Path<TFormValues>;
+        errors: FieldErrors;
+    };
+
+const CustomTextarea = <TFormValues extends FieldValues>(
+    props: TextareaProps<TFormValues>
 ) => {
-    const { name, register, getFieldState, isSubmitted, ...otherProps } = props;
-    const { error } = getFieldState(name);
+    const { name, register, errors, isSubmitted, ...otherProps } = props;
+    const error = errors[name];
 
     const { baseInputClasses, validInputClasses, inValidInputClasses } =
         getInputClasses();
@@ -25,13 +37,15 @@ const CustomTextarea = (
                 )}
                 {...otherProps}
             />
-            {error ? (
-                <p className="mt-0.5 text-secondary dark:text-secondary">
-                    {error?.message}
-                </p>
-            ) : (
-                <></>
-            )}
+            <ErrorMessage
+                errors={errors}
+                name={name}
+                render={({ message }) => (
+                    <p className="mt-0.5 text-secondary dark:text-secondary">
+                        {message}
+                    </p>
+                )}
+            />
         </div>
     );
 };
