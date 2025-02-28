@@ -200,7 +200,7 @@ const config: Config = {
                 return minWidth;
             },
             boxShadow: {
-                left: "-1px 0px 3px 0px rgba(0,0,0,0.1), -1px 0px 2px -1px rgb(0,0,0,0.1)",
+                left: "-1px 0px 3px 0px rgba(0,0,0,0.05), -1px 0px 2px -1px rgb(0,0,0,0.05)",
             },
         },
     },

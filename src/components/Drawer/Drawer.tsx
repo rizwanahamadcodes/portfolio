@@ -47,11 +47,17 @@ export const DrawerWrapper = (props: DrawerWrapperProps) => {
                 handleDrawerWrapperClick(e);
             }}
             className={clsx(
-                "h-[100dvh] w-[100dvw] absolute top-0 left-0 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm z-[1000] overflow-hidden transition-all",
-                isOpen ? "visible opacity-100" : "invisible opacity-0",
+                "h-[100dvh] w-full fixed top-0 left-0 z-[1000] overflow-hidden transition-all",
+                isOpen ? "visible" : "invisible",
                 className
             )}>
             {children}
+            <div
+                className={clsx(
+                    "h-full w-full absolute top-0 left-0 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm z-20 pointer-events-none overflow-hidden transition-all",
+                    isOpen ? "visible opacity-100" : "invisible opacity-0",
+                    className
+                )}></div>
         </div>
     );
 };
@@ -67,7 +73,7 @@ export const DrawerMain = (props: DrawerMainProps) => {
         <div
             ref={drawerRef}
             className={clsx(
-                "w-20 flex flex-col h-full dark:bg-gray-800 bg-white absolute top-0 right-0 shadow-left overflow-hidden border-l border-l-gray-100 dark:border-l-gray-700",
+                "w-20 flex z-50 flex-col h-full dark:bg-gray-800 transition-all bg-white absolute top-0 right-0 shadow-left overflow-hidden dark:border-l-gray-700",
                 isOpen ? "translate-x-0" : "translate-x-full"
             )}>
             {children}
