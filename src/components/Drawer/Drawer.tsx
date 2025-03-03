@@ -47,7 +47,7 @@ export const DrawerWrapper = (props: DrawerWrapperProps) => {
                 handleDrawerWrapperClick(e);
             }}
             className={clsx(
-                "h-[100dvh] w-full fixed top-0 left-0 z-[1000] overflow-hidden transition-all",
+                "h-[100dvh] w-full fixed top-0 left-0 z-[1000] overflow-hidden transition-all duration-300",
                 isOpen ? "visible" : "invisible",
                 className
             )}>
@@ -73,7 +73,7 @@ export const DrawerMain = (props: DrawerMainProps) => {
         <div
             ref={drawerRef}
             className={clsx(
-                "w-20 flex z-50 flex-col h-full dark:bg-gray-800 transition-all bg-white absolute top-0 right-0 shadow-left overflow-hidden dark:border-l-gray-700",
+                "w-20 flex z-50 flex-col h-full dark:bg-gray-800 transition-all duration-300 bg-white absolute top-0 right-0 shadow-left overflow-hidden dark:border-l-gray-700",
                 isOpen ? "translate-x-0" : "translate-x-full"
             )}>
             {children}
