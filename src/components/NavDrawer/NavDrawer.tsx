@@ -9,6 +9,8 @@ import ThemeToggler from "@/components/ThemeToggler";
 import { useToggle } from "@/hooks/useToggle";
 import NavMenu from "../Navbar/NavMenu/NavMenu";
 import { navLinks } from "../Navbar/Navbar";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 type NavDrawerProps = {
     viewportTouchingStatus?: {
@@ -19,8 +21,12 @@ type NavDrawerProps = {
 
 const NavDrawer = (props: NavDrawerProps) => {
     const { viewportTouchingStatus } = props;
+    const pathname = usePathname();
 
     const { isOpen, open, close } = useToggle(false);
+    useEffect(() => {
+        close();
+    }, [pathname]);
 
     return (
         <span className="lg:hidden">
