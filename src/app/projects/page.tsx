@@ -5,7 +5,7 @@ type AboutMeProps = {};
 const AboutMe = (props: AboutMeProps) => {
     const {} = props;
 
-    return <ProjectsSection className="mt-navHeight-large" />;
+    return <ProjectsSection className="pt-7" />;
 };
 
 export default AboutMe;

@@ -7,7 +7,7 @@ const AboutMe = (props: AboutMeProps) => {
 
     return (
         <>
-            <ContactMe className="mt-navHeight-large" />
+            <ContactMe className="pt-7" />
         </>
     );
 };

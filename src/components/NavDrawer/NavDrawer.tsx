@@ -8,6 +8,8 @@ import Drawer, {
 } from "@/components/Drawer/Drawer";
 import NavMenuWithTabIndicator from "@/components/Navbar/NavMenuWithTabIndicator";
 import ThemeToggler from "@/components/ThemeToggler";
+import NavMenu from "../Navbar/NavMenu/NavMenu";
+import { navLinks } from "../Navbar/Navbar";
 
 type NavDrawerProps = {
     viewportTouchingStatus?: {
@@ -32,15 +34,9 @@ const NavDrawer = (props: NavDrawerProps) => {
                             : "h-navHeight-small"
                     }
                 />
-                <DrawerBody>
-                    <NavMenuWithTabIndicator
-                        onNavItemClick={close}
-                        direction="vertical"
-                    />
-
-                    <div className="flex h-navHeight-small items-center justify-between px-[7vw]">
-                        <ThemeToggler />
-                    </div>
+                <DrawerBody className="p-1 flex flex-col gap-2">
+                    <NavMenu direction="vertical" navLinks={navLinks} />
+                    <ThemeToggler />
                 </DrawerBody>
             </Drawer>
         </span>
