@@ -37,7 +37,7 @@ const NavMenu = (props: NavMenuProps) => {
                                 "flex h-2.75 px-1.375 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300",
                                 isActive
                                     ? "text-primary-600 bg-primary-100 dark:bg-primary-800 dark:text-primary-200"
-                                    : "text-gray-500 hover:text-gray-500 hover:bg-gray-200 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-800"
+                                    : "text-gray-500 hover:text-gray-800 hover:bg-gray-100 dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-700"
                             )}>
                             <NavIcon
                                 isActive={isActive}
