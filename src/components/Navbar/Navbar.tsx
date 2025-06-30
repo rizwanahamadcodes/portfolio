@@ -44,10 +44,10 @@ const Navbar = (props: NavbarProps) => {
     const { viewportTouchingStatus } = props;
 
     return (
-        <div>
+        <div className="fixed w-[calc(100%_-_1rem)] z-50">
             <nav
                 className={clsx(
-                    "border-2 border-white/70 fixed dark:border-gray-900/70 top-0 z-50 w-full backdrop-blur-sm transition-all m-0.5 rounded-full",
+                    "border-2 border-white/70  w-full dark:border-gray-900/70 top-0 m-0.5 backdrop-blur-sm transition-all rounded-full",
                     viewportTouchingStatus?.topTouchedTop
                         ? "h-navHeight-large"
                         : "h-navHeight-small bg-white/50 dark:bg-gray-900/50"
