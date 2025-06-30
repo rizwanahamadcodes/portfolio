@@ -19,9 +19,7 @@ export type DrawerProps = {
 
 const Drawer = (props: DrawerProps) => {
     const portalRoot =
-        typeof window !== "undefined"
-            ? document.getElementById("drawer-root")
-            : null;
+        typeof window !== "undefined" ? document.getElementById("#root") : null;
 
     if (!portalRoot) return null;
     const { className, children, isOpen, open, close, toggle } = props;
