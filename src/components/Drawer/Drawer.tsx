@@ -6,7 +6,6 @@ import {
 import RizwanLogo from "@/components/RizwanLogo";
 import CloseButton from "@/components/CloseButton/CloseButton";
 import { useRef } from "react";
-import ReactDOM from "react-dom";
 
 export type DrawerProps = {
     children: React.ReactNode;
@@ -18,18 +17,13 @@ export type DrawerProps = {
 };
 
 const Drawer = (props: DrawerProps) => {
-    const portalRoot =
-        typeof window !== "undefined" ? document.getElementById("#root") : null;
-
-    if (!portalRoot) return null;
     const { className, children, isOpen, open, close, toggle } = props;
-    return ReactDOM.createPortal(
+    return (
         <DrawerContext.Provider value={{ isOpen, open, close, toggle }}>
             <DrawerWrapper className={className}>
                 <DrawerMain>{children}</DrawerMain>
             </DrawerWrapper>
-        </DrawerContext.Provider>,
-        portalRoot
+        </DrawerContext.Provider>
     );
 };
 
