@@ -53,7 +53,7 @@ const Navbar = (props: NavbarProps) => {
                     "w-full top-0 m-0.5 backdrop-blur-sm transition-all rounded-full",
                     viewportTouchingStatus?.topTouchedTop
                         ? "h-navHeight-large border-2 border-transparent dark:border-transparent"
-                        : "h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40"
+                        : "shadow-md dark:shadow-black/20 h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40"
                 )}>
                 <Container className="h-full flex items-center justify-between">
                     <div className="w-[129px]">
