@@ -31,6 +31,7 @@ export default function RootLayout(props: RootLayoutProps) {
                     {children}
                     <Footer />
                 </WorkAroundThemeProvider>
+                <div id="modals-wrapper"></div>
             </body>
         </html>
     );

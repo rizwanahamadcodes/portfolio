@@ -1,14 +1,15 @@
-import clsx from "clsx";
+import CloseButton from "@/components/CloseButton/CloseButton";
 import {
     DrawerContext,
     useDrawerProps,
 } from "@/components/Drawer/useDrawerProps";
 import RizwanLogo from "@/components/RizwanLogo";
-import CloseButton from "@/components/CloseButton/CloseButton";
+import clsx from "clsx";
 import { useRef } from "react";
+import ReactDOM from "react-dom";
 
 export type DrawerProps = {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     isOpen: boolean;
     open: () => void;
     close: () => void;
@@ -18,12 +19,21 @@ export type DrawerProps = {
 
 const Drawer = (props: DrawerProps) => {
     const { className, children, isOpen, open, close, toggle } = props;
-    return (
+
+    const portalRoot =
+        typeof window !== "undefined"
+            ? document.getElementById("modals-wrapper")
+            : null;
+
+    if (!portalRoot) return null;
+
+    return ReactDOM.createPortal(
         <DrawerContext.Provider value={{ isOpen, open, close, toggle }}>
             <DrawerWrapper className={className}>
                 <DrawerMain>{children}</DrawerMain>
             </DrawerWrapper>
-        </DrawerContext.Provider>
+        </DrawerContext.Provider>,
+        portalRoot
     );
 };
 
@@ -73,7 +83,7 @@ export const DrawerMain = (props: DrawerMainProps) => {
         <div
             ref={drawerRef}
             className={clsx(
-                "w-20 flex z-50 flex-col h-full dark:bg-gray-800 transition-all duration-300 bg-white absolute top-0 right-0 shadow-left overflow-hidden dark:border-l-gray-700",
+                "rounded-1 w-20 flex z-50 flex-col h-[calc(100%_-_1rem)] dark:bg-gray-800 transition-all duration-300 bg-white absolute top-0.5  right-0.5 shadow-left overflow-hidden dark:border-l-gray-700",
                 isOpen ? "translate-x-0" : "translate-x-full"
             )}>
             {children}

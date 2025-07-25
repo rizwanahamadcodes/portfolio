@@ -3,16 +3,15 @@
 import Drawer, {
     DrawerBody,
     DrawerDefaultHead,
+    DrawerProps,
 } from "@/components/Drawer/Drawer";
-import Hamburger from "@/components/Hamburger/Hamburger";
 import ThemeToggler from "@/components/ThemeToggler";
-import { useToggle } from "@/hooks/useToggle";
-import NavMenu from "../Navbar/NavMenu/NavMenu";
-import { navLinks } from "../Navbar/Navbar";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import NavMenu from "../Navbar/NavMenu/NavMenu";
+import { navLinks } from "../Navbar/Navbar";
 
-type NavDrawerProps = {
+type NavDrawerProps = DrawerProps & {
     viewportTouchingStatus?: {
         topTouchedTop: boolean;
         bottomTouchedTop: boolean;
@@ -20,17 +19,15 @@ type NavDrawerProps = {
 };
 
 const NavDrawer = (props: NavDrawerProps) => {
-    const { viewportTouchingStatus } = props;
+    const { viewportTouchingStatus, open, isOpen, close } = props;
     const pathname = usePathname();
 
-    const { isOpen, open, close } = useToggle(false);
     useEffect(() => {
         close();
     }, [pathname]);
 
     return (
         <span className="lg:hidden">
-            <Hamburger className="lg:hidden" onClick={open} />
             <Drawer isOpen={isOpen} close={close} open={open}>
                 <DrawerDefaultHead
                     height={

@@ -1,7 +1,9 @@
 import Container from "@/components/Container/Container";
+import Hamburger from "@/components/Hamburger/Hamburger";
 import NavDrawer from "@/components/NavDrawer/NavDrawer";
 import RizwanLogo from "@/components/RizwanLogo";
 import ThemeToggler from "@/components/ThemeToggler";
+import { useToggle } from "@/hooks/useToggle";
 import pathConstants, { PathConstant } from "@/route/pathConstants";
 import clsx from "clsx";
 import { AiFillPhone, AiOutlinePhone } from "react-icons/ai";
@@ -42,15 +44,16 @@ export const navLinks: PathConstant[] = [
 
 const Navbar = (props: NavbarProps) => {
     const { viewportTouchingStatus } = props;
+    const { isOpen, open, close } = useToggle(false);
 
     return (
-        <div>
+        <div className="fixed w-[calc(100%_-_1rem)] z-50">
             <nav
                 className={clsx(
-                    "fixed top-0 z-50 w-full backdrop-blur-sm transition-all",
+                    "w-full top-0 m-0.5 backdrop-blur-sm transition-all rounded-full",
                     viewportTouchingStatus?.topTouchedTop
-                        ? "h-navHeight-large"
-                        : "h-navHeight-small bg-white/50 dark:bg-gray-900/50"
+                        ? "h-navHeight-large border-2 border-transparent dark:border-transparent"
+                        : "shadow-md dark:shadow-black/20 h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40"
                 )}>
                 <Container className="h-full flex items-center justify-between">
                     <div className="w-[129px]">
@@ -66,9 +69,14 @@ const Navbar = (props: NavbarProps) => {
                     <div className="min-w-[64px]">
                         <ThemeToggler className="hidden lg:block" />
                     </div>
+
                     <NavDrawer
+                        open={open}
+                        isOpen={isOpen}
+                        close={close}
                         viewportTouchingStatus={viewportTouchingStatus}
                     />
+                    <Hamburger className="lg:hidden" onClick={open} />
                 </Container>
             </nav>
         </div>
