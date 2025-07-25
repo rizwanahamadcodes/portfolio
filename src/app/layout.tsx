@@ -24,8 +24,7 @@ export default function RootLayout(props: RootLayoutProps) {
 
     return (
         <html lang="en">
-            <body
-                className={`${montserrat.variable} flex h-screen flex-col font-sans`}>
+            <body className={`${montserrat.variable} flex h-screen flex-col font-sans`}>
                 <WorkAroundThemeProvider>
                     <NavbarWithObserver />
                     {children}

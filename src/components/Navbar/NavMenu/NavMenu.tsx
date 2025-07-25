@@ -27,7 +27,7 @@ const NavMenu = (props: NavMenuProps) => {
                 const isActive = path === pathname;
                 return (
                     <li key={path}>
-                        <Link href={path} className={clsx("flex h-2.75 px-1.375 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative", isActive ? "text-primary-600 dark:text-primary-200" : "text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:bg-gray-100 dark:hover:text-gray-200 dark:hover:bg-gray-800")}>
+                        <Link href={path} className={clsx("flex h-2.75 px-1.375 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative", isActive ? "text-primary-600 dark:text-primary-200" : "text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:bg-gray-50 dark:hover:text-gray-200 dark:hover:bg-gray-850")}>
                             {isActive && (
                                 <motion.div
                                     layoutId={`nav-active-background-${direction}`} // Must be unique if reused elsewhere
