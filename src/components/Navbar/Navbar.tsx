@@ -8,10 +8,7 @@ import pathConstants, { PathConstant } from "@/route/pathConstants";
 import clsx from "clsx";
 import { AiFillPhone, AiOutlinePhone } from "react-icons/ai";
 import { GoHome, GoHomeFill } from "react-icons/go";
-import {
-    PiProjectorScreenChart,
-    PiProjectorScreenChartFill,
-} from "react-icons/pi";
+import { PiProjectorScreenChart, PiProjectorScreenChartFill } from "react-icons/pi";
 import NavMenu from "./NavMenu/NavMenu";
 
 type NavbarProps = {
@@ -48,20 +45,10 @@ const Navbar = (props: NavbarProps) => {
 
     return (
         <div className="fixed w-[calc(100%_-_1rem)] z-50">
-            <nav
-                className={clsx(
-                    "w-full top-0 m-0.5 backdrop-blur-sm transition-all rounded-full",
-                    viewportTouchingStatus?.topTouchedTop
-                        ? "h-navHeight-large border-2 border-transparent dark:border-transparent"
-                        : "shadow-md dark:shadow-black/20 h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40"
-                )}>
+            <nav className={clsx("w-full top-0 m-0.5 backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "h-navHeight-large border-2 border-transparent dark:border-transparent" : "shadow-md dark:shadow-black/20 h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40")}>
                 <Container className="h-full flex items-center justify-between">
                     <div className="w-[129px]">
-                        <RizwanLogo
-                            height={
-                                viewportTouchingStatus?.topTouchedTop ? 50 : 40
-                            }
-                        />
+                        <RizwanLogo height={viewportTouchingStatus?.topTouchedTop ? 50 : 40} />
                     </div>
 
                     <NavMenu className="hidden lg:flex" navLinks={navLinks} />
@@ -70,12 +57,7 @@ const Navbar = (props: NavbarProps) => {
                         <ThemeToggler className="hidden lg:block" />
                     </div>
 
-                    <NavDrawer
-                        open={open}
-                        isOpen={isOpen}
-                        close={close}
-                        viewportTouchingStatus={viewportTouchingStatus}
-                    />
+                    <NavDrawer open={open} isOpen={isOpen} close={close} viewportTouchingStatus={viewportTouchingStatus} />
                     <Hamburger className="lg:hidden" onClick={open} />
                 </Container>
             </nav>
