@@ -1,9 +1,6 @@
 import clsx from "clsx";
 
-type SectionProps = {
-    children?: React.ReactNode;
-    className?: string;
-};
+type SectionProps = React.ComponentPropsWithoutRef<"section">;
 
 const Section = (props: SectionProps) => {
     const { children, className } = props;
@@ -22,16 +19,7 @@ type SectionTitleProps = {
 export const SectionTitle = (props: SectionTitleProps) => {
     const { children, className, defaultBottomMargin = false } = props;
 
-    return (
-        <h2
-            className={clsx(
-                "text-1.5 leading-1 font-medium text-primary dark:text-primary sm:text-2.25",
-                defaultBottomMargin && "mb-0.5",
-                className
-            )}>
-            {children}
-        </h2>
-    );
+    return <h2 className={clsx("uppercase text-1 leading-1 font-medium text-gray-600 dark:text-gray-400", defaultBottomMargin && "mb-0.5", className)}>{children}</h2>;
 };
 
 type SectionSubtitleProps = {
@@ -43,16 +31,7 @@ type SectionSubtitleProps = {
 export const SectionSubtitle = (props: SectionSubtitleProps) => {
     const { children, className, defaultBottomMargin } = props;
 
-    return (
-        <p
-            className={clsx(
-                "font-medium text-1.125 sm:text-1.25 leading-1.25 text-gray-700 dark:text-gray-300",
-                defaultBottomMargin && "mb-2",
-                className
-            )}>
-            {children}
-        </p>
-    );
+    return <p className={clsx("font-medium leading-1 text-2.25 text-gray-800 dark:text-gray-300", defaultBottomMargin && "mb-2", className)}>{children}</p>;
 };
 
 type SectionCategoryTitleProps = {
@@ -64,14 +43,5 @@ type SectionCategoryTitleProps = {
 export const SectionCategoryTitle = (props: SectionCategoryTitleProps) => {
     const { children, defaultBottomMargin, className } = props;
 
-    return (
-        <h3
-            className={clsx(
-                defaultBottomMargin && "mb-1",
-                "text-1.25 leading-1.75 text-gray-900 dark:text-gray-100 font-medium",
-                className
-            )}>
-            {children}
-        </h3>
-    );
+    return <h3 className={clsx(defaultBottomMargin && "mb-1", "text-1.25 leading-1.75 text-gray-900 dark:text-gray-100 font-medium", className)}>{children}</h3>;
 };

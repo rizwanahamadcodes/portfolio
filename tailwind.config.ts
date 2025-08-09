@@ -3,11 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
     mode: "jit",
-    content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
+    content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
 
     darkMode: "class",
 
@@ -160,10 +156,7 @@ const config: Config = {
                 xs: "480px",
             },
             fontFamily: {
-                sans: [
-                    "var(--font-montserrat)",
-                    ...defaultTheme.fontFamily.sans,
-                ],
+                sans: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
             },
             minHeight: () => {
                 const minHeight: {
@@ -198,6 +191,36 @@ const config: Config = {
                 minWidth["navHeight"] = "5rem";
 
                 return minWidth;
+            },
+            backgroundImage: {
+                "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
+            },
+            animation: {
+                "spin-clockwise": "spin-clockwise 15s linear infinite",
+                "spin-anticlockwise": "spin-anticlockwise 15s linear infinite",
+                ripple: "ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite",
+            },
+            keyframes: {
+                ripple: {
+                    "0%": {
+                        transform: "translate(-50%, -50%) scale(1)",
+                    },
+                    "100%": {
+                        transform: "translate(-50%, -50%) scale(1)",
+                    },
+                    "50%": {
+                        transform: "translate(-50%, -50%) scale(1.2)",
+                    },
+                },
+
+                "spin-clockwise": {
+                    from: { transform: "rotate(0deg)" },
+                    to: { transform: "rotate(360deg)" },
+                },
+                "spin-anticlockwise": {
+                    from: { transform: "rotate(0deg)" },
+                    to: { transform: "rotate(-360deg)" },
+                },
             },
             boxShadow: {
                 left: "-1px 0px 3px 0px rgba(0,0,0,0.05), -1px 0px 2px -1px rgb(0,0,0,0.05)",

@@ -2,7 +2,7 @@
 import { PathConstant } from "@/route/pathConstants";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { IconType } from "react-icons";
@@ -52,10 +52,35 @@ export const NavItem = (props: NavItemProps) => {
     const { navLink, hoveredItem, setHoveredItem, direction, className, ...otherProps } = props;
     const { path, label, icon, activeIcon } = navLink;
 
-    const pathname = usePathname();
-    const isActive = path === pathname;
+    const pathname = usePathname(); // still useful
+    // const hash = useHashLocation();
+
+    const normalizeHash = (hash: string) => {
+        if (!hash) return "";
+        return hash.startsWith("#") ? hash : `#${hash}`;
+    };
+
+    const handleClick = (e: React.MouseEvent) => {
+        // if (path === "/") {
+        //     // For home link, let Next.js handle normal navigation
+        //     return;
+        // }
+        // // For section links
+        // e.preventDefault();
+        // if (path.startsWith("#")) {
+        //     const element = document.getElementById(path.substring(1));
+        //     if (element) {
+        //         element.scrollIntoView({ behavior: "smooth" });
+        //         window.history.pushState({}, "", path);
+        //     }
+        // }
+    };
+
+    const isActive = false;
+
     return (
         <Link
+            onClick={handleClick}
             href={path}
             className={clsx("flex h-2.75 px-1.375 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative", isActive ? "text-primary-600 dark:text-primary-200" : "text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200")}
             onMouseEnter={() => {

@@ -1,17 +1,8 @@
 import Container from "@/components/Container/Container";
-import Section, {
-    SectionCategoryTitle,
-    SectionSubtitle,
-    SectionTitle,
-} from "@/components/Section/Section";
+import Section, { SectionCategoryTitle, SectionSubtitle, SectionTitle } from "@/components/Section/Section";
 import Image from "next/image";
 import { DiCss3, DiHtml5, DiJavascript, DiReact, DiSass } from "react-icons/di";
-import {
-    SiBootstrap,
-    SiNextdotjs,
-    SiTailwindcss,
-    SiTypescript,
-} from "react-icons/si";
+import { SiBootstrap, SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
 
 const techList = [
     {
@@ -105,22 +96,14 @@ const techCategoriesList = [
 
 const TechnologiesSection = () => {
     return (
-        <Section className="border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900">
+        <Section className="border-b border-b-gray-200 dark:border-b-gray-800 bg-gray-100 dark:bg-gray-900" id="technologiesSection">
             <Container>
-                <SectionTitle className="text-center" defaultBottomMargin>
-                    Technologies I&apos;m familiar with
-                </SectionTitle>
-                <SectionSubtitle className="text-center" defaultBottomMargin>
-                    Some of the languages and technologies i picked up along the
-                    way
-                </SectionSubtitle>
+                <SectionTitle defaultBottomMargin>Technologies</SectionTitle>
+                <SectionSubtitle defaultBottomMargin>Tools and tech i use</SectionSubtitle>
 
                 <div className="flex flex-col gap-2">
                     {techCategoriesList.map((techCategory) => (
-                        <TechCardGroup
-                            key={techCategory.id}
-                            techCategory={techCategory}
-                        />
+                        <TechCardGroup key={techCategory.id} techCategory={techCategory} />
                     ))}
                 </div>
             </Container>
@@ -139,13 +122,7 @@ export const TechCard = (props: TechCardProps) => {
 
     return (
         <div className="flex  items-center gap-1 rounded-0.5 bg-white p-1 shadow dark:bg-gray-800">
-            <Image
-                src={imgUrl}
-                alt={title + " image"}
-                width={40}
-                height={40}
-                className="h-2.5 w-2.5 object-contain"
-            />
+            <Image src={imgUrl} alt={title + " image"} width={40} height={40} className="h-2.5 w-2.5 object-contain" />
             <p>{title}</p>
         </div>
     );
@@ -160,15 +137,11 @@ const TechCardGroup = (props: TechCardGroupProps) => {
 
     return (
         <div key={techCategory.id}>
-            <SectionCategoryTitle defaultBottomMargin>
-                {techCategory.title}
-            </SectionCategoryTitle>
+            <SectionCategoryTitle defaultBottomMargin>{techCategory.title}</SectionCategoryTitle>
 
             <div className="grid grid-cols-1 gap-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {techList
-                    .filter(
-                        (techItem) => techItem.categoryId === techCategory.id
-                    )
+                    .filter((techItem) => techItem.categoryId === techCategory.id)
                     .map((tech) => {
                         return <TechCard key={tech.id} tech={tech} />;
                     })}

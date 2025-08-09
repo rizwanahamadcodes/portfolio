@@ -2,9 +2,10 @@ import { IconType } from "react-icons";
 
 const pathConstants = {
     home: { label: "Home", path: "/" },
-    projects: { label: "Projects", path: "/projects" },
-    about: { label: "About Me", path: "/about-me" },
-    contact: { label: "Contact Me", path: "/contact-me" },
+    technologies: { label: "Projects", path: "#technologies-section" },
+    projects: { label: "Projects", path: "#projects-section" },
+    about: { label: "About Me", path: "#about-me-section" },
+    contact: { label: "Contact Me", path: "#contact-me-section" },
 };
 export type PathConstant = {
     label: string;
