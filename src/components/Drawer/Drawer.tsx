@@ -1,8 +1,5 @@
 import CloseButton from "@/components/CloseButton/CloseButton";
-import {
-    DrawerContext,
-    useDrawerProps,
-} from "@/components/Drawer/useDrawerProps";
+import { DrawerContext, useDrawerProps } from "@/components/Drawer/useDrawerProps";
 import RizwanLogo from "@/components/RizwanLogo";
 import clsx from "clsx";
 import { useRef } from "react";
@@ -16,14 +13,13 @@ export type DrawerProps = {
     toggle?: () => void;
     className?: string;
 };
-
+// <div className="h-full w-full absolute p-0.5">
+//     <div className={clsx("relative h-full w-full backdrop-blur-md transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "" : "shadow-lg shadow-black/[0.05] dark:shadow-black/20 bg-white/10 dark:bg-black/10")}></div>
+// </div>
 const Drawer = (props: DrawerProps) => {
     const { className, children, isOpen, open, close, toggle } = props;
 
-    const portalRoot =
-        typeof window !== "undefined"
-            ? document.getElementById("modals-wrapper")
-            : null;
+    const portalRoot = typeof window !== "undefined" ? document.getElementById("modals-wrapper") : null;
 
     if (!portalRoot) return null;
 
@@ -43,9 +39,7 @@ export const DrawerWrapper = (props: DrawerWrapperProps) => {
     const { children, className } = props;
     const { isOpen, close } = useDrawerProps();
 
-    const handleDrawerWrapperClick = (
-        e: React.MouseEvent<HTMLDivElement, MouseEvent>
-    ) => {
+    const handleDrawerWrapperClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         if (e.target === e.currentTarget) {
             close();
         }
@@ -56,18 +50,9 @@ export const DrawerWrapper = (props: DrawerWrapperProps) => {
             onClick={(e) => {
                 handleDrawerWrapperClick(e);
             }}
-            className={clsx(
-                "h-[100dvh] w-full fixed top-0 left-0 z-[1000] overflow-hidden transition-all duration-300",
-                isOpen ? "visible" : "invisible",
-                className
-            )}>
+            className={clsx("h-[100dvh] w-full fixed top-0 left-0 z-[1000] overflow-hidden transition-all duration-300", isOpen ? "visible" : "invisible", className)}>
             {children}
-            <div
-                className={clsx(
-                    "h-full w-full absolute top-0 left-0 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm z-20 pointer-events-none overflow-hidden transition-all",
-                    isOpen ? "visible opacity-100" : "invisible opacity-0",
-                    className
-                )}></div>
+            <div className={clsx("h-full w-full absolute top-0 left-0 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm z-20 pointer-events-none overflow-hidden transition-all", isOpen ? "visible opacity-100" : "invisible opacity-0", className)}></div>
         </div>
     );
 };
@@ -80,12 +65,7 @@ export const DrawerMain = (props: DrawerMainProps) => {
     const drawerRef = useRef<HTMLDivElement | null>(null);
 
     return (
-        <div
-            ref={drawerRef}
-            className={clsx(
-                "rounded-1 w-20 flex z-50 flex-col h-[calc(100%_-_1rem)] dark:bg-gray-800 transition-all duration-300 bg-white absolute top-0.5  right-0.5 shadow-left overflow-hidden dark:border-l-gray-700",
-                isOpen ? "translate-x-0" : "translate-x-full"
-            )}>
+        <div ref={drawerRef} className={clsx("rounded-1 w-20 flex z-50 flex-col h-[calc(100%_-_1rem)] dark:bg-gray-800/90 transition-all duration-300 bg-white/80 backdrop-blur-md absolute top-0.5  right-0.5 shadow-left overflow-hidden dark:border-l-gray-700", isOpen ? "translate-x-0" : "translate-x-full")}>
             {children}
         </div>
     );
@@ -100,16 +80,7 @@ type DrawerHeadProps = {
 export const DrawerHead = (props: DrawerHeadProps) => {
     const { height = "h-navHeight-large", className, children } = props;
 
-    return (
-        <div
-            className={clsx(
-                "shrink-0 w-full border-b border-b-gray-100 dark:border-b-gray-700 flex items-center transition-all",
-                height,
-                className
-            )}>
-            {children}
-        </div>
-    );
+    return <div className={clsx("shrink-0 w-full border-b border-b-gray-100 dark:border-b-gray-700 flex items-center transition-all", height, className)}>{children}</div>;
 };
 
 type DrawerDefaultHeadProps = { height?: string; defaultPadding?: boolean };
@@ -119,12 +90,7 @@ export const DrawerDefaultHead = (props: DrawerDefaultHeadProps) => {
     const { close } = useDrawerProps();
 
     return (
-        <DrawerHead
-            height={height}
-            className={clsx(
-                "justify-between",
-                defaultPadding ? "px-[7vw]" : ""
-            )}>
+        <DrawerHead height={height} className={clsx("justify-between", defaultPadding ? "px-[7vw]" : "")}>
             <RizwanLogo />
             <CloseButton onClick={close} />
         </DrawerHead>
@@ -138,16 +104,7 @@ type DrawerBodyProps = React.ComponentPropsWithRef<"div"> & {
 export const DrawerBody = (props: DrawerBodyProps) => {
     const { className, children, defaultPadding = false } = props;
 
-    return (
-        <div
-            className={clsx(
-                "grow overflow-y-auto",
-                defaultPadding ? "px-2 py-1" : "",
-                className
-            )}>
-            {children}
-        </div>
-    );
+    return <div className={clsx("grow overflow-y-auto", defaultPadding ? "px-2 py-1" : "", className)}>{children}</div>;
 };
 
 type DrawerFootProps = { children: React.ReactNode; defaultPadding?: boolean };
@@ -155,15 +112,7 @@ type DrawerFootProps = { children: React.ReactNode; defaultPadding?: boolean };
 export const DrawerFoot = (props: DrawerFootProps) => {
     const { children, defaultPadding = true } = props;
 
-    return (
-        <div
-            className={clsx(
-                "shrink-0 w-full border-t border-t-gray-100 h-navHeight flex items-center",
-                defaultPadding ? "px-2" : ""
-            )}>
-            {children}
-        </div>
-    );
+    return <div className={clsx("shrink-0 w-full border-t border-t-gray-100 h-navHeight flex items-center", defaultPadding ? "px-2" : "")}>{children}</div>;
 };
 
 export default Drawer;

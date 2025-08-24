@@ -44,9 +44,13 @@ const Navbar = (props: NavbarProps) => {
     const { isOpen, open, close } = useToggle(false);
 
     return (
-        <div className="fixed w-[calc(100%_-_1rem)] z-50">
-            <nav className={clsx("w-full top-0 m-0.5 backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "h-navHeight-large border-2 border-transparent dark:border-transparent" : "shadow-md dark:shadow-black/20 h-navHeight-small bg-white/60 dark:bg-gray-950/50 border-2 border-white/60 dark:border-gray-950/40")}>
-                <Container className="h-full flex items-center justify-between">
+        <nav className={clsx("fixed z-50 w-full flex items-center", viewportTouchingStatus?.topTouchedTop ? "h-navHeight-large" : " h-navHeight-small")}>
+            {/* blur backdrop */}
+            <div className="h-full w-full absolute p-0.5">
+                <div className={clsx("relative h-full w-full backdrop-blur-md transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "" : "shadow-lg shadow-black/[0.05] dark:shadow-black/20 bg-white/10 dark:bg-black/10")}></div>
+            </div>
+            <div className="h-full w-full absolute py-0.5">
+                <Container className="h-full relative flex items-center justify-between">
                     <div className="w-[129px]">
                         <RizwanLogo height={viewportTouchingStatus?.topTouchedTop ? 50 : 40} />
                     </div>
@@ -60,8 +64,8 @@ const Navbar = (props: NavbarProps) => {
                     <NavDrawer open={open} isOpen={isOpen} close={close} viewportTouchingStatus={viewportTouchingStatus} />
                     <Hamburger className="lg:hidden" onClick={open} />
                 </Container>
-            </nav>
-        </div>
+            </div>
+        </nav>
     );
 };
 

@@ -3,11 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
     mode: "jit",
-    content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
+    content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
 
     darkMode: "class",
 
@@ -24,8 +20,8 @@ const config: Config = {
                 spacing[i] = `${i}rem`;
             }
 
-            spacing["navHeight-large"] = "5rem";
-            spacing["navHeight-small"] = "4rem";
+            spacing["navHeight-large"] = "5.5rem";
+            spacing["navHeight-small"] = "5rem";
 
             return spacing;
         },
@@ -160,10 +156,7 @@ const config: Config = {
                 xs: "480px",
             },
             fontFamily: {
-                sans: [
-                    "var(--font-montserrat)",
-                    ...defaultTheme.fontFamily.sans,
-                ],
+                sans: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
             },
             minHeight: () => {
                 const minHeight: {
