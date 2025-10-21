@@ -6,9 +6,10 @@ import ThemeToggler from "@/components/ThemeToggler";
 import { useToggle } from "@/hooks/useToggle";
 import pathConstants, { PathConstant } from "@/route/pathConstants";
 import clsx from "clsx";
+import { motion } from "motion/react";
 import { AiFillPhone, AiOutlinePhone } from "react-icons/ai";
+import { BsFillFolderFill, BsFolder } from "react-icons/bs";
 import { GoHome, GoHomeFill } from "react-icons/go";
-import { PiProjectorScreenChart, PiProjectorScreenChartFill } from "react-icons/pi";
 import NavMenu from "./NavMenu/NavMenu";
 
 type NavbarProps = {
@@ -28,8 +29,8 @@ export const navLinks: PathConstant[] = [
     {
         label: "Projects",
         path: pathConstants.projects.path,
-        icon: PiProjectorScreenChart,
-        activeIcon: PiProjectorScreenChartFill,
+        icon: BsFolder,
+        activeIcon: BsFillFolderFill,
     },
     {
         label: "Contact Me",
@@ -44,10 +45,10 @@ const Navbar = (props: NavbarProps) => {
     const { isOpen, open, close } = useToggle(false);
 
     return (
-        <nav className={clsx("fixed z-50 w-full flex items-center", viewportTouchingStatus?.topTouchedTop ? "h-navHeight-large" : " h-navHeight-small")}>
+        <motion.nav className={clsx("fixed z-50 w-full flex items-center h-navHeight-small")} layoutScroll>
             {/* blur backdrop */}
             <div className="h-full w-full absolute p-0.5">
-                <div className={clsx("relative h-full w-full backdrop-blur-md transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "" : "shadow-lg shadow-black/[0.05] dark:shadow-black/20 bg-white/10 dark:bg-black/10")}></div>
+                <div className={clsx("relative h-full w-full backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "border border-transparent shadow-none" : "shadow-lg shadow-black/[0.05] dark:shadow-black/20 bg-white/10 dark:bg-black/10  border border-white/50 dark:border-black/20")}></div>
             </div>
             <div className="h-full w-full absolute py-0.5">
                 <Container className="h-full relative flex items-center justify-between">
@@ -65,7 +66,7 @@ const Navbar = (props: NavbarProps) => {
                     <Hamburger className="lg:hidden" onClick={open} />
                 </Container>
             </div>
-        </nav>
+        </motion.nav>
     );
 };
 

@@ -17,21 +17,49 @@ const NavMenu = (props: NavMenuProps) => {
     const { navLinks, direction = "horizontal", className } = props;
 
     const stylesAsPerDirection = {
-        horizontal: "flex-row gap-x-0.5",
-        vertical: "flex-col gap-y-0.5",
+        horizontal: "flex-row",
+        vertical: "flex-col",
     };
     const [hoveredItem, setHoveredItem] = useState<PathConstant["path"] | null>(null);
+    const pathname = usePathname();
+
+    const activeIndex = navLinks.findIndex((nav) => nav.path === pathname);
 
     return (
-        <ul
-            className={clsx("flex", stylesAsPerDirection[direction], className)}
-            onMouseLeave={() => {
-                setHoveredItem(null);
-            }}>
-            {navLinks.map((navLink) => {
-                const { path, label, icon, activeIcon } = navLink;
+        <ul className={clsx("flex", stylesAsPerDirection[direction], className)} onMouseLeave={() => setHoveredItem(null)}>
+            {navLinks.map((navLink, index) => {
+                const isActive = index === activeIndex;
+                const isPrevActive = index === activeIndex - 1;
+                const isNextActive = index === activeIndex + 1;
+
+                // compute conditional margin only where needed
+                let marginClass = "";
+                if (direction === "horizontal") {
+                    if (isActive) {
+                        // add gap to left if not first, right if not last
+                        if (index > 0 && index < navLinks.length - 1) marginClass = "mx-0.25";
+                        else if (index === 0) marginClass = "mr-0.25";
+                        else if (index === navLinks.length - 1) marginClass = "ml-0.25";
+                    } else if (isPrevActive) {
+                        marginClass = "mr-0.25";
+                    } else if (isNextActive) {
+                        marginClass = "ml-0.25";
+                    }
+                } else {
+                    // vertical version
+                    if (isActive) {
+                        if (index > 0 && index < navLinks.length - 1) marginClass = "my-0.25";
+                        else if (index === 0) marginClass = "mb-0.25";
+                        else if (index === navLinks.length - 1) marginClass = "mt-0.25";
+                    } else if (isPrevActive) {
+                        marginClass = "mb-0.25";
+                    } else if (isNextActive) {
+                        marginClass = "mt-0.25";
+                    }
+                }
+
                 return (
-                    <li key={path}>
+                    <li key={navLink.path} className={clsx(marginClass, "transition-all")}>
                         <NavItem direction={direction} hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} navLink={navLink} />
                     </li>
                 );
@@ -57,14 +85,21 @@ export const NavItem = (props: NavItemProps) => {
     return (
         <Link
             href={path}
-            className={clsx("flex h-2.75 px-1.375 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative", isActive ? "text-primary-600 dark:text-primary-200" : "text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200")}
+            className={clsx("flex gap-0.5 h-2.75 px-1.375 items-center text-0.875 font-medium capitalize transition-all duration-300 relative", isActive ? "text-primary-600 dark:text-primary-200" : "text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200")}
             onMouseEnter={() => {
-                setHoveredItem(path);
+                if (!isActive) {
+                    setHoveredItem(path);
+                }
+            }}
+            onMouseLeave={() => {
+                if (!isActive) {
+                    setHoveredItem(null);
+                }
             }}>
-            {hoveredItem === path && (
+            {hoveredItem === path && !isActive && (
                 <motion.div
                     layoutId={`nav-hover-background-${direction}`} // Must be unique if reused elsewhere
-                    className="absolute h-full w-full bg-gray-50 dark:bg-gray-850 top-0 left-0 rounded-full pointer-events-none z-1"
+                    className="absolute h-full w-full bg-black/5 dark:bg-white/5 top-0 left-0 rounded-full pointer-events-none z-1"
                     transition={{
                         type: "spring",
                         stiffness: 500,
