@@ -15,7 +15,7 @@ const GetInTouch = (props: GetInTouchProps) => {
                     <Icon size={26} className={"text-white"} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                    <p className="leading-1.25 text-gray-900 dark:text-gray-100">
+                    <p className="leading-1.25! text-gray-900 dark:text-gray-100">
                         {label}
                     </p>
                     <p className="leading-1.25 whitespace-nowrap overflow-hidden text-ellipsis min-w-0">
