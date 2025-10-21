@@ -15,12 +15,9 @@ const HeroSection = (props: HeroSectionProps) => {
 
     return (
         <Section className="bg-white dark:bg-gray-900 border-b border-b-gray-200 dark:border-b-gray-800 mt-nav-height-large">
-            <Container className="relative grid grid-cols-1 lg:grid-cols-[auto_25rem] items-center gap-4 lg:flex-row">
+            <Container className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4 lg:flex-row">
                 <IntroSection />
-
-                <div className="absolute lg:relative lg:w-full lg:h-full w-8 h-8 right-0 top-0">
-                    <ThemedImage darkImageSrc={"/img/hero_image_dark.svg"} lightImageSrc={"img/hero_image_light.svg"} fill alt="Hero image" />
-                </div>
+                <ThemedImage darkImageSrc={"/img/hero_image_dark.svg"} lightImageSrc={"img/hero_image_light.svg"} height={0} width={400} alt="Hero image" className="absolute object-contain object-right-top lg:relative h-4.5 sm:h-6.5 md:h-10 lg:h-18 top-0 right-0" />
             </Container>
         </Section>
     );
