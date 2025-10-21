@@ -4,7 +4,7 @@ import { IconType } from "react-icons";
 
 export const button = cva(
     [
-        "font-medium rounded-full flex justify-center items-center gap-0.75 h-3 px-1 focus:outline-none active:scale-95 transition-all",
+        "font-medium rounded-full flex justify-center items-center gap-0.75 h-3 px-1 focus:outline-hidden active:scale-95 transition-all",
     ],
     {
         variants: {
@@ -25,7 +25,7 @@ export const button = cva(
                 variant: "solid",
                 colorScheme: "primary",
                 className:
-                    "bg-gradient-to-br from-primary to-primary-400  hover:from-primary-600 hover:to-primary text-white shadow-lg shadow-primary/30  dark:shadow-primary-700/30",
+                    "bg-linear-to-br from-primary to-primary-400  hover:from-primary-600 hover:to-primary text-white shadow-lg shadow-primary/30  dark:shadow-primary-700/30",
             },
             {
                 variant: "solid",

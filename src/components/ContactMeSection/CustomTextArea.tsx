@@ -33,7 +33,7 @@ const CustomTextarea = <TFormValues extends FieldValues>(
                     baseInputClasses,
                     error ? inValidInputClasses : "",
                     !error && isSubmitted ? validInputClasses : "",
-                    "h-9 resize-none !rounded-1"
+                    "h-9 resize-none rounded-1!"
                 )}
                 {...otherProps}
             />

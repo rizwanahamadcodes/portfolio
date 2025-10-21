@@ -10,7 +10,7 @@ const NavbarWithObserver = () => {
         <>
             <Navbar viewportTouchingStatus={viewportTouchingStatus} />
             <div
-                className="h-navHeight-large bg-transparent"
+                className="h-nav-height-large bg-transparent"
                 ref={navSubstituteRef}></div>
         </>
     );

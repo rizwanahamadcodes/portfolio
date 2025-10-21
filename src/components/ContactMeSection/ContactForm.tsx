@@ -55,7 +55,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="grow rounded-1 bg-white p-1 shadow dark:bg-gray-800 md:max-w-md">
+        <div className="grow rounded-1 bg-white p-1 shadow-sm dark:bg-gray-800 md:max-w-md">
             <SectionCategoryTitle defaultBottomMargin>
                 Send me a message
             </SectionCategoryTitle>

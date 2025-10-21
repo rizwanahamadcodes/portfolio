@@ -173,11 +173,11 @@ const FooterColumnLinks = (props: FooterColumnLinksProps) => {
                             className="flex justify-start items-end gap-0.5 group/footerLinkGroup max-w-full"
                             href={link.href}>
                             {typeof Icon === "string" ? null : (
-                                <Icon className="text-1.25 text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100" />
+                                <Icon className="text-1.25 text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 dark:group-hover/footerLinkGroup:text-gray-100" />
                             )}
                             <p
-                                className="whitespace-nowrap overflow-hidden overflow-ellipsis leading-1 text-gray-700 hover:dark:text-gray-100
-                            dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 group-hover/footerLinkGroup:dark:text-gray-100 w-full">
+                                className="whitespace-nowrap overflow-hidden text-ellipsis leading-1 text-gray-700 dark:hover:text-gray-100
+                            dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 dark:group-hover/footerLinkGroup:text-gray-100 w-full">
                                 {link.label}
                             </p>
                         </Link>

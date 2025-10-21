@@ -14,7 +14,7 @@ const CloseButton = (props: CloseButtonProps) => {
     };
     const colorSchemeMap = {
         primary:
-            "bg-primary dark:bg-white  group-hover/closeButton:dark:bg-gray-200 group-hover/closeButton:bg-primary-600",
+            "bg-primary dark:bg-white  dark:group-hover/closeButton:bg-gray-200 group-hover/closeButton:bg-primary-600",
         "gray-300": "bg-gray-300 group-hover/closeButton:bg-gray-500",
     };
 
@@ -30,9 +30,9 @@ const CloseButton = (props: CloseButtonProps) => {
                 className
             )}
             onClick={onClick}>
-            <span className={clsx(barClasses, "rotate-[45deg]")}></span>
-            <span className={clsx(barClasses, "rotate-[405deg]")}></span>
-            <span className={clsx(barClasses, "rotate-[-45deg]")}></span>
+            <span className={clsx(barClasses, "rotate-45")}></span>
+            <span className={clsx(barClasses, "rotate-405")}></span>
+            <span className={clsx(barClasses, "-rotate-45")}></span>
         </div>
     );
 };

@@ -45,10 +45,10 @@ const Navbar = (props: NavbarProps) => {
     const { isOpen, open, close } = useToggle(false);
 
     return (
-        <motion.nav className={clsx("fixed z-50 w-full flex items-center h-navHeight-small")} layoutScroll>
+        <motion.nav className={clsx("fixed z-50 w-full flex items-center h-nav-height-small")} layoutScroll>
             {/* blur backdrop */}
             <div className="h-full w-full absolute p-0.5">
-                <div className={clsx("relative h-full w-full backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "border border-transparent shadow-none" : "shadow-lg shadow-black/[0.05] dark:shadow-black/20 bg-white/10 dark:bg-black/10  border border-white/50 dark:border-black/20")}></div>
+                <div className={clsx("relative h-full w-full backdrop-blur-xs transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "border border-transparent shadow-none" : "shadow-lg shadow-black/5 dark:shadow-black/20 bg-white/10 dark:bg-black/10  border border-white/50 dark:border-black/20")}></div>
             </div>
             <div className="h-full w-full absolute py-0.5">
                 <Container className="h-full relative flex items-center justify-between">

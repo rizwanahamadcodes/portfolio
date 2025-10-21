@@ -98,7 +98,7 @@ const Project = (props: ProjectProps) => {
     return (
         <div
             className={clsx(
-                "group relative flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow transition-all hover:shadow-md dark:bg-gray-800",
+                "group relative flex flex-col overflow-hidden rounded-1 bg-white p-0.75 shadow-sm transition-all hover:shadow-md dark:bg-gray-800",
                 positionInParent % 2 === 0
                     ? "sm:flex-row"
                     : "sm:flex-row-reverse"
@@ -116,7 +116,7 @@ const Project = (props: ProjectProps) => {
                 <p className="mb-0.5">{project.projectDesc}</p>
                 <div className="flex flex-col gap-1 lg:flex-row">
                     <Link
-                        className={button({ className: "!w-full" })}
+                        className={button({ className: "w-full!" })}
                         href={project.liveDemoLink}
                         target="_blank"
                         rel="noopener noreferrer">
@@ -127,7 +127,7 @@ const Project = (props: ProjectProps) => {
                         className={button({
                             variant: "outline",
                             colorScheme: "themed-gray",
-                            className: "!w-full z-20",
+                            className: "w-full! z-20",
                         })}
                         href={project.githubLink}
                         target="_blank"
@@ -149,7 +149,7 @@ const Project = (props: ProjectProps) => {
                         src={project.projectImageSrc}
                         fill
                         alt=""
-                        className="rounded-0.25 object-cover sm:rounded-1 object-left-top border-black/10 border"
+                        className="rounded-0.25 object-cover sm:rounded-1 object-top-left border-black/10 border"
                     />
                 </div>
             </div>

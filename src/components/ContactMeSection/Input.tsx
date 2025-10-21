@@ -13,13 +13,13 @@ import {
 
 export const getInputClasses = () => {
     const baseInputClasses =
-        "w-full rounded-full bg-gray-50 px-1 py-0.5 shadow-inner transition focus:outline-none dark:bg-gray-900 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 placeholder:text-gray-600 hover:ring-primary/70 focus:ring-primary/70 hover:ring focus:ring";
+        "w-full rounded-full bg-gray-50 px-1 py-0.5 shadow-inner transition focus:outline-hidden dark:bg-gray-900 ring-offset-2 ring-offset-white dark:ring-offset-gray-800 placeholder:text-gray-600 hover:ring-primary/70 focus:ring-primary/70 hover:ring-3 focus:ring-3";
 
     const inValidInputClasses =
-        "ring !ring-[red]/70 !hover:ring-[red]/70 !focus:ring-[red]/70";
+        "ring-3 ring-[red]/70! !hover:ring-[red]/70 !focus:ring-[red]/70";
 
     const validInputClasses =
-        "ring !ring-[green]/70 !hover:ring-[green]/70 !focus:ring-[green]/70";
+        "ring-3 ring-[green]/70! !hover:ring-[green]/70 !focus:ring-[green]/70";
 
     return { baseInputClasses, validInputClasses, inValidInputClasses };
 };

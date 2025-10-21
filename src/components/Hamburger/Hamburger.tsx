@@ -21,7 +21,7 @@ const Hamburger = (props: HamburgerProps) => {
     };
     const colorSchemeMap = {
         primary:
-            "bg-primary dark:bg-white  group-hover/hamburger:dark:bg-gray-200 group-hover/hamburger:bg-primary-600",
+            "bg-primary dark:bg-white  dark:group-hover/hamburger:bg-gray-200 group-hover/hamburger:bg-primary-600",
         "gray-300": "bg-gray-300 group-hover/hamburger:bg-gray-500",
     };
 

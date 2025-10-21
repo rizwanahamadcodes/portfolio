@@ -26,7 +26,7 @@ const NavDrawer = (props: NavDrawerProps) => {
     return (
         <span className="lg:hidden">
             <Drawer isOpen={isOpen} close={close} open={open}>
-                <DrawerDefaultHead height={viewportTouchingStatus?.topTouchedTop ? "h-navHeight-large" : "h-navHeight-small"} />
+                <DrawerDefaultHead height={viewportTouchingStatus?.topTouchedTop ? "h-nav-height-large" : "h-nav-height-small"} />
                 <DrawerBody className="p-1 flex flex-col">
                     <NavMenu direction="vertical" navLinks={navLinks} />
                     <div className="px-0.75 mt-auto">

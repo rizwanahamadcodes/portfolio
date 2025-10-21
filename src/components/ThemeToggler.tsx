@@ -35,7 +35,7 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
         <label
             htmlFor="theme-toggle-checkbox"
             className={clsx(
-                "relative block w-4 cursor-pointer select-none rounded-full shadow",
+                "relative block w-4 cursor-pointer select-none rounded-full shadow-sm",
                 className
             )}
             {...otherProps}>
