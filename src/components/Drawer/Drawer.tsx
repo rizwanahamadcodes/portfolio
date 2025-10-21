@@ -1,9 +1,12 @@
+"use client";
+
 import CloseButton from "@/components/CloseButton/CloseButton";
 import { DrawerContext, useDrawerProps } from "@/components/Drawer/useDrawerProps";
 import RizwanLogo from "@/components/RizwanLogo";
 import clsx from "clsx";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
+import { DrawerWrapper } from "./DrawerWrapper";
 
 export type DrawerProps = {
     children?: React.ReactNode;
@@ -19,10 +22,14 @@ export type DrawerProps = {
 const Drawer = (props: DrawerProps) => {
     const { className, children, isOpen, open, close, toggle } = props;
 
-    const portalRoot = typeof window !== "undefined" ? document.getElementById("modals-wrapper") : null;
+    const [mounted, setMounted] = useState(false);
 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const portalRoot = mounted ? document.getElementById("modals-wrapper") : null;
     if (!portalRoot) return null;
-
     return ReactDOM.createPortal(
         <DrawerContext.Provider value={{ isOpen, open, close, toggle }}>
             <DrawerWrapper className={className}>
@@ -30,30 +37,6 @@ const Drawer = (props: DrawerProps) => {
             </DrawerWrapper>
         </DrawerContext.Provider>,
         portalRoot
-    );
-};
-
-type DrawerWrapperProps = { children: React.ReactNode; className?: string };
-
-export const DrawerWrapper = (props: DrawerWrapperProps) => {
-    const { children, className } = props;
-    const { isOpen, close } = useDrawerProps();
-
-    const handleDrawerWrapperClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if (e.target === e.currentTarget) {
-            close();
-        }
-    };
-
-    return (
-        <div
-            onClick={(e) => {
-                handleDrawerWrapperClick(e);
-            }}
-            className={clsx("h-dvh w-full fixed top-0 left-0 z-1000 overflow-hidden transition-all duration-300", isOpen ? "visible" : "invisible", className)}>
-            {children}
-            <div className={clsx("h-full w-full absolute top-0 left-0 bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-xs z-20 pointer-events-none overflow-hidden transition-all", isOpen ? "visible opacity-100" : "invisible opacity-0", className)}></div>
-        </div>
     );
 };
 
