@@ -52,8 +52,8 @@ const Navbar = (props: NavbarProps) => {
             </div>
             <div className="h-full w-full absolute py-0.5">
                 <Container className="h-full relative flex items-center justify-between">
-                    <div className="w-[129px]">
-                        <RizwanLogo height={viewportTouchingStatus?.topTouchedTop ? 50 : 40} />
+                    <div className="w-[130px] h-full flex items-center">
+                        <RizwanLogo width={viewportTouchingStatus?.topTouchedTop ? 130 : 120} />
                     </div>
 
                     <NavMenu className="hidden lg:flex" navLinks={navLinks} />

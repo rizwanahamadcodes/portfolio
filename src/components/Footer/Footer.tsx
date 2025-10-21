@@ -73,10 +73,7 @@ const Footer = () => {
                             <RizwanLogo variant="blackandwhite" />
                         </FooterColumnTitle>
                         <FooterColumnBody>
-                            <p>
-                                Feel free to get in touch for your projects.
-                                Looking forward to hearing from you.
-                            </p>
+                            <p>Feel free to get in touch for your projects. Looking forward to hearing from you.</p>
                         </FooterColumnBody>
                     </FooterColumn>
 
@@ -107,17 +104,9 @@ const Footer = () => {
     );
 };
 
-export const HorizontalDivider = (
-    props: React.ComponentPropsWithoutRef<"div">
-) => {
+export const HorizontalDivider = (props: React.ComponentPropsWithoutRef<"div">) => {
     const { className } = props;
-    return (
-        <div
-            className={clsx(
-                "h-1 w-full bg-gray-200 dark:bg-gray-800",
-                className
-            )}></div>
-    );
+    return <div className={clsx("h-1 w-full bg-gray-200 dark:bg-gray-800", className)}></div>;
 };
 
 type FooterColumnProps = {
@@ -135,11 +124,7 @@ type FooterColumnTitleProps = {
 const FooterColumnTitle = (props: FooterColumnTitleProps) => {
     const { children } = props;
 
-    return (
-        <div className="font-medium uppercase text-gray-900 dark:text-gray-100">
-            {children}
-        </div>
-    );
+    return <div className="font-medium uppercase text-gray-900 dark:text-gray-100">{children}</div>;
 };
 
 type FooterColumnBodyProps = {
@@ -169,14 +154,10 @@ const FooterColumnLinks = (props: FooterColumnLinksProps) => {
 
                 return (
                     <li key={link.href} className="flex justify-start">
-                        <Link
-                            className="flex justify-start items-end gap-0.5 group/footerLinkGroup max-w-full"
-                            href={link.href}>
-                            {typeof Icon === "string" ? null : (
-                                <Icon className="text-1.25 text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 dark:group-hover/footerLinkGroup:text-gray-100" />
-                            )}
+                        <Link className="flex justify-start items-center gap-0.5 group/footerLinkGroup max-w-full" href={link.href}>
+                            {typeof Icon === "string" ? null : <Icon className="text-1.25  text-gray-700 shrink-0 dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 dark:group-hover/footerLinkGroup:text-gray-100 " />}
                             <p
-                                className="whitespace-nowrap overflow-hidden text-ellipsis leading-1 text-gray-700 dark:hover:text-gray-100
+                                className="whitespace-nowrap overflow-hidden text-ellipsis text-gray-700 leading-1! dark:hover:text-gray-100
                             dark:text-gray-300 group-hover/footerLinkGroup:text-gray-900 dark:group-hover/footerLinkGroup:text-gray-100 w-full">
                                 {link.label}
                             </p>

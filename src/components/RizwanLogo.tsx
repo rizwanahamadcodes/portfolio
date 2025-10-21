@@ -1,34 +1,17 @@
-import Link from "next/link";
 import ThemedImage from "@/components/ThemedImage";
-import rizwanLogoGray100 from "/public/img/rizwan_logo__gray-100.svg";
-import rizwanLogoGray900 from "/public/img/rizwan_logo__gray-900.svg";
-import rizwanLogoGradient from "/public/img/rizwan_logo__primary-to-primary-support-gradient.svg";
+import Link from "next/link";
 
 type RizwanLogoProps = {
     variant?: "gradient" | "blackandwhite";
-    height?: number;
+    width?: number;
 };
 
 const RizwanLogo = (props: RizwanLogoProps) => {
-    const { height = 40, variant = "gradient" } = props;
+    const { width = 120, variant = "gradient" } = props;
 
     return (
-        <Link href="/">
-            <ThemedImage
-                className="transition-all duration-300"
-                darkImageSrc={
-                    variant === "blackandwhite"
-                        ? rizwanLogoGray100
-                        : rizwanLogoGradient
-                }
-                lightImageSrc={
-                    variant === "blackandwhite"
-                        ? rizwanLogoGray900
-                        : rizwanLogoGradient
-                }
-                alt="Rizwan"
-                height={height}
-            />
+        <Link href="/" className="relative inline-flex items-start justify-start">
+            <ThemedImage height={0} width={width} className="transition-all duration-300 object-fill" darkImageSrc={variant === "blackandwhite" ? "img/rizwan_logo__gray-100.svg" : "img/rizwan_logo__primary-to-primary-support-gradient.svg"} lightImageSrc={variant === "blackandwhite" ? "img/rizwan_logo__gray-900.svg" : "img/rizwan_logo__primary-to-primary-support-gradient.svg"} alt="Rizwan" />
         </Link>
     );
 };
