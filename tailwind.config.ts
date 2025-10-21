@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
     mode: "jit",
@@ -156,7 +155,7 @@ const config: Config = {
                 xs: "480px",
             },
             fontFamily: {
-                sans: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
+                sans: ["var(--font-montserrat)"],
             },
             minHeight: () => {
                 const minHeight: {
