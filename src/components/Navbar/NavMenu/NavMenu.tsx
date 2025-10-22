@@ -59,10 +59,8 @@ export const NavItem = (props: NavItemProps) => {
             onMouseEnter={() => {
                 if (!isActive) {
                     setHoveredItem(path);
-                }
-            }}
-            onMouseLeave={() => {
-                if (!isActive) {
+                } else {
+                    setHoveredItem(null);
                 }
             }}>
             {hoveredItem === path && !isActive && (
