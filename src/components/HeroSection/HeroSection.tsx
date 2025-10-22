@@ -88,8 +88,8 @@ export const CTA = (props: CTAProps) => {
                 download
                 href={"/Rizwan_Ahamad_CV.pdf"}
                 className={button({
-                    variant: "outline",
-                    colorScheme: "themed-gray",
+                    variant: "solid",
+                    colorScheme: "themed-gray-light",
                     className: "w-full",
                 })}>
                 <ButtonIcon icon={HiDownload} />
