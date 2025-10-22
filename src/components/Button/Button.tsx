@@ -1,6 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import clsx from "clsx";
 import { IconType } from "react-icons";
+import { ElementType, ComponentPropsWithoutRef } from "react";
 
 export const button = cva(["font-medium rounded-full flex justify-center items-center gap-0.75 h-3 px-1 focus:outline-hidden active:scale-95 transition-all"], {
     variants: {
@@ -50,19 +51,20 @@ export const button = cva(["font-medium rounded-full flex justify-center items-c
     },
 });
 
-type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
-    VariantProps<typeof button> & {
-        children?: React.ReactNode;
-        className?: string;
-    };
+type ButtonProps<C extends ElementType> = {
+    as?: C;
+    children?: React.ReactNode;
+    className?: string;
+} & VariantProps<typeof button> &
+    Omit<ComponentPropsWithoutRef<C>, keyof VariantProps<typeof button> | "as" | "children" | "className">;
 
-export const Button = (props: ButtonProps) => {
-    const { children, variant, className, colorScheme, ...otherProps } = props;
+export const Button = <C extends ElementType = "button">(props: ButtonProps<C>) => {
+    const { as: Component = "button", children, variant, className, colorScheme, ...otherProps } = props;
 
     return (
-        <button className={clsx(button({ variant, colorScheme }), className)} {...otherProps}>
+        <Component className={clsx(button({ variant, colorScheme }), className)} {...otherProps}>
             {children}
-        </button>
+        </Component>
     );
 };
 

@@ -4,7 +4,9 @@ import Section, { SectionSubtitle, SectionTitle } from "@/components/Section/Sec
 import ThemedImage from "@/components/ThemedImage";
 import pathConstants from "@/route/pathConstants";
 import clsx from "clsx";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { useState } from "react";
 import { HiDownload } from "react-icons/hi";
 import { ImBubbles } from "react-icons/im";
 
@@ -78,23 +80,54 @@ type CTAProps = {
 export const CTA = (props: CTAProps) => {
     const { className } = props;
 
+    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
     return (
-        <div className={clsx("flex w-full flex-col gap-1 sm:flex-row", className)}>
-            <Link href={pathConstants.contact.path} className={button({ className: "w-full" })}>
-                <ButtonIcon icon={ImBubbles} />
-                Contact Me
-            </Link>
-            <a
-                download
-                href={"/Rizwan_Ahamad_CV.pdf"}
-                className={button({
-                    variant: "solid",
-                    colorScheme: "themed-gray-light",
-                    className: "w-full",
-                })}>
-                <ButtonIcon icon={HiDownload} />
-                Download CV
-            </a>
+        <div className={clsx("flex w-full flex-col sm:flex-row", className)} onMouseLeave={() => setHoveredItem(null)}>
+            {/* Contact Button */}
+            <div className="w-full p-0.375 relative" onMouseEnter={() => setHoveredItem("contact")}>
+                {hoveredItem === "contact" && (
+                    <motion.div
+                        layoutId={`cta-buttons`}
+                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1"
+                        transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 30,
+                        }}
+                    />
+                )}
+                <Link href={pathConstants.contact.path} className={button({ className: "w-full relative z-2" })}>
+                    <ButtonIcon icon={ImBubbles} />
+                    Contact Me
+                </Link>
+            </div>
+
+            {/* Download CV Button */}
+            <div className="w-full p-0.375 relative" onMouseEnter={() => setHoveredItem("download")}>
+                {hoveredItem === "download" && (
+                    <motion.div
+                        layoutId={`cta-buttons`}
+                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1"
+                        transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 30,
+                        }}
+                    />
+                )}
+                <a
+                    download
+                    href={"/Rizwan_Ahamad_CV.pdf"}
+                    className={button({
+                        variant: "solid",
+                        colorScheme: "themed-gray-light",
+                        className: "w-full relative z-2",
+                    })}>
+                    <ButtonIcon icon={HiDownload} />
+                    Download CV
+                </a>
+            </div>
         </div>
     );
 };
