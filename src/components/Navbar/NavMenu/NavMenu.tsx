@@ -26,40 +26,10 @@ const NavMenu = (props: NavMenuProps) => {
     const activeIndex = navLinks.findIndex((nav) => nav.path === pathname);
 
     return (
-        <ul className={clsx("flex", stylesAsPerDirection[direction], className)} onMouseLeave={() => setHoveredItem(null)}>
-            {navLinks.map((navLink, index) => {
-                const isActive = index === activeIndex;
-                const isPrevActive = index === activeIndex - 1;
-                const isNextActive = index === activeIndex + 1;
-
-                // compute conditional margin only where needed
-                let marginClass = "";
-                if (direction === "horizontal") {
-                    if (isActive) {
-                        // add gap to left if not first, right if not last
-                        if (index > 0 && index < navLinks.length - 1) marginClass = "mx-0.25";
-                        else if (index === 0) marginClass = "mr-0.25";
-                        else if (index === navLinks.length - 1) marginClass = "ml-0.25";
-                    } else if (isPrevActive) {
-                        marginClass = "mr-0.25";
-                    } else if (isNextActive) {
-                        marginClass = "ml-0.25";
-                    }
-                } else {
-                    // vertical version
-                    if (isActive) {
-                        if (index > 0 && index < navLinks.length - 1) marginClass = "my-0.25";
-                        else if (index === 0) marginClass = "mb-0.25";
-                        else if (index === navLinks.length - 1) marginClass = "mt-0.25";
-                    } else if (isPrevActive) {
-                        marginClass = "mb-0.25";
-                    } else if (isNextActive) {
-                        marginClass = "mt-0.25";
-                    }
-                }
-
+        <ul className={clsx("flex gap-0.5 z-2 relative", stylesAsPerDirection[direction], className)} onMouseLeave={() => setHoveredItem(null)}>
+            {navLinks.map((navLink) => {
                 return (
-                    <li key={navLink.path} className={clsx(marginClass, "transition-all")}>
+                    <li key={navLink.path} className={clsx("transition-all")}>
                         <NavItem direction={direction} hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} navLink={navLink} />
                     </li>
                 );
@@ -93,7 +63,6 @@ export const NavItem = (props: NavItemProps) => {
             }}
             onMouseLeave={() => {
                 if (!isActive) {
-                    setHoveredItem(null);
                 }
             }}>
             {hoveredItem === path && !isActive && (
