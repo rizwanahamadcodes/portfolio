@@ -85,11 +85,11 @@ export const CTA = (props: CTAProps) => {
     return (
         <div className={clsx("flex w-full flex-col sm:flex-row", className)} onMouseLeave={() => setHoveredItem(null)}>
             {/* Contact Button */}
-            <div className="w-full p-0.375 relative" onMouseEnter={() => setHoveredItem("contact")}>
+            <div className="w-full p-0.375  relative" onMouseEnter={() => setHoveredItem("contact")}>
                 {hoveredItem === "contact" && (
                     <motion.div
                         layoutId={`cta-buttons`}
-                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1"
+                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1 shadow-lg"
                         transition={{
                             type: "spring",
                             stiffness: 500,
@@ -104,11 +104,11 @@ export const CTA = (props: CTAProps) => {
             </div>
 
             {/* Download CV Button */}
-            <div className="w-full p-0.375 relative" onMouseEnter={() => setHoveredItem("download")}>
+            <div className="w-full p-0.375  relative" onMouseEnter={() => setHoveredItem("download")}>
                 {hoveredItem === "download" && (
                     <motion.div
                         layoutId={`cta-buttons`}
-                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1"
+                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1 shadow-lg"
                         transition={{
                             type: "spring",
                             stiffness: 500,
