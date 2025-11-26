@@ -61,7 +61,7 @@ const ContactForm = () => {
             </SectionCategoryTitle>
             <form
                 className="flex flex-col gap-1"
-                // onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 <Input
                     name="fullName"
