@@ -17,11 +17,7 @@ export async function POST(req: Request) {
             zodErrors = { ...zodErrors, [issue.path[0]]: issue.message };
         });
 
-        return NextResponse.json(
-            Object.keys(zodErrors).length > 0
-                ? { errors: zodErrors }
-                : { success: true }
-        );
+        return NextResponse.json(Object.keys(zodErrors).length > 0 ? { errors: zodErrors } : { success: true });
     }
 
     const { fullName, email, subject, message } = body;
@@ -31,7 +27,7 @@ export async function POST(req: Request) {
             from: "Portfolio <onboarding@resend.dev>",
             to: "rizwanahamadcodes@gmail.com",
             subject: subject,
-            // reply_to: email,
+            replyTo: email,
             react: React.createElement(EmailTemplate, {
                 fullName: fullName,
                 email: email,
@@ -39,14 +35,8 @@ export async function POST(req: Request) {
                 message: message,
             }),
         });
-        return NextResponse.json(
-            { message: "Email delivered successfully" },
-            { status: 200 }
-        );
+        return NextResponse.json({ message: "Email delivered successfully" }, { status: 200 });
     } catch (error) {
-        return NextResponse.json(
-            { error: "Mail client error" },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: "Mail client error" }, { status: 500 });
     }
 }

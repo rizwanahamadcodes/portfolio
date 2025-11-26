@@ -39,72 +39,28 @@ const ContactForm = () => {
             });
 
             if (response.ok) {
-                setFeedback(
-                    "Message was sent successfully, we will get in touch soon"
-                );
+                setFeedback("Message was sent successfully, we will get in touch soon");
             } else {
-                setFeedback(
-                    "Apologies there was an internal error, please try again"
-                );
+                setFeedback("Apologies there was an internal error, please try again");
             }
         } catch (error) {
-            setFeedback(
-                "Apologies there was an internal error, please try again"
-            );
+            setFeedback("Apologies there was an internal error, please try again");
         }
     };
 
     return (
         <div className="grow rounded-1 bg-white p-1 shadow-sm dark:bg-gray-800 md:max-w-md">
-            <SectionCategoryTitle defaultBottomMargin>
-                Send me a message
-            </SectionCategoryTitle>
-            <form
-                className="flex flex-col gap-1"
-                onSubmit={handleSubmit(onSubmit)}
-            >
-                <Input
-                    name="fullName"
-                    type="text"
-                    placeholder="Full name"
-                    register={register}
-                    errors={errors}
-                    isSubmitted={isSubmitted}></Input>
-                <Input
-                    name="email"
-                    type="email"
-                    placeholder="Email address"
-                    register={register}
-                    errors={errors}
-                    isSubmitted={isSubmitted}
-                />
-                <Input
-                    name="subject"
-                    type="text"
-                    placeholder="Subject"
-                    register={register}
-                    errors={errors}
-                    isSubmitted={isSubmitted}
-                />
-                <CustomTextarea
-                    name="userMessage"
-                    maxLength={500}
-                    errors={errors}
-                    placeholder="Message..."
-                    register={register}
-                    isSubmitted={isSubmitted}></CustomTextarea>
+            <SectionCategoryTitle defaultBottomMargin>Send me a message</SectionCategoryTitle>
+            <form className="flex flex-col gap-1" onSubmit={handleSubmit(onSubmit)}>
+                <Input name="fullName" type="text" placeholder="Full name" register={register} errors={errors} isSubmitted={isSubmitted}></Input>
+                <Input name="email" type="email" placeholder="Email address" register={register} errors={errors} isSubmitted={isSubmitted} />
+                <Input name="subject" type="text" placeholder="Subject" register={register} errors={errors} isSubmitted={isSubmitted} />
+                <CustomTextarea name="userMessage" maxLength={500} errors={errors} placeholder="Message..." register={register} isSubmitted={isSubmitted}></CustomTextarea>
 
-                <Button
-                    className={clsx("w-full lg:w-auto")}
-                    disabled={isSubmitting}
-                    type="submit"
-                    colorScheme={isSubmitting ? "themed-gray" : "primary"}>
+                <Button className={clsx("w-full lg:w-auto")} disabled={isSubmitting} type="submit" colorScheme={isSubmitting ? "themed-gray" : "primary"}>
                     {isSubmitting ? (
                         <>
-                            <ButtonIcon
-                                icon={BiLoaderAlt}
-                                className="animate-spin"
-                            />
+                            <ButtonIcon icon={BiLoaderAlt} className="animate-spin" />
                             Sending message...
                         </>
                     ) : (
