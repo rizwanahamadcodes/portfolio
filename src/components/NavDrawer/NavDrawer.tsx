@@ -21,14 +21,21 @@ const NavDrawer = (props: NavDrawerProps) => {
 
     useEffect(() => {
         close();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pathname]);
 
     return (
         <span className="lg:hidden">
-            <Drawer isOpen={isOpen} close={close} open={open}>
+            <Drawer
+                isOpen={isOpen}
+                close={close}
+                open={open}>
                 <DrawerDefaultHead height={viewportTouchingStatus?.topTouchedTop ? "h-nav-height-large" : "h-nav-height-small"} />
                 <DrawerBody className="p-1 flex flex-col">
-                    <NavMenu direction="vertical" navLinks={navLinks} />
+                    <NavMenu
+                        direction="vertical"
+                        navLinks={navLinks}
+                    />
                     <div className="px-0.75 mt-auto">
                         <p className="h-2.75 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative flex">
                             <FiSettings className="text-1.25 relative z-10" />
