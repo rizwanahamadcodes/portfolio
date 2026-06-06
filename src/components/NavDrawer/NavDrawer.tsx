@@ -21,8 +21,7 @@ const NavDrawer = (props: NavDrawerProps) => {
 
     useEffect(() => {
         close();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pathname]);
+    }, [pathname, close]);
 
     return (
         <span className="lg:hidden">
