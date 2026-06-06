@@ -45,27 +45,39 @@ const Navbar = (props: NavbarProps) => {
     const { isOpen, open, close } = useToggle(false);
 
     return (
-        <motion.nav className={clsx("fixed z-50 w-full flex items-center h-nav-height-small")} layoutScroll>
-            {/* blur backdrop */}
-
+        <motion.nav
+            className={clsx("fixed z-50 w-full flex items-center h-nav-height-small")}
+            layoutScroll>
             <div className="h-full w-full absolute py-0.5">
-                <Container className="h-full relative flex items-center justify-between">
-                    <div className="absolute h-full w-[calc(100%+2.5rem)] p-0.5 -right-1">
+                <Container className={clsx("h-full relative flex items-center justify-between transition-all", viewportTouchingStatus?.topTouchedTop ? "" : "px-1")}>
+                    <div className="absolute w-full h-full p-0.5 left-0">
                         <div className="h-full w-full absolute top-1/2 left-1/2 -translate-1/2">
                             <div className={clsx("relative h-full w-full backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "border border-transparent shadow-none" : "shadow-lg shadow-black/5 dark:shadow-black/20 bg-white/50 dark:bg-gray-900/50  border border-white/50 dark:border-black/20")}></div>
                         </div>
                     </div>
+
                     <div className="w-[130px] h-full flex items-center">
-                        <RizwanLogo width={viewportTouchingStatus?.topTouchedTop ? 130 : 120} />
+                        <RizwanLogo width={viewportTouchingStatus?.topTouchedTop ? 130 : 110} />
                     </div>
-                    <NavMenu className="hidden lg:flex" navLinks={navLinks} />
+                    <NavMenu
+                        className="hidden lg:flex"
+                        navLinks={navLinks}
+                    />
 
                     <div className="min-w-[64px]">
                         <ThemeToggler className="hidden lg:block" />
                     </div>
 
-                    <NavDrawer open={open} isOpen={isOpen} close={close} viewportTouchingStatus={viewportTouchingStatus} />
-                    <Hamburger className="lg:hidden" onClick={open} />
+                    <NavDrawer
+                        open={open}
+                        isOpen={isOpen}
+                        close={close}
+                        viewportTouchingStatus={viewportTouchingStatus}
+                    />
+                    <Hamburger
+                        className="lg:hidden"
+                        onClick={open}
+                    />
                 </Container>
             </div>
         </motion.nav>

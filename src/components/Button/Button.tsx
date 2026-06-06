@@ -31,7 +31,7 @@ export const button = cva(["font-medium rounded-full flex justify-center items-c
         {
             variant: "solid",
             colorScheme: "themed-gray-light",
-            className: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200",
+            className: "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-800 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 dark:text-gray-300",
         },
         {
             variant: "outline",
@@ -41,7 +41,7 @@ export const button = cva(["font-medium rounded-full flex justify-center items-c
         {
             variant: "outline",
             colorScheme: "themed-gray",
-            className: "border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100",
+            className: "border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 ",
         },
     ],
 

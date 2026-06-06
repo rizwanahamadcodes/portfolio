@@ -80,23 +80,11 @@ type CTAProps = {
 export const CTA = (props: CTAProps) => {
     const { className } = props;
 
-    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-
     return (
-        <div className={clsx("flex w-full flex-col sm:flex-row", className)} onMouseLeave={() => setHoveredItem(null)}>
+        <div className={clsx("flex w-full flex-col sm:flex-row", className)} >
             {/* Contact Button */}
-            <div className="w-full p-0.375  relative" onMouseEnter={() => setHoveredItem("contact")}>
-                {hoveredItem === "contact" && (
-                    <motion.div
-                        layoutId={`cta-buttons`}
-                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1 shadow-lg"
-                        transition={{
-                            type: "spring",
-                            stiffness: 500,
-                            damping: 30,
-                        }}
-                    />
-                )}
+            <div className="w-full p-0.375  relative" >
+                
                 <Link href={pathConstants.contact.path} className={button({ className: "w-full relative z-2" })}>
                     <ButtonIcon icon={ImBubbles} />
                     Contact Me
@@ -104,18 +92,8 @@ export const CTA = (props: CTAProps) => {
             </div>
 
             {/* Download CV Button */}
-            <div className="w-full p-0.375  relative" onMouseEnter={() => setHoveredItem("download")}>
-                {hoveredItem === "download" && (
-                    <motion.div
-                        layoutId={`cta-buttons`}
-                        className="absolute h-full w-full bg-black/[0.075] dark:bg-white/[0.075] top-0 left-0 rounded-full pointer-events-none z-1 shadow-lg"
-                        transition={{
-                            type: "spring",
-                            stiffness: 500,
-                            damping: 30,
-                        }}
-                    />
-                )}
+            <div className="w-full p-0.375  relative" >
+                
                 <a
                     download
                     href={"/Rizwan_Ahamad_CV.pdf"}
