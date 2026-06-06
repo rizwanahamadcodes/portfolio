@@ -49,7 +49,7 @@ const Navbar = (props: NavbarProps) => {
             className={clsx("fixed z-50 w-full flex items-center h-nav-height-small")}
             layoutScroll>
             <div className="h-full w-full absolute py-0.5">
-                <Container className={clsx("h-full relative flex items-center justify-between transition-all", viewportTouchingStatus?.topTouchedTop ? "" : "px-1")}>
+                <Container className={clsx("h-full relative flex items-center justify-between transition-all", viewportTouchingStatus?.topTouchedTop ? "" : "pl-1.25 pr-1.5")}>
                     <div className="absolute w-full h-full p-0.5 left-0">
                         <div className="h-full w-full absolute top-1/2 left-1/2 -translate-1/2">
                             <div className={clsx("relative h-full w-full backdrop-blur-sm transition-all rounded-full", viewportTouchingStatus?.topTouchedTop ? "border border-transparent shadow-none" : "shadow-lg shadow-black/5 dark:shadow-black/20 bg-white/50 dark:bg-gray-900/50  border border-white/50 dark:border-black/20")}></div>
