@@ -21,7 +21,7 @@ const NavDrawer = (props: NavDrawerProps) => {
 
     useEffect(() => {
         close();
-    }, [pathname, close]);
+    }, [pathname]);
 
     return (
         <span className="lg:hidden">
