@@ -11,10 +11,12 @@ export type NavMenuProps = {
     navLinks: PathConstant[];
     className?: string;
     direction?: "horizontal" | "vertical";
+    id: string;
+    showLabelOnlyOnActive?: boolean;
 };
 
 const NavMenu = (props: NavMenuProps) => {
-    const { navLinks, direction = "horizontal", className } = props;
+    const { navLinks, id, showLabelOnlyOnActive = false, direction = "horizontal", className } = props;
 
     const stylesAsPerDirection = {
         horizontal: "flex-row",
@@ -26,11 +28,22 @@ const NavMenu = (props: NavMenuProps) => {
     const activeIndex = navLinks.findIndex((nav) => nav.path === pathname);
 
     return (
-        <ul className={clsx("flex gap-0.5 z-2 relative", stylesAsPerDirection[direction], className)} onMouseLeave={() => setHoveredItem(null)}>
+        <ul
+            className={clsx("flex gap-0.5 z-2 relative", stylesAsPerDirection[direction], className)}
+            onMouseLeave={() => setHoveredItem(null)}>
             {navLinks.map((navLink) => {
                 return (
-                    <li key={navLink.path} className={clsx("transition-all")}>
-                        <NavItem direction={direction} hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} navLink={navLink} />
+                    <li
+                        key={navLink.path}
+                        className={clsx("transition-all")}>
+                        <NavItem
+                            showLabelOnlyOnActive={showLabelOnlyOnActive}
+                            id={id}
+                            direction={direction}
+                            hoveredItem={hoveredItem}
+                            setHoveredItem={setHoveredItem}
+                            navLink={navLink}
+                        />
                     </li>
                 );
             })}
@@ -43,11 +56,13 @@ type NavItemProps = {
     className?: string;
     direction?: NavMenuProps["direction"];
     hoveredItem: string | null;
+    id: string;
+    showLabelOnlyOnActive?: boolean;
     setHoveredItem: Dispatch<SetStateAction<string | null>>;
 };
 
 export const NavItem = (props: NavItemProps) => {
-    const { navLink, hoveredItem, setHoveredItem, direction, className, ...otherProps } = props;
+    const { navLink, hoveredItem, setHoveredItem, showLabelOnlyOnActive, id, direction, className, ...otherProps } = props;
     const { path, label, icon, activeIcon } = navLink;
 
     const pathname = usePathname();
@@ -65,8 +80,8 @@ export const NavItem = (props: NavItemProps) => {
             }}>
             {hoveredItem === path && !isActive && (
                 <motion.div
-                    layoutId={`nav-hover-background-${direction}`} // Must be unique if reused elsewhere
-                    className="absolute h-full w-full bg-black/5 dark:bg-white/5 top-0 left-0 rounded-full pointer-events-none z-1"
+                    layoutId={`nav-hover-background-${direction}-${id}`} // Must be unique if reused elsewhere
+                    className="hidden lg:absolute h-full w-full bg-black/5 dark:bg-white/5 top-0 left-0 rounded-full pointer-events-none z-1"
                     transition={{
                         type: "spring",
                         stiffness: 500,
@@ -76,7 +91,7 @@ export const NavItem = (props: NavItemProps) => {
             )}
             {isActive && (
                 <motion.div
-                    layoutId={`nav-active-background-${direction}`} // Must be unique if reused elsewhere
+                    layoutId={`nav-active-background-${direction}-${id}`} // Must be unique if reused elsewhere
                     className="absolute h-full w-full bg-primary-100 dark:bg-primary-800 top-0 left-0 rounded-full pointer-events-none z-1"
                     transition={{
                         type: "spring",
@@ -86,8 +101,13 @@ export const NavItem = (props: NavItemProps) => {
                 />
             )}
 
-            <NavIcon isActive={isActive} icon={icon} activeIcon={activeIcon} className="relative z-2" />
-            <span className="relative z-2">{label}</span>
+            <NavIcon
+                isActive={isActive}
+                icon={icon}
+                activeIcon={activeIcon}
+                className="relative z-2"
+            />
+            {showLabelOnlyOnActive ? isActive ? <span className="relative z-2">{label}</span> : null : <span className="relative z-2">{label}</span>}
         </Link>
     );
 };
