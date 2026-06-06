@@ -81,7 +81,7 @@ export const NavItem = (props: NavItemProps) => {
             {hoveredItem === path && !isActive && (
                 <motion.div
                     layoutId={`nav-hover-background-${direction}-${id}`} // Must be unique if reused elsewhere
-                    className="hidden lg:absolute h-full w-full bg-black/5 dark:bg-white/5 top-0 left-0 rounded-full pointer-events-none z-1"
+                    className="hidden lg:block absolute h-full w-full bg-black/5 dark:bg-white/5 top-0 left-0 rounded-full pointer-events-none z-1"
                     transition={{
                         type: "spring",
                         stiffness: 500,
