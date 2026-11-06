@@ -7,13 +7,14 @@ export const button = cva(["font-medium rounded-full flex justify-center items-c
     variants: {
         variant: {
             solid: "",
-            outline: "shadow-md dark:shadow-black/20 shadow-black/10 border-2 hover:shadow-lg",
+            outline: "border-2",
             ghost: "",
         },
         colorScheme: {
             primary: "",
             "themed-gray": "",
             "themed-gray-light": "",
+            "themed-gray-muted": "",
         },
     },
 
@@ -42,6 +43,11 @@ export const button = cva(["font-medium rounded-full flex justify-center items-c
             variant: "outline",
             colorScheme: "themed-gray",
             className: "border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 ",
+        },
+        {
+            variant: "outline",
+            colorScheme: "themed-gray-muted",
+            className: "border-gray-700 text-gray-700 dark:border-gray-300 dark:text-gray-300",
         },
     ],
 

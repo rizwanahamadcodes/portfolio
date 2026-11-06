@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import NavMenu from "../Navbar/NavMenu/NavMenu";
 import { navLinks } from "../Navbar/Navbar";
-import { FiSettings } from "react-icons/fi";
 
 type NavDrawerProps = DrawerProps & {
     viewportTouchingStatus?: {
@@ -30,20 +29,13 @@ const NavDrawer = (props: NavDrawerProps) => {
                 close={close}
                 open={open}>
                 <DrawerDefaultHead height={viewportTouchingStatus?.topTouchedTop ? "h-nav-height-large" : "h-nav-height-small"} />
-                <DrawerBody className="p-1 flex flex-col">
+                <DrawerBody className="p-1 flex flex-col rounded-t-0.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-md shadow-left">
                     <NavMenu
                         direction="vertical"
                         navLinks={navLinks}
                     />
                     <div className="px-0.75 mt-auto">
-                        <p className="h-2.75 rounded-full items-center text-0.875 font-medium capitalize gap-0.5 transition-all duration-300 relative flex">
-                            <FiSettings className="text-1.25 relative z-10" />
-                            Settings
-                        </p>
-                        <div className="flex items-center gap-2">
-                            <p className="text-0.875 font-medium capitalize">Dark Mode</p>
-                            <ThemeToggler />
-                        </div>
+                        <ThemeToggler label="Dark Mode" />
                     </div>
                 </DrawerBody>
             </Drawer>

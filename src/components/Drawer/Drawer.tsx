@@ -28,6 +28,36 @@ const Drawer = (props: DrawerProps) => {
         setMounted(true);
     }, []);
 
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const scrollY = window.scrollY;
+        const body = document.body;
+        const root = document.documentElement;
+        const previousBodyStyles = {
+            position: body.style.position,
+            top: body.style.top,
+            width: body.style.width,
+            overflow: body.style.overflow,
+        };
+        const previousRootOverflow = root.style.overflow;
+
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.width = "100%";
+        body.style.overflow = "hidden";
+        root.style.overflow = "hidden";
+
+        return () => {
+            body.style.position = previousBodyStyles.position;
+            body.style.top = previousBodyStyles.top;
+            body.style.width = previousBodyStyles.width;
+            body.style.overflow = previousBodyStyles.overflow;
+            root.style.overflow = previousRootOverflow;
+            window.scrollTo(0, scrollY);
+        };
+    }, [isOpen]);
+
     const portalRoot = mounted ? document.getElementById("modals-wrapper") : null;
     if (!portalRoot) return null;
     return ReactDOM.createPortal(
@@ -48,7 +78,7 @@ export const DrawerMain = (props: DrawerMainProps) => {
     const drawerRef = useRef<HTMLDivElement | null>(null);
 
     return (
-        <div ref={drawerRef} className={clsx("rounded-1 w-20 flex z-50 flex-col h-[calc(100%-1rem)] dark:bg-gray-800/90 transition-all duration-300 bg-white/80 backdrop-blur-md absolute top-0.5  right-0.5 shadow-left overflow-hidden dark:border-l-gray-700", isOpen ? "translate-x-0" : "translate-x-full")}>
+        <div ref={drawerRef} className={clsx("rounded-1 w-20 flex z-50 flex-col gap-0.25 h-[calc(100%-1rem)] transition-all duration-300 absolute top-0.5 right-0.5 overflow-hidden dark:border-l-gray-700", isOpen ? "translate-x-0" : "translate-x-full")}>
             {children}
         </div>
     );
@@ -63,7 +93,7 @@ type DrawerHeadProps = {
 export const DrawerHead = (props: DrawerHeadProps) => {
     const { height = "h-nav-height-large", className, children } = props;
 
-    return <div className={clsx("shrink-0 w-full border-b border-b-gray-100 dark:border-b-gray-700 flex items-center transition-all", height, className)}>{children}</div>;
+    return <div className={clsx("shrink-0 w-full rounded-b-0.5 bg-white/80 dark:bg-gray-800/90 backdrop-blur-md flex items-center shadow-left transition-all", height, className)}>{children}</div>;
 };
 
 type DrawerDefaultHeadProps = { height?: string; defaultPadding?: boolean };

@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 import { IconBaseProps, IconType } from "react-icons";
 import { IoIosMoon, IoIosSunny } from "react-icons/io";
 
-type ThemeTogglerProps = React.ComponentPropsWithoutRef<"label">;
+type ThemeTogglerProps = React.ComponentPropsWithoutRef<"label"> & {
+    label?: string;
+};
 
 const ThemeToggler = (props: ThemeTogglerProps) => {
-    const { className, ...otherProps } = props;
+    const { className, label, ...otherProps } = props;
 
     const [mounted, setMounted] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
@@ -33,25 +35,28 @@ const ThemeToggler = (props: ThemeTogglerProps) => {
 
     return (
         <label
-            htmlFor="theme-toggle-checkbox"
             className={clsx(
-                "relative block w-4 cursor-pointer select-none rounded-full shadow-sm",
+                label
+                    ? "flex w-full cursor-pointer select-none items-center justify-between gap-2"
+                    : "relative block w-4 cursor-pointer select-none rounded-full shadow-sm",
                 className
             )}
             {...otherProps}>
-            <input
-                type="checkbox"
-                id="theme-toggle-checkbox"
-                className="peer/themeToggler absolute h-0 w-0 opacity-0"
-                checked={checked}
-                onChange={handleCheckboxChange}
-            />
+            {label && <span className="text-0.875 font-medium capitalize text-gray-700 dark:text-gray-300">{label}</span>}
+            <span className="relative block h-2 w-4 shrink-0 rounded-full shadow-sm">
+                <input
+                    type="checkbox"
+                    className="peer/themeToggler absolute h-0 w-0 opacity-0"
+                    checked={checked}
+                    onChange={handleCheckboxChange}
+                />
 
-            <div className="flex transition-all h-2 w-4 items-center justify-between rounded-full bg-primary p-0.5 peer-checked/themeToggler:bg-gray-100">
-                <SunMoonIcons icon={IoIosSunny} />
-                <SunMoonIcons icon={IoIosMoon} />
-            </div>
-            <div className="absolute right-0.25 top-0.25 h-1.5 w-1.5 rounded-full bg-white transition-all peer-checked/themeToggler:right-2.25 peer-checked/themeToggler:bg-gray-900"></div>
+                <span className="flex h-2 w-4 items-center justify-between rounded-full bg-primary p-0.5 transition-all peer-checked/themeToggler:bg-gray-100">
+                    <SunMoonIcons icon={IoIosSunny} />
+                    <SunMoonIcons icon={IoIosMoon} />
+                </span>
+                <span className="absolute right-0.25 top-0.25 h-1.5 w-1.5 rounded-full bg-white transition-all peer-checked/themeToggler:right-2.25 peer-checked/themeToggler:bg-gray-900"></span>
+            </span>
         </label>
     );
 };

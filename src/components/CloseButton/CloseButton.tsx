@@ -14,7 +14,7 @@ const CloseButton = (props: CloseButtonProps) => {
     };
     const colorSchemeMap = {
         primary:
-            "bg-primary dark:bg-white  dark:group-hover/closeButton:bg-gray-200 group-hover/closeButton:bg-primary-600",
+            "bg-gray-700 dark:bg-gray-300 dark:group-hover/closeButton:bg-gray-200 group-hover/closeButton:bg-gray-700",
         "gray-300": "bg-gray-300 group-hover/closeButton:bg-gray-500",
     };
 

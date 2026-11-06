@@ -126,7 +126,7 @@ const Project = (props: ProjectProps) => {
                     <Link
                         className={button({
                             variant: "outline",
-                            colorScheme: "themed-gray",
+                            colorScheme: "themed-gray-muted",
                             className: "w-full! z-20",
                         })}
                         href={project.githubLink}
