@@ -8,8 +8,8 @@ import pathConstants, { PathConstant } from "@/route/pathConstants";
 import clsx from "clsx";
 import { motion } from "motion/react";
 import { AiFillPhone, AiOutlinePhone } from "react-icons/ai";
-import { BsFillFolderFill, BsFolder } from "react-icons/bs";
 import { GoHome, GoHomeFill } from "react-icons/go";
+import { RiCodeFill, RiCodeLine } from "react-icons/ri";
 import NavMenu from "./NavMenu/NavMenu";
 
 type NavbarProps = {
@@ -29,8 +29,8 @@ export const navLinks: PathConstant[] = [
     {
         label: "Projects",
         path: pathConstants.projects.path,
-        icon: BsFolder,
-        activeIcon: BsFillFolderFill,
+        icon: RiCodeLine,
+        activeIcon: RiCodeFill,
     },
     {
         label: "Contact Me",
