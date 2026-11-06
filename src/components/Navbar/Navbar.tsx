@@ -85,7 +85,7 @@ const Navbar = (props: NavbarProps) => {
                 </div>
             </motion.nav>
             <motion.nav
-                className={clsx("fixed z-50 w-full flex items-center h-fit bottom-0 py-0.5")}
+                className={clsx("lg:hidden fixed z-50 w-full flex items-center h-fit bottom-0 py-0.5")}
                 layoutScroll>
                 <Container className={clsx("h-full relative flex items-center justify-center transition-all")}>
                     <div className="w-fit h-full left-0">
